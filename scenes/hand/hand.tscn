@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dq8c5qippudah"]
+
+[ext_resource type="Script" uid="uid://jhpi5dyjn6dm" path="res://scenes/hand/hand.gd" id="1_pvaie"]
+
+[sub_resource type="Curve" id="Curve_agsc7"]
+_data = [Vector2(0, 0), 0.0, 3.8480477, 0, 0, Vector2(0.50431037, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.033707857), -3.7239203, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_oiw7q"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 1.0172654, 0, 0, Vector2(0.50431037, -0.033707857), 0.0, 0.0, 0, 0, Vector2(1, 1), 2.5362897, 0.0, 0, 0]
+point_count = 3
+
+[node name="Hand" type="Node2D" unique_id=187061151]
+script = ExtResource("1_pvaie")
+height_curve = SubResource("Curve_agsc7")
+fan_curve = SubResource("Curve_oiw7q")
+
+[connection signal="child_order_changed" from="." to="." method="_on_child_order_changed"]

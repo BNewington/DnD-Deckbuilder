@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://oxhrvfr17p53"]
+
+[ext_resource type="Script" uid="uid://b0jljlg7tvfbx" path="res://scenes/card_ui/card_ui.gd" id="1_gy3gl"]
+[ext_resource type="Script" uid="uid://wol6eprf8brd" path="res://scenes/card_ui/card_state_machine.gd" id="2_els2s"]
+[ext_resource type="Script" uid="uid://c5xevifli7wy2" path="res://scenes/card_ui/card_state/card_base_state.gd" id="3_psaan"]
+[ext_resource type="Script" uid="uid://b1as2ltwyf41c" path="res://scenes/card_ui/card_state/card_hovered_state.gd" id="4_orrkt"]
+[ext_resource type="Script" uid="uid://db1wx8h1vempk" path="res://scenes/card_ui/card_state/card_clicked_state.gd" id="5_yxx8x"]
+[ext_resource type="Script" uid="uid://b4g1cba8sy0uj" path="res://scenes/card_ui/card_state/card_dragging_state.gd" id="6_ci03s"]
+[ext_resource type="Script" uid="uid://hcrktvi4mul" path="res://scenes/card_ui/card_state/card_released_state.gd" id="7_js3ux"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gdw2"]
+size = Vector2(120, 180)
+
+[node name="CardUI" type="Node2D" unique_id=82101529]
+script = ExtResource("1_gy3gl")
+
+[node name="Color" type="ColorRect" parent="." unique_id=1633392304]
+offset_left = -60.0
+offset_top = -90.0
+offset_right = 60.0
+offset_bottom = 90.0
+color = Color(0, 0, 0, 1)
+
+[node name="Color2" type="ColorRect" parent="Color" unique_id=1082569501]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 115.0
+offset_bottom = 175.0
+color = Color(0.18515795, 0.54875505, 0.28898335, 1)
+
+[node name="Label" type="Label" parent="Color" unique_id=519906226]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "STATE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardArea" type="Area2D" parent="." unique_id=609950188]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardArea" unique_id=1369260906]
+shape = SubResource("RectangleShape2D_5gdw2")
+
+[node name="CardStateMachine" type="Node" parent="." unique_id=1618368574 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_els2s")
+initial_state = NodePath("CardBaseState")
+
+[node name="CardBaseState" type="Node" parent="CardStateMachine" unique_id=671614062]
+script = ExtResource("3_psaan")
+
+[node name="CardHoveredState" type="Node" parent="CardStateMachine" unique_id=1133918689]
+script = ExtResource("4_orrkt")
+state = 1
+
+[node name="CardClickedState" type="Node" parent="CardStateMachine" unique_id=967971576]
+script = ExtResource("5_yxx8x")
+state = 2
+
+[node name="CardDraggingState" type="Node" parent="CardStateMachine" unique_id=238993491]
+script = ExtResource("6_ci03s")
+state = 3
+
+[node name="CardReleasedState" type="Node" parent="CardStateMachine" unique_id=1335839188]
+script = ExtResource("7_js3ux")
+state = 5
+
+[connection signal="area_entered" from="CardArea" to="." method="_on_card_area_area_entered"]
+[connection signal="area_exited" from="CardArea" to="." method="_on_card_area_area_exited"]

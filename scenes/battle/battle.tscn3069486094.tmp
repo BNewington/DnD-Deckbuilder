@@ -1,0 +1,163 @@
+[gd_scene format=4 uid="uid://dejqogiw15g7d"]
+
+[ext_resource type="Texture2D" uid="uid://c0b50eledpu5q" path="res://art/tileset/Tilemap_color1.png" id="1_7gynk"]
+[ext_resource type="Script" uid="uid://dwr0nq0ywl73v" path="res://scenes/battle/battle.gd" id="1_ffvsa"]
+[ext_resource type="Texture2D" uid="uid://bud2e4wljaxam" path="res://icon.svg" id="3_xd4uy"]
+[ext_resource type="PackedScene" uid="uid://bprkq1380rh3n" path="res://scenes/unit/unit.tscn" id="4_0yh6x"]
+[ext_resource type="Resource" uid="uid://cod0okis1mse4" path="res://units/heroes/warrior/warrior_stats.tres" id="5_h0kxc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ffvsa"]
+texture = ExtResource("1_7gynk")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/custom_data_1 = true
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/terrains_peering_bit/right_side = 0
+1:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0/terrains_peering_bit/left_side = 0
+1:0/0/custom_data_1 = true
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 0
+2:0/0/terrains_peering_bit/bottom_side = 0
+2:0/0/terrains_peering_bit/left_side = 0
+2:0/0/custom_data_1 = true
+3:0/0 = 0
+3:0/0/terrain_set = 0
+3:0/0/terrain = 0
+3:0/0/terrains_peering_bit/bottom_side = 0
+3:0/0/custom_data_1 = true
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/terrains_peering_bit/right_side = 0
+0:1/0/terrains_peering_bit/bottom_side = 0
+0:1/0/terrains_peering_bit/top_side = 0
+0:1/0/custom_data_1 = true
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrain = 0
+1:1/0/terrains_peering_bit/right_side = 0
+1:1/0/terrains_peering_bit/bottom_side = 0
+1:1/0/terrains_peering_bit/left_side = 0
+1:1/0/terrains_peering_bit/top_side = 0
+1:1/0/custom_data_1 = true
+2:1/0 = 0
+2:1/0/terrain_set = 0
+2:1/0/terrain = 0
+2:1/0/terrains_peering_bit/bottom_side = 0
+2:1/0/terrains_peering_bit/left_side = 0
+2:1/0/terrains_peering_bit/top_side = 0
+2:1/0/custom_data_1 = true
+3:1/0 = 0
+3:1/0/terrain_set = 0
+3:1/0/terrain = 0
+3:1/0/terrains_peering_bit/bottom_side = 0
+3:1/0/terrains_peering_bit/top_side = 0
+3:1/0/custom_data_1 = true
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrain = 0
+0:2/0/terrains_peering_bit/right_side = 0
+0:2/0/terrains_peering_bit/top_side = 0
+0:2/0/custom_data_1 = true
+1:2/0 = 0
+1:2/0/terrain_set = 0
+1:2/0/terrain = 0
+1:2/0/terrains_peering_bit/right_side = 0
+1:2/0/terrains_peering_bit/left_side = 0
+1:2/0/terrains_peering_bit/top_side = 0
+1:2/0/custom_data_1 = true
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/terrain = 0
+2:2/0/terrains_peering_bit/left_side = 0
+2:2/0/terrains_peering_bit/top_side = 0
+2:2/0/custom_data_1 = true
+3:2/0 = 0
+3:2/0/terrain_set = 0
+3:2/0/terrain = 0
+3:2/0/terrains_peering_bit/top_side = 0
+3:2/0/custom_data_1 = true
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+0:3/0 = 0
+0:3/0/terrain_set = 0
+0:3/0/terrain = 0
+0:3/0/terrains_peering_bit/right_side = 0
+0:3/0/custom_data_1 = true
+1:3/0 = 0
+1:3/0/terrain_set = 0
+1:3/0/terrain = 0
+1:3/0/terrains_peering_bit/right_side = 0
+1:3/0/terrains_peering_bit/left_side = 0
+1:3/0/custom_data_1 = true
+2:3/0 = 0
+2:3/0/terrain_set = 0
+2:3/0/terrain = 0
+2:3/0/terrains_peering_bit/left_side = 0
+2:3/0/custom_data_1 = true
+3:3/0 = 0
+3:3/0/terrain_set = 0
+3:3/0/terrain = 0
+3:3/0/custom_data_1 = true
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+0:4/0 = 0
+3:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+0:5/0 = 0
+3:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_r1e00"]
+tile_size = Vector2i(64, 64)
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Ground"
+terrain_set_0/terrain_0/color = Color(0.3562854, 0.5649578, 0.20348209, 1)
+custom_data_layer_0/name = "is_solid"
+custom_data_layer_0/type = 1
+custom_data_layer_1/name = "is_walkable"
+custom_data_layer_1/type = 1
+sources/1 = SubResource("TileSetAtlasSource_ffvsa")
+
+[node name="Battle" type="Node2D" unique_id=341085770]
+script = ExtResource("1_ffvsa")
+
+[node name="GroundTiles" type="TileMapLayer" parent="." unique_id=416591149]
+unique_name_in_owner = true
+tile_map_data = PackedByteArray("AAALAAcAAQACAAIAAAALAAYAAQACAAEAAAALAAUAAQACAAEAAAALAAQAAQACAAEAAAALAAMAAQACAAAAAAAKAAcAAQABAAIAAAAKAAYAAQABAAEAAAAKAAUAAQABAAEAAAAKAAQAAQABAAEAAAAKAAMAAQABAAAAAAAJAAcAAQABAAIAAAAJAAYAAQABAAEAAAAJAAUAAQABAAEAAAAJAAQAAQABAAEAAAAJAAMAAQABAAAAAAAIAAcAAQABAAIAAAAIAAYAAQABAAEAAAAIAAUAAQABAAEAAAAIAAQAAQABAAEAAAAIAAMAAQABAAAAAAAHAAcAAQABAAIAAAAHAAYAAQABAAEAAAAHAAUAAQABAAEAAAAHAAQAAQABAAEAAAAHAAMAAQABAAAAAAAGAAcAAQAAAAIAAAAGAAYAAQAAAAEAAAAGAAUAAQAAAAEAAAAGAAQAAQAAAAEAAAAGAAMAAQAAAAAAAAACAAEAAQAAAAMAAAADAAEAAQACAAAAAAADAAIAAQAAAAIAAAAEAAIAAQACAAMAAAAFAAEAAQAAAAMAAAAGAAEAAQABAAMAAAAHAAEAAQACAAMAAAALAAEAAQADAAMAAAA=")
+tile_set = SubResource("TileSet_r1e00")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=2146454285]
+position = Vector2(137.9, 222.9)
+scale = Vector2(0.23593754, 0.23593754)
+texture = ExtResource("3_xd4uy")
+
+[node name="Unit" parent="." unique_id=1343511653 instance=ExtResource("4_0yh6x")]
+position = Vector2(478, 81)
+stats = ExtResource("5_h0kxc")

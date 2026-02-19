@@ -1,0 +1,23 @@
+extends Node
+
+enum CursorType {
+	Pointer,
+	Hand,
+	Disabled,
+	TileSelector
+}
+
+
+##Cursor Signals
+signal cursor_mode_disabled()
+signal cursor_mode_hand()
+signal cursor_mode_pointer()
+signal show_tile_selector()
+
+##Battle Signals
+signal start_battle()
+
+
+##Card Signals
+signal card_hovered(card: CardUI)
+signal hover_stopped()
