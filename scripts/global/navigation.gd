@@ -66,11 +66,22 @@ func get_move_area(start_pos: Vector2i, move_speed: int) -> Array[Vector2i]:
 	var moveable_tiles: Array[Vector2i] = []
 	
 	for tile in tiles:
-		var path = grid.get_id_path(tile, start_pos)
-		if len(path) <= move_speed + 1 and len(path) != 0:
-			moveable_tiles.append(tile)
+		if is_tile_in_bounds(tile):
+			var path = grid.get_id_path(tile, start_pos)
+			if len(path) <= move_speed + 1 and len(path) != 0:
+				moveable_tiles.append(tile)
 			
 	return moveable_tiles
+
+
+func is_tile_in_bounds(tile: Vector2i) -> bool:
+	var start = grid.region.position
+	var end = grid.region.size + start - Vector2i.ONE
+	
+	if tile.x < start.x or tile.x > end.x or tile.y < start.y or tile.y > end.y:
+		return false
+		
+	return true
 
 
 ##Returns an array containing the coordinates of all tiles in the defined area
