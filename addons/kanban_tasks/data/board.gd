@@ -244,7 +244,6 @@ func __add_task(task: __Task, uuid: String = "") -> String:
 	return uuid
 
 
-# HACK: `array` should have the type `Array` but then `null` could not be passed.
 func __instantiate_uuid_array(array, type: Script, add_callback: Callable) -> void:
 	if array == null:
 		push_warning("Loading incomplete board data which is missing data for '" + type.resource_path + "'.")
@@ -267,7 +266,6 @@ func __propagate_uuid_dict(dict: Dictionary) -> Array:
 	return res
 
 
-# TODO: Remove this sometime in the future.
 ## Loads a board from the old file format.
 func __from_legacy_file(data: Dictionary) -> void:
 	var categories: Array[String] = []

@@ -5,6 +5,7 @@ const MOUSE_Y_CANCEL_THRESHOLD := 550
 var area: Array[Vector2i]
 
 func enter() -> void:
+	#HACK for displaying state logic
 	card_ui.color.color = Color.WEB_PURPLE
 	card_ui.state.text = "AIMING"
 	
@@ -24,15 +25,14 @@ func exit() -> void:
 	Events.hide_tile_selector.emit()
 
 
+#TODO make this a little more readable
 func on_input(event: InputEvent) -> void:
-	var mouse_motion: bool = event is InputEventMouseMotion
-	var mouse_at_bottom: bool = card_ui.get_global_mouse_position().y > MOUSE_Y_CANCEL_THRESHOLD
 	var selected_tile = Navigation.get_tile_coords(card_ui.get_global_mouse_position())
 	var mouse_over_area: bool = selected_tile in area
 	
 	if event.is_action_pressed("right_mouse"):
 		transition_requested.emit(self, State.BASE)
-		
+	
 	elif mouse_over_area:
 		Events.show_tile_selector.emit()
 		if event.is_action_pressed("left_mouse"):

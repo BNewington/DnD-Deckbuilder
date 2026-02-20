@@ -79,7 +79,6 @@ func __on_title_changed(new: String) -> void:
 
 func __on_color_changed() -> void:
 	board_data.get_category(data_uuid).color = color_picker.color
-	# Hack to get the tasks to update their color.
 	board_data.layout.changed.emit()
 
 

@@ -14,6 +14,8 @@ func enter() -> void:
 	card_ui.z_index = card_ui.hand_z_index
 	card_ui.target_rotation = card_ui.hand_rotation
 	card_ui.target_pos = card_ui.hand_pos
+	
+	#HACK for displaying state logic
 	card_ui.color.color = Color.WEB_GREEN
 	card_ui.state.text = "BASE"
 

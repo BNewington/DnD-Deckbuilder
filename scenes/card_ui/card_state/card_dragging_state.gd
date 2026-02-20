@@ -6,14 +6,22 @@ const DRAG_MINIMUM_THRESHOLD: float = 0.05
 var minimum_drag_time_elapsed: bool = false
 
 func enter() -> void:
-	card_ui.remove_from_hand()
+	#HACK for displaying state logic
 	card_ui.color.color = Color.NAVY_BLUE
 	card_ui.state.text = "DRAGGING"
+	
+	card_ui.remove_from_hand()
 	card_ui.target_rotation = 0.0
 	
 	minimum_drag_time_elapsed = false
 	var threshold_timer := get_tree().create_timer(DRAG_MINIMUM_THRESHOLD,false)
 	threshold_timer.timeout.connect(func(): minimum_drag_time_elapsed = true)
+	
+	Events.card_dragging_started.emit(card_ui)
+
+
+func exit() -> void:
+	Events.card_dragging_ended.emit(card_ui)
 
 
 func on_input(event: InputEvent) -> void:

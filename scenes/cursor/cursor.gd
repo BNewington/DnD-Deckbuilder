@@ -20,16 +20,44 @@ var tile_selector_enabled: bool = false
 @onready var tile_selector_sprite: Sprite2D = $Sprites/TileSelectorSprite
 @onready var mobile_cursors: Array[Sprite2D] = [pointer_sprite, hand_sprite, disabled_sprite]
 @onready var areas: Node2D = $Areas
+@onready var area_2d: Area2D = $Areas/Area2D
 
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	connect_events()
+	enable_pointer()
+
+func connect_events() -> void:
 	Events.cursor_mode_pointer.connect(enable_pointer)
 	Events.cursor_mode_hand.connect(enable_hand)
 	Events.cursor_mode_disabled.connect(disable_cursor)
 	Events.show_tile_selector.connect(enable_tile_selector)
 	Events.hide_tile_selector.connect(disable_tile_selector)
-	enable_pointer()
+	Events.card_dragging_started.connect(card_dragging_started)
+	Events.card_dragging_ended.connect(card_dragging_ended)
+	Events.card_aiming_started.connect(card_aiming_started)
+	Events.card_aiming_ended.connect(card_aiming_ended)
+
+
+func card_aiming_started(_card_ui: CardUI, _tiles: Array[Vector2i]) -> void:
+	area_2d.monitorable = false
+	area_2d.monitoring = false
+
+
+func card_aiming_ended(_card_ui: CardUI) -> void:
+	area_2d.monitorable = true
+	area_2d.monitoring = true
+
+
+func card_dragging_started(_card_ui: CardUI) -> void:
+	area_2d.monitorable = false
+	area_2d.monitoring = false
+
+
+func card_dragging_ended(_card_ui: CardUI) -> void:
+	area_2d.monitorable = true
+	area_2d.monitoring = true
 
 
 func _process(_delta: float) -> void:
@@ -37,7 +65,6 @@ func _process(_delta: float) -> void:
 	current_cell = Navigation.get_tile_coords(mouse_pos)
 	move_cursor(mouse_pos)
 	cell_last_frame = current_cell
-
 
 
 func move_cursor(mouse_pos: Vector2) -> void:

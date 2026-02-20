@@ -48,14 +48,11 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	#HACK - should use the animate_to_position function
 	var is_base: bool = card_state_machine.current_state.state == CardState.State.BASE
 	var is_hovered: bool = card_state_machine.current_state.state == CardState.State.HOVERED
-	
 	if is_base or is_hovered:
 		position = position.move_toward(target_pos, MOVE_SPEED * delta)
-	
-
-	
 	rotation = rotate_toward(rotation,deg_to_rad(target_rotation),ROTATE_SPEED*delta)
 
 
