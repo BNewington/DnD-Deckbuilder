@@ -28,6 +28,7 @@ func _ready() -> void:
 	Events.cursor_mode_hand.connect(enable_hand)
 	Events.cursor_mode_disabled.connect(disable_cursor)
 	Events.show_tile_selector.connect(enable_tile_selector)
+	Events.hide_tile_selector.connect(disable_tile_selector)
 	enable_pointer()
 
 
@@ -68,10 +69,13 @@ func disable_cursor() -> void:
 
 
 func enable_tile_selector() -> void:
-	tile_selector_sprite.show()
-	tile_selector_enabled = true
+	if !tile_selector_enabled:
+		tile_selector_sprite.global_position = pointer_sprite.global_position
+		tile_selector_sprite.show()
+		tile_selector_enabled = true
 
 
 func disable_tile_selector() -> void:
-	tile_selector_sprite.hide()
-	tile_selector_enabled = false
+	if tile_selector_enabled:
+		tile_selector_sprite.hide()
+		tile_selector_enabled = false

@@ -5,6 +5,9 @@ func enter() -> void:
 	if not card_ui.is_node_ready():
 		await card_ui.ready
 	
+	if card_ui.tween and card_ui.tween.is_running():
+		card_ui.tween.kill()
+	
 	if card_ui.get_parent() is not Hand:
 		card_ui.reparent_requested.emit(card_ui)
 	

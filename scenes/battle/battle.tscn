@@ -9,9 +9,8 @@
 [ext_resource type="Resource" uid="uid://cod0okis1mse4" path="res://units/heroes/warrior/warrior_stats.tres" id="5_h0kxc"]
 [ext_resource type="PackedScene" uid="uid://dq8c5qippudah" path="res://scenes/hand/hand.tscn" id="8_py4tk"]
 [ext_resource type="PackedScene" uid="uid://oxhrvfr17p53" path="res://scenes/card_ui/card_ui.tscn" id="9_agsc7"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_py4tk"]
-size = Vector2(1150, 381)
+[ext_resource type="Resource" uid="uid://cql3oentr77yy" path="res://units/heroes/warrior/cards/warrior_run.tres" id="10_fisqk"]
+[ext_resource type="Resource" uid="uid://cxn8jc3q4tmel" path="res://units/heroes/warrior/cards/warrior_strike.tres" id="11_mxe8n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ffvsa"]
 texture = ExtResource("1_7gynk")
@@ -152,8 +151,16 @@ custom_data_layer_1/name = "is_walkable"
 custom_data_layer_1/type = 1
 sources/1 = SubResource("TileSetAtlasSource_ffvsa")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_py4tk"]
+size = Vector2(1150, 381)
+
 [node name="Battle" type="Node2D" unique_id=341085770]
 script = ExtResource("1_ffvsa")
+
+[node name="GroundTiles" type="TileMapLayer" parent="." unique_id=416591149]
+unique_name_in_owner = true
+tile_map_data = PackedByteArray("AAAJAAYAAQABAAEAAAAJAAUAAQABAAEAAAAIAAYAAQABAAEAAAAIAAUAAQABAAEAAAAHAAYAAQABAAEAAAAHAAUAAQABAAEAAAAGAAYAAQABAAEAAAAGAAUAAQABAAAAAAAKAAYAAQACAAIAAAAKAAUAAQABAAEAAAAKAAQAAQACAAEAAAAKAAMAAQACAAAAAAAJAAcAAQACAAEAAAAJAAQAAQABAAEAAAAJAAMAAQABAAAAAAAIAAcAAQABAAIAAAAIAAQAAQABAAEAAAAIAAMAAQABAAAAAAAHAAcAAQABAAIAAAAHAAQAAQAAAAEAAAAHAAMAAQABAAEAAAAGAAcAAQABAAIAAAAGAAMAAQABAAMAAAAFAAcAAQABAAIAAAAFAAYAAQAAAAEAAAAFAAUAAQAAAAEAAAAFAAQAAQADAAEAAAAFAAMAAQAAAAAAAAAOAAUAAQABAAEAAAANAAUAAQABAAMAAAAMAAUAAQABAAMAAAALAAUAAQABAAMAAAAQAAYAAQACAAIAAAAQAAUAAQACAAEAAAAQAAQAAQACAAEAAAAQAAMAAQACAAAAAAAPAAYAAQABAAIAAAAPAAUAAQABAAEAAAAPAAQAAQABAAEAAAAPAAMAAQABAAAAAAAOAAYAAQAAAAEAAAAOAAQAAQAAAAEAAAAOAAMAAQAAAAAAAAAHAAIAAQADAAAAAAAFAAEAAQACAAIAAAAFAAAAAQABAAAAAAAEAAEAAQAAAAIAAAAEAAAAAQAAAAAAAAAHAAAAAQACAAMAAAAGAAAAAQABAAMAAAAEAAcAAQABAAMAAAADAAcAAQAAAAIAAAADAAYAAQADAAEAAAADAAUAAQADAAEAAAADAAQAAQACAAAAAAACAAQAAQAAAAMAAAAOAAgAAQACAAIAAAANAAgAAQABAAMAAAAMAAgAAQABAAMAAAALAAgAAQABAAMAAAAKAAgAAQABAAMAAAAJAAgAAQAAAAIAAAAOAAcAAQADAAEAAAA=")
+tile_set = SubResource("TileSet_r1e00")
 
 [node name="CardDropArea" type="Area2D" parent="." unique_id=1647891904 groups=["card_drop_area"]]
 collision_layer = 2
@@ -165,11 +172,6 @@ shape = SubResource("RectangleShape2D_py4tk")
 [node name="TileHighlights" parent="." unique_id=1129743394 node_paths=PackedStringArray("cursor") instance=ExtResource("2_fh7rg")]
 cursor = NodePath("../BattleUI/Cursor")
 
-[node name="GroundTiles" type="TileMapLayer" parent="." unique_id=416591149]
-unique_name_in_owner = true
-tile_map_data = PackedByteArray("AAAJAAYAAQABAAEAAAAJAAUAAQABAAEAAAAIAAYAAQABAAEAAAAIAAUAAQABAAEAAAAHAAYAAQABAAEAAAAHAAUAAQABAAEAAAAGAAYAAQABAAEAAAAGAAUAAQABAAAAAAAKAAYAAQACAAIAAAAKAAUAAQABAAEAAAAKAAQAAQACAAEAAAAKAAMAAQACAAAAAAAJAAcAAQACAAEAAAAJAAQAAQABAAEAAAAJAAMAAQABAAAAAAAIAAcAAQABAAIAAAAIAAQAAQABAAEAAAAIAAMAAQABAAAAAAAHAAcAAQABAAIAAAAHAAQAAQAAAAEAAAAHAAMAAQABAAEAAAAGAAcAAQABAAIAAAAGAAMAAQABAAMAAAAFAAcAAQABAAIAAAAFAAYAAQAAAAEAAAAFAAUAAQAAAAEAAAAFAAQAAQADAAEAAAAFAAMAAQAAAAAAAAAOAAUAAQABAAEAAAANAAUAAQABAAMAAAAMAAUAAQABAAMAAAALAAUAAQABAAMAAAAQAAYAAQACAAIAAAAQAAUAAQACAAEAAAAQAAQAAQACAAEAAAAQAAMAAQACAAAAAAAPAAYAAQABAAIAAAAPAAUAAQABAAEAAAAPAAQAAQABAAEAAAAPAAMAAQABAAAAAAAOAAYAAQAAAAEAAAAOAAQAAQAAAAEAAAAOAAMAAQAAAAAAAAAHAAIAAQADAAAAAAAFAAEAAQACAAIAAAAFAAAAAQABAAAAAAAEAAEAAQAAAAIAAAAEAAAAAQAAAAAAAAAHAAAAAQACAAMAAAAGAAAAAQABAAMAAAAEAAcAAQABAAMAAAADAAcAAQAAAAIAAAADAAYAAQADAAEAAAADAAUAAQADAAEAAAADAAQAAQACAAAAAAACAAQAAQAAAAMAAAAOAAgAAQACAAIAAAANAAgAAQABAAMAAAAMAAgAAQABAAMAAAALAAgAAQABAAMAAAAKAAgAAQABAAMAAAAJAAgAAQAAAAIAAAAOAAcAAQADAAEAAAA=")
-tile_set = SubResource("TileSet_r1e00")
-
 [node name="Icon" type="Sprite2D" parent="." unique_id=2146454285]
 visible = false
 position = Vector2(137.9, 222.9)
@@ -178,7 +180,7 @@ texture = ExtResource("3_xd4uy")
 
 [node name="Unit" parent="." unique_id=1343511653 instance=ExtResource("4_0yh6x")]
 z_index = 2
-position = Vector2(496, 367)
+position = Vector2(931.99994, 282)
 stats = ExtResource("5_h0kxc")
 
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=1437695468 groups=["ui_layer"]]
@@ -188,14 +190,22 @@ stats = ExtResource("5_h0kxc")
 [node name="Hand" parent="BattleUI" unique_id=187061151 instance=ExtResource("8_py4tk")]
 position = Vector2(575, 550)
 
-[node name="CardUI" parent="BattleUI/Hand" unique_id=82101529 instance=ExtResource("9_agsc7")]
+[node name="CardUI" parent="BattleUI/Hand" unique_id=82101529 node_paths=PackedStringArray("belongs_to") instance=ExtResource("9_agsc7")]
+card = ExtResource("10_fisqk")
+belongs_to = NodePath("../../../Unit")
 
-[node name="CardUI2" parent="BattleUI/Hand" unique_id=1779420438 instance=ExtResource("9_agsc7")]
+[node name="CardUI2" parent="BattleUI/Hand" unique_id=1779420438 node_paths=PackedStringArray("belongs_to") instance=ExtResource("9_agsc7")]
+card = ExtResource("10_fisqk")
+belongs_to = NodePath("../../../Unit")
 
-[node name="CardUI3" parent="BattleUI/Hand" unique_id=456307676 instance=ExtResource("9_agsc7")]
+[node name="CardUI3" parent="BattleUI/Hand" unique_id=456307676 node_paths=PackedStringArray("belongs_to") instance=ExtResource("9_agsc7")]
+card = ExtResource("10_fisqk")
+belongs_to = NodePath("../../../Unit")
 
-[node name="CardUI4" parent="BattleUI/Hand" unique_id=1119206746 instance=ExtResource("9_agsc7")]
+[node name="CardUI4" parent="BattleUI/Hand" unique_id=1119206746 node_paths=PackedStringArray("belongs_to") instance=ExtResource("9_agsc7")]
+card = ExtResource("11_mxe8n")
+belongs_to = NodePath("../../../Unit")
 
-[node name="CardUI5" parent="BattleUI/Hand" unique_id=132306649 instance=ExtResource("9_agsc7")]
-
-[node name="CardUI6" parent="BattleUI/Hand" unique_id=1620922605 instance=ExtResource("9_agsc7")]
+[node name="CardUI5" parent="BattleUI/Hand" unique_id=132306649 node_paths=PackedStringArray("belongs_to") instance=ExtResource("9_agsc7")]
+card = ExtResource("11_mxe8n")
+belongs_to = NodePath("../../../Unit")

@@ -24,7 +24,6 @@ SignalLens="*uid://85rkx60vm7a7"
 [display]
 
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [editor_plugins]
 

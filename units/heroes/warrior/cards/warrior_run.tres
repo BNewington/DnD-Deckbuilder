@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://cql3oentr77yy"]
+
+[ext_resource type="Script" uid="uid://cv772it3a7uko" path="res://units/heroes/warrior/cards/warrior_run.gd" id="1_3gyfo"]
+
+[resource]
+script = ExtResource("1_3gyfo")
+id = "warrior_run"
+type = 1
+target = 1
+metadata/_custom_type_script = "uid://cbhovqi2nk4fe"

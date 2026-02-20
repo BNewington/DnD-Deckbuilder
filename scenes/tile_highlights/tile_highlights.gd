@@ -6,6 +6,26 @@ const TILE_HIGHLIGHT = preload("uid://ufqfkdc3ktgr")
 @export var cursor: Cursor
 @export var highlight_colour: Color = Color(0.0, 0.71, 0.969, 0.553)
 
+var selecting: bool = false
+var selectable_tiles: Array[Vector2i]
+var highlight_sprites: Array[Sprite2D]
+
+func _ready() -> void:
+	Events.card_aiming_started.connect(highlight_tiles)
+	Events.card_aiming_ended.connect(clear_move_tiles)
+
+
+func clear_move_tiles(_card_ui) -> void:
+	clear_highlights(highlight_sprites)
+	selecting = false
+	selectable_tiles = []
+
+
+func highlight_tiles(_card_ui: CardUI, tile_array: Array[Vector2i]) -> void:
+	selectable_tiles = tile_array
+	highlight_sprites = create_highlights_array(tile_array)
+	selecting = true
+
 
 func create_highlight(tile_coords: Vector2i) -> Sprite2D:
 	var world_coords = Navigation.get_world_coords(tile_coords)

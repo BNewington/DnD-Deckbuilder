@@ -6,23 +6,41 @@ signal reparent_requested(which_card_ui: CardUI)
 const MOVE_SPEED: float = 8000.0
 const ROTATE_SPEED: float = 5.0
 
+@export var card: Card
+@export var belongs_to: Unit
+
 @onready var color: ColorRect = $Color/Color2
 @onready var state: Label = $Color/Label
 @onready var card_state_machine: CardStateMachine = $CardStateMachine
 @onready var card_area: Area2D = $CardArea
-@onready var targets: Array[Node] = []
+@onready var targets: Array = []
 
 var drag_point: Vector2
 var mouse_over: bool
 var hand: Hand
+var tween: Tween
 
-var hand_z_index: int = 0
-var hand_rotation: float
-var hand_pos: Vector2
+var hand_z_index: int = 0 : set = set_hand_z_index
+var hand_rotation: float : set = set_hand_rotation
+var hand_pos: Vector2 : set = set_hand_pos
 var target_rotation: float
 var target_pos: Vector2
 
 var test_rot = 0.0
+
+func set_hand_z_index(value: int) -> void:
+	hand_z_index = value
+	z_index = value
+
+
+func set_hand_rotation(value: float) -> void:
+	hand_rotation = value
+	target_rotation = value
+
+
+func set_hand_pos(value: Vector2) -> void:
+	hand_pos = value
+	target_pos = value
 
 
 func _ready() -> void:
@@ -30,9 +48,14 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if card_state_machine.current_state.state != card_state_machine.current_state.State.DRAGGING:
+	var is_base: bool = card_state_machine.current_state.state == CardState.State.BASE
+	var is_hovered: bool = card_state_machine.current_state.state == CardState.State.HOVERED
+	
+	if is_base or is_hovered:
 		position = position.move_toward(target_pos, MOVE_SPEED * delta)
-		
+	
+
+	
 	rotation = rotate_toward(rotation,deg_to_rad(target_rotation),ROTATE_SPEED*delta)
 
 
@@ -63,3 +86,8 @@ func remove_from_hand() -> void:
 	var ui_layer = get_tree().get_first_node_in_group("ui_layer")
 	reparent(ui_layer)
 	hand.arrange_hand()
+
+
+func animate_to_position(new_position: Vector2, duration: float) -> void:
+	tween = create_tween().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self,"global_position",new_position,duration)
