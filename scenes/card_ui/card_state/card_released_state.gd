@@ -14,11 +14,11 @@ func enter() -> void:
 		#TODO make this actually play the card
 		print("Played card for target(s) ",card_ui.targets)
 	
-	card_ui.queue_free()
 
 
 func on_input(_event: InputEvent) -> void:
 	if played:
+		card_ui.queue_free()
 		return
 	
 	transition_requested.emit(self, State.BASE)
