@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="Card" format=3 uid="uid://cxn8jc3q4tmel"]
+[gd_resource type="Resource" format=3 uid="uid://cxn8jc3q4tmel"]
 
-[ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="1_ldmrk"]
+[ext_resource type="Script" uid="uid://bdsp4qqkgsyer" path="res://units/heroes/warrior/cards/warrior_strike.gd" id="1_ldmrk"]
 
 [resource]
 script = ExtResource("1_ldmrk")
