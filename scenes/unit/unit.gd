@@ -5,6 +5,8 @@ extends Area2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+var tween: Tween
+
 
 func _ready() -> void:
 	Events.start_battle.connect(start_battle)
@@ -19,6 +21,15 @@ func set_stats(value: HeroStats) -> void:
 		stats.stats_changed.connect(_on_stats_changed)
 	
 	update_hero()
+
+
+func move_to(target: Vector2i) -> void:
+	var path = Navigation.get_cell_path(Navigation.get_tile_coords(global_position),target)
+	tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	if path:
+		for tile in path:
+			var next_pos = Navigation.get_world_coords(tile)
+			tween.tween_property(self, "global_position",next_pos,0.1)
 
 
 func update_hero() -> void:

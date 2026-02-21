@@ -28,6 +28,10 @@ var target_pos: Vector2
 
 var test_rot = 0.0
 
+func _ready() -> void:
+	card_state_machine.init(self)
+	card.belongs_to = belongs_to
+
 func set_hand_z_index(value: int) -> void:
 	hand_z_index = value
 	z_index = value
@@ -41,10 +45,6 @@ func set_hand_rotation(value: float) -> void:
 func set_hand_pos(value: Vector2) -> void:
 	hand_pos = value
 	target_pos = value
-
-
-func _ready() -> void:
-	card_state_machine.init(self)
 
 
 func _process(delta: float) -> void:

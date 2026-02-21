@@ -5,6 +5,7 @@ enum Type {ATTACK, SKILL, POWER}
 enum Target {SELF, SQUARE, AREA}
 enum Hero {Warrior, Thief, Mage}
 
+var belongs_to: Unit
 
 @export_group("Card Attributes")
 @export var id: String
