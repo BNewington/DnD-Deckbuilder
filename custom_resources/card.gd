@@ -9,9 +9,14 @@ var belongs_to: Unit
 
 @export_group("Card Attributes")
 @export var id: String
+@export var name: String
 @export var type: Type
 @export var target: Target
 @export var cost: int
+
+@export_group("Card Visuals")
+@export var icon: Texture
+@export_multiline var description: String
 
 
 func does_target_square() -> bool:
@@ -28,3 +33,7 @@ func does_target_self() -> bool:
 
 func get_area() -> Array[Vector2i]:
 	return []
+
+
+func execute(targets: Array) -> void:
+	print("executed effect at target(s): %s"%targets)

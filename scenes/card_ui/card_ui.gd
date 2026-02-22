@@ -6,11 +6,16 @@ signal reparent_requested(which_card_ui: CardUI)
 const MOVE_SPEED: float = 8000.0
 const ROTATE_SPEED: float = 5.0
 
-@export var card: Card
+@export var card: Card : set = set_card
 @export var belongs_to: Unit
 
-@onready var color: ColorRect = $Color/Color2
-@onready var state: Label = $Color/Label
+
+@onready var name_label: Label = $Panel/Name
+@onready var energy_cost: Label = $Panel/EnergyCost
+@onready var icon: TextureRect = $Panel/Icon
+@onready var description: RichTextLabel = $Panel/Description
+
+
 @onready var card_state_machine: CardStateMachine = $CardStateMachine
 @onready var card_area: Area2D = $CardArea
 @onready var targets: Array = []
@@ -30,7 +35,18 @@ var test_rot = 0.0
 
 func _ready() -> void:
 	card_state_machine.init(self)
-	card.belongs_to = belongs_to
+	#card.belongs_to = belongs_to
+
+
+func set_card(value: Card) -> void:
+	if not is_node_ready():
+		await ready
+	
+	card = value
+	name_label.text = card.name
+	energy_cost.text = str(card.cost)
+	icon.texture = card.icon
+	description.text = card.description
 
 func set_hand_z_index(value: int) -> void:
 	hand_z_index = value

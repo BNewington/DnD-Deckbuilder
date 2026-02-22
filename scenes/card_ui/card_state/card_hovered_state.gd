@@ -2,10 +2,6 @@ extends CardState
 
 
 func enter() -> void:
-	#HACK for displaying state logic
-	card_ui.color.color = Color.DARK_MAGENTA
-	card_ui.state.text = "HOVERED"
-	
 	card_ui.z_index = 11
 	card_ui.target_rotation = 0
 	card_ui.target_pos.y -= 10

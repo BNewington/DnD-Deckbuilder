@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://dq8c5qippudah" path="res://scenes/hand/hand.tscn" id="8_py4tk"]
 [ext_resource type="PackedScene" uid="uid://oxhrvfr17p53" path="res://scenes/card_ui/card_ui.tscn" id="9_agsc7"]
 [ext_resource type="Resource" uid="uid://cql3oentr77yy" path="res://units/heroes/warrior/cards/warrior_run.tres" id="10_fisqk"]
-[ext_resource type="Resource" uid="uid://cxn8jc3q4tmel" path="res://units/heroes/warrior/cards/warrior_strike.tres" id="11_fisqk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ffvsa"]
 texture = ExtResource("1_7gynk")
@@ -183,6 +182,11 @@ z_index = 2
 position = Vector2(931.99994, 282)
 stats = ExtResource("5_h0kxc")
 
+[node name="Unit2" parent="." unique_id=1990723004 instance=ExtResource("4_0yh6x")]
+z_index = 2
+position = Vector2(398, 424)
+stats = ExtResource("5_h0kxc")
+
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=1437695468 groups=["ui_layer"]]
 
 [node name="Cursor" parent="BattleUI" unique_id=1722401909 instance=ExtResource("2_py4tk")]
@@ -203,9 +207,9 @@ card = ExtResource("10_fisqk")
 belongs_to = NodePath("../../../Unit")
 
 [node name="CardUI4" parent="BattleUI/Hand" unique_id=1119206746 node_paths=PackedStringArray("belongs_to") instance=ExtResource("9_agsc7")]
-card = ExtResource("11_fisqk")
-belongs_to = NodePath("../../../Unit")
+card = ExtResource("10_fisqk")
+belongs_to = NodePath("../../../Unit2")
 
 [node name="CardUI5" parent="BattleUI/Hand" unique_id=132306649 node_paths=PackedStringArray("belongs_to") instance=ExtResource("9_agsc7")]
-card = ExtResource("11_fisqk")
-belongs_to = NodePath("../../../Unit")
+card = ExtResource("10_fisqk")
+belongs_to = NodePath("../../../Unit2")

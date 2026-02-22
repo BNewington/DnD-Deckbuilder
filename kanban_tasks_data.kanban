@@ -51,7 +51,7 @@
 			"steps": [
 				{
 					"details": "Create cardpile resource",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Create draw and discard piles",

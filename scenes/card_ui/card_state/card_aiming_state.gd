@@ -5,10 +5,6 @@ const MOUSE_Y_CANCEL_THRESHOLD := 550
 var area: Array[Vector2i]
 
 func enter() -> void:
-	#HACK for displaying state logic
-	card_ui.color.color = Color.WEB_PURPLE
-	card_ui.state.text = "AIMING"
-	
 	card_ui.animate_to_position(card_ui.hand.global_position - Vector2(0,40), 0.2)
 	card_ui.targets.clear()
 	

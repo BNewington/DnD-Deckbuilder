@@ -1,9 +1,14 @@
 [gd_resource type="Resource" format=3 uid="uid://cxn8jc3q4tmel"]
 
 [ext_resource type="Script" uid="uid://bdsp4qqkgsyer" path="res://units/heroes/warrior/cards/warrior_strike.gd" id="1_ldmrk"]
+[ext_resource type="Texture2D" uid="uid://bhipm2h67gkyv" path="res://art/ui/Icons/Icon_05.png" id="1_vxqgb"]
 
 [resource]
 script = ExtResource("1_ldmrk")
 id = "warrior_strike"
+name = "Strike"
 target = 1
+cost = 1
+icon = ExtResource("1_vxqgb")
+description = "Deal 3 damage to an adjacent creature"
 metadata/_custom_type_script = "uid://cbhovqi2nk4fe"
