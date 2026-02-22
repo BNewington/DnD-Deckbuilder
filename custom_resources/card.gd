@@ -25,5 +25,5 @@ func does_target_self() -> bool:
 	return target == Target.SELF
 
 
-func get_area(hero_pos) -> Array[Vector2i]:
+func get_area() -> Array[Vector2i]:
 	return []

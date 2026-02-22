@@ -151,7 +151,7 @@ custom_data_layer_1/type = 1
 sources/1 = SubResource("TileSetAtlasSource_ffvsa")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_py4tk"]
-size = Vector2(1150, 244)
+size = Vector2(1150, 313)
 
 [node name="Battle" type="Node2D" unique_id=341085770]
 script = ExtResource("1_ffvsa")
@@ -165,7 +165,7 @@ tile_set = SubResource("TileSet_r1e00")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea" unique_id=2137544565]
-position = Vector2(576, 122)
+position = Vector2(576, 156.5)
 shape = SubResource("RectangleShape2D_py4tk")
 
 [node name="TileHighlights" parent="." unique_id=1129743394 node_paths=PackedStringArray("cursor") instance=ExtResource("2_fh7rg")]

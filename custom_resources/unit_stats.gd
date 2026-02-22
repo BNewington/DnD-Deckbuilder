@@ -13,3 +13,17 @@ var health: int : set = set_health
 func set_health(value: int) -> void:
 	health = clampi(value, 0, max_health)
 	stats_changed.emit()
+
+
+func take_damage(damage: int) -> void:
+	health -= damage
+
+
+func heal(amount: int) -> void:
+	health += amount
+
+
+func create_instance() -> Resource:
+	var instance: UnitStats = self.duplicate()
+	instance.health = max_health
+	return instance

@@ -13,7 +13,7 @@ func enter() -> void:
 	card_ui.targets.clear()
 	
 	var hero_pos = Navigation.get_tile_coords(card_ui.belongs_to.global_position)
-	area = card_ui.card.get_area(hero_pos)
+	area = card_ui.card.get_area()
 	Events.card_aiming_started.emit(card_ui,area)
 	Events.cursor_mode_hand.emit()
 	

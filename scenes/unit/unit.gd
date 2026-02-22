@@ -6,6 +6,7 @@ extends Area2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var tween: Tween
+var grid_pos: Vector2i : get = get_grid_pos
 
 
 func _ready() -> void:
@@ -23,13 +24,17 @@ func set_stats(value: HeroStats) -> void:
 	update_hero()
 
 
+func get_grid_pos() -> Vector2i:
+	return Navigation.get_tile_coords(global_position)
+
+
 func move_to(target: Vector2i) -> void:
 	var path = Navigation.get_cell_path(Navigation.get_tile_coords(global_position),target)
 	tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	if path:
 		for tile in path:
 			var next_pos = Navigation.get_world_coords(tile)
-			tween.tween_property(self, "global_position",next_pos,0.1)
+			tween.tween_property(self, "global_position",next_pos,0.15)
 
 
 func update_hero() -> void:
