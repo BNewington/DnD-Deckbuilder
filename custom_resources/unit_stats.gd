@@ -23,7 +23,7 @@ func heal(amount: int) -> void:
 	health += amount
 
 
-func create_instance() -> Resource:
+func create_instance() -> UnitStats:
 	var instance: UnitStats = self.duplicate()
 	instance.health = max_health
 	return instance

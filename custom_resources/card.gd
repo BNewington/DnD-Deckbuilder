@@ -11,6 +11,7 @@ var belongs_to: Unit
 @export var id: String
 @export var type: Type
 @export var target: Target
+@export var cost: int
 
 
 func does_target_square() -> bool:
