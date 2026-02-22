@@ -51,6 +51,13 @@ func face_sprite(face_to: Vector2) -> void:
 		sprite.flip_h = false
 	
 
+func attack(attack_pos) -> void:
+	face_sprite(Navigation.get_world_coords(attack_pos))
+	sprite.play("attack")
+	await sprite.animation_finished
+	sprite.play("idle")
+
+
 func update_hero() -> void:
 	if not is_inside_tree():
 		await ready

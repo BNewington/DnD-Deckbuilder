@@ -4,3 +4,7 @@ var reach := 1
 
 func get_area() -> Array[Vector2i]:
 	return Navigation.get_shape_tiles(Navigation.AreaShape.Square,reach,belongs_to.grid_pos)
+
+
+func execute(targets: Array) -> void:
+	belongs_to.attack(targets[0])
