@@ -32,12 +32,20 @@ func get_grid_pos() -> Vector2i:
 
 func move_to(target: Vector2i) -> void:
 	var path = Navigation.get_cell_path(Navigation.get_tile_coords(global_position),target)
+	path.pop_front()
 	tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	if path:
 		for tile in path:
 			var next_pos = Navigation.get_world_coords(tile)
+			tween.tween_callback(face_sprite.bind(next_pos))
 			tween.tween_property(self, "global_position",next_pos,0.15)
 
+func face_sprite(face_to: Vector2) -> void:
+	if global_position.x > face_to.x:
+		sprite.flip_h = true
+	else:
+		sprite.flip_h = false
+	
 
 func update_hero() -> void:
 	if not is_inside_tree():
