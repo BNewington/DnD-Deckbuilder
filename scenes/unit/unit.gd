@@ -4,6 +4,8 @@ extends Area2D
 @export var stats: HeroStats : set = set_stats
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var stats_ui: StatsUI = $StatsUI as StatsUI
+
 
 var tween: Tween
 var grid_pos: Vector2i : get = get_grid_pos
@@ -16,10 +18,10 @@ func start_battle() -> void:
 	global_position = Navigation.snap_to_grid(global_position)
 
 func set_stats(value: HeroStats) -> void:
-	stats = value
+	stats = value.create_instance()
 	
-	if not stats.stats_changed.is_connected(_on_stats_changed):
-		stats.stats_changed.connect(_on_stats_changed)
+	if not stats.stats_changed.is_connected(update_stats):
+		stats.stats_changed.connect(update_stats)
 	
 	update_hero()
 
@@ -43,7 +45,18 @@ func update_hero() -> void:
 		
 	sprite.sprite_frames = stats.frames
 	sprite.play("idle")
+	update_stats()
 
 
-func _on_stats_changed() -> void:
-	pass
+func update_stats() -> void:
+	stats_ui.update_stats(stats)
+
+
+func take_damage(damage: int) -> void:
+	if stats.health <= 0:
+		return
+	
+	stats.take_damage(damage)
+	
+	if stats.health <= 0:
+		queue_free()

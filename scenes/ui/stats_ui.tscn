@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://d0tnkfen53ayh"]
 
+[ext_resource type="Script" uid="uid://bqhurxetu1x4" path="res://scenes/ui/stats_ui.gd" id="1_xm8em"]
+
 [node name="StatsUI" type="Control" unique_id=1240307798]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -9,16 +12,13 @@ offset_right = -1052.0
 offset_bottom = -548.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xm8em")
 
 [node name="HealthLabel" type="Label" parent="." unique_id=461094665]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -50.0
-offset_right = 50.0
-offset_bottom = 25.0
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 23.0
 grow_horizontal = 2
 text = "5"
 horizontal_alignment = 1
