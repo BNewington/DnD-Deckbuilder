@@ -91,7 +91,6 @@ text = "test"
 horizontal_alignment = 1
 
 [node name="CardArea" type="Area2D" parent="." unique_id=609950188]
-visible = false
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardArea" unique_id=1369260906]
