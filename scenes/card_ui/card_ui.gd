@@ -43,6 +43,9 @@ func _ready() -> void:
 
 func set_unit(value: Unit) -> void:
 	unit = value
+	if card:
+		card.unit = unit
+		
 	if unit.stats is HeroStats:
 		unit.stats.stats_changed.connect(_on_stats_changed)
 
@@ -56,6 +59,9 @@ func set_card(value: Card) -> void:
 	energy_cost.text = str(card.cost)
 	icon.texture = card.icon
 	description.text = card.description
+	
+	if unit:
+		card.unit = unit
 
 
 func set_hand_z_index(value: int) -> void:
@@ -75,6 +81,7 @@ func set_hand_pos(value: Vector2) -> void:
 
 func set_playable(value: bool ) -> void:
 	playable = value
+	#HACK - should use themes
 	if not playable:
 		energy_cost.modulate = Color(0.988, 0.0, 0.0, 0.62)
 		name_label.modulate = Color(0.0, 0.0, 0.0, 0.5)

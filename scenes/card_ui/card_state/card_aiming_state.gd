@@ -8,7 +8,6 @@ func enter() -> void:
 	card_ui.animate_to_position(card_ui.hand.global_position - Vector2(0,40), 0.2)
 	card_ui.targets.clear()
 	
-	var hero_pos = Navigation.get_tile_coords(card_ui.unit.global_position)
 	area = card_ui.card.get_area()
 	Events.card_aiming_started.emit(card_ui,area)
 	Events.cursor_mode_hand.emit()
@@ -21,7 +20,6 @@ func exit() -> void:
 	Events.hide_tile_selector.emit()
 
 
-#TODO make this a little more readable
 func on_input(event: InputEvent) -> void:
 	var selected_tile = Navigation.get_tile_coords(card_ui.get_global_mouse_position())
 	var mouse_over_area: bool = selected_tile in area

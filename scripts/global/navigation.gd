@@ -115,7 +115,7 @@ func is_tile_in_bounds(tile: Vector2i) -> bool:
 
 
 ##Returns an array containing the coordinates of all tiles in the defined area
-func get_shape_tiles(shape:AreaShape, radius: int, origin: Vector2i = Vector2i(0,0), direction: Direction = Direction.Right) -> Array[Vector2i]:
+func get_shape_tiles(shape:AreaShape, radius: int, origin: Vector2i = Vector2i(0,0), include_target: bool = false, direction: Direction = Direction.Right) -> Array[Vector2i]:
 	var tiles: Array[Vector2i] = []
 	var size = (radius * 2) + 1
 	
@@ -137,5 +137,8 @@ func get_shape_tiles(shape:AreaShape, radius: int, origin: Vector2i = Vector2i(0
 					var y_pos = y-radius
 					if x_pos*x_pos + y_pos*y_pos <= (radius+0.5)*(radius+0.5):
 						tiles.append(Vector2i(x-radius,y-radius)+origin)
+	
+	if not include_target:
+		tiles.erase(origin)
 	
 	return tiles

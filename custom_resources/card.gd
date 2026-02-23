@@ -38,7 +38,7 @@ func get_area() -> Array[Vector2i]:
 
 func play(targets: Array) -> void:
 	Events.card_played.emit(self)
-	unit.stats.energy -= 1
+	unit.stats.energy -= cost
 	execute(targets)
 
 

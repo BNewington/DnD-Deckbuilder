@@ -5,11 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://o24hv3b1kpnr" path="res://scenes/tile_highlights/tile_highlights.tscn" id="2_fh7rg"]
 [ext_resource type="PackedScene" uid="uid://57436yh7djea" path="res://scenes/cursor/cursor.tscn" id="2_py4tk"]
 [ext_resource type="PackedScene" uid="uid://bprkq1380rh3n" path="res://scenes/unit/unit.tscn" id="4_0yh6x"]
-[ext_resource type="Script" uid="uid://bwiokfoc1pshs" path="res://scenes/turn_manager/turn_manager.gd" id="4_fisqk"]
 [ext_resource type="Resource" uid="uid://cod0okis1mse4" path="res://units/heroes/warrior/warrior_stats.tres" id="5_h0kxc"]
 [ext_resource type="Script" uid="uid://bgqebmanw1r7q" path="res://scenes/ui/battle_ui.gd" id="7_icoan"]
 [ext_resource type="Resource" uid="uid://dp6rk0vbw543i" path="res://units/enemies/torch_goblin/torch_goblin_stats.tres" id="7_mxe8n"]
 [ext_resource type="PackedScene" uid="uid://dq8c5qippudah" path="res://scenes/hand/hand.tscn" id="8_py4tk"]
+[ext_resource type="PackedScene" uid="uid://oxhrvfr17p53" path="res://scenes/card_ui/card_ui.tscn" id="9_agsc7"]
+[ext_resource type="Resource" uid="uid://cql3oentr77yy" path="res://units/heroes/warrior/cards/warrior_run.tres" id="10_fisqk"]
+[ext_resource type="Resource" uid="uid://cxn8jc3q4tmel" path="res://units/heroes/warrior/cards/warrior_strike.tres" id="11_fisqk"]
 [ext_resource type="PackedScene" uid="uid://s3e6r400eqcu" path="res://scenes/ui/energy_ui.tscn" id="12_mxe8n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ffvsa"]
@@ -172,22 +174,14 @@ shape = SubResource("RectangleShape2D_py4tk")
 [node name="TileHighlights" parent="." unique_id=1129743394 node_paths=PackedStringArray("cursor") instance=ExtResource("2_fh7rg")]
 cursor = NodePath("../BattleUI/Cursor")
 
-[node name="TurnManager" type="Node2D" parent="." unique_id=76866969 node_paths=PackedStringArray("hand")]
-script = ExtResource("4_fisqk")
-hand = NodePath("../BattleUI/Hand")
-
-[node name="Heroes" type="Node2D" parent="TurnManager" unique_id=47643169]
-
-[node name="Unit" parent="TurnManager/Heroes" unique_id=1343511653 instance=ExtResource("4_0yh6x")]
+[node name="Unit" parent="." unique_id=1343511653 instance=ExtResource("4_0yh6x")]
 z_index = 2
-position = Vector2(644, 288)
+position = Vector2(931.99994, 282)
 stats = ExtResource("5_h0kxc")
 
-[node name="Enemies" type="Node2D" parent="TurnManager" unique_id=517229282]
-
-[node name="Unit" parent="TurnManager/Enemies" unique_id=1284714721 instance=ExtResource("4_0yh6x")]
+[node name="Unit2" parent="." unique_id=1284714721 instance=ExtResource("4_0yh6x")]
 z_index = 2
-position = Vector2(498, 408)
+position = Vector2(793, 354)
 stats = ExtResource("7_mxe8n")
 
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=1437695468 groups=["ui_layer"]]
@@ -195,8 +189,27 @@ script = ExtResource("7_icoan")
 
 [node name="Cursor" parent="BattleUI" unique_id=1722401909 instance=ExtResource("2_py4tk")]
 
-[node name="Hand" parent="BattleUI" unique_id=187061151 node_paths=PackedStringArray("unit") instance=ExtResource("8_py4tk")]
+[node name="Hand" parent="BattleUI" unique_id=187061151 instance=ExtResource("8_py4tk")]
 position = Vector2(575, 550)
-unit = NodePath("../../TurnManager/Heroes/Unit")
+
+[node name="CardUI" parent="BattleUI/Hand" unique_id=82101529 node_paths=PackedStringArray("unit") instance=ExtResource("9_agsc7")]
+card = ExtResource("10_fisqk")
+unit = NodePath("../../../Unit")
+
+[node name="CardUI2" parent="BattleUI/Hand" unique_id=1779420438 node_paths=PackedStringArray("unit") instance=ExtResource("9_agsc7")]
+card = ExtResource("10_fisqk")
+unit = NodePath("../../../Unit")
+
+[node name="CardUI3" parent="BattleUI/Hand" unique_id=456307676 node_paths=PackedStringArray("unit") instance=ExtResource("9_agsc7")]
+card = ExtResource("10_fisqk")
+unit = NodePath("../../../Unit")
+
+[node name="CardUI4" parent="BattleUI/Hand" unique_id=1119206746 node_paths=PackedStringArray("unit") instance=ExtResource("9_agsc7")]
+card = ExtResource("11_fisqk")
+unit = NodePath("../../../Unit")
+
+[node name="CardUI5" parent="BattleUI/Hand" unique_id=132306649 node_paths=PackedStringArray("unit") instance=ExtResource("9_agsc7")]
+card = ExtResource("11_fisqk")
+unit = NodePath("../../../Unit")
 
 [node name="EnergyUI" parent="BattleUI" unique_id=355186218 instance=ExtResource("12_mxe8n")]

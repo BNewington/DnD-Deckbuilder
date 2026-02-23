@@ -6,20 +6,22 @@ const MAX_WIDTH: float = 350.0
 const MAX_CARDS: int = 10
 const HAND_HEIGHT: float = 35.0
 const MAX_ROTATION: float = 15.0
+
 @onready var cards: Array[Node] = get_children()
 @onready var hand_size = float(len(cards))
+@onready var card_ui := preload("uid://oxhrvfr17p53")
 
+@export var unit: Unit
+@export_group("Display Curves")
 @export var height_curve: Curve
 @export var fan_curve: Curve
 
 var cards_played_this_turn: int = 0
 
+
 func _ready() -> void:
 	Events.card_played.connect(_on_card_played)
-	for child in get_children():
-		var card_ui: CardUI = child
-		card_ui.reparent_requested.connect(_on_card_ui_reparent_requested)
-		
+	
 	arrange_hand()
 
 
@@ -31,13 +33,15 @@ func _on_card_ui_reparent_requested(child: CardUI) -> void:
 	arrange_hand()
 
 
-func add_card(card: CardUI) -> bool:
-	if hand_size < MAX_CARDS:
-		add_child(card)
-		arrange_hand()
-		return true
-	else:
-		return false
+func add_card(card: Card) -> void:
+	var new_card_ui: CardUI = card_ui.instantiate()
+	add_child(new_card_ui)
+	new_card_ui.reparent_requested.connect(_on_card_ui_reparent_requested)
+	new_card_ui.card = card
+	new_card_ui.hand = self
+	new_card_ui.unit = unit
+	
+	arrange_hand()
 
 
 func arrange_hand() -> void:

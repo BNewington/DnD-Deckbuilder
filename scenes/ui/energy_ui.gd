@@ -5,9 +5,6 @@ extends Panel
 
 var hero_stats: HeroStats : set = set_stats
 
-func _ready() -> void:
-	Events.connect("start_turn",turn_started)
-
 
 func set_stats(value: HeroStats) -> void:
 	hero_stats = value
@@ -23,8 +20,3 @@ func set_stats(value: HeroStats) -> void:
 
 func _on_stats_changed() -> void:
 	label.text = "%s/%s"%[hero_stats.energy,hero_stats.max_energy]
-
-
-func turn_started(unit: Unit) -> void:
-	if unit.stats is HeroStats:
-		hero_stats = unit.stats

@@ -11,21 +11,24 @@
 			"uuid": "2423ce67-e4da-4249-ac01-f44ed597d42e",
 			"title": "Todo",
 			"tasks": [
-				"5ce4b706-19b0-4b0d-9ac1-7b04ab23d7c9",
 				"8f4c0fdc-5915-42a0-9ae6-e823a4c6a46d",
-				"f764aa88-e7cd-4a4b-8045-d11463c49e09",
-				"ad50e50e-9527-4877-b33e-ae07f39ec45c"
+				"953bce8c-27be-4ae7-b7a4-02b840575c5c"
 			]
 		},
 		{
 			"uuid": "1cd6b437-33c0-475b-81f8-5c77b882de70",
 			"title": "Doing",
-			"tasks": []
+			"tasks": [
+				"f764aa88-e7cd-4a4b-8045-d11463c49e09"
+			]
 		},
 		{
 			"uuid": "bba8dcdb-85ca-4110-8ae3-dcb9d9ca65f6",
 			"title": "Done",
-			"tasks": []
+			"tasks": [
+				"5ce4b706-19b0-4b0d-9ac1-7b04ab23d7c9",
+				"ad50e50e-9527-4877-b33e-ae07f39ec45c"
+			]
 		}
 	],
 	"tasks": [
@@ -39,7 +42,7 @@
 		{
 			"uuid": "8f4c0fdc-5915-42a0-9ae6-e823a4c6a46d",
 			"title": "Turn manager",
-			"description": "",
+			"description": "keep track of whos turn it is, and call the start and end turn methods of the relevant nodes",
 			"category": "9e594c57-881a-44f4-818f-cf89836dbfc2",
 			"steps": []
 		},
@@ -55,7 +58,7 @@
 				},
 				{
 					"details": "Create draw and discard piles",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Make played cards go to discard pile",
@@ -63,7 +66,7 @@
 				},
 				{
 					"details": "Draw cards at the start of a turn",
-					"done": false
+					"done": true
 				}
 			]
 		},
@@ -71,6 +74,13 @@
 			"uuid": "ad50e50e-9527-4877-b33e-ae07f39ec45c",
 			"title": "Basic enemies (no ai)",
 			"description": "Should be able to take damage and die",
+			"category": "9e594c57-881a-44f4-818f-cf89836dbfc2",
+			"steps": []
+		},
+		{
+			"uuid": "953bce8c-27be-4ae7-b7a4-02b840575c5c",
+			"title": "connect card ui to card hovered signal",
+			"description": "to disable a card when a card other than itself is being hovered",
 			"category": "9e594c57-881a-44f4-818f-cf89836dbfc2",
 			"steps": []
 		}

@@ -10,5 +10,5 @@ name = "Strike"
 target = 1
 cost = 1
 icon = ExtResource("1_vxqgb")
-description = "Deal 3 damage to an adjacent creature"
+description = "Deal 5 damage to an adjacent creature"
 metadata/_custom_type_script = "uid://cbhovqi2nk4fe"

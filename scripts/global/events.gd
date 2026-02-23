@@ -29,3 +29,7 @@ signal card_aiming_ended(card: CardUI)
 signal card_dragging_started(card: CardUI)
 signal card_dragging_ended(card: CardUI)
 signal card_played(card: Card)
+
+
+##Hero Signals
+signal hand_drawn()
