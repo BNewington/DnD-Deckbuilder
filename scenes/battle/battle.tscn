@@ -190,24 +190,24 @@ stats = ExtResource("7_mxe8n")
 [node name="Hand" parent="BattleUI" unique_id=187061151 instance=ExtResource("8_py4tk")]
 position = Vector2(575, 550)
 
-[node name="CardUI" parent="BattleUI/Hand" unique_id=82101529 node_paths=PackedStringArray("belongs_to") instance=ExtResource("9_agsc7")]
+[node name="CardUI" parent="BattleUI/Hand" unique_id=82101529 node_paths=PackedStringArray("unit") instance=ExtResource("9_agsc7")]
 card = ExtResource("10_fisqk")
-belongs_to = NodePath("../../../Unit")
+unit = NodePath("../../../Unit")
 
-[node name="CardUI2" parent="BattleUI/Hand" unique_id=1779420438 node_paths=PackedStringArray("belongs_to") instance=ExtResource("9_agsc7")]
+[node name="CardUI2" parent="BattleUI/Hand" unique_id=1779420438 node_paths=PackedStringArray("unit") instance=ExtResource("9_agsc7")]
 card = ExtResource("10_fisqk")
-belongs_to = NodePath("../../../Unit")
+unit = NodePath("../../../Unit")
 
-[node name="CardUI3" parent="BattleUI/Hand" unique_id=456307676 node_paths=PackedStringArray("belongs_to") instance=ExtResource("9_agsc7")]
+[node name="CardUI3" parent="BattleUI/Hand" unique_id=456307676 node_paths=PackedStringArray("unit") instance=ExtResource("9_agsc7")]
 card = ExtResource("10_fisqk")
-belongs_to = NodePath("../../../Unit")
+unit = NodePath("../../../Unit")
 
-[node name="CardUI4" parent="BattleUI/Hand" unique_id=1119206746 node_paths=PackedStringArray("belongs_to") instance=ExtResource("9_agsc7")]
+[node name="CardUI4" parent="BattleUI/Hand" unique_id=1119206746 node_paths=PackedStringArray("unit") instance=ExtResource("9_agsc7")]
 card = ExtResource("11_fisqk")
-belongs_to = NodePath("../../../Unit")
+unit = NodePath("../../../Unit")
 
-[node name="CardUI5" parent="BattleUI/Hand" unique_id=132306649 node_paths=PackedStringArray("belongs_to") instance=ExtResource("9_agsc7")]
+[node name="CardUI5" parent="BattleUI/Hand" unique_id=132306649 node_paths=PackedStringArray("unit") instance=ExtResource("9_agsc7")]
 card = ExtResource("11_fisqk")
-belongs_to = NodePath("../../../Unit")
+unit = NodePath("../../../Unit")
 
 [node name="EnergyUI" parent="BattleUI" unique_id=355186218 instance=ExtResource("12_mxe8n")]

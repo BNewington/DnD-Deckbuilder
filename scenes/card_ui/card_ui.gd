@@ -7,7 +7,7 @@ const MOVE_SPEED: float = 8000.0
 const ROTATE_SPEED: float = 5.0
 
 @export var card: Card : set = set_card
-@export var belongs_to: Unit
+@export var unit: Unit : set = set_unit
 
 
 @onready var name_label: Label = $Panel/Name
@@ -31,11 +31,19 @@ var hand_pos: Vector2 : set = set_hand_pos
 var target_rotation: float
 var target_pos: Vector2
 
-var test_rot = 0.0
+var playable: bool = true : set = set_playable
+var disabled: bool = false
+
 
 func _ready() -> void:
 	card_state_machine.init(self)
 	#card.belongs_to = belongs_to
+
+
+func set_unit(value: Unit) -> void:
+	unit = value
+	if unit.stats is HeroStats:
+		unit.stats.stats_changed.connect(_on_stats_changed)
 
 
 func set_card(value: Card) -> void:
@@ -64,6 +72,20 @@ func set_hand_pos(value: Vector2) -> void:
 	target_pos = value
 
 
+func set_playable(value: bool ) -> void:
+	playable = value
+	if not playable:
+		energy_cost.modulate = Color(0.988, 0.0, 0.0, 0.62)
+		name_label.modulate = Color(0.0, 0.0, 0.0, 0.5)
+		description.modulate = Color(0.0, 0.0, 0.0, 0.5)
+		icon.modulate = Color(0.0, 0.0, 0.0, 0.5)
+	else:
+		energy_cost.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		name_label.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		description.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		icon.modulate = Color(1.0, 1.0, 1.0, 1.0)
+
+
 func _process(delta: float) -> void:
 	#HACK - should use the animate_to_position function
 	var is_base: bool = card_state_machine.current_state.state == CardState.State.BASE
@@ -75,6 +97,13 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)
+
+
+func _on_stats_changed() -> void:
+	if not card:
+		return
+	var stats: HeroStats = unit.stats
+	playable = stats.can_play_card(card)
 
 
 func _on_card_area_area_entered(area: Area2D) -> void:

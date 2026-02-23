@@ -14,6 +14,8 @@ func mouse_exited() -> void:
 
 
 func on_input(event: InputEvent) -> void:
+	if not card_ui.playable or card_ui.disabled:
+		return
 	if event.is_action_pressed("left_mouse"):
 		transition_requested.emit(self, State.CLICKED)
 
