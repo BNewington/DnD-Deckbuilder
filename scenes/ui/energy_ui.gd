@@ -15,7 +15,6 @@ func set_stats(value: HeroStats) -> void:
 	
 	if not is_node_ready():
 		await ready
-	
 
 
 func _on_stats_changed() -> void:

@@ -7,7 +7,7 @@ const MAX_CARDS: int = 10
 const HAND_HEIGHT: float = 35.0
 const MAX_ROTATION: float = 15.0
 
-@onready var cards: Array[Node] = get_children()
+@onready var cards: Array[Node] = get_children() : get = get_cards
 @onready var hand_size = float(len(cards))
 @onready var card_ui := preload("uid://oxhrvfr17p53")
 
@@ -21,8 +21,11 @@ var cards_played_this_turn: int = 0
 
 func _ready() -> void:
 	Events.card_played.connect(_on_card_played)
-	
 	arrange_hand()
+
+
+func get_cards() -> Array[Node]:
+	return get_children()
 
 
 func _on_card_ui_reparent_requested(child: CardUI) -> void:
@@ -42,6 +45,15 @@ func add_card(card: Card) -> void:
 	new_card_ui.unit = unit
 	
 	arrange_hand()
+
+
+func discard_card(card: CardUI) -> void:
+	card.queue_free()
+
+
+func disable_hand() -> void:
+	for card in cards:
+		card.disabled = true
 
 
 func arrange_hand() -> void:
