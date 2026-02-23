@@ -48,6 +48,7 @@ func set_card(value: Card) -> void:
 	icon.texture = card.icon
 	description.text = card.description
 
+
 func set_hand_z_index(value: int) -> void:
 	hand_z_index = value
 	z_index = value
@@ -104,3 +105,8 @@ func remove_from_hand() -> void:
 func animate_to_position(new_position: Vector2, duration: float) -> void:
 	tween = create_tween().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self,"global_position",new_position,duration)
+
+
+func play() -> void:
+	card.play(targets)
+	queue_free()

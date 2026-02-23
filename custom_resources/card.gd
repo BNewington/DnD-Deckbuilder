@@ -5,7 +5,7 @@ enum Type {ATTACK, SKILL, POWER}
 enum Target {SELF, SQUARE, AREA}
 enum Hero {Warrior, Thief, Mage}
 
-var belongs_to: Unit
+var unit: Unit
 
 @export_group("Card Attributes")
 @export var id: String
@@ -33,6 +33,12 @@ func does_target_self() -> bool:
 
 func get_area() -> Array[Vector2i]:
 	return []
+
+
+
+func play(targets: Array) -> void:
+	unit.stats.energy -= 1
+	execute(targets)
 
 
 func execute(targets: Array) -> void:

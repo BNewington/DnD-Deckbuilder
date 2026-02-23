@@ -18,6 +18,7 @@ signal hide_tile_selector()
 
 ##Battle Signals
 signal start_battle()
+signal start_turn(Unit)
 
 
 ##Card Signals

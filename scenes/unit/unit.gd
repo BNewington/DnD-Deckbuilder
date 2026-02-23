@@ -14,6 +14,9 @@ var grid_pos: Vector2i : get = get_grid_pos
 func _ready() -> void:
 	Events.start_battle.connect(start_battle)
 
+	if stats is HeroStats:
+		stats.energy = 2
+
 
 func start_battle() -> void:
 	global_position = Navigation.snap_to_grid(global_position)
@@ -22,6 +25,9 @@ func start_battle() -> void:
 func start_turn() -> void:
 	var tile_coords = Navigation.get_tile_coords(global_position)
 	Navigation.set_point_walkable(tile_coords)
+	if stats is HeroStats:
+		stats.reset_energy()
+		Events.start_turn.emit(self)
 
 
 func end_turn() -> void:
