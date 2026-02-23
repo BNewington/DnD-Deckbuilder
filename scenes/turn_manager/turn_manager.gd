@@ -30,6 +30,7 @@ func start_turn(unit: Unit) -> void:
 
 func end_turn() -> void:
 	hand.disable_hand()
+	current_unit.end_turn()
 	discard_cards()
 
 

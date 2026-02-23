@@ -12,7 +12,10 @@ func _ready() -> void:
 	print(hand)
 	Events.start_turn.connect(turn_started)
 	Events.hand_drawn.connect(_on_hand_drawn)
+	Events.card_aiming_started.connect(_on_card_aiming_started)
+	Events.card_aiming_ended.connect(_on_card_aiming_ended)
 	end_turn_button.pressed.connect(_on_end_turn_button_pressed)
+
 
 
 func set_unit(value: Unit) -> void:
@@ -37,3 +40,11 @@ func _on_hand_drawn() -> void:
 func _on_end_turn_button_pressed() -> void:
 	end_turn_button.disabled = true
 	Events.hero_turn_ended.emit()
+
+
+func _on_card_aiming_started(_card_ui: CardUI, _area: Array[Vector2i]) -> void:
+	end_turn_button.disabled = true
+
+
+func _on_card_aiming_ended(_card_ui: CardUI) -> void:
+	end_turn_button.disabled = false
