@@ -9,6 +9,7 @@ func _ready() -> void:
 	Events.start_battle.emit()
 	warrior_run_card.belongs_to = $Unit
 	warrior_strike_card.belongs_to = $Unit
+	$Unit.start_turn()
 
 func _process(_delta: float) -> void:
 	icon.global_position = Navigation.snap_to_grid(get_global_mouse_position())

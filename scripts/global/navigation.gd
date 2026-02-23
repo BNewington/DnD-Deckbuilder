@@ -29,7 +29,10 @@ func init_level(level_tilemap: TileMapLayer) -> void:
 	grid.cell_size = TILE_SIZE
 	grid.update()
 	
-	#Remove unwalkable tiles from grid
+	remove_unwalkable_tiles_from_grid()
+	remove_unit_tiles_from_grid()
+
+func remove_unwalkable_tiles_from_grid() -> void:
 	var start_pos = grid.region.position
 	var end_pos = start_pos + grid.region.size
 	for x in range(start_pos.x, end_pos.x):
@@ -40,6 +43,21 @@ func init_level(level_tilemap: TileMapLayer) -> void:
 				pass
 			else:
 				grid.set_point_solid(tile)
+
+
+func remove_unit_tiles_from_grid() -> void:
+	var units = get_tree().get_nodes_in_group("units")
+	for unit in units:
+		var unit_pos = get_tile_coords(unit.global_position)
+		grid.set_point_solid(unit_pos)
+
+
+func set_point_solid(point: Vector2i) -> void:
+	grid.set_point_solid(point)
+
+
+func set_point_walkable(point: Vector2i) -> void:
+	grid.set_point_solid(point, false)
 
 
 func snap_to_grid(coords: Vector2) -> Vector2:

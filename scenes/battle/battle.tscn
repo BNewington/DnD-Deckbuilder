@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bud2e4wljaxam" path="res://icon.svg" id="3_xd4uy"]
 [ext_resource type="PackedScene" uid="uid://bprkq1380rh3n" path="res://scenes/unit/unit.tscn" id="4_0yh6x"]
 [ext_resource type="Resource" uid="uid://cod0okis1mse4" path="res://units/heroes/warrior/warrior_stats.tres" id="5_h0kxc"]
+[ext_resource type="Resource" uid="uid://dp6rk0vbw543i" path="res://units/enemies/torch_goblin/torch_goblin_stats.tres" id="7_mxe8n"]
 [ext_resource type="PackedScene" uid="uid://dq8c5qippudah" path="res://scenes/hand/hand.tscn" id="8_py4tk"]
 [ext_resource type="PackedScene" uid="uid://oxhrvfr17p53" path="res://scenes/card_ui/card_ui.tscn" id="9_agsc7"]
 [ext_resource type="Resource" uid="uid://cql3oentr77yy" path="res://units/heroes/warrior/cards/warrior_run.tres" id="10_fisqk"]
@@ -182,6 +183,11 @@ texture = ExtResource("3_xd4uy")
 z_index = 2
 position = Vector2(931.99994, 282)
 stats = ExtResource("5_h0kxc")
+
+[node name="Unit2" parent="." unique_id=1284714721 instance=ExtResource("4_0yh6x")]
+z_index = 2
+position = Vector2(585, 351)
+stats = ExtResource("7_mxe8n")
 
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=1437695468 groups=["ui_layer"]]
 

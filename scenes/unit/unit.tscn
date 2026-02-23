@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cybyjmlaqh0vy" path="res://units/enemies/torch_goblin/torch_goblin_sprite_frames.tres" id="2_fvc8g"]
 [ext_resource type="PackedScene" uid="uid://d0tnkfen53ayh" path="res://scenes/ui/stats_ui.tscn" id="3_vh40f"]
 
-[node name="Unit" type="Area2D" unique_id=1343511653]
+[node name="Unit" type="Area2D" unique_id=1343511653 groups=["units"]]
 script = ExtResource("1_fvc8g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1139546458]

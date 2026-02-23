@@ -34,6 +34,7 @@ enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/
 mouse=""
 ui_layer=""
 card_drop_area=""
+units=""
 
 [input]
 

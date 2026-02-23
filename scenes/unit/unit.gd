@@ -1,7 +1,7 @@
 class_name Unit
 extends Area2D
 
-@export var stats: HeroStats : set = set_stats
+@export var stats: UnitStats : set = set_stats
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
@@ -17,7 +17,12 @@ func _ready() -> void:
 func start_battle() -> void:
 	global_position = Navigation.snap_to_grid(global_position)
 
-func set_stats(value: HeroStats) -> void:
+
+func start_turn() -> void:
+	Navigation.set_point_walkable(Navigation.get_tile_coords(global_position))
+
+
+func set_stats(value: UnitStats) -> void:
 	stats = value.create_instance()
 	
 	if not stats.stats_changed.is_connected(update_stats):
