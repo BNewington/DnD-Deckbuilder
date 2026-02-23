@@ -74,3 +74,13 @@ func reshuffle_deck_from_discard() -> void:
 		stats.draw_pile.add_card(stats.discard.draw_card())
 	
 	stats.draw_pile.shuffle()
+
+
+func hand_discarded(hero: Unit) -> void:
+	var current_unit_index = heroes.find(hero)
+	if current_unit_index >= heroes.size()-1:
+		current_unit_index = 0
+	else:
+		current_unit_index += 1
+	
+	start_turn(heroes[current_unit_index])

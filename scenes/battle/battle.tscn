@@ -201,6 +201,11 @@ z_index = 2
 position = Vector2(644, 288)
 stats = ExtResource("5_h0kxc")
 
+[node name="Unit2" parent="TurnManager/Heroes" unique_id=290735960 instance=ExtResource("4_0yh6x")]
+z_index = 2
+position = Vector2(363, 354)
+stats = ExtResource("5_h0kxc")
+
 [node name="Enemies" type="Node2D" parent="TurnManager" unique_id=517229282]
 
 [node name="Unit" parent="TurnManager/Enemies" unique_id=1284714721 instance=ExtResource("4_0yh6x")]

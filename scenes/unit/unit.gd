@@ -6,7 +6,6 @@ extends Area2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
 
-
 var tween: Tween
 var grid_pos: Vector2i : get = get_grid_pos
 

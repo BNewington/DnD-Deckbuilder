@@ -11,7 +11,6 @@
 			"uuid": "2423ce67-e4da-4249-ac01-f44ed597d42e",
 			"title": "Todo",
 			"tasks": [
-				"8f4c0fdc-5915-42a0-9ae6-e823a4c6a46d",
 				"953bce8c-27be-4ae7-b7a4-02b840575c5c"
 			]
 		},
@@ -19,7 +18,8 @@
 			"uuid": "1cd6b437-33c0-475b-81f8-5c77b882de70",
 			"title": "Doing",
 			"tasks": [
-				"f764aa88-e7cd-4a4b-8045-d11463c49e09"
+				"f764aa88-e7cd-4a4b-8045-d11463c49e09",
+				"8f4c0fdc-5915-42a0-9ae6-e823a4c6a46d"
 			]
 		},
 		{
@@ -44,7 +44,12 @@
 			"title": "Turn manager",
 			"description": "keep track of whos turn it is, and call the start and end turn methods of the relevant nodes",
 			"category": "9e594c57-881a-44f4-818f-cf89836dbfc2",
-			"steps": []
+			"steps": [
+				{
+					"details": "initiative",
+					"done": false
+				}
+			]
 		},
 		{
 			"uuid": "f764aa88-e7cd-4a4b-8045-d11463c49e09",
