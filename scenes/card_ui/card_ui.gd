@@ -19,6 +19,7 @@ const ROTATE_SPEED: float = 5.0
 @onready var card_state_machine: CardStateMachine = $CardStateMachine
 @onready var card_area: Area2D = $CardArea
 @onready var targets: Array = []
+@onready var original_index: int = get_index()
 
 var drag_point: Vector2
 var mouse_over: bool

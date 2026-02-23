@@ -12,8 +12,10 @@ const MAX_ROTATION: float = 15.0
 @export var height_curve: Curve
 @export var fan_curve: Curve
 
+var cards_played_this_turn: int = 0
 
 func _ready() -> void:
+	Events.card_played.connect(_on_card_played)
 	for child in get_children():
 		var card_ui: CardUI = child
 		card_ui.reparent_requested.connect(_on_card_ui_reparent_requested)
@@ -23,6 +25,9 @@ func _ready() -> void:
 
 func _on_card_ui_reparent_requested(child: CardUI) -> void:
 	child.reparent(self)
+	var new_index: int = child.original_index - cards_played_this_turn
+	new_index = clampi(new_index, 0, get_child_count())
+	move_child(child, new_index)
 	arrange_hand()
 
 
@@ -63,3 +68,7 @@ func arrange_hand() -> void:
 		
 		var angle = (fan_curve.sample(index))
 		card.hand_rotation = angle * MAX_ROTATION * hand_size_ratio
+
+
+func _on_card_played(_card: Card) -> void:
+	cards_played_this_turn += 1
