@@ -186,7 +186,7 @@ stats = ExtResource("5_h0kxc")
 
 [node name="Unit2" parent="." unique_id=1284714721 instance=ExtResource("4_0yh6x")]
 z_index = 2
-position = Vector2(585, 351)
+position = Vector2(793, 354)
 stats = ExtResource("7_mxe8n")
 
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=1437695468 groups=["ui_layer"]]

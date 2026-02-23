@@ -96,6 +96,14 @@ func get_move_area(start_pos: Vector2i, move_speed: int) -> Array[Vector2i]:
 	return moveable_tiles
 
 
+func get_unit_at_tile(tile: Vector2i) -> Unit:
+	var units = get_tree().get_nodes_in_group("units")
+	for unit in units:
+		if get_tile_coords(unit.global_position) == tile:
+			return unit
+	return null
+
+
 func is_tile_in_bounds(tile: Vector2i) -> bool:
 	var start = grid.region.position
 	var end = grid.region.size + start - Vector2i.ONE

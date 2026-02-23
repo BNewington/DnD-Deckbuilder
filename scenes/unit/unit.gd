@@ -14,12 +14,19 @@ var grid_pos: Vector2i : get = get_grid_pos
 func _ready() -> void:
 	Events.start_battle.connect(start_battle)
 
+
 func start_battle() -> void:
 	global_position = Navigation.snap_to_grid(global_position)
 
 
 func start_turn() -> void:
-	Navigation.set_point_walkable(Navigation.get_tile_coords(global_position))
+	var tile_coords = Navigation.get_tile_coords(global_position)
+	Navigation.set_point_walkable(tile_coords)
+
+
+func end_turn() -> void:
+	var tile_coords = Navigation.get_tile_coords(global_position)
+	Navigation.set_point_solid(tile_coords)
 
 
 func set_stats(value: UnitStats) -> void:
@@ -83,4 +90,9 @@ func take_damage(damage: int) -> void:
 	stats.take_damage(damage)
 	
 	if stats.health <= 0:
-		queue_free()
+		die()
+
+
+func die() -> void:
+	Navigation.set_point_walkable(Navigation.get_tile_coords(global_position))
+	queue_free()
