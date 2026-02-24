@@ -1,13 +1,17 @@
 [gd_resource type="Resource" format=3 uid="uid://b6a1j4bb56tf4"]
 
-[ext_resource type="Texture2D" uid="uid://df2ghty43wprj" path="res://art/units/Red Units/Archer/Arrow.png" id="1_25pj1"]
 [ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="1_s0rm4"]
+[ext_resource type="Texture2D" uid="uid://crs738o0s8uw7" path="res://art/ui/Icons/CardIcons.png" id="2_s0rm4"]
 [ext_resource type="Script" uid="uid://bdsp4qqkgsyer" path="res://units/heroes/warrior/cards/warrior_strike.gd" id="3_s0rm4"]
 
 [sub_resource type="Resource" id="Resource_gf1d0"]
 script = ExtResource("1_s0rm4")
 radius = 5
 metadata/_custom_type_script = "uid://lo410k1w0lof"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gf1d0"]
+atlas = ExtResource("2_s0rm4")
+region = Rect2(256, 320, 64, 64)
 
 [resource]
 script = ExtResource("3_s0rm4")
@@ -16,6 +20,6 @@ name = "Shoot"
 target = 1
 cost = 1
 area = SubResource("Resource_gf1d0")
-icon = ExtResource("1_25pj1")
+icon = SubResource("AtlasTexture_gf1d0")
 description = "Deal 5 damage to a creature within 5 squares"
 metadata/_custom_type_script = "uid://cbhovqi2nk4fe"

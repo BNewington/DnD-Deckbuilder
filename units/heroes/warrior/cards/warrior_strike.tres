@@ -2,13 +2,17 @@
 
 [ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="1_0t6xm"]
 [ext_resource type="Script" uid="uid://bdsp4qqkgsyer" path="res://units/heroes/warrior/cards/warrior_strike.gd" id="1_ldmrk"]
-[ext_resource type="Texture2D" uid="uid://bhipm2h67gkyv" path="res://art/ui/Icons/Icon_05.png" id="1_vxqgb"]
+[ext_resource type="Texture2D" uid="uid://crs738o0s8uw7" path="res://art/ui/Icons/CardIcons.png" id="2_0t6xm"]
 
 [sub_resource type="Resource" id="Resource_08wpx"]
 script = ExtResource("1_0t6xm")
 shape = 1
 radius = 1
 metadata/_custom_type_script = "uid://lo410k1w0lof"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08wpx"]
+atlas = ExtResource("2_0t6xm")
+region = Rect2(0, 0, 64, 64)
 
 [resource]
 script = ExtResource("1_ldmrk")
@@ -17,6 +21,6 @@ name = "Strike"
 target = 1
 cost = 1
 area = SubResource("Resource_08wpx")
-icon = ExtResource("1_vxqgb")
+icon = SubResource("AtlasTexture_08wpx")
 description = "Deal 5 damage to an adjacent creature"
 metadata/_custom_type_script = "uid://cbhovqi2nk4fe"

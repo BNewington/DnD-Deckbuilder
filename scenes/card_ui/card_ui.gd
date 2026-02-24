@@ -84,9 +84,9 @@ func set_playable(value: bool ) -> void:
 	#HACK - should use themes
 	if not playable:
 		energy_cost.modulate = Color(0.988, 0.0, 0.0, 0.62)
-		name_label.modulate = Color(0.0, 0.0, 0.0, 0.5)
-		description.modulate = Color(0.0, 0.0, 0.0, 0.5)
-		icon.modulate = Color(0.0, 0.0, 0.0, 0.5)
+		name_label.modulate = Color(1.0, 1.0, 1.0, 0.5)
+		description.modulate = Color(1.0, 1.0, 1.0, 0.5)
+		icon.modulate = Color(1.0, 1.0, 1.0, 0.5)
 	else:
 		energy_cost.modulate = Color(1.0, 1.0, 1.0, 1.0)
 		name_label.modulate = Color(1.0, 1.0, 1.0, 1.0)

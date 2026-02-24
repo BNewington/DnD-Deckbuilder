@@ -21,8 +21,6 @@
 			"title": "Doing",
 			"tasks": [
 				"f7b20426-fe45-4c7b-9173-55f2e649ba67",
-				"9113bf5d-03ac-4bfa-adb6-fdfda5a4fd6c",
-				"8f4c0fdc-5915-42a0-9ae6-e823a4c6a46d",
 				"a2455cdc-e3f3-4457-b7d9-0381565050b0",
 				"16289962-c6e9-4b93-a124-596a21f559b8"
 			]
@@ -35,7 +33,9 @@
 				"ad50e50e-9527-4877-b33e-ae07f39ec45c",
 				"4ddd3f84-71d4-4b91-868c-dcc9d227169a",
 				"f764aa88-e7cd-4a4b-8045-d11463c49e09",
-				"e81b3489-8cf3-4f90-9cc9-0ab75e39dd1e"
+				"e81b3489-8cf3-4f90-9cc9-0ab75e39dd1e",
+				"9113bf5d-03ac-4bfa-adb6-fdfda5a4fd6c",
+				"8f4c0fdc-5915-42a0-9ae6-e823a4c6a46d"
 			]
 		}
 	],
@@ -55,11 +55,11 @@
 			"steps": [
 				{
 					"details": "initiative",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "call enemies",
-					"done": false
+					"done": true
 				}
 			]
 		},
