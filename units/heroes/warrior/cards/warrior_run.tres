@@ -1,14 +1,18 @@
 [gd_resource type="Resource" format=3 uid="uid://cql3oentr77yy"]
 
 [ext_resource type="Script" uid="uid://cv772it3a7uko" path="res://units/heroes/warrior/cards/warrior_run.gd" id="1_3gyfo"]
-[ext_resource type="Texture2D" uid="uid://dpxx8rsbobjh8" path="res://art/ui/Icons/Icon_08.png" id="1_gsjv4"]
 [ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="1_nhkg1"]
+[ext_resource type="Texture2D" uid="uid://crs738o0s8uw7" path="res://art/ui/Icons/CardIcons.png" id="2_nhkg1"]
 
 [sub_resource type="Resource" id="Resource_cgyjl"]
 script = ExtResource("1_nhkg1")
 radius = 3
 move = true
 metadata/_custom_type_script = "uid://lo410k1w0lof"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgyjl"]
+atlas = ExtResource("2_nhkg1")
+region = Rect2(320, 384, 64, 64)
 
 [resource]
 script = ExtResource("1_3gyfo")
@@ -18,6 +22,6 @@ type = 1
 target = 1
 cost = 1
 area = SubResource("Resource_cgyjl")
-icon = ExtResource("1_gsjv4")
+icon = SubResource("AtlasTexture_cgyjl")
 description = "Move  up to 3 squares"
 metadata/_custom_type_script = "uid://cbhovqi2nk4fe"

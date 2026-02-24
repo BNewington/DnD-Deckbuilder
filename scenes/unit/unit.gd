@@ -8,6 +8,7 @@ extends Area2D
 
 var tween: Tween
 var grid_pos: Vector2i : get = get_grid_pos
+var target_pos: Vector2i
 
 
 func _ready() -> void:
@@ -16,6 +17,7 @@ func _ready() -> void:
 
 func start_battle() -> void:
 	global_position = Navigation.snap_to_grid(global_position)
+	target_pos = grid_pos
 
 
 func start_turn() -> void:
@@ -26,8 +28,8 @@ func start_turn() -> void:
 
 
 func end_turn() -> void:
-	var tile_coords = Navigation.get_tile_coords(global_position)
-	Navigation.set_point_solid(tile_coords)
+	Navigation.set_point_solid(target_pos)
+
 
 
 func set_stats(value: UnitStats) -> void:
@@ -45,6 +47,7 @@ func get_grid_pos() -> Vector2i:
 
 func move_to(target: Vector2i) -> void:
 	var path = Navigation.get_cell_path(Navigation.get_tile_coords(global_position),target)
+	target_pos = path[path.size()-1]
 	if path:
 		path.pop_front()
 		tween = create_tween()
