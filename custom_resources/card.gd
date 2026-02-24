@@ -13,6 +13,7 @@ var unit: Unit
 @export var type: Type
 @export var target: Target
 @export var cost: int
+@export var area: AreaDef
 
 @export_group("Card Visuals")
 @export var icon: Texture
@@ -32,7 +33,7 @@ func does_target_self() -> bool:
 
 
 func get_area() -> Array[Vector2i]:
-	return []
+	return area.get_area(unit.grid_pos)
 
 
 func play(targets: Array) -> void:

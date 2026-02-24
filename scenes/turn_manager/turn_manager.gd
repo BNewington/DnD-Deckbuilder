@@ -6,8 +6,15 @@ const HAND_DISCARD_INTERVAL := 0.25
 
 @export var hand: Hand
 @onready var heroes: Array[Node] = $Heroes.get_children()
+@onready var enemies: Array[Node] = $Enemies.get_children()
 
+var initiative: Array[Node] = []
 var current_unit: Unit
+
+func _ready() -> void:
+	Events.turn_ended.connect(end_turn)
+	Events.hand_discarded.connect(start_next_turn)
+	Events.unit_died.connect(_on_unit_died)
 
 func start_battle() -> void:
 	for hero: Unit in heroes:
@@ -15,8 +22,11 @@ func start_battle() -> void:
 		hero_stats.draw_pile = hero_stats.deck.duplicate(true)
 		hero_stats.draw_pile.shuffle()
 		hero_stats.discard = CardPile.new()
-		
-	start_turn(heroes[0])
+	
+	initiative = heroes + enemies
+	print(initiative)
+	
+	start_turn(initiative[0])
 
 
 func start_turn(unit: Unit) -> void:
@@ -26,12 +36,18 @@ func start_turn(unit: Unit) -> void:
 	if unit.stats is HeroStats:
 		unit.stats.reset_energy()
 		draw_cards(unit.stats)
+	elif unit.stats is EnemyStats:
+		unit.start_turn()
 
 
-func end_turn() -> void:
-	hand.disable_hand()
+func end_turn(unit: Unit) -> void:
+	if unit.stats is HeroStats:
+		hand.disable_hand()
+		discard_cards()
+	elif unit.stats is EnemyStats:
+		start_next_turn(unit)
+	
 	current_unit.end_turn()
-	discard_cards()
 
 
 func draw_card(hero_stats: HeroStats) -> void:
@@ -77,11 +93,19 @@ func reshuffle_deck_from_discard() -> void:
 	stats.draw_pile.shuffle()
 
 
-func hand_discarded(hero: Unit) -> void:
-	var current_unit_index = heroes.find(hero)
-	if current_unit_index >= heroes.size()-1:
+func start_next_turn(unit: Unit) -> void:
+	var current_unit_index = initiative.find(unit)
+	if current_unit_index >= initiative.size()-1:
 		current_unit_index = 0
 	else:
 		current_unit_index += 1
 	
-	start_turn(heroes[current_unit_index])
+	start_turn(initiative[current_unit_index])
+
+
+func _on_unit_died(unit: Unit) -> void:
+	initiative.erase(unit)
+	if unit.stats is EnemyStats:
+		enemies.erase(unit)
+	elif unit.stats is HeroStats:
+		heroes.erase(unit)

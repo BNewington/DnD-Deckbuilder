@@ -123,7 +123,7 @@ func get_shape_tiles(shape:AreaShape, radius: int, origin: Vector2i = Vector2i(0
 		AreaShape.Line:
 			for x in range(radius):
 				var tile = Vector2(x+1,0).rotated(direction * PI/2)
-				tiles.append(Vector2i(tile+origin))
+				tiles.append(Vector2i(tile)+origin)
 				
 		AreaShape.Square:
 			for x in range(size):

@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bwiokfoc1pshs" path="res://scenes/turn_manager/turn_manager.gd" id="4_fisqk"]
 [ext_resource type="Resource" uid="uid://cod0okis1mse4" path="res://units/heroes/warrior/warrior_stats.tres" id="5_h0kxc"]
 [ext_resource type="Script" uid="uid://bgqebmanw1r7q" path="res://scenes/ui/battle_ui.gd" id="7_icoan"]
+[ext_resource type="Resource" uid="uid://cbxcuj1pc0en" path="res://units/heroes/archer/archer_stats.tres" id="7_kd6yx"]
 [ext_resource type="Resource" uid="uid://dp6rk0vbw543i" path="res://units/enemies/torch_goblin/torch_goblin_stats.tres" id="7_mxe8n"]
 [ext_resource type="PackedScene" uid="uid://dq8c5qippudah" path="res://scenes/hand/hand.tscn" id="8_py4tk"]
 [ext_resource type="Texture2D" uid="uid://c1vofgp5mpb4x" path="res://art/ui/Buttons/SmallRedSquareButton_Regular.png" id="12_icoan"]
@@ -204,7 +205,7 @@ stats = ExtResource("5_h0kxc")
 [node name="Unit2" parent="TurnManager/Heroes" unique_id=290735960 instance=ExtResource("4_0yh6x")]
 z_index = 2
 position = Vector2(363, 354)
-stats = ExtResource("5_h0kxc")
+stats = ExtResource("7_kd6yx")
 
 [node name="Enemies" type="Node2D" parent="TurnManager" unique_id=517229282]
 
@@ -229,9 +230,8 @@ unit = NodePath("../TurnManager/Heroes/Unit")
 
 [node name="Cursor" parent="BattleUI" unique_id=1722401909 instance=ExtResource("2_py4tk")]
 
-[node name="Hand" parent="BattleUI" unique_id=187061151 node_paths=PackedStringArray("unit") instance=ExtResource("8_py4tk")]
+[node name="Hand" parent="BattleUI" unique_id=187061151 instance=ExtResource("8_py4tk")]
 position = Vector2(575, 550)
-unit = NodePath("../../TurnManager/Heroes/Unit")
 
 [node name="EnergyUI" parent="BattleUI" unique_id=355186218 instance=ExtResource("12_mxe8n")]
 

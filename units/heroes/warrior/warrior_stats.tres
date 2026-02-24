@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="HeroStats" format=3 uid="uid://cod0okis1mse4"]
 
 [ext_resource type="Script" uid="uid://b2h455v0j7g1r" path="res://custom_resources/hero_stats.gd" id="1_12kjw"]
-[ext_resource type="SpriteFrames" uid="uid://obti0o11v1q8" path="res://units/heroes/warrior/warrior_sprite_frames.tres" id="1_erbxp"]
+[ext_resource type="SpriteFrames" uid="uid://uygldnl4olut" path="res://units/heroes/warrior/warrior_sprite_frames.tres" id="1_erbxp"]
 [ext_resource type="Resource" uid="uid://5kb6ih8cdsr3" path="res://units/heroes/warrior/warior_starting_deck.tres" id="3_2b6wb"]
 
 [resource]

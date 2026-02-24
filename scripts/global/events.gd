@@ -19,6 +19,8 @@ signal hide_tile_selector
 ##Battle Signals
 signal start_battle
 signal start_turn(Unit)
+signal turn_ended(hero: Unit)
+signal unit_died(unit: Unit)
 
 
 ##Card Signals
@@ -34,4 +36,3 @@ signal card_played(card: Card)
 ##Hero Signals
 signal hand_drawn
 signal hand_discarded(hero: Unit)
-signal hero_turn_ended(hero: Unit)

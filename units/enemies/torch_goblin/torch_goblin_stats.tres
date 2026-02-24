@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://dp6rk0vbw543i"]
+[gd_resource type="Resource" format=3 uid="uid://dp6rk0vbw543i"]
 
 [ext_resource type="SpriteFrames" uid="uid://cybyjmlaqh0vy" path="res://units/enemies/torch_goblin/torch_goblin_sprite_frames.tres" id="1_64dry"]
-[ext_resource type="Script" uid="uid://coi4vc2y45mc6" path="res://custom_resources/enemy_stats.gd" id="2_5ai7e"]
+[ext_resource type="Script" uid="uid://b0wqyft7ri3qt" path="res://units/enemies/torch_goblin/toch_goblin.gd" id="2_64dry"]
 
 [resource]
-script = ExtResource("2_5ai7e")
+script = ExtResource("2_64dry")
 name = "torch_goblin"
 frames = ExtResource("1_64dry")
 max_health = 10

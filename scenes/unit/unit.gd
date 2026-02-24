@@ -21,6 +21,8 @@ func start_battle() -> void:
 func start_turn() -> void:
 	var tile_coords = Navigation.get_tile_coords(global_position)
 	Navigation.set_point_walkable(tile_coords)
+	if stats is EnemyStats:
+		stats.start_turn(self)
 
 
 func end_turn() -> void:
@@ -94,4 +96,5 @@ func take_damage(damage: int) -> void:
 
 func die() -> void:
 	Navigation.set_point_walkable(Navigation.get_tile_coords(global_position))
+	Events.unit_died.emit(self)
 	queue_free()

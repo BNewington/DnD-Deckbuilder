@@ -21,6 +21,7 @@ var cards_played_this_turn: int = 0
 
 func _ready() -> void:
 	Events.card_played.connect(_on_card_played)
+	Events.turn_ended.connect(_on_turn_ended)
 	arrange_hand()
 
 
@@ -88,3 +89,7 @@ func arrange_hand() -> void:
 
 func _on_card_played(_card: Card) -> void:
 	cards_played_this_turn += 1
+
+
+func _on_turn_ended(hero: Unit) -> void:
+	cards_played_this_turn = 0

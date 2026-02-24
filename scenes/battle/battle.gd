@@ -4,8 +4,6 @@ extends Node2D
 @onready var ground_tiles: TileMapLayer = %GroundTiles
 
 func _ready() -> void:
-	Events.hero_turn_ended.connect(turn_manager.end_turn)
-	Events.hand_discarded.connect(turn_manager.hand_discarded)
 	start_battle()
 
 

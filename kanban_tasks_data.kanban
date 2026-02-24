@@ -11,15 +11,20 @@
 			"uuid": "2423ce67-e4da-4249-ac01-f44ed597d42e",
 			"title": "Todo",
 			"tasks": [
-				"953bce8c-27be-4ae7-b7a4-02b840575c5c"
+				"953bce8c-27be-4ae7-b7a4-02b840575c5c",
+				"ed48aff8-f0b0-4f15-99cd-959fb4b246c0",
+				"aca1fcad-c13b-4aa9-8b28-313f5401a6b7"
 			]
 		},
 		{
 			"uuid": "1cd6b437-33c0-475b-81f8-5c77b882de70",
 			"title": "Doing",
 			"tasks": [
-				"f764aa88-e7cd-4a4b-8045-d11463c49e09",
-				"8f4c0fdc-5915-42a0-9ae6-e823a4c6a46d"
+				"f7b20426-fe45-4c7b-9173-55f2e649ba67",
+				"9113bf5d-03ac-4bfa-adb6-fdfda5a4fd6c",
+				"8f4c0fdc-5915-42a0-9ae6-e823a4c6a46d",
+				"a2455cdc-e3f3-4457-b7d9-0381565050b0",
+				"16289962-c6e9-4b93-a124-596a21f559b8"
 			]
 		},
 		{
@@ -27,7 +32,10 @@
 			"title": "Done",
 			"tasks": [
 				"5ce4b706-19b0-4b0d-9ac1-7b04ab23d7c9",
-				"ad50e50e-9527-4877-b33e-ae07f39ec45c"
+				"ad50e50e-9527-4877-b33e-ae07f39ec45c",
+				"4ddd3f84-71d4-4b91-868c-dcc9d227169a",
+				"f764aa88-e7cd-4a4b-8045-d11463c49e09",
+				"e81b3489-8cf3-4f90-9cc9-0ab75e39dd1e"
 			]
 		}
 	],
@@ -48,6 +56,10 @@
 				{
 					"details": "initiative",
 					"done": false
+				},
+				{
+					"details": "call enemies",
+					"done": false
 				}
 			]
 		},
@@ -67,7 +79,7 @@
 				},
 				{
 					"details": "Make played cards go to discard pile",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Draw cards at the start of a turn",
@@ -86,6 +98,62 @@
 			"uuid": "953bce8c-27be-4ae7-b7a4-02b840575c5c",
 			"title": "connect card ui to card hovered signal",
 			"description": "to disable a card when a card other than itself is being hovered",
+			"category": "9e594c57-881a-44f4-818f-cf89836dbfc2",
+			"steps": []
+		},
+		{
+			"uuid": "ed48aff8-f0b0-4f15-99cd-959fb4b246c0",
+			"title": "Fix bug where wrong tile is set to solid when the turn ends while moving",
+			"description": "easy fix: lock end turn button until move is complete",
+			"category": "9e594c57-881a-44f4-818f-cf89836dbfc2",
+			"steps": []
+		},
+		{
+			"uuid": "4ddd3f84-71d4-4b91-868c-dcc9d227169a",
+			"title": "archer character",
+			"description": "",
+			"category": "9e594c57-881a-44f4-818f-cf89836dbfc2",
+			"steps": []
+		},
+		{
+			"uuid": "f7b20426-fe45-4c7b-9173-55f2e649ba67",
+			"title": "enemy ai",
+			"description": "basic ai, does the same thing every turn - moves to nearest hero and attacks it",
+			"category": "9e594c57-881a-44f4-818f-cf89836dbfc2",
+			"steps": []
+		},
+		{
+			"uuid": "9113bf5d-03ac-4bfa-adb6-fdfda5a4fd6c",
+			"title": "current turn  indicator",
+			"description": "",
+			"category": "9e594c57-881a-44f4-818f-cf89836dbfc2",
+			"steps": []
+		},
+		{
+			"uuid": "e81b3489-8cf3-4f90-9cc9-0ab75e39dd1e",
+			"title": "make enemies print out when its their turn",
+			"description": "",
+			"category": "9e594c57-881a-44f4-818f-cf89836dbfc2",
+			"steps": []
+		},
+		{
+			"uuid": "a2455cdc-e3f3-4457-b7d9-0381565050b0",
+			"title": "make enemies decide what to do and print out their decision",
+			"description": "",
+			"category": "9e594c57-881a-44f4-818f-cf89836dbfc2",
+			"steps": []
+		},
+		{
+			"uuid": "16289962-c6e9-4b93-a124-596a21f559b8",
+			"title": "actually do the thing",
+			"description": "",
+			"category": "9e594c57-881a-44f4-818f-cf89836dbfc2",
+			"steps": []
+		},
+		{
+			"uuid": "aca1fcad-c13b-4aa9-8b28-313f5401a6b7",
+			"title": "disable cards while they're being drawn",
+			"description": "",
 			"category": "9e594c57-881a-44f4-818f-cf89836dbfc2",
 			"steps": []
 		}

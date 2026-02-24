@@ -30,6 +30,7 @@ func set_unit(value: Unit) -> void:
 
 
 func turn_started(current_unit: Unit) -> void:
+	end_turn_button.disabled = true
 	unit = current_unit
 
 
@@ -39,7 +40,7 @@ func _on_hand_drawn() -> void:
 
 func _on_end_turn_button_pressed() -> void:
 	end_turn_button.disabled = true
-	Events.hero_turn_ended.emit()
+	Events.turn_ended.emit(unit)
 
 
 func _on_card_aiming_started(_card_ui: CardUI, _area: Array[Vector2i]) -> void:

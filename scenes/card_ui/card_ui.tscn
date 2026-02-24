@@ -86,8 +86,10 @@ offset_right = 45.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/default_color = Color(0.31431612, 0.31431612, 0.3143161, 1)
+theme_override_constants/line_separation = -6
 theme_override_font_sizes/normal_font_size = 12
-text = "test"
+text = "test
+test"
 horizontal_alignment = 1
 
 [node name="CardArea" type="Area2D" parent="." unique_id=609950188]
