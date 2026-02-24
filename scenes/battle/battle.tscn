@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://cbxcuj1pc0en" path="res://units/heroes/archer/archer_stats.tres" id="7_kd6yx"]
 [ext_resource type="Resource" uid="uid://dp6rk0vbw543i" path="res://units/enemies/torch_goblin/torch_goblin_stats.tres" id="7_mxe8n"]
 [ext_resource type="PackedScene" uid="uid://dq8c5qippudah" path="res://scenes/hand/hand.tscn" id="8_py4tk"]
+[ext_resource type="Texture2D" uid="uid://ufqfkdc3ktgr" path="res://art/tileset/tile_highlight.png" id="9_t1kk3"]
 [ext_resource type="Texture2D" uid="uid://c1vofgp5mpb4x" path="res://art/ui/Buttons/SmallRedSquareButton_Regular.png" id="12_icoan"]
 [ext_resource type="PackedScene" uid="uid://s3e6r400eqcu" path="res://scenes/ui/energy_ui.tscn" id="12_mxe8n"]
 [ext_resource type="Texture2D" uid="uid://drycruw7uqan2" path="res://art/ui/Buttons/SmallRedSquareButton_Pressed.png" id="13_kd6yx"]
@@ -194,6 +195,11 @@ cursor = NodePath("../BattleUI/Cursor")
 [node name="TurnManager" type="Node2D" parent="." unique_id=76866969 node_paths=PackedStringArray("hand")]
 script = ExtResource("4_fisqk")
 hand = NodePath("../BattleUI/Hand")
+
+[node name="CurrentTurnIndicator" type="Sprite2D" parent="TurnManager" unique_id=973583481]
+modulate = Color(1, 1, 1, 0.5176471)
+position = Vector2(668, 289)
+texture = ExtResource("9_t1kk3")
 
 [node name="Heroes" type="Node2D" parent="TurnManager" unique_id=47643169]
 
