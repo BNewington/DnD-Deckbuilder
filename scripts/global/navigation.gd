@@ -13,6 +13,11 @@ enum Direction {
 	Up
 }
 
+enum UnitType {
+	Enemy,
+	Hero
+}
+
 @onready var tilemap: TileMapLayer : set = _set_tilemap
 
 var grid: AStarGrid2D
@@ -102,6 +107,32 @@ func get_unit_at_tile(tile: Vector2i) -> Unit:
 		if get_tile_coords(unit.global_position) == tile:
 			return unit
 	return null
+
+
+func get_nearest(position: Vector2i, type: UnitType) -> Array[Unit]:
+	var nearest: Array[Unit]
+	var units: Array[Node]
+	match type:
+		UnitType.Enemy:
+			units = get_tree().get_nodes_in_group("enemies")
+		UnitType.Hero:
+			units = get_tree().get_nodes_in_group("heroes")
+	
+	for unit in units:
+		if nearest.size() == 0:
+			nearest = [unit]
+		else:
+			var unit_position = get_tile_coords(unit.global_position)
+			var nearest_position = get_tile_coords(nearest[0].global_position)
+			var distance_to_unit = max(abs(position.x-unit_position.x),abs(position.y-unit_position.y))
+			var distance_to_nearest = max(abs(position.x-nearest_position.x),abs(position.y-nearest_position.y))
+
+			if distance_to_unit < distance_to_nearest:
+				nearest = [unit]
+			elif distance_to_unit == distance_to_nearest:
+				nearest.append(unit)
+				
+	return nearest
 
 
 func is_tile_in_bounds(tile: Vector2i) -> bool:
