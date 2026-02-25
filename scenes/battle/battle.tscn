@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://bwiokfoc1pshs" path="res://scenes/turn_manager/turn_manager.gd" id="4_fisqk"]
 [ext_resource type="Resource" uid="uid://cod0okis1mse4" path="res://units/heroes/warrior/warrior_stats.tres" id="5_h0kxc"]
 [ext_resource type="Script" uid="uid://bgqebmanw1r7q" path="res://scenes/ui/battle_ui.gd" id="7_icoan"]
-[ext_resource type="Resource" uid="uid://cbxcuj1pc0en" path="res://units/heroes/archer/archer_stats.tres" id="7_kd6yx"]
 [ext_resource type="Resource" uid="uid://dp6rk0vbw543i" path="res://units/enemies/torch_goblin/torch_goblin_stats.tres" id="7_mxe8n"]
 [ext_resource type="PackedScene" uid="uid://dq8c5qippudah" path="res://scenes/hand/hand.tscn" id="8_py4tk"]
 [ext_resource type="Texture2D" uid="uid://ufqfkdc3ktgr" path="res://art/tileset/tile_highlight.png" id="9_t1kk3"]
@@ -208,16 +207,11 @@ z_index = 2
 position = Vector2(644, 288)
 stats = ExtResource("5_h0kxc")
 
-[node name="Unit2" parent="TurnManager/Heroes" unique_id=290735960 instance=ExtResource("4_0yh6x")]
-z_index = 2
-position = Vector2(363, 354)
-stats = ExtResource("7_kd6yx")
-
 [node name="Enemies" type="Node2D" parent="TurnManager" unique_id=517229282]
 
 [node name="Unit" parent="TurnManager/Enemies" unique_id=1284714721 groups=["enemies"] instance=ExtResource("4_0yh6x")]
 z_index = 2
-position = Vector2(505, 250)
+position = Vector2(934, 347)
 stats = ExtResource("7_mxe8n")
 
 [node name="Unit2" parent="TurnManager/Enemies" unique_id=746720089 instance=ExtResource("4_0yh6x")]

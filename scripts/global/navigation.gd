@@ -58,6 +58,13 @@ func remove_unit_tiles_from_grid() -> void:
 		grid.set_point_solid(unit_pos)
 
 
+func set_units_solid(type: UnitType, is_solid: bool = true) -> void:
+	var units: Array[Node] = get_units(type)
+	for unit in units:
+		var unit_pos = get_tile_coords(unit.global_position)
+		grid.set_point_solid(unit_pos,is_solid)
+
+
 func set_point_solid(point: Vector2i) -> void:
 	grid.set_point_solid(point)
 
@@ -158,7 +165,6 @@ func find_closest_tiles(position: Vector2i, tiles: Array[Vector2i]) -> Array[Vec
 		var distance_to_tile = len(path)
 		if nearest.size() > 0:
 			distance_to_nearest = len(grid.get_id_path(position,nearest[0]))
-		
 		if distance_to_tile < distance_to_nearest and distance_to_tile != 0:
 			nearest = [tile]
 		elif distance_to_tile == distance_to_nearest and distance_to_tile != 0:

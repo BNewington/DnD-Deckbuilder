@@ -22,4 +22,5 @@ func filter_tiles(_unit: Unit, tiles: Array[Vector2i]) -> Array[Vector2i]:
 				if current_tile == tile:
 					filtered_tiles.append(current_tile)
 	
+	print(filtered_tiles)
 	return filtered_tiles
