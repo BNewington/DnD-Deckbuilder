@@ -3,7 +3,6 @@ extends MovePriority
 
 
 func filter_tiles(_unit: Unit, tiles: Array[Vector2i]) -> Array[Vector2i]:
-	print("filtering tiles for closest to hero: ",tiles)
 	var heroes = Navigation.get_units(Navigation.UnitType.Hero)
 	var closest_tiles: Dictionary = {}
 	Navigation.set_units_solid(Navigation.UnitType.Hero,false)
@@ -26,7 +25,7 @@ func filter_tiles(_unit: Unit, tiles: Array[Vector2i]) -> Array[Vector2i]:
 	
 	
 	var keys = closest_tiles.keys()
-	if keys.max() == 999:
+	if len(keys) == 1 and keys.max() == 999:
 		return tiles
 	else:
 		return closest_tiles[keys.min()]
