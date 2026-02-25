@@ -15,7 +15,8 @@ enum Direction {
 
 enum UnitType {
 	Enemy,
-	Hero
+	Hero,
+	Any
 }
 
 @onready var tilemap: TileMapLayer : set = _set_tilemap
@@ -109,6 +110,18 @@ func get_unit_at_tile(tile: Vector2i) -> Unit:
 	return null
 
 
+func get_units(type: UnitType) -> Array[Node]:
+	var units: Array[Node]
+	match type:
+		UnitType.Enemy:
+			units = get_tree().get_nodes_in_group("enemies")
+		UnitType.Hero:
+			units = get_tree().get_nodes_in_group("heroes")
+		UnitType.Any:
+			units = get_tree().get_nodes_in_group("units")
+	return units
+
+
 func get_nearest(position: Vector2i, type: UnitType) -> Array[Unit]:
 	var nearest: Array[Unit]
 	var units: Array[Node]
@@ -117,6 +130,8 @@ func get_nearest(position: Vector2i, type: UnitType) -> Array[Unit]:
 			units = get_tree().get_nodes_in_group("enemies")
 		UnitType.Hero:
 			units = get_tree().get_nodes_in_group("heroes")
+		UnitType.Any:
+			units = get_tree().get_nodes_in_group("units")
 	
 	for unit in units:
 		if nearest.size() == 0:
@@ -143,6 +158,10 @@ func is_tile_in_bounds(tile: Vector2i) -> bool:
 		return false
 		
 	return true
+
+
+func get_all_tiles() -> Array[Vector2i]:
+	return tilemap.get_used_cells()
 
 
 ##Returns an array containing the coordinates of all tiles in the defined area
