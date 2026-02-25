@@ -35,6 +35,8 @@ mouse=""
 ui_layer=""
 card_drop_area=""
 units=""
+heroes=""
+enemies=""
 
 [input]
 

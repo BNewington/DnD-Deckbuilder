@@ -203,7 +203,7 @@ texture = ExtResource("9_t1kk3")
 
 [node name="Heroes" type="Node2D" parent="TurnManager" unique_id=47643169]
 
-[node name="Unit" parent="TurnManager/Heroes" unique_id=1343511653 instance=ExtResource("4_0yh6x")]
+[node name="Unit" parent="TurnManager/Heroes" unique_id=1343511653 groups=["heroes"] instance=ExtResource("4_0yh6x")]
 z_index = 2
 position = Vector2(644, 288)
 stats = ExtResource("5_h0kxc")
@@ -215,7 +215,7 @@ stats = ExtResource("7_kd6yx")
 
 [node name="Enemies" type="Node2D" parent="TurnManager" unique_id=517229282]
 
-[node name="Unit" parent="TurnManager/Enemies" unique_id=1284714721 instance=ExtResource("4_0yh6x")]
+[node name="Unit" parent="TurnManager/Enemies" unique_id=1284714721 groups=["enemies"] instance=ExtResource("4_0yh6x")]
 z_index = 2
 position = Vector2(498, 408)
 stats = ExtResource("7_mxe8n")

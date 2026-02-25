@@ -28,6 +28,10 @@ func start_battle() -> void:
 		hero_stats.draw_pile = hero_stats.deck.duplicate(true)
 		hero_stats.draw_pile.shuffle()
 		hero_stats.discard = CardPile.new()
+		hero.add_to_group("heroes")
+		
+	for enemy: Unit in enemies:
+		enemy.add_to_group("enemies")
 	
 	initiative = heroes + enemies
 	print(initiative)
