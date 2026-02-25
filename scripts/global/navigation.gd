@@ -150,6 +150,24 @@ func get_nearest(position: Vector2i, type: UnitType) -> Array[Unit]:
 	return nearest
 
 
+func find_closest_tiles(position: Vector2i, tiles: Array[Vector2i]) -> Array[Vector2i]:
+	var nearest: Array[Vector2i] = []
+	for tile in tiles:
+		var distance_to_nearest = 999
+		var path = grid.get_id_path(position,tile)
+		var distance_to_tile = len(path)
+		if nearest.size() > 0:
+			distance_to_nearest = len(grid.get_id_path(position,nearest[0]))
+		
+		if distance_to_tile < distance_to_nearest and distance_to_tile != 0:
+			nearest = [tile]
+		elif distance_to_tile == distance_to_nearest and distance_to_tile != 0:
+			nearest.append(tile)
+				
+	return nearest
+
+
+
 func is_tile_in_bounds(tile: Vector2i) -> bool:
 	var start = grid.region.position
 	var end = grid.region.size + start - Vector2i.ONE

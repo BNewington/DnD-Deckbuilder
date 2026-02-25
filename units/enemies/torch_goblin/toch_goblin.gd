@@ -3,9 +3,10 @@ extends EnemyStats
 
 func start_turn(unit: Unit):
 	print(name," turn started")
-	await unit.get_tree().create_timer(2).timeout
+	await unit.get_tree().create_timer(1).timeout
 	var pos = Navigation.get_tile_coords(unit.global_position)
-	print(Navigation.get_nearest(pos,Navigation.UnitType.Hero))
+	print("target tiles: ",find_target_tiles(unit))
+	unit.move_to(find_target_tiles(unit)[0])
+	await unit.get_tree().create_timer(1).timeout
 	print(name," turn over")
-	print(move_priorities[0].filter_tiles(Navigation.get_all_tiles()))
 	Events.turn_ended.emit(unit)

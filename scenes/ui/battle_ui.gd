@@ -9,7 +9,6 @@ extends CanvasLayer
 
 
 func _ready() -> void:
-	print(hand)
 	Events.start_turn.connect(turn_started)
 	Events.hand_drawn.connect(_on_hand_drawn)
 	Events.card_aiming_started.connect(_on_card_aiming_started)

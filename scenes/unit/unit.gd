@@ -27,6 +27,7 @@ func start_turn() -> void:
 		stats.start_turn(self)
 
 
+
 func end_turn() -> void:
 	Navigation.set_point_solid(target_pos)
 

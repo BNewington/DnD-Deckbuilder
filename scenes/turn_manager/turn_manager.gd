@@ -34,7 +34,6 @@ func start_battle() -> void:
 		enemy.add_to_group("enemies")
 	
 	initiative = heroes + enemies
-	print(initiative)
 	
 	start_turn(initiative[0])
 
@@ -51,13 +50,12 @@ func start_turn(unit: Unit) -> void:
 
 
 func end_turn(unit: Unit) -> void:
+	current_unit.end_turn()
 	if unit.stats is HeroStats:
 		hand.disable_hand()
 		discard_cards()
 	elif unit.stats is EnemyStats:
 		start_next_turn(unit)
-	
-	current_unit.end_turn()
 
 
 func draw_card(hero_stats: HeroStats) -> void:
