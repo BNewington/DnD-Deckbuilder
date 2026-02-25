@@ -156,6 +156,13 @@
 			"description": "",
 			"category": "9e594c57-881a-44f4-818f-cf89836dbfc2",
 			"steps": []
+		},
+		{
+			"uuid": "519e663f-b8f2-4499-a81f-b45f15e5c6bf",
+			"title": "make enemies still try to pathfind if they can't reach",
+			"description": "",
+			"category": "9e594c57-881a-44f4-818f-cf89836dbfc2",
+			"steps": []
 		}
 	],
 	"layout": {
