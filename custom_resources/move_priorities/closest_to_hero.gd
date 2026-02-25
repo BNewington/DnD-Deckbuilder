@@ -21,7 +21,7 @@ func filter_tiles(_unit: Unit, tiles: Array[Vector2i]) -> Array[Vector2i]:
 		else:
 			closest_tiles[distance_to_tiles] = closest_tiles_to_hero
 	
-	Navigation.set_units_solid(Navigation.UnitType.Hero,false)
+	Navigation.set_units_solid(Navigation.UnitType.Hero)
 	
 	
 	var keys = closest_tiles.keys()

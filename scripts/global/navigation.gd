@@ -117,7 +117,15 @@ func get_unit_at_tile(tile: Vector2i) -> Unit:
 	return null
 
 
-func get_units(type: UnitType) -> Array[Node]:
+func get_walkable_tiles(tiles: Array[Vector2i]) -> Array[Vector2i]:
+	var walkable_tiles: Array[Vector2i] = []
+	for tile in tiles:
+		if not grid.is_point_solid(tile):
+			walkable_tiles.append(tile)
+	return walkable_tiles
+
+
+func get_units(type: UnitType = UnitType.Any) -> Array[Node]:
 	var units: Array[Node]
 	match type:
 		UnitType.Enemy:
