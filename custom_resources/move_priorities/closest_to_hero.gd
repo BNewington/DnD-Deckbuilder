@@ -15,9 +15,8 @@ func filter_tiles(_unit: Unit, tiles: Array[Vector2i]) -> Array[Vector2i]:
 			distance_to_tiles = 999
 		else:
 			distance_to_tiles = len(Navigation.get_cell_path(closest_tiles_to_hero[0],hero_pos))
-		
 		if distance_to_tiles in closest_tiles.keys():
-			closest_tiles[distance_to_tiles].append(closest_tiles_to_hero)
+			closest_tiles[distance_to_tiles] += closest_tiles_to_hero
 		else:
 			closest_tiles[distance_to_tiles] = closest_tiles_to_hero
 	
