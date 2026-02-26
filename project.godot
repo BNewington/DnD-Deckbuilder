@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Events="*uid://dojnbab0wto22"
 Navigation="*uid://b8g802but8xhh"
 SignalLens="*uid://85rkx60vm7a7"
+DevConsole="*uid://ccoijpiv8l45j"
 
 [display]
 
@@ -27,7 +28,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/signal_lens/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/dev-console/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/signal_lens/plugin.cfg")
 
 [global_group]
 

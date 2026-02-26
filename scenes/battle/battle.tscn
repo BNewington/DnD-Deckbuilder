@@ -222,12 +222,12 @@ stats = ExtResource("7_mxe8n")
 
 [node name="Unit2" parent="TurnManager/Enemies" unique_id=746720089 instance=ExtResource("4_0yh6x")]
 z_index = 2
-position = Vector2(491, 395)
+position = Vector2(221, 471)
 stats = ExtResource("7_mxe8n")
 
 [node name="Unit3" parent="TurnManager/Enemies" unique_id=1575500553 instance=ExtResource("4_0yh6x")]
 z_index = 2
-position = Vector2(663, 409)
+position = Vector2(482, 156)
 stats = ExtResource("7_mxe8n")
 
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=1437695468 node_paths=PackedStringArray("unit") groups=["ui_layer"]]
