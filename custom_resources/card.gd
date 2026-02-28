@@ -13,11 +13,14 @@ var unit: Unit
 @export var type: Type
 @export var target: Target
 @export var cost: int
-@export var area: AreaDef
+
+@export var target_selectors: Array[AreaDef]
 
 @export_group("Card Visuals")
 @export var icon: Texture
 @export_multiline var description: String
+
+var last_selected_tile: Vector2i
 
 
 func does_target_square() -> bool:
@@ -32,16 +35,27 @@ func does_target_self() -> bool:
 	return target == Target.SELF
 
 
-func get_area() -> Array[Vector2i]:
-	return area.get_area(unit.grid_pos)
+func get_area(area_id: int) -> Array[Vector2i]:
+	var area: AreaDef = target_selectors[area_id]
+	match area.origin_type:
+		AreaDef.OriginType.UNIT:
+			return area.get_area(unit.grid_pos)
+		AreaDef.OriginType.LAST_SELECTED_TILE:
+			return area.get_area(last_selected_tile)
+		_:
+			return []
 
 
-func play(targets: Array) -> void:
+func play() -> void:
 	Events.card_played.emit(self)
 	unit.stats.energy -= cost
 	unit.stats.discard.add_card(self)
-	execute(targets)
 
 
-func execute(targets: Array) -> void:
+func area_selected(area_id: int, tile: Vector2i) -> void:
+	last_selected_tile = tile
+	execute(area_id, [tile])
+
+
+func execute(area_id: int, targets: Array) -> void:
 	print("executed effect at target(s): %s"%targets)

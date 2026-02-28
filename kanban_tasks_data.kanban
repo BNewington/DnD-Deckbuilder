@@ -12,13 +12,16 @@
 			"title": "Todo",
 			"tasks": [
 				"953bce8c-27be-4ae7-b7a4-02b840575c5c",
-				"aca1fcad-c13b-4aa9-8b28-313f5401a6b7"
+				"aca1fcad-c13b-4aa9-8b28-313f5401a6b7",
+				"84f0fe65-c331-49ed-850f-dc8fd2f5197a"
 			]
 		},
 		{
 			"uuid": "1cd6b437-33c0-475b-81f8-5c77b882de70",
 			"title": "Doing",
-			"tasks": []
+			"tasks": [
+				"12f81f4e-2588-4c97-a0c0-b79bec000d02"
+			]
 		},
 		{
 			"uuid": "bba8dcdb-85ca-4110-8ae3-dcb9d9ca65f6",
@@ -159,6 +162,27 @@
 		{
 			"uuid": "519e663f-b8f2-4499-a81f-b45f15e5c6bf",
 			"title": "make enemies still try to pathfind if they can't reach",
+			"description": "",
+			"category": "9e594c57-881a-44f4-818f-cf89836dbfc2",
+			"steps": []
+		},
+		{
+			"uuid": "84f0fe65-c331-49ed-850f-dc8fd2f5197a",
+			"title": "effects system",
+			"description": "",
+			"category": "9e594c57-881a-44f4-818f-cf89836dbfc2",
+			"steps": []
+		},
+		{
+			"uuid": "12f81f4e-2588-4c97-a0c0-b79bec000d02",
+			"title": "multiple selections",
+			"description": "",
+			"category": "9e594c57-881a-44f4-818f-cf89836dbfc2",
+			"steps": []
+		},
+		{
+			"uuid": "66781daa-64fe-4977-8397-3582a080ab1f",
+			"title": "New task",
 			"description": "",
 			"category": "9e594c57-881a-44f4-818f-cf89836dbfc2",
 			"steps": []

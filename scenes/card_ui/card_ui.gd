@@ -145,5 +145,5 @@ func animate_to_position(new_position: Vector2, duration: float) -> void:
 
 
 func play() -> void:
-	card.play(targets)
+	card.play()
 	queue_free()

@@ -4,8 +4,9 @@
 [ext_resource type="Script" uid="uid://bwhee2d1ya1p1" path="res://custom_resources/card_pile.gd" id="2_neqyc"]
 [ext_resource type="Resource" uid="uid://cql3oentr77yy" path="res://units/heroes/warrior/cards/warrior_run.tres" id="2_tr4oi"]
 [ext_resource type="Resource" uid="uid://cxn8jc3q4tmel" path="res://units/heroes/warrior/cards/warrior_strike.tres" id="3_tr4oi"]
+[ext_resource type="Resource" uid="uid://c33w52ttkssjg" path="res://units/heroes/warrior/cards/warrior_hit_and_run.tres" id="4_yibek"]
 
 [resource]
 script = ExtResource("2_neqyc")
-cards = Array[ExtResource("1_axlu1")]([ExtResource("2_tr4oi"), ExtResource("2_tr4oi"), ExtResource("2_tr4oi"), ExtResource("2_tr4oi"), ExtResource("2_tr4oi"), ExtResource("3_tr4oi"), ExtResource("3_tr4oi"), ExtResource("3_tr4oi"), ExtResource("3_tr4oi"), ExtResource("3_tr4oi")])
+cards = Array[ExtResource("1_axlu1")]([ExtResource("2_tr4oi"), ExtResource("2_tr4oi"), ExtResource("2_tr4oi"), ExtResource("2_tr4oi"), ExtResource("3_tr4oi"), ExtResource("3_tr4oi"), ExtResource("3_tr4oi"), ExtResource("4_yibek"), ExtResource("4_yibek"), ExtResource("4_yibek")])
 metadata/_custom_type_script = "uid://bwhee2d1ya1p1"

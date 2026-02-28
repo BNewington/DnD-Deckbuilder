@@ -1,0 +1,33 @@
+[gd_resource type="Resource" format=3 uid="uid://c33w52ttkssjg"]
+
+[ext_resource type="Script" uid="uid://dufv1jyhgt5mj" path="res://units/heroes/warrior/cards/warrior_hit_and_run.gd" id="1_6yfbx"]
+[ext_resource type="Texture2D" uid="uid://crs738o0s8uw7" path="res://art/ui/Icons/CardIcons.png" id="1_23b1h"]
+[ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="2_23b1h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q7sj"]
+atlas = ExtResource("1_23b1h")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="Resource" id="Resource_23b1h"]
+script = ExtResource("2_23b1h")
+shape = 1
+radius = 1
+metadata/_custom_type_script = "uid://lo410k1w0lof"
+
+[sub_resource type="Resource" id="Resource_5q7sj"]
+script = ExtResource("2_23b1h")
+shape = 1
+radius = 2
+move = true
+metadata/_custom_type_script = "uid://lo410k1w0lof"
+
+[resource]
+script = ExtResource("1_6yfbx")
+id = "warrior_hit_and_run"
+name = "Hit & Run"
+target = 1
+cost = 1
+target_selectors = Array[ExtResource("2_23b1h")]([SubResource("Resource_23b1h"), SubResource("Resource_5q7sj")])
+icon = SubResource("AtlasTexture_5q7sj")
+description = "Deal 4 damage, then move 2 squares"
+metadata/_custom_type_script = "uid://cbhovqi2nk4fe"

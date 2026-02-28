@@ -1,5 +1,5 @@
 extends Card
 
 
-func execute(targets: Array) -> void:
+func execute(area_id: int, targets: Array) -> void:
 	unit.move_to(targets[0])

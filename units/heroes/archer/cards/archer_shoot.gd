@@ -1,5 +1,5 @@
 extends Card
 
 
-func get_area() -> Array[Vector2i]:
+func get_area(area: int) -> Array[Vector2i]:
 	return []

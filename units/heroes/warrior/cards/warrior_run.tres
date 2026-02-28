@@ -14,6 +14,12 @@ metadata/_custom_type_script = "uid://lo410k1w0lof"
 atlas = ExtResource("2_nhkg1")
 region = Rect2(320, 384, 64, 64)
 
+[sub_resource type="Resource" id="Resource_nhkg1"]
+script = ExtResource("1_nhkg1")
+radius = 3
+move = true
+metadata/_custom_type_script = "uid://lo410k1w0lof"
+
 [resource]
 script = ExtResource("1_3gyfo")
 id = "warrior_run"
@@ -21,6 +27,7 @@ name = "Run"
 type = 1
 target = 1
 cost = 1
+target_selectors = Array[ExtResource("1_nhkg1")]([SubResource("Resource_nhkg1")])
 area = SubResource("Resource_cgyjl")
 icon = SubResource("AtlasTexture_cgyjl")
 description = "Move  up to 3 squares"
