@@ -38,13 +38,15 @@ func on_input(event: InputEvent) -> void:
 	var mouse_over_area: bool = selected_tile in area
 	
 	if event.is_action_pressed("right_mouse"):
+		if current_area > 0:
+			transition_requested.emit(self, State.RELEASED)
 		transition_requested.emit(self, State.BASE)
 	
 	elif mouse_over_area:
 		Events.show_tile_selector.emit()
 		if event.is_action_pressed("left_mouse"):
+			card_ui.targets.append(selected_tile)
 			if current_area == num_areas:
-				card_ui.targets.append(selected_tile)
 				transition_requested.emit(self, State.RELEASED)
 			aiming_selected(selected_tile)
 	else:

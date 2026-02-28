@@ -1,7 +1,7 @@
 extends Card
 
 
-func execute(area_id: int, targets: Array) -> void:
+func execute(_area_id: int, targets: Array) -> void:
 	unit.attack(targets[0])
 	var target_unit = Navigation.get_unit_at_tile(targets[0])
 	if target_unit:

@@ -29,5 +29,5 @@ target = 1
 cost = 1
 target_selectors = Array[ExtResource("2_23b1h")]([SubResource("Resource_23b1h"), SubResource("Resource_5q7sj")])
 icon = SubResource("AtlasTexture_5q7sj")
-description = "Deal 4 damage, then move 2 squares"
+description = "Deal 5 damage, then move 2 squares"
 metadata/_custom_type_script = "uid://cbhovqi2nk4fe"
