@@ -38,6 +38,7 @@ func init_level(level_tilemap: TileMapLayer) -> void:
 	remove_unwalkable_tiles_from_grid()
 	remove_unit_tiles_from_grid()
 
+
 func remove_unwalkable_tiles_from_grid() -> void:
 	var start_pos = grid.region.position
 	var end_pos = start_pos + grid.region.size

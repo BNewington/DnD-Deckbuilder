@@ -4,12 +4,6 @@
 [ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="1_nhkg1"]
 [ext_resource type="Texture2D" uid="uid://crs738o0s8uw7" path="res://art/ui/Icons/CardIcons.png" id="2_nhkg1"]
 
-[sub_resource type="Resource" id="Resource_cgyjl"]
-script = ExtResource("1_nhkg1")
-radius = 3
-move = true
-metadata/_custom_type_script = "uid://lo410k1w0lof"
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_cgyjl"]
 atlas = ExtResource("2_nhkg1")
 region = Rect2(320, 384, 64, 64)
@@ -28,7 +22,6 @@ type = 1
 target = 1
 cost = 1
 target_selectors = Array[ExtResource("1_nhkg1")]([SubResource("Resource_nhkg1")])
-area = SubResource("Resource_cgyjl")
 icon = SubResource("AtlasTexture_cgyjl")
 description = "Move  up to 3 squares"
 metadata/_custom_type_script = "uid://cbhovqi2nk4fe"
