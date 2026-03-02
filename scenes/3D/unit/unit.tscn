@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dx3rrgwcviw5h"]
+
+[ext_resource type="PackedScene" uid="uid://dw0j0kbbdxyl8" path="res://art/3D/models/Knight_Hero.gltf" id="1_06sn2"]
+[ext_resource type="Script" uid="uid://by0r1um7k7go2" path="res://scenes/3D/unit/unit.gd" id="1_80wi4"]
+
+[node name="Unit" type="Node3D" unique_id=351906256]
+script = ExtResource("1_80wi4")
+
+[node name="Knight_Hero" parent="." unique_id=290444312 instance=ExtResource("1_06sn2")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, 0)

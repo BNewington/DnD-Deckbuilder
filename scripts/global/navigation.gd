@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 
 enum AreaShape {
 	Circle,
@@ -19,10 +19,69 @@ enum UnitType {
 	Any
 }
 
+var MODE_3D = true
+
 @onready var tilemap: TileMapLayer : set = _set_tilemap
 
+var gridmap: GridMap : set = _set_gridmap
+var camera: Camera3D
 var grid: AStarGrid2D
 var TILE_SIZE: Vector2
+
+
+func init(level_gridmap: GridMap, level_camera: Camera3D) -> void:
+	camera = level_camera
+	gridmap = level_gridmap
+	grid = AStarGrid2D.new()
+	grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
+	grid.region = find_used_rect(gridmap)
+	grid.cell_size = TILE_SIZE
+	grid.update()
+	print(grid.region)
+	print(grid.cell_size)
+
+
+func find_used_rect(map: GridMap) -> Rect2i:
+	var cells = []
+	for cell in map.get_used_cells():
+		cells.append(flatten(cell))
+	
+	var min_x: int = 999
+	var min_y: int = 999
+	var max_x: int = -999
+	var max_y: int = -999
+	for cell in cells:
+		if cell.x < min_x:
+			min_x = cell.x
+		elif cell.x > max_x:
+			max_x = cell.x
+		
+		if cell.y < min_y:
+			min_y = cell.y
+		elif cell.y > max_y:
+			max_y = cell.y
+	
+	var top_left = Vector2i(min_x,min_y)
+	var bottom_right = Vector2i(max_x,max_y)
+	var rect: Rect2i
+	rect.position = top_left
+	rect.end = bottom_right
+	return rect
+
+func find_3d_mouse_pos() -> Vector3:
+	var space_state = get_world_3d().direct_space_state
+	var mouse_pos = get_viewport().get_mouse_position()/3
+	var ray_origin = camera.project_ray_origin(mouse_pos)
+	var ray_end = ray_origin + camera.project_ray_normal(mouse_pos) * 2000
+	var query = PhysicsRayQueryParameters3D.create(ray_origin,ray_end)
+	var ray = space_state.intersect_ray(query)
+	if ray.has("position"):
+		return ray["position"]
+	return Vector3()
+
+
+func flatten(vector: Vector3i) -> Vector2i:
+	return Vector2i(vector.x, vector.z)
 
 
 func init_level(level_tilemap: TileMapLayer) -> void:
@@ -77,7 +136,7 @@ func set_point_walkable(point: Vector2i) -> void:
 func snap_to_grid(coords: Vector2) -> Vector2:
 	var half_tile = Vector2(0.5,0.5)
 	var tile_coords = Vector2(get_tile_coords(coords))
-	return (tile_coords+half_tile) * 64
+	return (tile_coords+half_tile) * TILE_SIZE.x
 
 
 func get_tile_coords(coords: Vector2) -> Vector2i:
@@ -91,6 +150,12 @@ func get_world_coords(tile_coords: Vector2i) -> Vector2:
 func _set_tilemap(value: TileMapLayer) -> void:
 	tilemap = value
 	TILE_SIZE = tilemap.tile_set.tile_size
+
+
+func _set_gridmap(value: GridMap) -> void:
+	gridmap = value
+	var cell_size = gridmap.cell_size
+	TILE_SIZE = Vector2(cell_size.x, cell_size.z)
 
 
 func get_cell_path(start_pos: Vector2i, end_pos: Vector2i) -> Array[Vector2i]:
