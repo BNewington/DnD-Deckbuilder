@@ -1,23 +1,101 @@
 [gd_scene format=3 uid="uid://c4j4arh06yncr"]
 
+[ext_resource type="Shader" uid="uid://3q6dyahs3ugy" path="res://art/shaders/edge_detection.gdshader" id="1_h10rc"]
+[ext_resource type="Script" uid="uid://cta50uvlyf2hl" path="res://scenes/3D/battle/battle.gd" id="1_ji8pb"]
 [ext_resource type="MeshLibrary" uid="uid://cduarprs3by20" path="res://art/3D/tiles/tile.meshlib" id="1_wtai8"]
+[ext_resource type="PackedScene" uid="uid://dx3rrgwcviw5h" path="res://scenes/3D/unit/unit.tscn" id="3_h10rc"]
+[ext_resource type="PackedScene" uid="uid://uhrsccn24wbk" path="res://art/3D/models/Wizard_Hero.gltf" id="5_8xkrb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8xkrb"]
+render_priority = 0
+shader = ExtResource("1_h10rc")
+shader_parameter/lightIntensity = 0.5
+shader_parameter/lineAlpha = 0.35
+shader_parameter/useLighting = true
+shader_parameter/lineHighlight = 0.2
+shader_parameter/lineShadow = 0.55
+
+[sub_resource type="QuadMesh" id="QuadMesh_dogui"]
+material = SubResource("ShaderMaterial_8xkrb")
+flip_faces = true
+size = Vector2(2, 2)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gy52t"]
 size = Vector2(50, 50)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h10rc"]
-albedo_color = Color(0.0035191667, 0.0035191681, 0.0035191672, 1)
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8xkrb"]
+points = PackedVector3Array(25.391855, 0.39674774, 25.391855, -25.391855, -0.39674774, -25.391855, -25.391855, 0.39674774, -25.391855, 25.391855, -0.39674774, -25.391855, -25.391855, -0.39674774, 25.391855, -25.391855, 0.39674774, 25.391855, 25.391855, 0.39674774, -25.391855, 25.391855, -0.39674774, 25.391855)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_dogui"]
+rayleigh_color = Color(0.79817873, 0.84658116, 0.931734, 1)
+ground_color = Color(0.33057085, 0.2546832, 0.16920245, 1)
+
+[sub_resource type="Sky" id="Sky_ji8pb"]
+sky_material = SubResource("PhysicalSkyMaterial_dogui")
+
+[sub_resource type="Environment" id="Environment_8xkrb"]
+background_mode = 2
+background_energy_multiplier = 2.0
+sky = SubResource("Sky_ji8pb")
 
 [node name="battle" type="Node3D" unique_id=3300701]
+script = ExtResource("1_ji8pb")
 
-[node name="GridMap" type="GridMap" parent="." unique_id=1471301721]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=878326307]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 3
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1615669892]
+handle_input_locally = false
+size = Vector2i(384, 216)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=913327760]
+transform = Transform3D(0.43365905, 0.55103296, -0.7129534, 0, 0.7912235, 0.6115271, 0.90107703, -0.26519424, 0.34312126, -12.466238, 11.459543, 5.9165835)
+projection = 1
+size = 12.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Camera3D" unique_id=1626706581]
+mesh = SubResource("QuadMesh_dogui")
+
+[node name="GridMap" type="GridMap" parent="SubViewportContainer/SubViewport" unique_id=1471301721]
 mesh_library = ExtResource("1_wtai8")
-cell_size = Vector3(2.2, 2, 2.2)
+cell_size = Vector3(2.1, 2, 2.1)
 data = {
-"cells": PackedInt32Array(65534, 0, 0, 65535, 0, 0, 0, 0, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 65533, 2, 0, 65534, 2, 0, 65535, 2, 0, 0, 2, 0, 65533, 0, 0, 65533, 1, 0, 1, 0, 0, 1, 1, 0, 1, 2, 0, 65533, 3, 0, 65534, 3, 0, 65535, 3, 0, 0, 3, 0, 1, 3, 0, 1, 4, 0, 0, 4, 0, 65535, 4, 0, 65534, 4, 0, 65533, 4, 0, 2, 0, 0, 2, 1, 0, 2, 2, 0, 2, 3, 0, 2, 4, 0, 65534, 65535, 0, 65535, 65535, 0, 0, 65535, 0, 1, 65535, 0, 2, 65535, 0, 65533, 65535, 0, 65533, 65534, 0, 65533, 65533, 0, 65534, 65533, 0, 65535, 65533, 0, 0, 65533, 0, 1, 65533, 0, 1, 65534, 0, 2, 65534, 0, 65535, 65534, 0, 65534, 65534, 0, 0, 65534, 0, 2, 65533, 0, 65533, 65532, 0, 65534, 65532, 0, 65535, 65532, 0, 0, 65532, 0, 1, 65532, 0, 2, 65532, 0, 2, 65531, 0, 1, 65531, 0, 0, 65531, 0, 65535, 65531, 0, 65534, 65531, 0, 65533, 65531, 0, 65532, 4, 0, 65532, 3, 0, 65531, 3, 0, 65531, 2, 0, 65531, 1, 0, 65531, 0, 0, 65531, 65535, 0, 65531, 65534, 0, 65531, 65533, 0, 65532, 65533, 0, 65532, 65532, 0, 65532, 65531, 0, 65532, 65534, 0, 65532, 65535, 0, 65532, 0, 0, 65532, 1, 0, 65532, 2, 0, 65531, 4, 0, 65531, 65532, 0, 65531, 65531, 0)
+"cells": PackedInt32Array(65534, 0, 0, 65535, 0, 0, 0, 0, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 65533, 2, 0, 65534, 2, 0, 65535, 2, 0, 0, 2, 0, 65533, 0, 0, 65533, 1, 0, 1, 0, 0, 1, 1, 0, 1, 2, 0, 65533, 3, 0, 65534, 3, 0, 65535, 3, 0, 0, 3, 0, 1, 3, 0, 1, 4, 0, 0, 4, 0, 65535, 4, 0, 65534, 4, 0, 65533, 4, 0, 2, 0, 0, 2, 1, 0, 2, 2, 0, 2, 3, 0, 2, 4, 0, 65534, 65535, 0, 65535, 65535, 0, 0, 65535, 0, 1, 65535, 0, 2, 65535, 0, 65533, 65535, 0, 65533, 65534, 0, 65533, 65533, 0, 65534, 65533, 0, 65535, 65533, 0, 0, 65533, 0, 1, 65533, 0, 1, 65534, 0, 2, 65534, 0, 65535, 65534, 0, 65534, 65534, 0, 0, 65534, 0, 2, 65533, 0, 65533, 65532, 0, 65534, 65532, 0, 65535, 65532, 0, 0, 65532, 0, 1, 65532, 0, 2, 65532, 0, 2, 65531, 0, 1, 65531, 0, 0, 65531, 0, 65535, 65531, 0, 65534, 65531, 0, 65533, 65531, 0, 65532, 4, 0, 65532, 3, 0, 65532, 65531, 0, 65532, 65535, 0, 65532, 0, 0, 65532, 1, 0, 65532, 2, 0, 65532, 65532, 0, 65532, 65533, 0, 65532, 65534, 0)
 }
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=501377589]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=501377589]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8704739, 0)
 mesh = SubResource("PlaneMesh_gy52t")
 surface_material_override/0 = SubResource("StandardMaterial3D_h10rc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/MeshInstance3D" unique_id=1151168630]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/MeshInstance3D/StaticBody3D" unique_id=1023339581]
+shape = SubResource("ConvexPolygonShape3D_8xkrb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=746116865]
+transform = Transform3D(-0.1305263, 0.749387, 0.6491394, 5.723926e-08, -0.6547408, 0.7558535, 0.9914448, 0.09865881, 0.08546086, 0, 4.766, 0)
+light_energy = 1.2
+shadow_enabled = true
+shadow_bias = 0.2
+shadow_blur = 0.1
+directional_shadow_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=220349953]
+environment = SubResource("Environment_8xkrb")
+
+[node name="Unit" parent="SubViewportContainer/SubViewport" unique_id=351906256 instance=ExtResource("3_h10rc")]
+transform = Transform3D(0.62356585, 0, -0.7817708, 0, 1, 0, 0.7817708, 0, 0.62356585, 1.1726515, 2.0769768, -1.0008544)
+
+[node name="Wizard_Hero" parent="SubViewportContainer/SubViewport" unique_id=1002981242 instance=ExtResource("5_8xkrb")]
+transform = Transform3D(0.23009968, 0, -1.4822463, 0, 1.5, 0, 1.4822463, 0, 0.23009968, -0.8377981, 2.0057106, 5.26605)
