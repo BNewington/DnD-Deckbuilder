@@ -62,7 +62,7 @@ func find_used_rect(map: GridMap) -> Rect2i:
 			max_y = cell.y
 	
 	var top_left = Vector2i(min_x,min_y)
-	var bottom_right = Vector2i(max_x,max_y)
+	var bottom_right = Vector2i(max_x+1,max_y+1)
 	var rect: Rect2i
 	rect.position = top_left
 	rect.end = bottom_right
