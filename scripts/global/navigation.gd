@@ -20,6 +20,7 @@ enum UnitType {
 }
 
 var MODE_3D = true
+var stretch_shrink = 2
 
 @onready var tilemap: TileMapLayer : set = _set_tilemap
 
@@ -38,8 +39,6 @@ func init(level_gridmap: GridMap, level_camera: Camera3D) -> void:
 	grid.region = find_used_rect(gridmap)
 	grid.cell_size = TILE_SIZE
 	grid.update()
-	print(grid.region)
-	print(grid.cell_size)
 	
 	remove_unit_tiles_from_grid()
 
@@ -71,9 +70,10 @@ func find_used_rect(map: GridMap) -> Rect2i:
 	rect.end = bottom_right
 	return rect
 
+
 func find_3d_mouse_pos() -> Vector3:
 	var space_state = get_world_3d().direct_space_state
-	var mouse_pos = get_viewport().get_mouse_position()/3
+	var mouse_pos = get_viewport().get_mouse_position()/stretch_shrink
 	var ray_origin = camera.project_ray_origin(mouse_pos)
 	var ray_end = ray_origin + camera.project_ray_normal(mouse_pos) * 2000
 	var query = PhysicsRayQueryParameters3D.create(ray_origin,ray_end)

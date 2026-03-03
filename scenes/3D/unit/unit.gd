@@ -11,6 +11,7 @@ var target_pos: Vector2i
 
 var floor_height = 1
 
+
 func _ready() -> void:
 	Events.start_battle.connect(start_battle)
 

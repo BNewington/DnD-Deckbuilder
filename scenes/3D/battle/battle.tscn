@@ -5,6 +5,8 @@
 [ext_resource type="MeshLibrary" uid="uid://cduarprs3by20" path="res://art/3D/tiles/tile.meshlib" id="1_wtai8"]
 [ext_resource type="Script" uid="uid://bfffiov26cesd" path="res://scenes/tile_highlights/tile_highlights.gd" id="2_o2o3g"]
 [ext_resource type="PackedScene" uid="uid://dx3rrgwcviw5h" path="res://scenes/3D/unit/unit.tscn" id="3_h10rc"]
+[ext_resource type="Script" uid="uid://5yrv77rif54m" path="res://scenes/3D/battle/camera_pivot.gd" id="3_jdl33"]
+[ext_resource type="Script" uid="uid://2hmxovkf5jbn" path="res://scenes/3D/battle/camera_3d.gd" id="4_ehegv"]
 [ext_resource type="PackedScene" uid="uid://uhrsccn24wbk" path="res://art/3D/models/Wizard_Hero.gltf" id="5_8xkrb"]
 [ext_resource type="Resource" uid="uid://cod0okis1mse4" path="res://units/heroes/warrior/warrior_stats.tres" id="5_lcfdq"]
 [ext_resource type="PackedScene" uid="uid://wjaur75p135h" path="res://art/3D/models/Basic_Goblin.glb" id="6_dogui"]
@@ -41,11 +43,16 @@ sky_material = SubResource("PhysicalSkyMaterial_xc73o")
 
 [sub_resource type="Environment" id="Environment_n4gow"]
 background_mode = 2
-background_energy_multiplier = 4.0
+background_energy_multiplier = 2.5
 sky = SubResource("Sky_kypv1")
 ssil_enabled = true
 ssil_intensity = 4.0
 sdfgi_read_sky_light = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ehegv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aw6g6"]
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ehegv"]
 content_margin_top = 2.0
@@ -81,12 +88,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
-stretch_shrink = 3
+stretch_shrink = 2
 mouse_target = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=358340824]
 handle_input_locally = false
-size = Vector2i(384, 216)
+size = Vector2i(576, 324)
 render_target_update_mode = 4
 
 [node name="TileHighlights" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=929726574]
@@ -94,14 +101,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115201, 0)
 script = ExtResource("2_o2o3g")
 
 [node name="CameraPivot" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=2050402475]
+transform = Transform3D(0.49999994, -0.5566704, 0.66341394, 0, 0.76604444, 0.6427875, -0.8660254, -0.32139376, 0.38302213, 0, 0, 0)
+script = ExtResource("3_jdl33")
+circular_radius = 0.5
+circular_speed = 0.1
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/CameraPivot" unique_id=2098024746]
-transform = Transform3D(0.9659259, -0.17552061, 0.1902099, 0, 0.7349146, 0.6781596, -0.25881904, -0.6550519, 0.709873, 3, 12, 8)
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 20)
 projection = 1
 fov = 44.4
-size = 12.0
+size = 20.0
 near = 0.042
 far = 767.88
+script = ExtResource("4_ehegv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/CameraPivot/Camera3D" unique_id=1945393830]
 cast_shadow = 0
@@ -147,6 +159,11 @@ stats = ExtResource("5_lcfdq")
 [node name="Unit" parent="SubViewportContainer/SubViewport/TurnManager/Enemies" unique_id=1623615925 instance=ExtResource("3_h10rc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0757744, 1.186873, -0.51269937)
 stats = ExtResource("9_423bg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=687978056]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0.8917122, 0)
+mesh = SubResource("PlaneMesh_ehegv")
+surface_material_override/0 = SubResource("StandardMaterial3D_aw6g6")
 
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=1984589142 node_paths=PackedStringArray("unit") groups=["ui_layer"]]
 script = ExtResource("7_46ncm")
