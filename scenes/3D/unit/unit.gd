@@ -73,6 +73,9 @@ func update_hero() -> void:
 		await ready
 		
 	update_stats()
+	var model = stats.model.instantiate()
+	model.scale = Vector3.ONE * 2
+	add_child(model)
 
 
 func update_stats() -> void:

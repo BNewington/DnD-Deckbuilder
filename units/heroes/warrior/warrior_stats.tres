@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2h455v0j7g1r" path="res://custom_resources/hero_stats.gd" id="1_12kjw"]
 [ext_resource type="SpriteFrames" uid="uid://uygldnl4olut" path="res://units/heroes/warrior/warrior_sprite_frames.tres" id="1_erbxp"]
+[ext_resource type="PackedScene" uid="uid://dw0j0kbbdxyl8" path="res://art/3D/models/Knight_Hero.gltf" id="2_2b6wb"]
 [ext_resource type="Resource" uid="uid://5kb6ih8cdsr3" path="res://units/heroes/warrior/warior_starting_deck.tres" id="3_2b6wb"]
 
 [resource]
@@ -10,6 +11,7 @@ starting_deck = ExtResource("3_2b6wb")
 cards_per_turn = 5
 max_energy = 3
 name = "Warrior"
+model = ExtResource("2_2b6wb")
 frames = ExtResource("1_erbxp")
 max_health = 10
 metadata/_custom_type_script = "uid://b2h455v0j7g1r"

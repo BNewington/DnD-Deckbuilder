@@ -7,9 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dx3rrgwcviw5h" path="res://scenes/3D/unit/unit.tscn" id="3_h10rc"]
 [ext_resource type="Script" uid="uid://5yrv77rif54m" path="res://scenes/3D/battle/camera_pivot.gd" id="3_jdl33"]
 [ext_resource type="Script" uid="uid://2hmxovkf5jbn" path="res://scenes/3D/battle/camera_3d.gd" id="4_ehegv"]
-[ext_resource type="PackedScene" uid="uid://uhrsccn24wbk" path="res://art/3D/models/Wizard_Hero.gltf" id="5_8xkrb"]
 [ext_resource type="Resource" uid="uid://cod0okis1mse4" path="res://units/heroes/warrior/warrior_stats.tres" id="5_lcfdq"]
-[ext_resource type="PackedScene" uid="uid://wjaur75p135h" path="res://art/3D/models/Basic_Goblin.glb" id="6_dogui"]
 [ext_resource type="Script" uid="uid://bwiokfoc1pshs" path="res://scenes/turn_manager/turn_manager.gd" id="6_hglb3"]
 [ext_resource type="Script" uid="uid://bgqebmanw1r7q" path="res://scenes/ui/battle_ui.gd" id="7_46ncm"]
 [ext_resource type="PackedScene" uid="uid://57436yh7djea" path="res://scenes/cursor/cursor.tscn" id="8_lcfdq"]
@@ -101,7 +99,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115201, 0)
 script = ExtResource("2_o2o3g")
 
 [node name="CameraPivot" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=2050402475]
-transform = Transform3D(0.49999994, -0.5566704, 0.66341394, 0, 0.76604444, 0.6427875, -0.8660254, -0.32139376, 0.38302213, 0, 0, 0)
+transform = Transform3D(0.92387944, -0.24598417, 0.2931525, 0, 0.76604444, 0.6427875, -0.38268343, -0.59385824, 0.7077327, 0, 0, 0)
 script = ExtResource("3_jdl33")
 circular_radius = 0.5
 circular_speed = 0.1
@@ -137,12 +135,6 @@ directional_shadow_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=332983236]
 environment = SubResource("Environment_n4gow")
-
-[node name="Basic_Goblin" parent="SubViewportContainer/SubViewport" unique_id=758744289 instance=ExtResource("6_dogui")]
-transform = Transform3D(1.8148222, 0, 0.84048826, 0, 2, 0, -0.84048826, 0, 1.8148222, 3.1721988, 1.0892458, -1.309329)
-
-[node name="Wizard_Hero" parent="SubViewportContainer/SubViewport" unique_id=1002981242 instance=ExtResource("5_8xkrb")]
-transform = Transform3D(1.3027656, 0, -0.7435064, 0, 1.5, 0, 0.7435064, 0, 1.3027656, -3.1348388, 1.1072559, -3.2776544)
 
 [node name="TurnManager" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=92159210 node_paths=PackedStringArray("hand")]
 script = ExtResource("6_hglb3")

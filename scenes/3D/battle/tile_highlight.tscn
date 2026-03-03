@@ -3,4 +3,5 @@
 [sub_resource type="BoxMesh" id="BoxMesh_tel0x"]
 
 [node name="TileHighlight" type="MeshInstance3D" unique_id=137925748]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("BoxMesh_tel0x")
