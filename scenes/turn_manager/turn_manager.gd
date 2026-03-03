@@ -1,5 +1,5 @@
 class_name TurnManager
-extends Node2D
+extends Node3D
 
 const HAND_DRAW_INTERVAL := 0.25
 const HAND_DISCARD_INTERVAL := 0.25
@@ -7,19 +7,16 @@ const HAND_DISCARD_INTERVAL := 0.25
 @export var hand: Hand
 @onready var heroes: Array[Node] = $Heroes.get_children()
 @onready var enemies: Array[Node] = $Enemies.get_children()
-@onready var current_turn_indicator: Sprite2D = $CurrentTurnIndicator
 
 var initiative: Array[Node] = []
 var current_unit: Unit
+
 
 func _ready() -> void:
 	Events.turn_ended.connect(end_turn)
 	Events.hand_discarded.connect(start_next_turn)
 	Events.unit_died.connect(_on_unit_died)
 
-
-func _process(delta: float) -> void:
-	current_turn_indicator.global_position = current_unit.global_position
 
 
 func start_battle() -> void:

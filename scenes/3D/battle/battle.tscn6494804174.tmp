@@ -3,7 +3,6 @@
 [ext_resource type="Shader" uid="uid://3q6dyahs3ugy" path="res://art/shaders/edge_detection.gdshader" id="1_h10rc"]
 [ext_resource type="Script" uid="uid://cta50uvlyf2hl" path="res://scenes/3D/battle/battle.gd" id="1_ji8pb"]
 [ext_resource type="MeshLibrary" uid="uid://cduarprs3by20" path="res://art/3D/tiles/tile.meshlib" id="1_wtai8"]
-[ext_resource type="Script" uid="uid://bfffiov26cesd" path="res://scenes/tile_highlights/tile_highlights.gd" id="2_o2o3g"]
 [ext_resource type="PackedScene" uid="uid://dx3rrgwcviw5h" path="res://scenes/3D/unit/unit.tscn" id="3_h10rc"]
 [ext_resource type="PackedScene" uid="uid://uhrsccn24wbk" path="res://art/3D/models/Wizard_Hero.gltf" id="5_8xkrb"]
 [ext_resource type="Resource" uid="uid://cod0okis1mse4" path="res://units/heroes/warrior/warrior_stats.tres" id="5_lcfdq"]
@@ -11,14 +10,10 @@
 [ext_resource type="Script" uid="uid://bwiokfoc1pshs" path="res://scenes/turn_manager/turn_manager.gd" id="6_hglb3"]
 [ext_resource type="Script" uid="uid://bgqebmanw1r7q" path="res://scenes/ui/battle_ui.gd" id="7_46ncm"]
 [ext_resource type="PackedScene" uid="uid://57436yh7djea" path="res://scenes/cursor/cursor.tscn" id="8_lcfdq"]
-[ext_resource type="Resource" uid="uid://dp6rk0vbw543i" path="res://units/enemies/torch_goblin/torch_goblin_stats.tres" id="9_423bg"]
 [ext_resource type="PackedScene" uid="uid://dq8c5qippudah" path="res://scenes/hand/hand.tscn" id="9_hglb3"]
 [ext_resource type="PackedScene" uid="uid://s3e6r400eqcu" path="res://scenes/ui/energy_ui.tscn" id="10_423bg"]
 [ext_resource type="Texture2D" uid="uid://c1vofgp5mpb4x" path="res://art/ui/Buttons/SmallRedSquareButton_Regular.png" id="11_o2o3g"]
 [ext_resource type="Texture2D" uid="uid://drycruw7uqan2" path="res://art/ui/Buttons/SmallRedSquareButton_Pressed.png" id="12_jdl33"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hglb3"]
-size = Vector2(1150, 313)
 
 [sub_resource type="QuadMesh" id="QuadMesh_hp20k"]
 flip_faces = true
@@ -66,13 +61,6 @@ texture_margin_bottom = 10.0
 [node name="battle" type="Node3D" unique_id=1066077475]
 script = ExtResource("1_ji8pb")
 
-[node name="CardDropArea" type="Area2D" parent="." unique_id=306843157 groups=["card_drop_area"]]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea" unique_id=2026296583]
-position = Vector2(576, 156.5)
-shape = SubResource("RectangleShape2D_hglb3")
-
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1579858031]
 texture_filter = 1
 anchors_preset = 15
@@ -88,10 +76,6 @@ mouse_target = true
 handle_input_locally = false
 size = Vector2i(384, 216)
 render_target_update_mode = 4
-
-[node name="TileHighlights" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=929726574]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115201, 0)
-script = ExtResource("2_o2o3g")
 
 [node name="CameraPivot" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=2050402475]
 
@@ -132,9 +116,8 @@ transform = Transform3D(1.8148222, 0, 0.84048826, 0, 2, 0, -0.84048826, 0, 1.814
 [node name="Wizard_Hero" parent="SubViewportContainer/SubViewport" unique_id=1002981242 instance=ExtResource("5_8xkrb")]
 transform = Transform3D(1.3027656, 0, -0.7435064, 0, 1.5, 0, 0.7435064, 0, 1.3027656, -3.1348388, 1.1072559, -3.2776544)
 
-[node name="TurnManager" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=92159210 node_paths=PackedStringArray("hand")]
+[node name="TurnManager" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=92159210]
 script = ExtResource("6_hglb3")
-hand = NodePath("../../../BattleUI/Hand")
 
 [node name="Heroes" type="Node3D" parent="SubViewportContainer/SubViewport/TurnManager" unique_id=2036801270]
 
@@ -143,10 +126,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.301609, 1.1178153, -5.25594
 stats = ExtResource("5_lcfdq")
 
 [node name="Enemies" type="Node3D" parent="SubViewportContainer/SubViewport/TurnManager" unique_id=1110511415]
-
-[node name="Unit" parent="SubViewportContainer/SubViewport/TurnManager/Enemies" unique_id=1623615925 instance=ExtResource("3_h10rc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0757744, 1.186873, -0.51269937)
-stats = ExtResource("9_423bg")
 
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=1984589142 node_paths=PackedStringArray("unit") groups=["ui_layer"]]
 script = ExtResource("7_46ncm")

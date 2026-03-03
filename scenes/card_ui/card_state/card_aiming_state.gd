@@ -34,7 +34,8 @@ func aiming_selected(selected_tile: Vector2i) -> void:
 
 
 func on_input(event: InputEvent) -> void:
-	var selected_tile = Navigation.get_tile_coords(card_ui.get_global_mouse_position())
+	var mouse_pos = Navigation.find_3d_mouse_pos()
+	var selected_tile = Navigation.get_tile_coords(mouse_pos)
 	var mouse_over_area: bool = selected_tile in area
 	
 	if event.is_action_pressed("right_mouse"):

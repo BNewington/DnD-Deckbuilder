@@ -28,6 +28,7 @@ var camera: Camera3D
 var grid: AStarGrid2D
 var TILE_SIZE: Vector2
 
+var floor_height: float = 1.1
 
 func init(level_gridmap: GridMap, level_camera: Camera3D) -> void:
 	camera = level_camera
@@ -39,6 +40,8 @@ func init(level_gridmap: GridMap, level_camera: Camera3D) -> void:
 	grid.update()
 	print(grid.region)
 	print(grid.cell_size)
+	
+	remove_unit_tiles_from_grid()
 
 
 func find_used_rect(map: GridMap) -> Rect2i:
@@ -133,18 +136,22 @@ func set_point_walkable(point: Vector2i) -> void:
 	grid.set_point_solid(point, false)
 
 
-func snap_to_grid(coords: Vector2) -> Vector2:
-	var half_tile = Vector2(0.5,0.5)
-	var tile_coords = Vector2(get_tile_coords(coords))
-	return (tile_coords+half_tile) * TILE_SIZE.x
+func snap_to_grid(coords: Vector3) -> Vector3:
+	var tile_coords = get_tile_coords(coords)
+	var world_coords = get_world_coords(tile_coords)
+	var floor_coords = Vector3(world_coords.x,floor_height,world_coords.z)
+	return floor_coords
 
 
-func get_tile_coords(coords: Vector2) -> Vector2i:
-	return tilemap.local_to_map(coords)
+func get_tile_coords(coords: Vector3) -> Vector2i:
+	var coords_3d = gridmap.local_to_map(coords)
+	return Vector2i(coords_3d.x,coords_3d.z)
 
 
-func get_world_coords(tile_coords: Vector2i) -> Vector2:
-	return tilemap.map_to_local(tile_coords)
+func get_world_coords(tile_coords: Vector2i) -> Vector3:
+	var tile_coords_3d = Vector3i(tile_coords.x, 0, tile_coords.y)
+	var world_coords_3d = gridmap.map_to_local(tile_coords_3d)
+	return Vector3(world_coords_3d.x,floor_height,world_coords_3d.z)
 
 
 func _set_tilemap(value: TileMapLayer) -> void:
