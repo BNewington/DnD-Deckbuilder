@@ -172,7 +172,7 @@ unit = NodePath("../SubViewportContainer/SubViewport/TurnManager/Heroes/Unit")
 [node name="Cursor" parent="BattleUI" unique_id=1722401909 instance=ExtResource("8_lcfdq")]
 
 [node name="Hand" parent="BattleUI" unique_id=187061151 instance=ExtResource("9_hglb3")]
-position = Vector2(575, 550)
+position = Vector2(575, 600)
 
 [node name="EnergyUI" parent="BattleUI" unique_id=355186218 instance=ExtResource("10_423bg")]
 

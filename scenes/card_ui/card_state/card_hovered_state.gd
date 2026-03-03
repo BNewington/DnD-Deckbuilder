@@ -4,7 +4,7 @@ extends CardState
 func enter() -> void:
 	card_ui.z_index = 11
 	card_ui.target_rotation = 0
-	card_ui.target_pos.y -= 10
+	card_ui.target_pos.y = -60
 	Events.card_hovered.emit(card_ui)
 
 
