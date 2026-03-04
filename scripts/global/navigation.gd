@@ -83,6 +83,10 @@ func find_3d_mouse_pos() -> Vector3:
 	return Vector3()
 
 
+func find_2d_screen_pos(pos: Vector3) -> Vector2:
+	return camera.unproject_position(pos) * stretch_shrink
+
+
 func flatten(vector: Vector3i) -> Vector2i:
 	return Vector2i(vector.x, vector.z)
 

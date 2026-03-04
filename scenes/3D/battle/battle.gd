@@ -17,12 +17,3 @@ func start_battle() -> void:
 	Navigation.init(grid_map, camera_3d)
 	Events.start_battle.emit()
 	turn_manager.start_battle()
-
-
-func _process(_delta: float) -> void:
-	var mouse_pos = Navigation.find_3d_mouse_pos()
-	var grid_pos = grid_map.local_to_map(mouse_pos)
-	#if Input.is_action_just_pressed("left_mouse"):
-		#unit.move_to(grid_pos)
-	
-	

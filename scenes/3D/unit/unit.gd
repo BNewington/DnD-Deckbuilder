@@ -1,9 +1,11 @@
 class_name Unit
 extends Node3D
 
+
 @export var stats: UnitStats : set = set_stats
 
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
+@onready var placeholder_model: Node3D = $Knight_Hero
 
 var tween: Tween
 var grid_pos: Vector2i : get = get_grid_pos
@@ -17,6 +19,7 @@ func _ready() -> void:
 
 
 func start_battle() -> void:
+	Events.set_stats.emit(self, stats)
 	global_position = Navigation.snap_to_grid(global_position)
 	target_pos = grid_pos
 
@@ -26,7 +29,7 @@ func start_turn() -> void:
 	Navigation.set_point_walkable(tile_coords)
 	if stats is EnemyStats:
 		stats.start_turn(self)
-
+	print(Navigation.find_2d_screen_pos(global_position))
 
 
 func end_turn() -> void:
@@ -76,9 +79,10 @@ func update_hero() -> void:
 	var model = stats.model.instantiate()
 	model.scale = Vector3.ONE * 2
 	add_child(model)
+	placeholder_model.queue_free()
 
 
-func update_stats() -> void:
+func update_stats() -> void: #should emit a signal telling the battleui to update stats
 	stats_ui.update_stats(stats)
 
 

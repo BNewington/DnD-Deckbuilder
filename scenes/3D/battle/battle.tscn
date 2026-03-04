@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://dp6rk0vbw543i" path="res://units/enemies/torch_goblin/torch_goblin_stats.tres" id="9_423bg"]
 [ext_resource type="PackedScene" uid="uid://dq8c5qippudah" path="res://scenes/hand/hand.tscn" id="9_hglb3"]
 [ext_resource type="PackedScene" uid="uid://s3e6r400eqcu" path="res://scenes/ui/energy_ui.tscn" id="10_423bg"]
+[ext_resource type="Resource" uid="uid://cbxcuj1pc0en" path="res://units/heroes/archer/archer_stats.tres" id="10_jdl33"]
 [ext_resource type="Texture2D" uid="uid://c1vofgp5mpb4x" path="res://art/ui/Buttons/SmallRedSquareButton_Regular.png" id="11_o2o3g"]
 [ext_resource type="Texture2D" uid="uid://drycruw7uqan2" path="res://art/ui/Buttons/SmallRedSquareButton_Pressed.png" id="12_jdl33"]
 
@@ -146,6 +147,10 @@ hand = NodePath("../../../BattleUI/Hand")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.301609, 1.1178153, -5.255945)
 stats = ExtResource("5_lcfdq")
 
+[node name="Unit2" parent="SubViewportContainer/SubViewport/TurnManager/Heroes" unique_id=49640100 instance=ExtResource("3_h10rc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5641613, 1.1178153, -5.255945)
+stats = ExtResource("10_jdl33")
+
 [node name="Enemies" type="Node3D" parent="SubViewportContainer/SubViewport/TurnManager" unique_id=1110511415]
 
 [node name="Unit" parent="SubViewportContainer/SubViewport/TurnManager/Enemies" unique_id=1623615925 instance=ExtResource("3_h10rc")]
@@ -157,9 +162,8 @@ transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0.8917122, 0)
 mesh = SubResource("PlaneMesh_ehegv")
 surface_material_override/0 = SubResource("StandardMaterial3D_aw6g6")
 
-[node name="BattleUI" type="CanvasLayer" parent="." unique_id=1984589142 node_paths=PackedStringArray("unit") groups=["ui_layer"]]
+[node name="BattleUI" type="CanvasLayer" parent="." unique_id=1984589142 groups=["ui_layer"]]
 script = ExtResource("7_46ncm")
-unit = NodePath("../SubViewportContainer/SubViewport/TurnManager/Heroes/Unit")
 
 [node name="Cursor" parent="BattleUI" unique_id=1722401909 instance=ExtResource("8_lcfdq")]
 
@@ -195,3 +199,12 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_aw6g6")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ehegv")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_aw6g6")
 text = "End Turn"
+
+[node name="StatsUI" type="Control" parent="BattleUI" unique_id=1729699449]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
