@@ -129,6 +129,7 @@ data = {
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=566285142]
 transform = Transform3D(-0.130521, 0.749389, 0.649138, -1.65989e-06, -0.654743, 0.755851, 0.991446, 0.0986538, 0.0854584, 0, 4.76559, 0)
+light_energy = 1.539
 shadow_enabled = true
 shadow_bias = 0.2
 shadow_blur = 0.1

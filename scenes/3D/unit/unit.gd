@@ -6,6 +6,7 @@ extends Node3D
 
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
 @onready var placeholder_model: Node3D = $Knight_Hero
+@onready var turn_indicator: MeshInstance3D = $TurnIndicator
 
 var tween: Tween
 var grid_pos: Vector2i : get = get_grid_pos
@@ -16,6 +17,7 @@ var floor_height = 1
 
 func _ready() -> void:
 	Events.start_battle.connect(start_battle)
+	$AnimationPlayer.play("spin")
 
 
 func start_battle() -> void:
@@ -25,6 +27,7 @@ func start_battle() -> void:
 
 
 func start_turn() -> void:
+	turn_indicator.show()
 	var tile_coords = Navigation.get_tile_coords(global_position)
 	Navigation.set_point_walkable(tile_coords)
 	if stats is EnemyStats:
@@ -33,6 +36,7 @@ func start_turn() -> void:
 
 
 func end_turn() -> void:
+	turn_indicator.hide()
 	Navigation.set_point_solid(target_pos)
 
 
@@ -60,7 +64,7 @@ func move_to(target: Vector2i) -> void:
 			var tile_3d = Vector3(tile.x, 0, tile.y)
 			var next_pos = Navigation.gridmap.map_to_local(tile_3d)
 			var flat_next_pos = Vector3(next_pos.x,floor_height,next_pos.z)
-			tween.tween_property(self, "global_position",flat_next_pos,0.25)
+			tween.tween_property(self, "global_position",flat_next_pos,0.15)
 		await tween.finished
 
 
