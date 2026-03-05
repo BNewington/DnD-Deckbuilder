@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var move_speed: float = 4.0
+@export var focus_speed: float = 0.2
 
 @export_range(0, 50) var orbit_speed: float = 4.0
 var _target_orbit := rotation.y
@@ -10,11 +11,19 @@ var _target_orbit := rotation.y
 
 var is_panning = false
 var input_vec: Vector2
+var current_unit: Unit
+var target_pos: Vector3 : set = set_target_pos
+var is_focusing: bool = false
 
 @onready var cam: Camera3D = $Camera3D
 
 
+func _ready() -> void:
+	Events.start_turn.connect(_on_turn_started)
+
+
 func _process(delta: float) -> void:
+	focus_target()
 	if Input.is_action_pressed("cam_pan"):
 		is_panning = true
 	else:
@@ -37,9 +46,30 @@ func _process(delta: float) -> void:
 	rotation.y = lerpf(rotation.y, _target_orbit, 1.0 - 2.0 ** (-4.0 * delta * orbit_speed))
 	if absf(rotation.y - _target_orbit) < 0.02:
 		rotation.y = _target_orbit
+	
+	if Input.is_action_just_pressed("cam_center"):
+		target_pos = current_unit.global_position
 
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and is_panning:
 		var dist = event.screen_relative
 		input_vec = Vector2(-dist.x,dist.y)
+
+
+func _on_turn_started(unit: Unit) -> void:
+	current_unit = unit
+	target_pos = unit.global_position
+
+
+func set_target_pos(value: Vector3) -> void:
+	target_pos = value
+	is_focusing = true
+
+
+func focus_target() -> void:
+	var focus_threshold = 0.5
+	if is_focusing:
+		global_position = global_position.lerp(target_pos,focus_speed)
+		if (global_position-target_pos).length() < focus_threshold:
+			is_focusing = false
