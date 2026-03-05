@@ -26,7 +26,7 @@ flip_faces = true
 size = Vector2(2, 2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_odkjl"]
-render_priority = 0
+render_priority = -1
 shader = ExtResource("1_h10rc")
 shader_parameter/lightIntensity = 0.5
 shader_parameter/lineAlpha = 0.5

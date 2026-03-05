@@ -24,6 +24,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	focus_target()
+	if is_focusing:
+		return
 	if Input.is_action_pressed("cam_pan"):
 		is_panning = true
 	else:
@@ -43,9 +45,12 @@ func _process(delta: float) -> void:
 		_target_orbit += TAU/8
 	if Input.is_action_just_pressed("cam_orbit_left"):
 		_target_orbit -= TAU/8
-	rotation.y = lerpf(rotation.y, _target_orbit, 1.0 - 2.0 ** (-4.0 * delta * orbit_speed))
+	
+	
 	if absf(rotation.y - _target_orbit) < 0.02:
 		rotation.y = _target_orbit
+	else:
+		rotation.y = lerp_angle(rotation.y, _target_orbit, 1.0 - 2.0 ** (-4.0 * delta * orbit_speed))
 	
 	if Input.is_action_just_pressed("cam_center"):
 		target_pos = current_unit.global_position
@@ -72,4 +77,5 @@ func focus_target() -> void:
 	if is_focusing:
 		global_position = global_position.lerp(target_pos,focus_speed)
 		if (global_position-target_pos).length() < focus_threshold:
+			global_position = target_pos
 			is_focusing = false

@@ -1,7 +1,14 @@
 [gd_scene format=3 uid="uid://dcerwhwrkdre3"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tel0x"]
+albedo_color = Color(1.8289685e-06, 0.44709933, 0.57379043, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_tel0x"]
 
 [node name="TileHighlight" type="MeshInstance3D" unique_id=137925748]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_tel0x")
+transparency = 0.85
+lod_bias = 128.0
+ignore_occlusion_culling = true
 mesh = SubResource("BoxMesh_tel0x")

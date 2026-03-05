@@ -28,9 +28,10 @@ func highlight_tiles(_card_ui: CardUI, tile_array: Array[Vector2i]) -> void:
 
 
 func create_highlight(tile_coords: Vector2i) -> MeshInstance3D:
+	var vertical_offset = Vector3(0,1.1,0)
 	var world_coords = Navigation.get_world_coords(tile_coords)
 	var highlight = TILE_HIGHLIGHT.instantiate()
-	highlight.position = world_coords
+	highlight.position = world_coords - vertical_offset
 	add_child(highlight)
 	return highlight
 
