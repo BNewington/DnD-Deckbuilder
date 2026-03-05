@@ -3,12 +3,25 @@ extends Node3D
 
 const TILE_HIGHLIGHT = preload("uid://dcerwhwrkdre3")
 
+@onready var tile_selector: Node3D = $TileSelector
+
 @export var cursor: Cursor
 @export var highlight_colour: Color = Color(0.0, 0.71, 0.969, 0.553)
+
+var vertical_offset = Vector3(0,1.14,0)
 
 var selecting: bool = false
 var selectable_tiles: Array[Vector2i]
 var highlight_sprites: Array[MeshInstance3D]
+
+func _process(_delta: float) -> void:
+	var mouse_pos = Navigation.find_3d_mouse_pos()
+	var tile_over = Navigation.get_tile_coords(mouse_pos)
+	if tile_over in selectable_tiles:
+		tile_selector.show()
+		tile_selector.global_position = Navigation.get_world_coords(tile_over)
+	else:
+		tile_selector.hide()
 
 func _ready() -> void:
 	Events.card_aiming_started.connect(highlight_tiles)
@@ -28,7 +41,6 @@ func highlight_tiles(_card_ui: CardUI, tile_array: Array[Vector2i]) -> void:
 
 
 func create_highlight(tile_coords: Vector2i) -> MeshInstance3D:
-	var vertical_offset = Vector3(0,1.1,0)
 	var world_coords = Navigation.get_world_coords(tile_coords)
 	var highlight = TILE_HIGHLIGHT.instantiate()
 	highlight.position = world_coords - vertical_offset

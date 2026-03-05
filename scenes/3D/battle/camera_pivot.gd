@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var move_speed: float = 4.0
+@export var move_speed: float = 12.0
 @export var focus_speed: float = 0.2
 
 @export_range(0, 50) var orbit_speed: float = 4.0

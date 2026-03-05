@@ -12,6 +12,7 @@ offset_right = -1052.0
 offset_bottom = -598.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_xm8em")
 
 [node name="HealthLabel" type="Label" parent="." unique_id=461094665]
