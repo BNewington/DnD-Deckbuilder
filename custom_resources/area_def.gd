@@ -27,7 +27,16 @@ func get_area(origin_pos: Vector2i) -> Array[Vector2i]:
 				cells.append(unit.grid_pos)
 			return cells
 		TargetType.AREA:
-			if move: return Navigation.get_move_area(origin_pos,radius)
+			if move: 
+				var solid = Navigation.is_point_solid(origin_pos)
+				var area: Array[Vector2i] = []
+				if solid:
+					Navigation.set_point_walkable(origin_pos)
+					area = Navigation.get_move_area(origin_pos,radius)
+					Navigation.set_point_solid(origin_pos)
+				else:
+					area = Navigation.get_move_area(origin_pos,radius)
+				return area
 			return Navigation.get_shape_tiles(shape,radius,origin_pos,include_target)
 		_:
 			return []
@@ -37,7 +46,7 @@ func get_valid_target_cells(area: Array[Vector2i]) -> Array[Vector2i]:
 	var target_cells: Array[Vector2i] = []
 	match valid_targets:
 		TargetType.UNIT, TargetType.ENEMY, TargetType.HERO:
-			var unit_type = _get_unit_type(selection)
+			var unit_type = _get_unit_type(valid_targets)
 			var units = Navigation.get_units(unit_type)
 			for unit in units:
 				target_cells.append(unit.grid_pos)

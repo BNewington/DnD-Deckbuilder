@@ -37,7 +37,7 @@ func connect_events() -> void:
 	Events.card_aiming_ended.connect(card_aiming_ended)
 
 
-func card_aiming_started(_card_ui: CardUI, _tiles: Array[Vector2i]) -> void:
+func card_aiming_started(_card_ui: CardUI, _tiles: Array[Vector2i], _valid_targets: Array[Vector2i]) -> void:
 	area_2d.monitorable = false
 	area_2d.monitoring = false
 

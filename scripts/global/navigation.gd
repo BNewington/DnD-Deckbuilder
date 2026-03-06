@@ -156,6 +156,10 @@ func set_point_walkable(point: Vector2i) -> void:
 	grid.set_point_solid(point, false)
 
 
+func is_point_solid(point: Vector2i) -> bool:
+	return grid.is_point_solid(point)
+
+
 func snap_to_grid(coords: Vector3) -> Vector3:
 	var tile_coords = get_tile_coords(coords)
 	var world_coords = get_world_coords(tile_coords)

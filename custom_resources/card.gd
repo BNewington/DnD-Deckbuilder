@@ -46,7 +46,6 @@ func get_valid_targets(area_id: int) -> Array[Vector2i]:
 
 
 func play() -> void:
-	selected_tiles = []
 	Events.card_played.emit(self)
 	unit.stats.energy -= cost
 	unit.stats.discard.add_card(self)
@@ -58,7 +57,12 @@ func area_selected(area_id: int, tile: Vector2i) -> void:
 	print(selected_tiles)
 	var effects = target_selectors[area_id].effects
 	for effect in effects:
-		effect.execute(unit,[tile])
+		if effect.executor == Effect.ExecutorType.SELF:
+			effect.execute(unit,[tile])
+		elif effect.executor == Effect.ExecutorType.PREVIOUSLY_SELECTED_UNIT:
+			print(selected_tiles[effect.executor_id])
+			var previously_selected_unit = Navigation.get_unit_at_tile(selected_tiles[effect.executor_id])
+			effect.execute(previously_selected_unit,[tile])
 	execute(area_id, [tile])
 
 
