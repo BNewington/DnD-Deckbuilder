@@ -41,6 +41,7 @@ func init(level_gridmap: GridMap, level_camera: Camera3D) -> void:
 	grid.update()
 	
 	remove_unit_tiles_from_grid()
+	remove_empty_tiles_from_grid()
 
 
 func find_used_rect(map: GridMap) -> Rect2i:
@@ -103,6 +104,21 @@ func init_level(level_tilemap: TileMapLayer) -> void:
 	
 	remove_unwalkable_tiles_from_grid()
 	remove_unit_tiles_from_grid()
+
+
+func remove_empty_tiles_from_grid() -> void:
+	var used_cells = gridmap.get_used_cells()
+	var used_cells_2d: Array[Vector2i]
+	for cell in used_cells:
+		used_cells_2d.append(flatten(cell))
+	
+	var start_pos = grid.region.position
+	var end_pos = start_pos + grid.region.size
+	for x in range(start_pos.x, end_pos.x):
+		for y in range(start_pos.y, end_pos.y):
+			var tile = Vector2i(x,y)
+			if not tile in used_cells_2d:
+				grid.set_point_solid(tile)
 
 
 func remove_unwalkable_tiles_from_grid() -> void:

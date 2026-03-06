@@ -7,5 +7,5 @@
 
 [resource]
 script = ExtResource("2_l67s4")
-cards = Array[ExtResource("1_ax66v")]([ExtResource("2_eutxp"), ExtResource("2_eutxp"), ExtResource("2_eutxp"), ExtResource("2_eutxp"), ExtResource("2_eutxp"), ExtResource("3_o3hcm"), ExtResource("3_o3hcm"), ExtResource("3_o3hcm"), ExtResource("3_o3hcm"), ExtResource("3_o3hcm")])
+cards = Array[ExtResource("1_ax66v")]([ExtResource("3_o3hcm"), ExtResource("3_o3hcm"), ExtResource("3_o3hcm"), ExtResource("3_o3hcm"), ExtResource("3_o3hcm"), ExtResource("2_eutxp"), ExtResource("2_eutxp"), ExtResource("2_eutxp"), ExtResource("2_eutxp"), ExtResource("2_eutxp")])
 metadata/_custom_type_script = "uid://bwhee2d1ya1p1"

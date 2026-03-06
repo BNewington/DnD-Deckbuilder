@@ -59,7 +59,7 @@ func _on_end_turn_button_pressed() -> void:
 	Events.turn_ended.emit(current_unit)
 
 
-func _on_card_aiming_started(_card_ui: CardUI, _area: Array[Vector2i]) -> void:
+func _on_card_aiming_started(_card_ui: CardUI, _area: Array[Vector2i], _valid_targets: Array[Vector2i]) -> void:
 	end_turn_button.disabled = true
 
 

@@ -34,7 +34,7 @@ func clear_move_tiles(_card_ui) -> void:
 	selectable_tiles = []
 
 
-func highlight_tiles(_card_ui: CardUI, tile_array: Array[Vector2i]) -> void:
+func highlight_tiles(_card_ui: CardUI, tile_array: Array[Vector2i], valid_targets: Array[Vector2i]) -> void:
 	selectable_tiles = tile_array
 	highlight_sprites = create_highlights_array(tile_array)
 	selecting = true

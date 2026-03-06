@@ -1,27 +1,34 @@
-[gd_resource type="Resource" format=3 uid="uid://cql3oentr77yy"]
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://cql3oentr77yy"]
 
-[ext_resource type="Script" uid="uid://cv772it3a7uko" path="res://units/heroes/warrior/cards/warrior_run.gd" id="1_3gyfo"]
+[ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="1_gsjv4"]
 [ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="1_nhkg1"]
 [ext_resource type="Texture2D" uid="uid://crs738o0s8uw7" path="res://art/ui/Icons/CardIcons.png" id="2_nhkg1"]
+[ext_resource type="Script" uid="uid://by6ufil4qnjs8" path="res://custom_resources/effects/effect.gd" id="3_nhkg1"]
+[ext_resource type="Script" uid="uid://bptdappyknoae" path="res://custom_resources/effects/move_effect.gd" id="4_cgyjl"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cgyjl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_x76vy"]
 atlas = ExtResource("2_nhkg1")
 region = Rect2(320, 384, 64, 64)
 
-[sub_resource type="Resource" id="Resource_nhkg1"]
+[sub_resource type="Resource" id="Resource_bon83"]
+script = ExtResource("4_cgyjl")
+metadata/_custom_type_script = "uid://bptdappyknoae"
+
+[sub_resource type="Resource" id="Resource_hk5om"]
 script = ExtResource("1_nhkg1")
+shape = 1
 radius = 3
 move = true
+effects = Array[ExtResource("3_nhkg1")]([SubResource("Resource_bon83")])
 metadata/_custom_type_script = "uid://lo410k1w0lof"
 
 [resource]
-script = ExtResource("1_3gyfo")
+script = ExtResource("1_gsjv4")
 id = "warrior_run"
 name = "Run"
 type = 1
-target = 1
 cost = 1
-target_selectors = Array[ExtResource("1_nhkg1")]([SubResource("Resource_nhkg1")])
-icon = SubResource("AtlasTexture_cgyjl")
-description = "Move  up to 3 squares"
+target_selectors = Array[ExtResource("1_nhkg1")]([SubResource("Resource_hk5om")])
+icon = SubResource("AtlasTexture_x76vy")
+description = "Move 3 squares"
 metadata/_custom_type_script = "uid://cbhovqi2nk4fe"

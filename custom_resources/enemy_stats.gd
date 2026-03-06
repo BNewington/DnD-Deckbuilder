@@ -14,7 +14,9 @@ func find_target_tiles(unit: Unit) -> Array[Vector2i]:
 	tiles.append(unit_pos)
 	
 	for priority in move_priorities:
-		tiles = priority.filter_tiles(unit, tiles)
+		var filtered_tiles = priority.filter_tiles(unit, tiles)
+		if filtered_tiles != []:
+			tiles = filtered_tiles
 	return tiles
 
 

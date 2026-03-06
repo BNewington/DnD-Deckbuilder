@@ -8,10 +8,15 @@
 [ext_resource type="Script" uid="uid://buysleh8f17v1" path="res://custom_resources/move_priorities/closest_to_hero.gd" id="3_h21o1"]
 [ext_resource type="PackedScene" uid="uid://wjaur75p135h" path="res://art/3D/models/Basic_Goblin.glb" id="4_hqva7"]
 [ext_resource type="Script" uid="uid://b21budf0cbcon" path="res://custom_resources/move_priorities/shortest_distance.gd" id="5_upvjb"]
+[ext_resource type="Script" uid="uid://dmaakococ25tv" path="res://custom_resources/move_priorities/next_to_hero.gd" id="6_fxxli"]
 
 [sub_resource type="Resource" id="Resource_fxxli"]
 script = ExtResource("2_hqva7")
 metadata/_custom_type_script = "uid://bqsbk0cl1expk"
+
+[sub_resource type="Resource" id="Resource_o0754"]
+script = ExtResource("6_fxxli")
+metadata/_custom_type_script = "uid://dmaakococ25tv"
 
 [sub_resource type="Resource" id="Resource_hqva7"]
 script = ExtResource("3_h21o1")
@@ -23,7 +28,7 @@ metadata/_custom_type_script = "uid://b21budf0cbcon"
 
 [resource]
 script = ExtResource("2_64dry")
-move_priorities = Array[ExtResource("2_5ai7e")]([SubResource("Resource_hqva7"), SubResource("Resource_u4cao")])
+move_priorities = Array[ExtResource("2_5ai7e")]([SubResource("Resource_o0754"), SubResource("Resource_hqva7"), SubResource("Resource_u4cao")])
 attack_priorities = Array[ExtResource("1_upvjb")]([SubResource("Resource_fxxli")])
 name = "torch_goblin"
 model = ExtResource("4_hqva7")

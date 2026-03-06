@@ -3,8 +3,10 @@ extends CardState
 const MOUSE_Y_CANCEL_THRESHOLD := 550
 
 var area: Array[Vector2i]
+var valid_targets: Array[Vector2i]
 var num_areas: int
 var current_area: int
+
 
 func enter() -> void:
 	current_area = 0
@@ -13,7 +15,8 @@ func enter() -> void:
 	card_ui.targets.clear()
 	
 	area = card_ui.card.get_area(current_area)
-	Events.card_aiming_started.emit(card_ui,area)
+	valid_targets = card_ui.card.get_valid_targets(current_area)
+	Events.card_aiming_started.emit(card_ui,area,valid_targets)
 	Events.cursor_mode_hand.emit()
 	
 
@@ -29,8 +32,9 @@ func aiming_selected(selected_tile: Vector2i) -> void:
 	current_area += 1
 	if current_area <= num_areas:
 		area = card_ui.card.get_area(current_area)
+		valid_targets = card_ui.card.get_valid_targets(current_area)
 		Events.card_aiming_ended.emit(card_ui)
-		Events.card_aiming_started.emit(card_ui,area)
+		Events.card_aiming_started.emit(card_ui,area,valid_targets)
 
 
 func on_input(event: InputEvent) -> void:
