@@ -34,7 +34,6 @@ func get_area(origin_pos: Vector2i) -> Array[Vector2i]:
 				area = Navigation.get_move_area(origin_pos,radius)
 			else:
 				area = Navigation.get_shape_tiles(shape,radius,origin_pos,include_target)
-	
 	return area
 
 

@@ -325,3 +325,13 @@ func get_shape_tiles(shape:AreaShape, radius: int, origin: Vector2i = Vector2i(0
 		if grid.region.has_point(tile):
 			used_tiles.append(tile)
 	return used_tiles
+
+
+func get_walkable_unit_tiles() -> Array[Vector2i]:
+	var tiles: Array[Vector2i] = []
+	var units = get_units(UnitType.Any)
+	for unit in units:
+		var grid_pos = unit.grid_pos
+		if not is_point_solid(grid_pos):
+			tiles.append(grid_pos)
+	return tiles

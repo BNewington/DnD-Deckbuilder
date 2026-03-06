@@ -28,8 +28,9 @@ func start_battle() -> void:
 
 func start_turn() -> void:
 	turn_indicator.show()
-	var tile_coords = Navigation.get_tile_coords(global_position)
-	Navigation.set_point_walkable(tile_coords)
+	if stats is EnemyStats:
+		var tile_coords = Navigation.get_tile_coords(global_position)
+		Navigation.set_point_walkable(tile_coords)
 	if stats is EnemyStats:
 		stats.start_turn(self)
 	print(Navigation.find_2d_screen_pos(global_position))
@@ -37,7 +38,8 @@ func start_turn() -> void:
 
 func end_turn() -> void:
 	turn_indicator.hide()
-	Navigation.set_point_solid(target_pos)
+	if stats is EnemyStats:
+		Navigation.set_point_solid(target_pos)
 
 
 func set_stats(value: UnitStats) -> void:
