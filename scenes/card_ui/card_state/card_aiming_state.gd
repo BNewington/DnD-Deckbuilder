@@ -52,7 +52,10 @@ func on_input(event: InputEvent) -> void:
 		if event.is_action_pressed("left_mouse"):
 			card_ui.targets.append(selected_tile)
 			if current_area == num_areas:
+				aiming_selected(selected_tile)
 				transition_requested.emit(self, State.RELEASED)
-			aiming_selected(selected_tile)
+			else:
+				aiming_selected(selected_tile)
+			
 	else:
 		Events.hide_tile_selector.emit()

@@ -1,6 +1,5 @@
 [gd_resource type="Resource" format=3 uid="uid://dp6rk0vbw543i"]
 
-[ext_resource type="SpriteFrames" uid="uid://cybyjmlaqh0vy" path="res://units/enemies/torch_goblin/torch_goblin_sprite_frames.tres" id="1_64dry"]
 [ext_resource type="Script" uid="uid://i41m3ralic51" path="res://custom_resources/attack_priorities/attack_priority.gd" id="1_upvjb"]
 [ext_resource type="Script" uid="uid://dbxs46e2p7i2" path="res://custom_resources/move_priorities/move_priority.gd" id="2_5ai7e"]
 [ext_resource type="Script" uid="uid://b0wqyft7ri3qt" path="res://units/enemies/torch_goblin/toch_goblin.gd" id="2_64dry"]
@@ -32,6 +31,5 @@ move_priorities = Array[ExtResource("2_5ai7e")]([SubResource("Resource_o0754"), 
 attack_priorities = Array[ExtResource("1_upvjb")]([SubResource("Resource_fxxli")])
 name = "torch_goblin"
 model = ExtResource("4_hqva7")
-frames = ExtResource("1_64dry")
 max_health = 20
 metadata/_custom_type_script = "uid://coi4vc2y45mc6"

@@ -16,7 +16,7 @@ metadata/_custom_type_script = "uid://bptdappyknoae"
 
 [sub_resource type="Resource" id="Resource_hk5om"]
 script = ExtResource("1_nhkg1")
-valid_targets = 0
+valid_targets = 1
 shape = 1
 radius = 3
 move = true

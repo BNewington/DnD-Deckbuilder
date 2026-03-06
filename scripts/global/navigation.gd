@@ -320,4 +320,8 @@ func get_shape_tiles(shape:AreaShape, radius: int, origin: Vector2i = Vector2i(0
 	if not include_target:
 		tiles.erase(origin)
 	
-	return tiles
+	var used_tiles: Array[Vector2i] = []
+	for tile in tiles:
+		if grid.region.has_point(tile):
+			used_tiles.append(tile)
+	return used_tiles

@@ -5,7 +5,6 @@ signal stats_changed
 
 @export var name: String
 @export var model: PackedScene
-@export var frames: SpriteFrames
 @export var max_health: int
 
 var health: int : set = set_health

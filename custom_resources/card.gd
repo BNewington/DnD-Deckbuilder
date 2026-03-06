@@ -49,6 +49,7 @@ func play() -> void:
 	Events.card_played.emit(self)
 	unit.stats.energy -= cost
 	unit.stats.discard.add_card(self)
+	selected_tiles = []
 
 
 func area_selected(area_id: int, tile: Vector2i) -> void:
