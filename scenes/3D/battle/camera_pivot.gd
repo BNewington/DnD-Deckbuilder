@@ -14,6 +14,7 @@ var input_vec: Vector2
 var current_unit: Unit
 var target_pos: Vector3 : set = set_target_pos
 var is_focusing: bool = false
+var focus_offset: float = 2
 
 @onready var cam: Camera3D = $Camera3D
 
@@ -53,7 +54,7 @@ func _process(delta: float) -> void:
 		rotation.y = lerp_angle(rotation.y, _target_orbit, 1.0 - 2.0 ** (-4.0 * delta * orbit_speed))
 	
 	if Input.is_action_just_pressed("cam_center"):
-		target_pos = current_unit.global_position
+		target_pos = current_unit.global_position - (Vector3.UP * focus_offset)
 
 
 func _input(event: InputEvent) -> void:
@@ -64,7 +65,7 @@ func _input(event: InputEvent) -> void:
 
 func _on_turn_started(unit: Unit) -> void:
 	current_unit = unit
-	target_pos = unit.global_position
+	target_pos = unit.global_position - (Vector3.UP * focus_offset)
 
 
 func set_target_pos(value: Vector3) -> void:
