@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://lr37brw4eqfi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p70pp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tel0x"]
+
+[node name="TileGreyOut" type="MeshInstance3D" unique_id=137925748]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_p70pp")
+transparency = 0.98
+lod_bias = 128.0
+ignore_occlusion_culling = true
+mesh = SubResource("BoxMesh_tel0x")

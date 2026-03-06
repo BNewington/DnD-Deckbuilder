@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dcerwhwrkdre3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tel0x"]
-albedo_color = Color(2.5027991e-06, 0.5964698, 0.7593057, 1)
+albedo_color = Color(0, 0.5248333, 0.67, 0.63529414)
 
 [sub_resource type="BoxMesh" id="BoxMesh_tel0x"]
 

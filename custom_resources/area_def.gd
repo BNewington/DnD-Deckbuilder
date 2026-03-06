@@ -41,6 +41,8 @@ func get_valid_target_cells(area: Array[Vector2i]) -> Array[Vector2i]:
 			var units = Navigation.get_units(unit_type)
 			for unit in units:
 				target_cells.append(unit.grid_pos)
+		TargetType.AREA:
+			target_cells = area
 	var valid_target_cells: Array[Vector2i]
 	for cell in area:
 		if cell in target_cells:
