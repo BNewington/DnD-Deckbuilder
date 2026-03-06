@@ -14,6 +14,7 @@ enum ValidTargets {ANY_TILE, WALKABALE_TILE, UNIT, HERO, ENEMY}
 @export var move: bool = false
 @export var include_target: bool = false
 @export var effects: Array[Effect]
+@export var can_cancel_after: bool = true
 
 
 func get_area(origin_pos: Vector2i) -> Array[Vector2i]:

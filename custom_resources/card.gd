@@ -67,5 +67,11 @@ func area_selected(area_id: int, tile: Vector2i) -> void:
 	execute(area_id, [tile])
 
 
+func can_cancel_after(area_id: int) -> bool:
+	for area in target_selectors.slice(0,area_id):
+		if not area.can_cancel_after:
+			return false
+	return true
+
 func execute(area_id: int, targets: Array) -> void:
 	print("executed effect at target(s): %s"%targets)

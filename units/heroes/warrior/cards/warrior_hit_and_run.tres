@@ -21,6 +21,7 @@ script = ExtResource("2_23b1h")
 shape = 1
 radius = 1
 effects = Array[ExtResource("4_5q7sj")]([SubResource("Resource_pxjga")])
+can_cancel_after = false
 metadata/_custom_type_script = "uid://lo410k1w0lof"
 
 [sub_resource type="Resource" id="Resource_pikmc"]

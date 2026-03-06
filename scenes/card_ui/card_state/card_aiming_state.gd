@@ -43,7 +43,7 @@ func on_input(event: InputEvent) -> void:
 	var mouse_over_area: bool = selected_tile in valid_targets
 	
 	if event.is_action_pressed("right_mouse"):
-		if current_area > 0:
+		if not card_ui.card.can_cancel_after(current_area):
 			transition_requested.emit(self, State.RELEASED)
 		transition_requested.emit(self, State.BASE)
 	
