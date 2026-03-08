@@ -1,26 +1,33 @@
-[gd_resource type="Resource" format=3 uid="uid://cxn8jc3q4tmel"]
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://cxn8jc3q4tmel"]
 
 [ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="1_0t6xm"]
-[ext_resource type="Script" uid="uid://bdsp4qqkgsyer" path="res://units/heroes/warrior/cards/warrior_strike.gd" id="1_ldmrk"]
+[ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="1_vxqgb"]
 [ext_resource type="Texture2D" uid="uid://crs738o0s8uw7" path="res://art/ui/Icons/CardIcons.png" id="2_0t6xm"]
+[ext_resource type="Script" uid="uid://by6ufil4qnjs8" path="res://custom_resources/effects/effect.gd" id="4_vfyey"]
+[ext_resource type="Script" uid="uid://3hbkpdrnqms5" path="res://custom_resources/effects/damage_effect.gd" id="5_bhuvc"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_08wpx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfyey"]
 atlas = ExtResource("2_0t6xm")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_0t6xm"]
+[sub_resource type="Resource" id="Resource_bhuvc"]
+script = ExtResource("5_bhuvc")
+amount = 5
+metadata/_custom_type_script = "uid://3hbkpdrnqms5"
+
+[sub_resource type="Resource" id="Resource_v1jib"]
 script = ExtResource("1_0t6xm")
 shape = 1
 radius = 1
+effects = Array[ExtResource("4_vfyey")]([SubResource("Resource_bhuvc")])
 metadata/_custom_type_script = "uid://lo410k1w0lof"
 
 [resource]
-script = ExtResource("1_ldmrk")
+script = ExtResource("1_vxqgb")
 id = "warrior_strike"
 name = "Strike"
-target = 1
 cost = 1
-target_selectors = Array[ExtResource("1_0t6xm")]([SubResource("Resource_0t6xm")])
-icon = SubResource("AtlasTexture_08wpx")
-description = "Deal 5 damage to an adjacent creature"
+target_selectors = Array[ExtResource("1_0t6xm")]([SubResource("Resource_v1jib")])
+icon = SubResource("AtlasTexture_vfyey")
+description = "Deal 5 damage to an adjacent enemy"
 metadata/_custom_type_script = "uid://cbhovqi2nk4fe"

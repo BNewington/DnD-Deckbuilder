@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c0lwj7s84cv2x"]
+
+[node name="TileSelector" type="Node3D" unique_id=1052067510]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1090386900]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1.03, 0)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D" unique_id=1517446883]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 0, 0, 0)
+operation = 2
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D/CSGBox3D2" unique_id=391297510]
+transform = Transform3D(1.1111112, 0, 0, 0, 1, 0, 0, 0, 0.5555556, 0, 0, 0)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D/CSGBox3D2" unique_id=1490520079]
+transform = Transform3D(-4.856821e-08, 0, 0.5555556, 0, 1, 0, -1.1111112, 0, -2.4284105e-08, 0, 0, 0)

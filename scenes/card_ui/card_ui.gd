@@ -9,12 +9,11 @@ const ROTATE_SPEED: float = 5.0
 @export var card: Card : set = set_card
 @export var unit: Unit : set = set_unit
 
-
-@onready var name_label: Label = $Panel/Name
-@onready var energy_cost: Label = $Panel/EnergyCost
-@onready var icon: TextureRect = $Panel/Icon
-@onready var description: RichTextLabel = $Panel/Description
-
+@onready var sprite: Sprite2D = $Sprite
+@onready var name_label: Label = $Sprite/Name
+@onready var energy_cost: Label = $Sprite/EnergyCost
+@onready var icon: TextureRect = $Sprite/Icon
+@onready var description: RichTextLabel = $Sprite/Description
 
 @onready var card_state_machine: CardStateMachine = $CardStateMachine
 @onready var card_area: Area2D = $CardArea
@@ -87,11 +86,13 @@ func set_playable(value: bool ) -> void:
 		name_label.modulate = Color(1.0, 1.0, 1.0, 0.5)
 		description.modulate = Color(1.0, 1.0, 1.0, 0.5)
 		icon.modulate = Color(1.0, 1.0, 1.0, 0.5)
+		sprite.modulate = Color(1.0, 1.0, 1.0, 0.812)
 	else:
 		energy_cost.modulate = Color(1.0, 1.0, 1.0, 1.0)
 		name_label.modulate = Color(1.0, 1.0, 1.0, 1.0)
 		description.modulate = Color(1.0, 1.0, 1.0, 1.0)
 		icon.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 
 func _process(delta: float) -> void:

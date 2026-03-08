@@ -4,7 +4,7 @@ extends Resource
 signal stats_changed
 
 @export var name: String
-@export var frames: SpriteFrames
+@export var model: PackedScene
 @export var max_health: int
 
 var health: int : set = set_health

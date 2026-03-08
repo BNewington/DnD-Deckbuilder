@@ -2,7 +2,6 @@ class_name Card
 extends Resource
 
 enum Type {ATTACK, SKILL, POWER}
-enum Target {SELF, SQUARE, AREA}
 enum Hero {Warrior, Thief, Mage}
 
 var unit: Unit
@@ -11,7 +10,6 @@ var unit: Unit
 @export var id: String
 @export var name: String
 @export var type: Type
-@export var target: Target
 @export var cost: int
 
 @export var target_selectors: Array[AreaDef]
@@ -21,18 +19,14 @@ var unit: Unit
 @export_multiline var description: String
 
 var last_selected_tile: Vector2i
+var selected_tiles: Array[Vector2i] = []
 
 
 func does_target_square() -> bool:
-	return target == Target.SQUARE
-
-
-func does_target_area() -> bool:
-	return target == Target.AREA
-
-
-func does_target_self() -> bool:
-	return target == Target.SELF
+	for target_selector in target_selectors:
+		if target_selector.requires_aiming():
+			return true
+	return false
 
 
 func get_area(area_id: int) -> Array[Vector2i]:
@@ -46,16 +40,38 @@ func get_area(area_id: int) -> Array[Vector2i]:
 			return []
 
 
+func get_valid_targets(area_id: int) -> Array[Vector2i]:
+	var area = get_area(area_id)
+	return target_selectors[area_id].get_valid_target_cells(area)
+
+
 func play() -> void:
 	Events.card_played.emit(self)
 	unit.stats.energy -= cost
 	unit.stats.discard.add_card(self)
+	selected_tiles = []
 
 
 func area_selected(area_id: int, tile: Vector2i) -> void:
 	last_selected_tile = tile
+	selected_tiles.append(tile)
+	print(selected_tiles)
+	var effects = target_selectors[area_id].effects
+	for effect in effects:
+		if effect.executor == Effect.ExecutorType.SELF:
+			effect.execute(unit,[tile])
+		elif effect.executor == Effect.ExecutorType.PREVIOUSLY_SELECTED_UNIT:
+			print(selected_tiles[effect.executor_id])
+			var previously_selected_unit = Navigation.get_unit_at_tile(selected_tiles[effect.executor_id])
+			effect.execute(previously_selected_unit,[tile])
 	execute(area_id, [tile])
 
+
+func can_cancel_after(area_id: int) -> bool:
+	for area in target_selectors.slice(0,area_id):
+		if not area.can_cancel_after:
+			return false
+	return true
 
 func execute(area_id: int, targets: Array) -> void:
 	print("executed effect at target(s): %s"%targets)

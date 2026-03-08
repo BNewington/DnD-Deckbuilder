@@ -1,0 +1,230 @@
+[gd_scene format=3 uid="uid://bv3vq1gxui57a"]
+
+[ext_resource type="Shader" uid="uid://3q6dyahs3ugy" path="res://art/shaders/edge_detection.gdshader" id="1_h10rc"]
+[ext_resource type="Script" uid="uid://cta50uvlyf2hl" path="res://scenes/3D/battle/battle.gd" id="1_ji8pb"]
+[ext_resource type="MeshLibrary" uid="uid://cduarprs3by20" path="res://art/3D/tiles/tile.meshlib" id="1_wtai8"]
+[ext_resource type="Script" uid="uid://bfffiov26cesd" path="res://scenes/tile_highlights/tile_highlights.gd" id="2_o2o3g"]
+[ext_resource type="PackedScene" uid="uid://c0lwj7s84cv2x" path="res://scenes/tile_highlights/tile_selector.tscn" id="3_ehegv"]
+[ext_resource type="PackedScene" uid="uid://dx3rrgwcviw5h" path="res://scenes/3D/unit/unit.tscn" id="3_h10rc"]
+[ext_resource type="Script" uid="uid://5yrv77rif54m" path="res://scenes/3D/battle/camera_pivot.gd" id="3_jdl33"]
+[ext_resource type="Script" uid="uid://2hmxovkf5jbn" path="res://scenes/3D/battle/camera_3d.gd" id="4_ehegv"]
+[ext_resource type="Resource" uid="uid://cod0okis1mse4" path="res://units/heroes/warrior/warrior_stats.tres" id="5_lcfdq"]
+[ext_resource type="Script" uid="uid://bwiokfoc1pshs" path="res://scenes/turn_manager/turn_manager.gd" id="6_hglb3"]
+[ext_resource type="Script" uid="uid://bgqebmanw1r7q" path="res://scenes/ui/battle_ui.gd" id="7_46ncm"]
+[ext_resource type="PackedScene" uid="uid://57436yh7djea" path="res://scenes/cursor/cursor.tscn" id="8_lcfdq"]
+[ext_resource type="Resource" uid="uid://dp6rk0vbw543i" path="res://units/enemies/torch_goblin/torch_goblin_stats.tres" id="9_423bg"]
+[ext_resource type="PackedScene" uid="uid://dq8c5qippudah" path="res://scenes/hand/hand.tscn" id="9_hglb3"]
+[ext_resource type="PackedScene" uid="uid://s3e6r400eqcu" path="res://scenes/ui/energy_ui.tscn" id="10_423bg"]
+[ext_resource type="Resource" uid="uid://cbxcuj1pc0en" path="res://units/heroes/archer/mage_stats.tres" id="10_jdl33"]
+[ext_resource type="Texture2D" uid="uid://c1vofgp5mpb4x" path="res://art/ui/Buttons/SmallRedSquareButton_Regular.png" id="11_o2o3g"]
+[ext_resource type="Texture2D" uid="uid://drycruw7uqan2" path="res://art/ui/Buttons/SmallRedSquareButton_Pressed.png" id="12_jdl33"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hglb3"]
+size = Vector2(1150, 313)
+
+[sub_resource type="QuadMesh" id="QuadMesh_hp20k"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_odkjl"]
+render_priority = -1
+shader = ExtResource("1_h10rc")
+shader_parameter/lightIntensity = 0.5
+shader_parameter/lineAlpha = 0.5
+shader_parameter/useLighting = true
+shader_parameter/lineHighlight = 0.2
+shader_parameter/lineShadow = 0.55
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ehegv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aw6g6"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_xc73o"]
+ground_color = Color(0.176178, 0.131568, 0.0777401, 1)
+
+[sub_resource type="Sky" id="Sky_kypv1"]
+sky_material = SubResource("PhysicalSkyMaterial_xc73o")
+
+[sub_resource type="Environment" id="Environment_n4gow"]
+background_mode = 2
+background_energy_multiplier = 2.5
+sky = SubResource("Sky_kypv1")
+ssil_enabled = true
+ssil_intensity = 4.0
+sdfgi_read_sky_light = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ehegv"]
+content_margin_top = 2.0
+texture = ExtResource("11_o2o3g")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 20.0
+expand_margin_top = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aw6g6"]
+texture = ExtResource("12_jdl33")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[node name="battle" type="Node3D" unique_id=1066077475]
+script = ExtResource("1_ji8pb")
+
+[node name="CardDropArea" type="Area2D" parent="." unique_id=306843157 groups=["card_drop_area"]]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea" unique_id=2026296583]
+position = Vector2(576, 156.5)
+shape = SubResource("RectangleShape2D_hglb3")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1579858031]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 2
+mouse_target = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=358340824]
+handle_input_locally = false
+size = Vector2i(576, 324)
+render_target_update_mode = 4
+
+[node name="TileHighlights" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=929726574]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115201, 0)
+script = ExtResource("2_o2o3g")
+
+[node name="TileSelector" parent="SubViewportContainer/SubViewport/TileHighlights" unique_id=1052067510 instance=ExtResource("3_ehegv")]
+visible = false
+
+[node name="CameraPivot" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=2050402475]
+transform = Transform3D(0.92387944, -0.24598417, 0.2931525, 0, 0.76604444, 0.6427875, -0.38268343, -0.59385824, 0.7077327, 0, 0, 0)
+script = ExtResource("3_jdl33")
+circular_radius = 0.5
+circular_speed = 0.1
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/CameraPivot" unique_id=2098024746]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 20)
+projection = 1
+fov = 44.4
+size = 20.0
+near = 0.042
+far = 767.88
+script = ExtResource("4_ehegv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/CameraPivot/Camera3D" unique_id=1945393830]
+cast_shadow = 0
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_hp20k")
+surface_material_override/0 = SubResource("ShaderMaterial_odkjl")
+
+[node name="TurnManager" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=92159210 node_paths=PackedStringArray("hand")]
+script = ExtResource("6_hglb3")
+hand = NodePath("../../../BattleUI/Hand")
+
+[node name="Heroes" type="Node3D" parent="SubViewportContainer/SubViewport/TurnManager" unique_id=2036801270]
+
+[node name="Unit" parent="SubViewportContainer/SubViewport/TurnManager/Heroes" unique_id=351906256 instance=ExtResource("3_h10rc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3328342, 1.1178153, -0.7648258)
+stats = ExtResource("5_lcfdq")
+
+[node name="Unit2" parent="SubViewportContainer/SubViewport/TurnManager/Heroes" unique_id=49640100 instance=ExtResource("3_h10rc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5641613, 1.1178153, -5.255945)
+stats = ExtResource("10_jdl33")
+
+[node name="Enemies" type="Node3D" parent="SubViewportContainer/SubViewport/TurnManager" unique_id=1110511415]
+
+[node name="Unit" parent="SubViewportContainer/SubViewport/TurnManager/Enemies" unique_id=1623615925 instance=ExtResource("3_h10rc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0757744, 1.186873, -0.51269937)
+stats = ExtResource("9_423bg")
+
+[node name="Unit2" parent="SubViewportContainer/SubViewport/TurnManager/Enemies" unique_id=515150851 instance=ExtResource("3_h10rc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.463891, 1.186873, 2.922655)
+stats = ExtResource("9_423bg")
+
+[node name="GridMap" type="GridMap" parent="SubViewportContainer/SubViewport" unique_id=467039386]
+mesh_library = ExtResource("1_wtai8")
+cell_size = Vector3(2.1, 0.09, 2.1)
+data = {
+"cells": PackedInt32Array(65533, 0, 0, 65533, 65535, 0, 65533, 65534, 0, 65534, 65534, 0, 65535, 65534, 0, 65535, 65535, 0, 65535, 0, 0, 65534, 65535, 0, 65534, 0, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 1, 0, 0, 1, 65535, 0, 1, 65534, 0, 2, 65535, 0, 2, 65534, 0, 2, 65533, 0, 1, 65533, 0, 0, 65533, 0, 65535, 65532, 0, 65534, 65532, 0, 65533, 65533, 0, 65534, 65533, 0, 65535, 65533, 0, 3, 65533, 0, 65533, 65532, 0, 0, 65532, 0, 1, 65532, 0, 2, 65532, 0, 3, 65532, 0, 3, 0, 0, 2, 0, 0, 3, 65535, 0, 4, 65534, 0, 4, 65533, 0, 3, 65534, 0, 4, 0, 0, 4, 65532, 0, 4, 65535, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 3, 1, 0, 2, 1, 0, 4, 1, 0)
+}
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=687978056]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0.8917122, 0)
+mesh = SubResource("PlaneMesh_ehegv")
+surface_material_override/0 = SubResource("StandardMaterial3D_aw6g6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=566285142]
+transform = Transform3D(0.4246633, 0.85039127, 0.3106377, -0.2889608, -0.19785558, 0.9366722, 0.85799927, -0.48753244, 0.16170774, 1.6187859, 10.340704, 0)
+shadow_enabled = true
+shadow_blur = 0.1
+directional_shadow_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=332983236]
+environment = SubResource("Environment_n4gow")
+
+[node name="BattleUI" type="CanvasLayer" parent="." unique_id=1984589142 groups=["ui_layer"]]
+script = ExtResource("7_46ncm")
+
+[node name="Cursor" parent="BattleUI" unique_id=1722401909 instance=ExtResource("8_lcfdq")]
+
+[node name="Hand" parent="BattleUI" unique_id=187061151 instance=ExtResource("9_hglb3")]
+position = Vector2(575, 600)
+
+[node name="EnergyUI" parent="BattleUI" unique_id=355186218 instance=ExtResource("10_423bg")]
+
+[node name="EndTurnButton" type="Button" parent="BattleUI" unique_id=1577814160]
+unique_name_in_owner = true
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -212.0
+offset_top = -138.0
+offset_right = -39.0
+offset_bottom = -53.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.9647059, 0.34117648, 1)
+theme_override_colors/font_pressed_color = Color(0.827451, 0.6117647, 0.4, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9647059, 0.34117648, 1)
+theme_override_colors/font_disabled_color = Color(0.827451, 0.6117647, 0.4, 1)
+theme_override_constants/outline_size = 7
+theme_override_constants/h_separation = 0
+theme_override_constants/align_to_largest_stylebox = 0
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_ehegv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_aw6g6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ehegv")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_aw6g6")
+text = "End Turn"
+
+[node name="StatsUI" type="Control" parent="BattleUI" unique_id=1729699449]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="BattleUI" unique_id=847010858]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -78.0
+offset_right = -19.0
+offset_bottom = 57.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 20
+text = "60"
+horizontal_alignment = 2
+vertical_alignment = 1
