@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 	# scaling forward so pitched ortho camera speed seems constant as if 2D
 	var move_vec := yaw * Vector3(input_vec.x, 0, input_vec.y / sin(rotation.x))
 	if is_panning:
-		position += move_vec * delta
+		position += move_vec
 	else:
 		position += move_vec * move_speed * delta
 	# orbit
@@ -60,7 +60,7 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and is_panning:
 		var dist = event.screen_relative
-		input_vec = Vector2(-dist.x,dist.y)
+		input_vec = Vector2(-dist.x,dist.y) / 80
 
 
 func _on_turn_started(unit: Unit) -> void:
