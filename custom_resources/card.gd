@@ -35,10 +35,15 @@ func get_area(action_id: int) -> Array[Vector2i]:
 		return area.get_area(unit.grid_pos)
 	else:
 		var tile_action_id = actions[action_id].performer_action_id
-		print("action id: ",tile_action_id)
-		print("selected tiles: ",selected_tiles)
 		return area.get_area(selected_tiles[tile_action_id])
 
+
+func get_area_for_highlight(action_id: int, temp_pos: Vector2i) -> Array[Vector2i]:
+	var area: AreaDef = actions[action_id].target
+	if actions[action_id].player_performed:
+		return area.get_area(unit.grid_pos)
+	else:
+		return area.get_area(temp_pos)
 
 func get_valid_targets(action_id: int) -> Array[Vector2i]:
 	var area = get_area(action_id)

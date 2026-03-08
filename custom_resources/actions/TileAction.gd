@@ -11,3 +11,8 @@ func requires_aiming() -> bool:
 	if target and target.selection != AreaDef.TargetType.AREA:
 		return true
 	return false
+
+func is_aoe() -> bool:
+	if target and target.selection == AreaDef.TargetType.AREA:
+		return true
+	return false

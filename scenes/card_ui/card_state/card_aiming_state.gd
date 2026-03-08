@@ -7,6 +7,8 @@ var valid_targets: Array[Vector2i]
 var num_actions: int
 var current_area: int
 
+var previously_selected_tile: Vector2i
+
 
 func enter() -> void:
 	current_area = 0
@@ -51,6 +53,12 @@ func on_input(event: InputEvent) -> void:
 	var selected_tile = Navigation.get_tile_coords(mouse_pos)
 	var mouse_over_area: bool = selected_tile in valid_targets
 	
+	if current_area < num_actions and mouse_over_area:
+		var next_action = card_ui.card.actions[current_area+1]
+		if next_action.is_aoe() and previously_selected_tile != selected_tile:
+			var next_aoe = card_ui.card.get_area_for_highlight(current_area+1, selected_tile)
+			Events.update_aoe_highlights.emit(next_aoe)
+	
 	if event.is_action_pressed("right_mouse"):
 		if not card_ui.card.can_cancel_after(current_area):
 			transition_requested.emit(self, State.RELEASED)
@@ -69,3 +77,5 @@ func on_input(event: InputEvent) -> void:
 			
 	else:
 		Events.hide_tile_selector.emit()
+	
+	previously_selected_tile = selected_tile

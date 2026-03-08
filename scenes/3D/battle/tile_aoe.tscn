@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://tq2ada2wf4de"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_npu4t"]
+albedo_color = Color(0.85147816, 0.62310475, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tel0x"]
+
+[node name="TileAOE" type="MeshInstance3D" unique_id=137925748]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_npu4t")
+transparency = 0.9
+lod_bias = 128.0
+ignore_occlusion_culling = true
+mesh = SubResource("BoxMesh_tel0x")
