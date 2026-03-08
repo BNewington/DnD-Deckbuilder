@@ -24,7 +24,6 @@ func _ready() -> void:
 	Events.card_aiming_started.connect(highlight_tiles)
 	Events.card_aiming_ended.connect(clear_move_tiles)
 	Events.update_aoe_highlights.connect(update_aoe_tiles)
-	Events.hide_tile_selector.connect(clear_aoe)
 
 
 func _process(_delta: float) -> void:
@@ -42,10 +41,6 @@ func clear_move_tiles(_card_ui) -> void:
 	clear_highlights(aoe_sprites)
 	selecting = false
 	selectable_tiles = []
-
-
-func clear_aoe() -> void:
-	clear_highlights(aoe_sprites)
 
 
 func highlight_tiles(_card_ui: CardUI, tile_array: Array[Vector2i], valid_targets: Array[Vector2i]) -> void:

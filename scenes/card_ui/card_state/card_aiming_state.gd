@@ -77,5 +77,6 @@ func on_input(event: InputEvent) -> void:
 			
 	else:
 		Events.hide_tile_selector.emit()
+		Events.update_aoe_highlights.emit([])
 	
 	previously_selected_tile = selected_tile
