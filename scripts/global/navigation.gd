@@ -169,6 +169,8 @@ func snap_to_grid(coords: Vector3) -> Vector3:
 
 func get_tile_coords(coords: Vector3) -> Vector2i:
 	var coords_3d = gridmap.local_to_map(coords)
+	if coords_3d == Vector3i.ZERO:
+		return Vector2i(999,999)
 	return Vector2i(coords_3d.x,coords_3d.z)
 
 
