@@ -1,7 +1,7 @@
 class_name AreaDef
 extends Resource
 
-enum TargetType {TILE, UNIT, HERO, ENEMY}
+enum TargetType {TILE, AREA, UNIT, HERO, ENEMY}
 enum ValidTargets {ANY_TILE, WALKABALE_TILE, UNIT, HERO, ENEMY}
 
 @export var selection: TargetType = TargetType.TILE
@@ -21,7 +21,7 @@ func get_area(origin_pos: Vector2i) -> Array[Vector2i]:
 			var units = Navigation.get_units(unit_type)
 			for unit in units:
 				area.append(unit.grid_pos)
-		TargetType.TILE:
+		TargetType.TILE, TargetType.AREA:
 			if requires_pathfinding: 
 				area = Navigation.get_move_area(origin_pos,radius)
 			else:

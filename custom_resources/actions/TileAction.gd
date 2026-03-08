@@ -8,6 +8,6 @@ extends Resource
 @export var can_cancel_after: bool =  true ##Determines whether the action can be cancelled without discarding the card and spending energy
 
 func requires_aiming() -> bool:
-	if target:
+	if target and target.selection != AreaDef.TargetType.AREA:
 		return true
 	return false

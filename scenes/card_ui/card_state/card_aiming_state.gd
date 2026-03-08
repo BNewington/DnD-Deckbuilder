@@ -32,10 +32,18 @@ func aiming_selected(selected_tile: Vector2i) -> void:
 	card_ui.card.area_selected(current_area,selected_tile)
 	current_area += 1
 	if current_area <= num_actions:
-		area = card_ui.card.get_area(current_area)
-		valid_targets = card_ui.card.get_valid_targets(current_area)
-		Events.card_aiming_ended.emit(card_ui)
-		Events.card_aiming_started.emit(card_ui,area,valid_targets)
+		for i in range(current_area,num_actions+1):
+			var action = card_ui.card.actions[i]
+			area = card_ui.card.get_area(current_area)
+			if action.requires_aiming():
+				valid_targets = card_ui.card.get_valid_targets(current_area)
+				Events.card_aiming_ended.emit(card_ui)
+				Events.card_aiming_started.emit(card_ui,area,valid_targets)
+				break
+			else:
+				card_ui.card.execute_effects(action.effects,area)
+				if i == num_actions:
+					transition_requested.emit(self, State.RELEASED)
 
 
 func on_input(event: InputEvent) -> void:

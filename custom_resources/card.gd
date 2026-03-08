@@ -28,13 +28,15 @@ func does_target_square() -> bool:
 			return true
 	return false
 
-#TODO change to work with tileaction resources
+
 func get_area(action_id: int) -> Array[Vector2i]:
 	var area: AreaDef = actions[action_id].target
 	if actions[action_id].player_performed:
 		return area.get_area(unit.grid_pos)
 	else:
 		var tile_action_id = actions[action_id].performer_action_id
+		print("action id: ",tile_action_id)
+		print("selected tiles: ",selected_tiles)
 		return area.get_area(selected_tiles[tile_action_id])
 
 
@@ -50,21 +52,24 @@ func play() -> void:
 	selected_tiles = []
 
 
-#TODO change to work with tileaction resources
 func area_selected(action_id: int, tile: Vector2i) -> void:
 	var tile_array: Array[Vector2i] = [tile]
 	last_selected_tile = tile
 	selected_tiles.append(tile)
 	var action = actions[action_id]
 	var effects = action.effects
+	execute_effects(effects,tile_array)
+	execute(action_id, tile_array)
+
+
+func execute_effects(effects: Array[Effect], tiles: Array[Vector2i]) -> void:
 	for effect in effects:
 		if effect.executor == Effect.ExecutorType.SELF:
-			effect.execute(unit,tile_array)
+			effect.execute(unit,tiles)
 		elif effect.executor == Effect.ExecutorType.PREVIOUSLY_SELECTED_UNIT:
 			print(selected_tiles[effect.executor_id])
 			var previously_selected_unit = Navigation.get_unit_at_tile(selected_tiles[effect.executor_id])
-			effect.execute(previously_selected_unit,tile_array)
-	execute(action_id, tile_array)
+			effect.execute(previously_selected_unit,tiles)
 
 
 func can_cancel_after(action_id: int) -> bool:
