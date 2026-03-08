@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="Card" format=3 uid="uid://b6a1j4bb56tf4"]
 
+[ext_resource type="Texture2D" uid="uid://d4ip07gimf3g3" path="res://art/cards/card_icons.png" id="1_7r0oe"]
 [ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="1_25pj1"]
 [ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="1_s0rm4"]
-[ext_resource type="Texture2D" uid="uid://crs738o0s8uw7" path="res://art/ui/Icons/CardIcons.png" id="2_s0rm4"]
 [ext_resource type="Script" uid="uid://by6ufil4qnjs8" path="res://custom_resources/effects/effect.gd" id="4_gf1d0"]
 [ext_resource type="Script" uid="uid://3hbkpdrnqms5" path="res://custom_resources/effects/damage_effect.gd" id="5_og4fu"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oo0fk"]
-atlas = ExtResource("2_s0rm4")
-region = Rect2(384, 128, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytfyc"]
+atlas = ExtResource("1_7r0oe")
+region = Rect2(144, 48, 24, 24)
 
 [sub_resource type="Resource" id="Resource_jy8ru"]
 script = ExtResource("5_og4fu")
@@ -41,6 +41,6 @@ id = "mage_zap"
 name = "Zap"
 cost = 1
 target_selectors = Array[ExtResource("1_s0rm4")]([SubResource("Resource_rauan"), SubResource("Resource_oo0fk")])
-icon = SubResource("AtlasTexture_oo0fk")
+icon = SubResource("AtlasTexture_ytfyc")
 description = "Deal 3 damage to a creature within 5 squares, and 3 damage to an adjacent creature"
 metadata/_custom_type_script = "uid://cbhovqi2nk4fe"
