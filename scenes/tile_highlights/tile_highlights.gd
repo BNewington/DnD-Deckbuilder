@@ -45,6 +45,8 @@ func clear_move_tiles(_card_ui) -> void:
 
 func clear_aoe() -> void:
 	clear_highlights(aoe_sprites)
+	clear_highlights(highlight_sprites)
+	highlight_sprites = create_area_select_highlights(selectable_tiles,area_tiles)
 
 func highlight_tiles(_card_ui: CardUI, tile_array: Array[Vector2i], valid_targets: Array[Vector2i]) -> void:
 	selectable_tiles = valid_targets

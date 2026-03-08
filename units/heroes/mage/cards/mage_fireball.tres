@@ -28,7 +28,6 @@ metadata/_custom_type_script = "uid://3hbkpdrnqms5"
 script = ExtResource("3_3kt3t")
 selection = 1
 valid_targets = 2
-shape = 1
 radius = 2
 include_target = true
 metadata/_custom_type_script = "uid://lo410k1w0lof"
