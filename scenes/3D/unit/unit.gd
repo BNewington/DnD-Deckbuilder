@@ -55,7 +55,6 @@ func get_grid_pos() -> Vector2i:
 	return Navigation.get_tile_coords(global_position)
 
 
-
 func move_to(target: Vector2i) -> void:
 	var path = Navigation.get_cell_path(grid_pos,target)
 	target_pos = path[path.size()-1]

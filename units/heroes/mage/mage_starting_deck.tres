@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="CardPile" format=3 uid="uid://dgob783irsu8x"]
 
 [ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="1_joyf1"]
-[ext_resource type="Resource" uid="uid://b6a1j4bb56tf4" path="res://units/heroes/archer/cards/mage_zap.tres" id="2_ag3bn"]
-[ext_resource type="Resource" uid="uid://d26y72qyxwhr8" path="res://units/heroes/archer/cards/mage_blink.tres" id="3_cprm1"]
+[ext_resource type="Resource" uid="uid://b6a1j4bb56tf4" path="res://units/heroes/mage/cards/mage_zap.tres" id="2_ag3bn"]
+[ext_resource type="Resource" uid="uid://d26y72qyxwhr8" path="res://units/heroes/mage/cards/mage_blink.tres" id="3_cprm1"]
 [ext_resource type="Script" uid="uid://bwhee2d1ya1p1" path="res://custom_resources/card_pile.gd" id="4_s2wsx"]
 
 [resource]

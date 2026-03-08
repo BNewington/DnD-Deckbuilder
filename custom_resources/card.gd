@@ -12,7 +12,7 @@ var unit: Unit
 @export var type: Type
 @export var cost: int
 
-@export var target_selectors: Array[AreaDef]
+@export var actions: Array[TileAction]
 
 @export_group("Card Visuals")
 @export var icon: Texture
@@ -23,26 +23,24 @@ var selected_tiles: Array[Vector2i] = []
 
 
 func does_target_square() -> bool:
-	for target_selector in target_selectors:
-		if target_selector.requires_aiming():
+	for action in actions:
+		if action.requires_aiming():
 			return true
 	return false
 
-
-func get_area(area_id: int) -> Array[Vector2i]:
-	var area: AreaDef = target_selectors[area_id]
-	match area.origin_type:
-		AreaDef.OriginType.UNIT:
-			return area.get_area(unit.grid_pos)
-		AreaDef.OriginType.LAST_SELECTED_TILE:
-			return area.get_area(last_selected_tile)
-		_:
-			return []
+#TODO change to work with tileaction resources
+func get_area(action_id: int) -> Array[Vector2i]:
+	var area: AreaDef = actions[action_id].target
+	if actions[action_id].player_performed:
+		return area.get_area(unit.grid_pos)
+	else:
+		var tile_action_id = actions[action_id].performer_action_id
+		return area.get_area(selected_tiles[tile_action_id])
 
 
-func get_valid_targets(area_id: int) -> Array[Vector2i]:
-	var area = get_area(area_id)
-	return target_selectors[area_id].get_valid_target_cells(area)
+func get_valid_targets(action_id: int) -> Array[Vector2i]:
+	var area = get_area(action_id)
+	return actions[action_id].target.get_valid_target_cells(area)
 
 
 func play() -> void:
@@ -52,24 +50,26 @@ func play() -> void:
 	selected_tiles = []
 
 
-func area_selected(area_id: int, tile: Vector2i) -> void:
+#TODO change to work with tileaction resources
+func area_selected(action_id: int, tile: Vector2i) -> void:
+	var tile_array: Array[Vector2i] = [tile]
 	last_selected_tile = tile
 	selected_tiles.append(tile)
-	print(selected_tiles)
-	var effects = target_selectors[area_id].effects
+	var action = actions[action_id]
+	var effects = action.effects
 	for effect in effects:
 		if effect.executor == Effect.ExecutorType.SELF:
-			effect.execute(unit,[tile])
+			effect.execute(unit,tile_array)
 		elif effect.executor == Effect.ExecutorType.PREVIOUSLY_SELECTED_UNIT:
 			print(selected_tiles[effect.executor_id])
 			var previously_selected_unit = Navigation.get_unit_at_tile(selected_tiles[effect.executor_id])
-			effect.execute(previously_selected_unit,[tile])
-	execute(area_id, [tile])
+			effect.execute(previously_selected_unit,tile_array)
+	execute(action_id, tile_array)
 
 
-func can_cancel_after(area_id: int) -> bool:
-	for area in target_selectors.slice(0,area_id):
-		if not area.can_cancel_after:
+func can_cancel_after(action_id: int) -> bool:
+	for action in actions.slice(0,action_id):
+		if not action.can_cancel_after:
 			return false
 	return true
 

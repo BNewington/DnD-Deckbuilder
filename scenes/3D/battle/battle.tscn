@@ -15,7 +15,7 @@
 [ext_resource type="Resource" uid="uid://dp6rk0vbw543i" path="res://units/enemies/torch_goblin/torch_goblin_stats.tres" id="9_423bg"]
 [ext_resource type="PackedScene" uid="uid://dq8c5qippudah" path="res://scenes/hand/hand.tscn" id="9_hglb3"]
 [ext_resource type="PackedScene" uid="uid://s3e6r400eqcu" path="res://scenes/ui/energy_ui.tscn" id="10_423bg"]
-[ext_resource type="Resource" uid="uid://cbxcuj1pc0en" path="res://units/heroes/archer/mage_stats.tres" id="10_jdl33"]
+[ext_resource type="Resource" uid="uid://cbxcuj1pc0en" path="res://units/heroes/mage/mage_stats.tres" id="10_jdl33"]
 [ext_resource type="Texture2D" uid="uid://c1vofgp5mpb4x" path="res://art/ui/Buttons/SmallRedSquareButton_Regular.png" id="11_o2o3g"]
 [ext_resource type="Texture2D" uid="uid://drycruw7uqan2" path="res://art/ui/Buttons/SmallRedSquareButton_Pressed.png" id="12_jdl33"]
 
