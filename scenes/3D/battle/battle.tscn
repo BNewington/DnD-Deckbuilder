@@ -144,6 +144,10 @@ stats = ExtResource("10_jdl33")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0757744, 1.186873, -0.51269937)
 stats = ExtResource("9_423bg")
 
+[node name="Unit2" parent="SubViewportContainer/SubViewport/TurnManager/Enemies" unique_id=515150851 instance=ExtResource("3_h10rc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.463891, 1.186873, 2.922655)
+stats = ExtResource("9_423bg")
+
 [node name="GridMap" type="GridMap" parent="SubViewportContainer/SubViewport" unique_id=467039386]
 mesh_library = ExtResource("1_wtai8")
 cell_size = Vector3(2.1, 0.09, 2.1)
@@ -211,3 +215,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Label" type="Label" parent="BattleUI" unique_id=847010858]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -78.0
+offset_right = -19.0
+offset_bottom = 57.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 20
+text = "60"
+horizontal_alignment = 2
+vertical_alignment = 1

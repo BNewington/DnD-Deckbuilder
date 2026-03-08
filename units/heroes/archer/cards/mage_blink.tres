@@ -13,7 +13,7 @@ region = Rect2(576, 192, 64, 64)
 [sub_resource type="Resource" id="Resource_8l4mt"]
 script = ExtResource("3_xlhk1")
 valid_targets = 3
-radius = 3
+radius = 5
 include_target = true
 metadata/_custom_type_script = "uid://lo410k1w0lof"
 
@@ -25,7 +25,8 @@ metadata/_custom_type_script = "uid://42g3m87b78rq"
 [sub_resource type="Resource" id="Resource_takwb"]
 script = ExtResource("3_xlhk1")
 valid_targets = 1
-radius = 3
+shape = 1
+radius = 1
 origin_type = 1
 effects = Array[ExtResource("4_jjf2s")]([SubResource("Resource_ejdpy")])
 metadata/_custom_type_script = "uid://lo410k1w0lof"
@@ -38,5 +39,5 @@ type = 1
 cost = 1
 target_selectors = Array[ExtResource("3_xlhk1")]([SubResource("Resource_8l4mt"), SubResource("Resource_takwb")])
 icon = SubResource("AtlasTexture_w6cm0")
-description = "Teleport yourself or an ally 3 squares"
+description = "Teleport yourself or an ally 1 square"
 metadata/_custom_type_script = "uid://cbhovqi2nk4fe"

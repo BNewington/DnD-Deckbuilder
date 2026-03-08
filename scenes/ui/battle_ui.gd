@@ -24,6 +24,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	$Label.text = str(int(1/_delta))
 	for unit in unit_stats.keys():
 		if is_instance_valid(unit):
 			var stats = unit_stats[unit]
