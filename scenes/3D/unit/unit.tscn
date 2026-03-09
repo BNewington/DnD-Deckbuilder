@@ -74,7 +74,7 @@ script = ExtResource("1_80wi4")
 [node name="StatsUI" parent="." unique_id=1240307798 instance=ExtResource("3_qalc0")]
 
 [node name="Knight_Hero" parent="." unique_id=290444312 instance=ExtResource("1_06sn2")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="TurnIndicator" type="MeshInstance3D" parent="." unique_id=128226446]
 transform = Transform3D(0.5, 0, 0, 0, -0.5, 3.4969112e-08, 0, -4.371139e-08, -0.4, 0, 4.5, 0)

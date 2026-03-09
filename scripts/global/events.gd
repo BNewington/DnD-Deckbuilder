@@ -22,6 +22,7 @@ signal start_turn(Unit)
 signal turn_ended(hero: Unit)
 signal unit_died(unit: Unit)
 signal set_stats(unit: Unit, stats: UnitStats)
+signal effect_resolved
 
 
 ##Card Signals

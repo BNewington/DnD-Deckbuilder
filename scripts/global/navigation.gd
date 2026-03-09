@@ -144,8 +144,9 @@ func remove_unit_tiles_from_grid() -> void:
 func set_units_solid(type: UnitType, is_solid: bool = true) -> void:
 	var units: Array[Node] = get_units(type)
 	for unit in units:
-		var unit_pos = get_tile_coords(unit.global_position)
-		grid.set_point_solid(unit_pos,is_solid)
+		if is_instance_valid(unit) and unit.alive:
+			var unit_pos = get_tile_coords(unit.global_position)
+			grid.set_point_solid(unit_pos,is_solid)
 
 
 func set_point_solid(point: Vector2i) -> void:
@@ -292,7 +293,11 @@ func is_tile_in_bounds(tile: Vector2i) -> bool:
 
 
 func get_all_tiles() -> Array[Vector2i]:
-	return tilemap.get_used_cells()
+	var cells = gridmap.get_used_cells()
+	var tiles: Array[Vector2i]
+	for cell in cells:
+		tiles.append(flatten(cell))
+	return tiles
 
 
 ##Returns an array containing the coordinates of all tiles in the defined area
@@ -323,8 +328,9 @@ func get_shape_tiles(shape:AreaShape, radius: int, origin: Vector2i = Vector2i(0
 		tiles.erase(origin)
 	
 	var used_tiles: Array[Vector2i] = []
+	var all_tiles = get_all_tiles()
 	for tile in tiles:
-		if grid.region.has_point(tile):
+		if tile in all_tiles:
 			used_tiles.append(tile)
 	return used_tiles
 

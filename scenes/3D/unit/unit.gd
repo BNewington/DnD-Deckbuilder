@@ -13,6 +13,7 @@ var grid_pos: Vector2i : get = get_grid_pos
 var target_pos: Vector2i
 
 var floor_height = 1
+var alive: bool = true
 
 
 func _ready() -> void:
@@ -82,7 +83,7 @@ func update_hero() -> void:
 		
 	update_stats()
 	var model = stats.model.instantiate()
-	model.scale = Vector3.ONE * 2
+	model.scale = Vector3.ONE * 1.7
 	add_child(model)
 	placeholder_model.queue_free()
 
@@ -103,5 +104,6 @@ func take_damage(damage: int) -> void:
 
 func die() -> void:
 	Navigation.set_point_walkable(Navigation.get_tile_coords(global_position))
+	alive = false
 	Events.unit_died.emit(self)
 	queue_free()

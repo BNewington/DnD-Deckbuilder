@@ -41,6 +41,7 @@ shader_parameter/lineShadow = 0.55
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_xc73o"]
+rayleigh_color = Color(0.36570677, 0.40919933, 0.4769867, 1)
 ground_color = Color(0.176178, 0.131568, 0.0777401, 1)
 
 [sub_resource type="Sky" id="Sky_kypv1"]
@@ -48,7 +49,7 @@ sky_material = SubResource("PhysicalSkyMaterial_xc73o")
 
 [sub_resource type="Environment" id="Environment_n4gow"]
 background_mode = 2
-background_energy_multiplier = 2.5
+background_energy_multiplier = 4.0
 sky = SubResource("Sky_kypv1")
 ssil_enabled = true
 ssil_intensity = 4.0
@@ -130,13 +131,13 @@ hand = NodePath("../../../BattleUI/Hand")
 
 [node name="Heroes" type="Node3D" parent="SubViewportContainer/SubViewport/TurnManager" unique_id=2036801270]
 
+[node name="Unit2" parent="SubViewportContainer/SubViewport/TurnManager/Heroes" unique_id=49640100 instance=ExtResource("3_h10rc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4280834, 1.1178153, -6.820474)
+stats = ExtResource("10_jdl33")
+
 [node name="Unit" parent="SubViewportContainer/SubViewport/TurnManager/Heroes" unique_id=351906256 instance=ExtResource("3_h10rc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3328342, 1.1178153, -0.7648258)
 stats = ExtResource("5_lcfdq")
-
-[node name="Unit2" parent="SubViewportContainer/SubViewport/TurnManager/Heroes" unique_id=49640100 instance=ExtResource("3_h10rc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5641613, 1.1178153, -5.255945)
-stats = ExtResource("10_jdl33")
 
 [node name="Enemies" type="Node3D" parent="SubViewportContainer/SubViewport/TurnManager" unique_id=1110511415]
 
@@ -152,7 +153,7 @@ stats = ExtResource("9_423bg")
 mesh_library = ExtResource("1_wtai8")
 cell_size = Vector3(2.1, 0.09, 2.1)
 data = {
-"cells": PackedInt32Array(65533, 0, 0, 65533, 65535, 0, 65533, 65534, 0, 65534, 65534, 0, 65535, 65534, 0, 65535, 65535, 0, 65535, 0, 0, 65534, 65535, 0, 65534, 0, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 1, 0, 0, 1, 65535, 0, 1, 65534, 0, 2, 65535, 0, 2, 65534, 0, 2, 65533, 0, 1, 65533, 0, 0, 65533, 0, 65535, 65532, 0, 65534, 65532, 0, 65533, 65533, 0, 65534, 65533, 0, 65535, 65533, 0, 3, 65533, 0, 65533, 65532, 0, 0, 65532, 0, 1, 65532, 0, 2, 65532, 0, 3, 65532, 0, 3, 0, 0, 2, 0, 0, 3, 65535, 0, 4, 65534, 0, 4, 65533, 0, 3, 65534, 0, 4, 0, 0, 4, 65532, 0, 4, 65535, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 3, 1, 0, 2, 1, 0, 4, 1, 0)
+"cells": PackedInt32Array(65533, 0, 0, 65533, 65535, 0, 65533, 65534, 0, 65535, 65534, 0, 65535, 65535, 0, 65535, 0, 0, 65534, 65535, 0, 65534, 0, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 1, 65535, 0, 1, 65534, 0, 2, 65535, 0, 2, 65534, 0, 2, 65533, 0, 1, 65533, 0, 65535, 65532, 0, 65534, 65532, 0, 65533, 65533, 0, 65535, 65533, 0, 3, 65533, 0, 65533, 65532, 0, 0, 65532, 0, 1, 65532, 0, 2, 65532, 0, 3, 65532, 0, 3, 0, 0, 3, 65535, 0, 4, 65534, 0, 3, 65534, 0, 4, 0, 0, 4, 65535, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 3, 1, 0, 2, 1, 0, 4, 1, 0, 65532, 65532, 0, 65532, 65533, 0, 65532, 65534, 0, 65532, 65535, 0, 65533, 65531, 0, 65534, 65531, 0, 65535, 65531, 0, 0, 65531, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 5, 1, 0, 5, 0, 0)
 }
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=687978056]

@@ -65,6 +65,7 @@ func area_selected(action_id: int, tile: Vector2i) -> void:
 	var effects = action.effects
 	execute_effects(effects,tile_array)
 	execute(action_id, tile_array)
+	Events.effect_resolved.emit()
 
 
 func execute_effects(effects: Array[Effect], tiles: Array[Vector2i]) -> void:
