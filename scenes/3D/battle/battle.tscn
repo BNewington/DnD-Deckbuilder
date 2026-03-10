@@ -30,7 +30,7 @@ size = Vector2(2, 2)
 render_priority = -1
 shader = ExtResource("1_h10rc")
 shader_parameter/lightIntensity = 0.5
-shader_parameter/lineAlpha = 0.5
+shader_parameter/lineAlpha = 0.6
 shader_parameter/useLighting = true
 shader_parameter/lineHighlight = 0.2
 shader_parameter/lineShadow = 0.55
@@ -105,7 +105,7 @@ script = ExtResource("2_o2o3g")
 visible = false
 
 [node name="CameraPivot" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=2050402475]
-transform = Transform3D(0.92387944, -0.24598417, 0.2931525, 0, 0.76604444, 0.6427875, -0.38268343, -0.59385824, 0.7077327, 0, 0, 0)
+transform = Transform3D(0.9238794, -0.24598415, 0.2931525, 0, 0.7660444, 0.6427875, -0.3826834, -0.5938582, 0.7077327, 0, 0, 0)
 script = ExtResource("3_jdl33")
 circular_radius = 0.5
 circular_speed = 0.1
@@ -146,7 +146,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0757744, 1.186873, -0.5126
 stats = ExtResource("9_423bg")
 
 [node name="Unit2" parent="SubViewportContainer/SubViewport/TurnManager/Enemies" unique_id=515150851 instance=ExtResource("3_h10rc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.463891, 1.186873, 2.922655)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.595977, 1.186873, 2.922655)
 stats = ExtResource("9_423bg")
 
 [node name="GridMap" type="GridMap" parent="SubViewportContainer/SubViewport" unique_id=467039386]
