@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://s3e6r400eqcu" path="res://scenes/ui/energy_ui.tscn" id="10_423bg"]
 [ext_resource type="Resource" uid="uid://cbxcuj1pc0en" path="res://units/heroes/mage/mage_stats.tres" id="10_jdl33"]
 [ext_resource type="Texture2D" uid="uid://5url5k4caeyl" path="res://art/ui/StonebaseUISheet.png" id="17_jdl33"]
+[ext_resource type="FontFile" uid="uid://de77xikhsyahx" path="res://art/ui/fonts/m3x6.ttf" id="18_ehegv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hglb3"]
 size = Vector2(1920, 657)
@@ -56,11 +57,11 @@ sdfgi_read_sky_light = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ehegv"]
 atlas = ExtResource("17_jdl33")
-region = Rect2(398, 144, 16, 15)
+region = Rect2(446, 64, 40, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aw6g6"]
 atlas = ExtResource("17_jdl33")
-region = Rect2(430, 130, 16, 15)
+region = Rect2(446, 85, 40, 21)
 
 [node name="battle" type="Node3D" unique_id=1066077475]
 script = ExtResource("1_ji8pb")
@@ -178,15 +179,25 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -165.0
-offset_top = -143.0
-offset_right = -142.0
-offset_bottom = -124.0
+offset_left = -296.0
+offset_top = -180.0
+offset_right = -256.0
+offset_bottom = -160.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(5, 5)
 texture_normal = SubResource("AtlasTexture_ehegv")
 texture_pressed = SubResource("AtlasTexture_aw6g6")
+
+[node name="Label" type="Label" parent="BattleUI/EndTurnButton" unique_id=962486563]
+layout_mode = 0
+offset_left = 4.6
+offset_top = 1.8
+offset_right = 44.6
+offset_bottom = 20.8
+scale = Vector2(0.9, 0.9)
+theme_override_fonts/font = ExtResource("18_ehegv")
+text = "End Turn"
 
 [node name="StatsUI" type="Control" parent="BattleUI" unique_id=1729699449]
 layout_mode = 3
