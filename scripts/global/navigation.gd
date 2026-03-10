@@ -20,7 +20,7 @@ enum UnitType {
 }
 
 var MODE_3D = true
-var stretch_shrink = 2
+var stretch_shrink = 3
 
 @onready var tilemap: TileMapLayer : set = _set_tilemap
 

@@ -2,7 +2,7 @@ class_name Hand
 extends Node2D
 
 
-const MAX_WIDTH: float = 350.0
+const MAX_WIDTH: float = 650.0
 const MAX_CARDS: int = 10
 const HAND_HEIGHT: float = 35.0
 const MAX_ROTATION: float = 15.0

@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://drycruw7uqan2" path="res://art/ui/Buttons/SmallRedSquareButton_Pressed.png" id="12_jdl33"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hglb3"]
-size = Vector2(1150, 313)
+size = Vector2(1920, 657)
 
 [sub_resource type="QuadMesh" id="QuadMesh_hp20k"]
 flip_faces = true
@@ -78,7 +78,7 @@ script = ExtResource("1_ji8pb")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea" unique_id=2026296583]
-position = Vector2(576, 156.5)
+position = Vector2(959.5, 328.5)
 shape = SubResource("RectangleShape2D_hglb3")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1579858031]
@@ -89,12 +89,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
-stretch_shrink = 2
+stretch_shrink = 3
 mouse_target = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=358340824]
 handle_input_locally = false
-size = Vector2i(576, 324)
+size = Vector2i(640, 360)
 render_target_update_mode = 4
 
 [node name="TileHighlights" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=929726574]
@@ -176,7 +176,7 @@ script = ExtResource("7_46ncm")
 [node name="Cursor" parent="BattleUI" unique_id=1722401909 instance=ExtResource("8_lcfdq")]
 
 [node name="Hand" parent="BattleUI" unique_id=187061151 instance=ExtResource("9_hglb3")]
-position = Vector2(575, 600)
+position = Vector2(947, 999)
 
 [node name="EnergyUI" parent="BattleUI" unique_id=355186218 instance=ExtResource("10_423bg")]
 
@@ -213,6 +213,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1920.0
+offset_bottom = -1080.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
