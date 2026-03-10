@@ -7,8 +7,10 @@ extends CanvasLayer
 @onready var energy_ui: EnergyUI = $EnergyUI
 @onready var end_turn_button: TextureButton = %EndTurnButton
 @onready var stats_ui: Control = $StatsUI
+@onready var initiative_ui: HBoxContainer = $InitiativeUI
 
 const STATS_UI = preload("uid://d0tnkfen53ayh")
+const UNIT_INITITATIVE = preload("uid://d283xg7ma5kaq")
 
 
 var unit_stats: Dictionary = {}
@@ -27,7 +29,7 @@ func _process(_delta: float) -> void:
 	$Label.text = str(int(1/_delta))
 	for unit in unit_stats.keys():
 		if is_instance_valid(unit):
-			var stats = unit_stats[unit]
+			var stats = unit_stats[unit][0]
 			var ui_offset = Vector2(stats.size.x/2,0)
 			stats.global_position = Navigation.find_2d_screen_pos(unit.global_position) - ui_offset
 		else:
@@ -73,10 +75,20 @@ func _on_stats_set(unit: Unit, stats: UnitStats) -> void:
 	stats.stats_changed.connect(_on_stats_changed)
 	stats_ui.add_child(stats_ui_instance)
 	stats_ui_instance.update_stats(stats)
-	unit_stats[unit] = stats_ui_instance
+	
+	var unit_initiative_instance = UNIT_INITITATIVE.instantiate()
+	initiative_ui.add_child(unit_initiative_instance)
+	unit_initiative_instance.name_text = stats.name
+	unit_initiative_instance.max_health = stats.max_health
+	unit_initiative_instance.health = stats.health
+	
+	
+	unit_stats[unit] = [stats_ui_instance,unit_initiative_instance]
 
 
 func _on_stats_changed() -> void:
 	for unit in unit_stats.keys():
-		var stats = unit_stats[unit]
+		var stats = unit_stats[unit][0]
+		var initiative_tracker = unit_stats[unit][1]
 		stats.update_stats(unit.stats)
+		initiative_tracker.health = unit.stats.health
