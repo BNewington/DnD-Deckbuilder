@@ -5,7 +5,7 @@ extends CanvasLayer
 
 @onready var hand: Hand = $Hand
 @onready var energy_ui: EnergyUI = $EnergyUI
-@onready var end_turn_button: Button = %EndTurnButton
+@onready var end_turn_button: TextureButton = %EndTurnButton
 @onready var stats_ui: Control = $StatsUI
 
 const STATS_UI = preload("uid://d0tnkfen53ayh")

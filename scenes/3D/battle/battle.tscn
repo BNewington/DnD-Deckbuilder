@@ -16,8 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dq8c5qippudah" path="res://scenes/hand/hand.tscn" id="9_hglb3"]
 [ext_resource type="PackedScene" uid="uid://s3e6r400eqcu" path="res://scenes/ui/energy_ui.tscn" id="10_423bg"]
 [ext_resource type="Resource" uid="uid://cbxcuj1pc0en" path="res://units/heroes/mage/mage_stats.tres" id="10_jdl33"]
-[ext_resource type="Texture2D" uid="uid://c1vofgp5mpb4x" path="res://art/ui/Buttons/SmallRedSquareButton_Regular.png" id="11_o2o3g"]
-[ext_resource type="Texture2D" uid="uid://drycruw7uqan2" path="res://art/ui/Buttons/SmallRedSquareButton_Pressed.png" id="12_jdl33"]
+[ext_resource type="Texture2D" uid="uid://5url5k4caeyl" path="res://art/ui/StonebaseUISheet.png" id="17_jdl33"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hglb3"]
 size = Vector2(1920, 657)
@@ -55,21 +54,13 @@ ssil_enabled = true
 ssil_intensity = 4.0
 sdfgi_read_sky_light = false
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ehegv"]
-content_margin_top = 2.0
-texture = ExtResource("11_o2o3g")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 20.0
-expand_margin_top = 10.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehegv"]
+atlas = ExtResource("17_jdl33")
+region = Rect2(398, 144, 16, 15)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aw6g6"]
-texture = ExtResource("12_jdl33")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw6g6"]
+atlas = ExtResource("17_jdl33")
+region = Rect2(430, 130, 16, 15)
 
 [node name="battle" type="Node3D" unique_id=1066077475]
 script = ExtResource("1_ji8pb")
@@ -180,33 +171,22 @@ position = Vector2(947, 999)
 
 [node name="EnergyUI" parent="BattleUI" unique_id=355186218 instance=ExtResource("10_423bg")]
 
-[node name="EndTurnButton" type="Button" parent="BattleUI" unique_id=1577814160]
+[node name="EndTurnButton" type="TextureButton" parent="BattleUI" unique_id=1461555150]
 unique_name_in_owner = true
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -212.0
-offset_top = -138.0
-offset_right = -39.0
-offset_bottom = -53.0
+offset_left = -165.0
+offset_top = -143.0
+offset_right = -142.0
+offset_bottom = -124.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_colors/font_color = Color(1, 0.9647059, 0.34117648, 1)
-theme_override_colors/font_pressed_color = Color(0.827451, 0.6117647, 0.4, 1)
-theme_override_colors/font_hover_color = Color(1, 0.9647059, 0.34117648, 1)
-theme_override_colors/font_disabled_color = Color(0.827451, 0.6117647, 0.4, 1)
-theme_override_constants/outline_size = 7
-theme_override_constants/h_separation = 0
-theme_override_constants/align_to_largest_stylebox = 0
-theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxTexture_ehegv")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_aw6g6")
-theme_override_styles/hover = SubResource("StyleBoxTexture_ehegv")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_aw6g6")
-text = "End Turn"
+scale = Vector2(5, 5)
+texture_normal = SubResource("AtlasTexture_ehegv")
+texture_pressed = SubResource("AtlasTexture_aw6g6")
 
 [node name="StatsUI" type="Control" parent="BattleUI" unique_id=1729699449]
 layout_mode = 3

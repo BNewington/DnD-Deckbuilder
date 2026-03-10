@@ -16,6 +16,7 @@ var target_pos: Vector3 : set = set_target_pos
 var is_focusing: bool = false
 var focus_offset: float = 2
 
+
 @onready var cam: Camera3D = $Camera3D
 
 
@@ -38,7 +39,7 @@ func _process(delta: float) -> void:
 	# scaling forward so pitched ortho camera speed seems constant as if 2D
 	var move_vec := yaw * Vector3(input_vec.x, 0, input_vec.y / sin(rotation.x))
 	if is_panning:
-		position += move_vec
+		pass
 	else:
 		position += move_vec * move_speed * delta
 	# orbit
@@ -55,12 +56,17 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("cam_center"):
 		target_pos = current_unit.global_position - (Vector3.UP * focus_offset)
+	
 
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and is_panning:
 		var dist = event.screen_relative
 		input_vec = Vector2(-dist.x,dist.y) / 80
+		var yaw := Basis(basis.x, Vector3.UP, basis.z).orthonormalized()
+		# scaling forward so pitched ortho camera speed seems constant as if 2D
+		var move_vec := yaw * Vector3(input_vec.x, 0, input_vec.y / sin(rotation.x))
+		position += move_vec
 
 
 func _on_turn_started(unit: Unit) -> void:

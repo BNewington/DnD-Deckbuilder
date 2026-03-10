@@ -1,5 +1,5 @@
 class_name EnergyUI
-extends Panel
+extends TextureRect
 
 @onready var label: Label = $Label
 
