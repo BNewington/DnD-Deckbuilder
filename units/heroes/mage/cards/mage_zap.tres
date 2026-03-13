@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Card" format=3 uid="uid://b6a1j4bb56tf4"]
 
+[ext_resource type="Script" uid="uid://ff5wylno65a2" path="res://custom_resources/actions/Action.gd" id="1_4bppx"]
 [ext_resource type="Script" uid="uid://dtvjeut823rc" path="res://custom_resources/actions/TileAction.gd" id="1_6wmgs"]
 [ext_resource type="Texture2D" uid="uid://d4ip07gimf3g3" path="res://art/cards/card_icons.png" id="1_7r0oe"]
 [ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="1_25pj1"]
@@ -52,7 +53,7 @@ script = ExtResource("1_25pj1")
 id = "mage_zap"
 name = "Zap"
 cost = 1
-actions = Array[ExtResource("1_6wmgs")]([SubResource("Resource_pqknc"), SubResource("Resource_wfsi8")])
+actions = Array[ExtResource("1_4bppx")]([SubResource("Resource_pqknc"), SubResource("Resource_wfsi8")])
 icon = SubResource("AtlasTexture_ytfyc")
 description = "Deal 4 damage to an enemy, and 2 to adjacent creatures"
 metadata/_custom_type_script = "uid://cbhovqi2nk4fe"

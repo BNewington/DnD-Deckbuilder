@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="1_0t6xm"]
 [ext_resource type="Script" uid="uid://dtvjeut823rc" path="res://custom_resources/actions/TileAction.gd" id="1_bhuvc"]
+[ext_resource type="Script" uid="uid://ff5wylno65a2" path="res://custom_resources/actions/Action.gd" id="1_v1jib"]
 [ext_resource type="Texture2D" uid="uid://d4ip07gimf3g3" path="res://art/cards/card_icons.png" id="1_vfyey"]
 [ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="1_vxqgb"]
 [ext_resource type="Script" uid="uid://by6ufil4qnjs8" path="res://custom_resources/effects/tile_effect.gd" id="4_vfyey"]
@@ -33,7 +34,7 @@ script = ExtResource("1_vxqgb")
 id = "warrior_strike"
 name = "Strike"
 cost = 1
-actions = Array[ExtResource("1_bhuvc")]([SubResource("Resource_viahj")])
+actions = Array[ExtResource("1_v1jib")]([SubResource("Resource_viahj")])
 icon = SubResource("AtlasTexture_bhuvc")
 description = "Deal 5 damage to an adjacent enemy"
 metadata/_custom_type_script = "uid://cbhovqi2nk4fe"

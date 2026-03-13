@@ -49,6 +49,7 @@ script = ExtResource("2_q3nr7")
 id = "warrior_quick_thinking"
 name = "Quick Thinking"
 type = 1
+cost = 1
 actions = Array[ExtResource("1_yjndr")]([SubResource("Resource_85ncj"), SubResource("Resource_suti5")])
 icon = SubResource("AtlasTexture_n0hb6")
 description = "Move 2, draw 2"

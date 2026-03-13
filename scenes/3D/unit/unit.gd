@@ -5,7 +5,7 @@ extends Node3D
 @export var stats: UnitStats : set = set_stats
 
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
-@onready var placeholder_model: Node3D = $Knight_Hero
+@onready var placeholder_model: Node3D = $KnightHero
 @onready var turn_indicator: MeshInstance3D = $TurnIndicator
 
 var tween: Tween
@@ -18,6 +18,8 @@ var alive: bool = true
 
 func _ready() -> void:
 	Events.start_battle.connect(start_battle)
+	Events.initiative_hovered.connect(initiative_hovered)
+	Events.initiative_hovered_off.connect(initiative_hovered_off)
 	$AnimationPlayer.play("spin")
 
 
@@ -90,6 +92,16 @@ func update_hero() -> void:
 
 func update_stats() -> void: #should emit a signal telling the battleui to update stats
 	stats_ui.update_stats(stats)
+
+
+func initiative_hovered(unit: Unit) -> void:
+	if unit == self:
+		$Highlight.show()
+
+
+func initiative_hovered_off(unit: Unit) -> void:
+	if unit == self:
+		$Highlight.hide()
 
 
 func take_damage(damage: int) -> void:

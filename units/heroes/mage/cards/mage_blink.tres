@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Card" format=3 uid="uid://d26y72qyxwhr8"]
 
+[ext_resource type="Script" uid="uid://ff5wylno65a2" path="res://custom_resources/actions/Action.gd" id="1_esbxm"]
 [ext_resource type="Script" uid="uid://dtvjeut823rc" path="res://custom_resources/actions/TileAction.gd" id="1_ob66o"]
 [ext_resource type="Script" uid="uid://by6ufil4qnjs8" path="res://custom_resources/effects/tile_effect.gd" id="2_wgn6o"]
 [ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="3_esbxm"]
@@ -47,7 +48,7 @@ id = "mage_blink"
 name = "Blink"
 type = 1
 cost = 1
-actions = Array[ExtResource("1_ob66o")]([SubResource("Resource_oqfyi"), SubResource("Resource_kc352")])
+actions = Array[ExtResource("1_esbxm")]([SubResource("Resource_oqfyi"), SubResource("Resource_kc352")])
 icon = SubResource("AtlasTexture_qi3xc")
 description = "Teleport yourself or an ally 2 squares"
 metadata/_custom_type_script = "uid://cbhovqi2nk4fe"

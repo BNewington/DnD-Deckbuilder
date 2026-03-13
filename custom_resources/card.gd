@@ -52,9 +52,13 @@ func get_valid_targets(action_id: int) -> Array[Vector2i]:
 
 func play() -> void:
 	if not does_target_square():
+		var i = 0
 		for action in actions:
 			if action is CardAction:
 				execute_card_effects(action.effects)
+			elif action is TileAction:
+				execute_tile_effects(action.effects,get_area(i))
+			i += 1
 	Events.card_played.emit(self)
 	unit.stats.energy -= cost
 	unit.stats.discard.add_card(self)

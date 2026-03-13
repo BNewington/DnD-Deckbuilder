@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dtvjeut823rc" path="res://custom_resources/actions/TileAction.gd" id="1_cgyjl"]
 [ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="1_gsjv4"]
+[ext_resource type="Script" uid="uid://ff5wylno65a2" path="res://custom_resources/actions/Action.gd" id="1_hk5om"]
 [ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="1_nhkg1"]
 [ext_resource type="Texture2D" uid="uid://d4ip07gimf3g3" path="res://art/cards/card_icons.png" id="1_x76vy"]
 [ext_resource type="Script" uid="uid://by6ufil4qnjs8" path="res://custom_resources/effects/tile_effect.gd" id="3_nhkg1"]
@@ -34,7 +35,7 @@ id = "warrior_run"
 name = "Run"
 type = 1
 cost = 1
-actions = Array[ExtResource("1_cgyjl")]([SubResource("Resource_x76vy")])
+actions = Array[ExtResource("1_hk5om")]([SubResource("Resource_x76vy")])
 icon = SubResource("AtlasTexture_bon83")
 description = "Move 3 squares"
 metadata/_custom_type_script = "uid://cbhovqi2nk4fe"

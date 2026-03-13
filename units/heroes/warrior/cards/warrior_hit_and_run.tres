@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Card" format=3 uid="uid://c33w52ttkssjg"]
 
+[ext_resource type="Script" uid="uid://ff5wylno65a2" path="res://custom_resources/actions/Action.gd" id="1_4i0qi"]
 [ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="1_6yfbx"]
 [ext_resource type="Script" uid="uid://dtvjeut823rc" path="res://custom_resources/actions/TileAction.gd" id="1_07r3a"]
 [ext_resource type="Texture2D" uid="uid://d4ip07gimf3g3" path="res://art/cards/card_icons.png" id="1_16wrk"]
@@ -54,7 +55,7 @@ script = ExtResource("1_6yfbx")
 id = "warrior_hit_and_run"
 name = "Hit & Run"
 cost = 1
-actions = Array[ExtResource("1_07r3a")]([SubResource("Resource_xj8gb"), SubResource("Resource_dojua")])
+actions = Array[ExtResource("1_4i0qi")]([SubResource("Resource_xj8gb"), SubResource("Resource_dojua")])
 icon = SubResource("AtlasTexture_07r3a")
 description = "Deal 4 damage, then move 2 squares"
 metadata/_custom_type_script = "uid://cbhovqi2nk4fe"

@@ -23,6 +23,8 @@ signal turn_ended(hero: Unit)
 signal unit_died(unit: Unit)
 signal set_stats(unit: Unit, stats: UnitStats)
 signal effect_resolved
+signal initiative_hovered(unit: Unit)
+signal initiative_hovered_off(unit: Unit)
 
 
 ##Card Signals

@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Card" format=3 uid="uid://bi645cg2gj5ar"]
 
+[ext_resource type="Script" uid="uid://ff5wylno65a2" path="res://custom_resources/actions/Action.gd" id="1_3kt3t"]
 [ext_resource type="Script" uid="uid://dtvjeut823rc" path="res://custom_resources/actions/TileAction.gd" id="1_gk825"]
 [ext_resource type="Texture2D" uid="uid://d4ip07gimf3g3" path="res://art/cards/card_icons.png" id="2_auyk8"]
 [ext_resource type="Script" uid="uid://by6ufil4qnjs8" path="res://custom_resources/effects/tile_effect.gd" id="2_iu7n1"]
@@ -48,7 +49,7 @@ script = ExtResource("2_re32f")
 id = "mage_fireball"
 name = "Fireball"
 cost = 2
-actions = Array[ExtResource("1_gk825")]([SubResource("Resource_jkbvp"), SubResource("Resource_kjw4a")])
+actions = Array[ExtResource("1_3kt3t")]([SubResource("Resource_jkbvp"), SubResource("Resource_kjw4a")])
 icon = SubResource("AtlasTexture_iv2bg")
 description = "Deal 5 damage in a radius of 2 squares"
 metadata/_custom_type_script = "uid://cbhovqi2nk4fe"

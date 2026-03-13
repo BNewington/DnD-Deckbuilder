@@ -1,9 +1,11 @@
 class_name UnitInitiative
 extends Control
 
+signal mouse_over
+signal mouse_off
+
 @onready var name_label: Label = $TextureRect/NameLabel
 @onready var health_label: Label = $HealthLabel
-
 
 var name_text: String = "" : set = set_name_label
 var health: int = 0 : set = set_health
@@ -18,3 +20,10 @@ func set_name_label(value: String) -> void:
 func set_health(value: int) -> void:
 	health = value
 	health_label.text = "%s/%s" % [health,max_health]
+
+
+func _on_mouse_entered() -> void:
+	mouse_over.emit(self)
+
+func _on_mouse_exited() -> void:
+	mouse_off.emit(self)
