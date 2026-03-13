@@ -1,5 +1,5 @@
 class_name TeleportEffect
-extends Effect
+extends TileEffect
 
 
 func execute(unit: Unit, targets: Array[Vector2i]) -> void:

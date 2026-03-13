@@ -12,7 +12,7 @@ var unit: Unit
 @export var type: Type
 @export var cost: int
 
-@export var actions: Array[TileAction]
+@export var actions: Array[Action]
 
 @export_group("Card Visuals")
 @export var icon: Texture
@@ -51,6 +51,10 @@ func get_valid_targets(action_id: int) -> Array[Vector2i]:
 
 
 func play() -> void:
+	if not does_target_square():
+		for action in actions:
+			if action is CardAction:
+				execute_card_effects(action.effects)
 	Events.card_played.emit(self)
 	unit.stats.energy -= cost
 	unit.stats.discard.add_card(self)
@@ -63,19 +67,24 @@ func area_selected(action_id: int, tile: Vector2i) -> void:
 	selected_tiles.append(tile)
 	var action = actions[action_id]
 	var effects = action.effects
-	execute_effects(effects,tile_array)
+	execute_tile_effects(effects,tile_array)
 	execute(action_id, tile_array)
 	Events.effect_resolved.emit()
 
 
-func execute_effects(effects: Array[Effect], tiles: Array[Vector2i]) -> void:
+func execute_tile_effects(effects: Array[TileEffect], tiles: Array[Vector2i]) -> void:
 	for effect in effects:
-		if effect.executor == Effect.ExecutorType.SELF:
+		if effect.executor == TileEffect.ExecutorType.SELF:
 			effect.execute(unit,tiles)
-		elif effect.executor == Effect.ExecutorType.PREVIOUSLY_SELECTED_UNIT:
+		elif effect.executor == TileEffect.ExecutorType.PREVIOUSLY_SELECTED_UNIT:
 			print(selected_tiles[effect.executor_id])
 			var previously_selected_unit = Navigation.get_unit_at_tile(selected_tiles[effect.executor_id])
 			effect.execute(previously_selected_unit,tiles)
+
+
+func execute_card_effects(effects: Array[CardEffect]) -> void:
+	for effect in effects:
+		effect.execute(unit)
 
 
 func can_cancel_after(action_id: int) -> bool:

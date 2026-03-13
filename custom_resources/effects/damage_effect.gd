@@ -1,5 +1,5 @@
 class_name DamageEffect
-extends Effect
+extends TileEffect
 
 @export var amount: int = 0
 

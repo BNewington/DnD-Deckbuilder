@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Card" format=3 uid="uid://d26y72qyxwhr8"]
 
 [ext_resource type="Script" uid="uid://dtvjeut823rc" path="res://custom_resources/actions/TileAction.gd" id="1_ob66o"]
-[ext_resource type="Script" uid="uid://by6ufil4qnjs8" path="res://custom_resources/effects/effect.gd" id="2_wgn6o"]
+[ext_resource type="Script" uid="uid://by6ufil4qnjs8" path="res://custom_resources/effects/tile_effect.gd" id="2_wgn6o"]
 [ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="3_esbxm"]
 [ext_resource type="Texture2D" uid="uid://d4ip07gimf3g3" path="res://art/cards/card_icons.png" id="4_ax5jp"]
 [ext_resource type="Script" uid="uid://42g3m87b78rq" path="res://custom_resources/effects/teleport_effect.gd" id="4_wgn6o"]

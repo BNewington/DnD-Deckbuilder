@@ -7,7 +7,7 @@ extends CanvasLayer
 @onready var energy_ui: EnergyUI = $EnergyUI
 @onready var end_turn_button: TextureButton = %EndTurnButton
 @onready var stats_ui: Control = $StatsUI
-@onready var initiative_ui: HBoxContainer = $InitiativeUI
+@onready var initiative_ui: VBoxContainer = $InitiativeUI
 
 const STATS_UI = preload("uid://d0tnkfen53ayh")
 const UNIT_INITITATIVE = preload("uid://d283xg7ma5kaq")
@@ -33,7 +33,8 @@ func _process(_delta: float) -> void:
 			var ui_offset = Vector2(stats.size.x/2,0)
 			stats.global_position = Navigation.find_2d_screen_pos(unit.global_position) - ui_offset
 		else:
-			unit_stats[unit].queue_free()
+			unit_stats[unit][0].queue_free()
+			unit_stats[unit][1].queue_free()
 			unit_stats.erase(unit)
 
 

@@ -16,7 +16,7 @@ func _ready() -> void:
 	Events.turn_ended.connect(end_turn)
 	Events.hand_discarded.connect(start_next_turn)
 	Events.unit_died.connect(_on_unit_died)
-
+	Events.draw_card.connect(draw_card)
 
 
 func start_battle() -> void:

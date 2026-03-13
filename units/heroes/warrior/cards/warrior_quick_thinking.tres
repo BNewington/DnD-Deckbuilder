@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://b6qepksfbhq8v"]
+
+[ext_resource type="Script" uid="uid://ff5wylno65a2" path="res://custom_resources/actions/Action.gd" id="1_yjndr"]
+[ext_resource type="Script" uid="uid://by6ufil4qnjs8" path="res://custom_resources/effects/tile_effect.gd" id="2_1w03q"]
+[ext_resource type="Script" uid="uid://kmsdm6qhqxy" path="res://custom_resources/effects/card_effects/card_effect.gd" id="2_grif3"]
+[ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="2_q3nr7"]
+[ext_resource type="Script" uid="uid://bptdappyknoae" path="res://custom_resources/effects/move_effect.gd" id="3_geo0y"]
+[ext_resource type="Script" uid="uid://dr531wrd0iiph" path="res://custom_resources/effects/card_effects/draw_effect.gd" id="3_suti5"]
+[ext_resource type="Script" uid="uid://b7e4k2aeh14f" path="res://custom_resources/actions/CardAction.gd" id="3_ul6xi"]
+[ext_resource type="Script" uid="uid://dtvjeut823rc" path="res://custom_resources/actions/TileAction.gd" id="4_50s3e"]
+[ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="5_jqxgr"]
+[ext_resource type="Texture2D" uid="uid://d4ip07gimf3g3" path="res://art/cards/card_icons.png" id="5_suti5"]
+
+[sub_resource type="Resource" id="Resource_7fps6"]
+script = ExtResource("3_geo0y")
+metadata/_custom_type_script = "uid://bptdappyknoae"
+
+[sub_resource type="Resource" id="Resource_s8in1"]
+script = ExtResource("5_jqxgr")
+valid_targets = 1
+shape = 1
+radius = 2
+requires_pathfinding = true
+metadata/_custom_type_script = "uid://lo410k1w0lof"
+
+[sub_resource type="Resource" id="Resource_85ncj"]
+script = ExtResource("4_50s3e")
+target = SubResource("Resource_s8in1")
+effects = Array[ExtResource("2_1w03q")]([SubResource("Resource_7fps6")])
+can_cancel_after = false
+metadata/_custom_type_script = "uid://dtvjeut823rc"
+
+[sub_resource type="Resource" id="Resource_n0hb6"]
+script = ExtResource("3_suti5")
+amount = 2
+metadata/_custom_type_script = "uid://dr531wrd0iiph"
+
+[sub_resource type="Resource" id="Resource_suti5"]
+script = ExtResource("3_ul6xi")
+effects = Array[ExtResource("2_grif3")]([SubResource("Resource_n0hb6")])
+metadata/_custom_type_script = "uid://b7e4k2aeh14f"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0hb6"]
+atlas = ExtResource("5_suti5")
+region = Rect2(120, 120, 24, 24)
+
+[resource]
+script = ExtResource("2_q3nr7")
+id = "warrior_quick_thinking"
+name = "Quick Thinking"
+type = 1
+actions = Array[ExtResource("1_yjndr")]([SubResource("Resource_85ncj"), SubResource("Resource_suti5")])
+icon = SubResource("AtlasTexture_n0hb6")
+description = "Move 2, draw 2"
+metadata/_custom_type_script = "uid://cbhovqi2nk4fe"
