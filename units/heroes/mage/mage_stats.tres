@@ -11,5 +11,5 @@ cards_per_turn = 5
 max_energy = 3
 name = "Mage"
 model = ExtResource("2_smhoa")
-max_health = 6
+max_health = 20
 metadata/_custom_type_script = "uid://b2h455v0j7g1r"

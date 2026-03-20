@@ -5,7 +5,7 @@ extends Node3D
 @export var stats: UnitStats : set = set_stats
 
 @onready var stats_ui: StatsUI = $StatsUI as StatsUI
-@onready var placeholder_model: Node3D = $KnightHero
+@onready var placeholder_model: Node3D = $Knight_Hero
 @onready var turn_indicator: MeshInstance3D = $TurnIndicator
 
 var tween: Tween
@@ -36,7 +36,6 @@ func start_turn() -> void:
 		Navigation.set_point_walkable(tile_coords)
 	if stats is EnemyStats:
 		stats.start_turn(self)
-	print(Navigation.find_2d_screen_pos(global_position))
 
 
 func end_turn() -> void:

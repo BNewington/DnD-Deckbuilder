@@ -92,20 +92,6 @@ func flatten(vector: Vector3i) -> Vector2i:
 	return Vector2i(vector.x, vector.z)
 
 
-func init_level(level_tilemap: TileMapLayer) -> void:
-	tilemap = level_tilemap
-	
-	#Setup a star grid
-	grid = AStarGrid2D.new()
-	grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
-	grid.region = tilemap.get_used_rect()
-	grid.cell_size = TILE_SIZE
-	grid.update()
-	
-	remove_unwalkable_tiles_from_grid()
-	remove_unit_tiles_from_grid()
-
-
 func remove_empty_tiles_from_grid() -> void:
 	var used_cells = gridmap.get_used_cells()
 	var used_cells_2d: Array[Vector2i]

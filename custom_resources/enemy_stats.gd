@@ -8,6 +8,7 @@ extends UnitStats
 @export var attack_range: int = 1
 @export var attack_priorities: Array[AttackPriority]
 
+
 func find_target_tiles(unit: Unit) -> Array[Vector2i]:
 	var unit_pos = Navigation.get_tile_coords(unit.global_position)
 	var tiles = Navigation.get_walkable_tiles(Navigation.get_move_area(unit_pos,move_speed))
@@ -26,7 +27,7 @@ func find_target_units(unit: Unit) -> Array[Unit]:
 	var units: Array[Unit] = []
 	for tile in tiles:
 		var unit_at_tile = Navigation.get_unit_at_tile(tile)
-		if unit_at_tile:
+		if unit_at_tile and unit_at_tile.stats is HeroStats:
 			units.append(unit_at_tile)
 	
 	for priority in attack_priorities:

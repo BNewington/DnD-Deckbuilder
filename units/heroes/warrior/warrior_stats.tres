@@ -11,5 +11,5 @@ cards_per_turn = 5
 max_energy = 3
 name = "Warrior"
 model = ExtResource("2_2b6wb")
-max_health = 10
+max_health = 50
 metadata/_custom_type_script = "uid://b2h455v0j7g1r"

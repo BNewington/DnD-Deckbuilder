@@ -38,7 +38,6 @@ func start_battle() -> void:
 func start_turn(unit: Unit) -> void:
 	current_unit = unit
 	Events.start_turn.emit(unit)
-	print("emitted")
 	
 	if unit.stats is HeroStats:
 		unit.stats.reset_energy()

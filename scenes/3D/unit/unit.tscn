@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://by0r1um7k7go2" path="res://scenes/3D/unit/unit.gd" id="1_80wi4"]
 [ext_resource type="PackedScene" uid="uid://d0tnkfen53ayh" path="res://scenes/ui/stats_ui.tscn" id="3_qalc0"]
-[ext_resource type="PackedScene" uid="uid://crosqwnqbwqfe" path="res://art/3D/models/knight_hero.tscn" id="3_srink"]
+[ext_resource type="PackedScene" uid="uid://dw0j0kbbdxyl8" path="res://art/3D/models/Knight_Hero.gltf" id="3_srink"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_qalc0"]
 lightmap_size_hint = Vector2i(14, 21)
@@ -81,7 +81,7 @@ mesh = SubResource("PrismMesh_qalc0")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=16270616]
 libraries/ = SubResource("AnimationLibrary_fael0")
 
-[node name="KnightHero" parent="." unique_id=306953773 instance=ExtResource("3_srink")]
+[node name="Knight_Hero" parent="." unique_id=290444312 instance=ExtResource("3_srink")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, 0)
 
 [node name="Highlight" type="Node3D" parent="." unique_id=508616555]

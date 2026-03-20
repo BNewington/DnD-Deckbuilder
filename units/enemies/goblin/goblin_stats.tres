@@ -31,5 +31,5 @@ move_priorities = Array[ExtResource("2_5ai7e")]([SubResource("Resource_o0754"), 
 attack_priorities = Array[ExtResource("1_upvjb")]([SubResource("Resource_fxxli")])
 name = "goblin"
 model = ExtResource("4_hqva7")
-max_health = 20
+max_health = 40
 metadata/_custom_type_script = "uid://coi4vc2y45mc6"
