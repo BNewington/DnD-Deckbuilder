@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dbxs46e2p7i2" path="res://custom_resources/move_priorities/move_priority.gd" id="2_5ai7e"]
 [ext_resource type="Script" uid="uid://bqsbk0cl1expk" path="res://custom_resources/attack_priorities/lowest_health.gd" id="2_hqva7"]
 [ext_resource type="Script" uid="uid://buysleh8f17v1" path="res://custom_resources/move_priorities/closest_to_hero.gd" id="3_h21o1"]
-[ext_resource type="PackedScene" uid="uid://wjaur75p135h" path="res://art/3D/models/Basic_Goblin.glb" id="4_hqva7"]
+[ext_resource type="PackedScene" uid="uid://sd2558mdfcde" path="res://art/3D/models/unit models/goblin_model.tscn" id="3_qwomt"]
 [ext_resource type="Script" uid="uid://b21budf0cbcon" path="res://custom_resources/move_priorities/shortest_distance.gd" id="5_upvjb"]
 [ext_resource type="Script" uid="uid://dmaakococ25tv" path="res://custom_resources/move_priorities/next_to_hero.gd" id="6_fxxli"]
 [ext_resource type="Script" uid="uid://b0wqyft7ri3qt" path="res://units/enemies/goblin/goblin.gd" id="8_nwwex"]
@@ -30,6 +30,6 @@ script = ExtResource("8_nwwex")
 move_priorities = Array[ExtResource("2_5ai7e")]([SubResource("Resource_o0754"), SubResource("Resource_hqva7"), SubResource("Resource_u4cao")])
 attack_priorities = Array[ExtResource("1_upvjb")]([SubResource("Resource_fxxli")])
 name = "goblin"
-model = ExtResource("4_hqva7")
-max_health = 40
+model = ExtResource("3_qwomt")
+max_health = 5
 metadata/_custom_type_script = "uid://coi4vc2y45mc6"

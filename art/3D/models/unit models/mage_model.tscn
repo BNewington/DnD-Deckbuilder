@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bks0f3s5et5vo"]
+
+[ext_resource type="PackedScene" uid="uid://cfvp3erjm6t8g" path="res://art/3D/models/unit models/unit_model.tscn" id="1_ej2u0"]
+[ext_resource type="PackedScene" uid="uid://uhrsccn24wbk" path="res://art/3D/models/Wizard_Hero.gltf" id="2_8iadb"]
+
+[node name="MageModel" unique_id=727391026 instance=ExtResource("1_ej2u0")]
+
+[node name="Wizard_Hero" parent="." index="0" unique_id=1002981242 instance=ExtResource("2_8iadb")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)

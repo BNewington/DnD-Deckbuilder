@@ -97,7 +97,7 @@ script = ExtResource("2_o2o3g")
 visible = false
 
 [node name="CameraPivot" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=2050402475]
-transform = Transform3D(0.9238794, -0.24598415, 0.2931525, 0, 0.7660444, 0.6427875, -0.3826834, -0.5938582, 0.7077327, 0, 0, 0)
+transform = Transform3D(-0.9238793, -0.24598417, 0.2931525, 0, 0.7660443, 0.6427875, -0.38268343, 0.5938582, -0.7077327, 0, 0, 0)
 script = ExtResource("3_jdl33")
 circular_radius = 0.5
 circular_speed = 0.1
@@ -149,12 +149,12 @@ data = {
 }
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport" unique_id=687978056]
-transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0.8917122, 0)
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0.039601564, 0.8917122, 0.005741596)
 mesh = SubResource("PlaneMesh_ehegv")
 surface_material_override/0 = SubResource("StandardMaterial3D_aw6g6")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=566285142]
-transform = Transform3D(0.4246633, 0.85039127, 0.3106377, -0.2889608, -0.19785558, 0.9366722, 0.85799927, -0.48753244, 0.16170774, 1.6187859, 10.340704, 0)
+transform = Transform3D(0.84482604, 0.1838907, 0.50244725, -0.43846416, -0.30022267, 0.8471219, 0.30662388, -0.93597573, -0.17300643, 1.6187859, 10.340704, 0)
 shadow_enabled = true
 shadow_blur = 0.1
 directional_shadow_mode = 1

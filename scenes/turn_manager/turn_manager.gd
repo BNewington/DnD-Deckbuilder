@@ -114,3 +114,9 @@ func _on_unit_died(unit: Unit) -> void:
 		enemies.erase(unit)
 	elif unit.stats is HeroStats:
 		heroes.erase(unit)
+	
+	if enemies.size() == 0:
+		print("You win!")
+	
+	if heroes.size() == 0:
+		print("You lose!")

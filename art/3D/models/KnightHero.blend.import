@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dfh7pjy6at8s4"
+uid="uid://clgh7yn80lo6t"
 path="res://.godot/imported/KnightHero.blend-b9765ee2cf154ecc7cd5c6d534fb092a.scn"
 
 [deps]
@@ -46,7 +46,7 @@ blender/nodes/custom_properties=true
 blender/nodes/modifiers=1
 blender/meshes/colors=false
 blender/meshes/uvs=true
-blender/meshes/normals=false
+blender/meshes/normals=true
 blender/meshes/export_geometry_nodes_instances=false
 blender/meshes/gpu_instances=false
 blender/meshes/tangents=true

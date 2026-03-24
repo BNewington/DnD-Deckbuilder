@@ -52,7 +52,7 @@ func start_turn(unit: Unit) -> void:
 	print("target units: ",target_units)
 	if target_units.size() > 0:
 		unit.attack(target_units[0].grid_pos)
-		target_units[0].take_damage(5)
+		target_units[0].take_damage(5) #TODO replace this with a flexible attack system
 	
 	print(name," turn over")
 	Events.turn_ended.emit(unit)

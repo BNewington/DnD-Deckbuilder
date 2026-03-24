@@ -15,6 +15,8 @@ var target_pos: Vector2i
 var floor_height = 1
 var alive: bool = true
 
+var model: Node3D
+
 
 func _ready() -> void:
 	Events.start_battle.connect(start_battle)
@@ -58,6 +60,7 @@ func get_grid_pos() -> Vector2i:
 
 
 func move_to(target: Vector2i) -> void:
+	model.play_animation("Run")
 	var path = Navigation.get_cell_path(grid_pos,target)
 	target_pos = path[path.size()-1]
 	if path:
@@ -67,13 +70,20 @@ func move_to(target: Vector2i) -> void:
 			var tile_3d = Vector3(tile.x, 0, tile.y)
 			var next_pos = Navigation.gridmap.map_to_local(tile_3d)
 			var flat_next_pos = Vector3(next_pos.x,floor_height,next_pos.z)
-			tween.tween_property(self, "global_position",flat_next_pos,0.15)
+			tween.tween_callback(face_model.bind(flat_next_pos))
+			tween.tween_property(self, "global_position",flat_next_pos,0.25)
 		await tween.finished
+		model.play_animation("Idle")
 
 
-	
+func face_model(face_to: Vector3) -> void:
+	model.look_at(face_to)
+
 
 func attack(attack_pos) -> void:
+	var world_attack_pos = Navigation.get_world_coords(attack_pos)
+	face_model(world_attack_pos)
+	model.play_animation("Attack")
 	#TODO play attack animation
 	pass
 
@@ -83,10 +93,18 @@ func update_hero() -> void:
 		await ready
 		
 	update_stats()
-	var model = stats.model.instantiate()
+	model = stats.model.instantiate()
 	model.scale = Vector3.ONE * 1.7
 	add_child(model)
 	placeholder_model.queue_free()
+	if model.has_signal("animation_finished"):
+		model.animation_finished.connect(on_animation_finished)
+	model.play_animation("Idle")
+
+
+func on_animation_finished(anim: String) -> void:
+	if anim == "Attack":
+		model.play_animation("Idle")
 
 
 func update_stats() -> void: #should emit a signal telling the battleui to update stats

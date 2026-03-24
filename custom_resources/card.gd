@@ -45,6 +45,7 @@ func get_area_for_highlight(action_id: int, temp_pos: Vector2i) -> Array[Vector2
 	else:
 		return area.get_area(temp_pos)
 
+
 func get_valid_targets(action_id: int) -> Array[Vector2i]:
 	var area = get_area(action_id)
 	return actions[action_id].target.get_valid_target_cells(area)
@@ -97,5 +98,5 @@ func can_cancel_after(action_id: int) -> bool:
 			return false
 	return true
 
-func execute(area_id: int, targets: Array) -> void:
+func execute(_area_id: int, targets: Array) -> void:
 	print("executed effect at target(s): %s"%targets)

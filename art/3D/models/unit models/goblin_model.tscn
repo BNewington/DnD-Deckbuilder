@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://sd2558mdfcde"]
+
+[ext_resource type="PackedScene" uid="uid://cfvp3erjm6t8g" path="res://art/3D/models/unit models/unit_model.tscn" id="1_b2rau"]
+[ext_resource type="PackedScene" uid="uid://dvc23ehlmj6aw" path="res://art/3D/models/Goblin.blend" id="2_jrufu"]
+
+[node name="GoblinModel" unique_id=727391026 instance=ExtResource("1_b2rau")]
+
+[node name="Goblin" parent="." index="0" unique_id=216391342 instance=ExtResource("2_jrufu")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
