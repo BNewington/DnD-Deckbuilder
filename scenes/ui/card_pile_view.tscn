@@ -9,6 +9,7 @@
 font_size = 100
 
 [node name="CardPileView" type="Control" unique_id=1299642718]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

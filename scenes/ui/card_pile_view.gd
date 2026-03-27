@@ -10,7 +10,7 @@ const CARD_MENU_UI_SCENE = preload("uid://cjowue6xxofne")
 @onready var card_inspect: CardInspect = %CardInspect
 @onready var back_button: Button = %BackButton
 
-
+var hero: Unit
 
 func _ready() -> void:
 	back_button.pressed.connect(hide)
@@ -40,6 +40,7 @@ func show_current_view(new_title: String, randomized: bool = false) -> void:
 func _update_view(randomized: bool) -> void:
 	if not card_pile:
 		return
+	print(card_pile.cards)
 	var all_cards := card_pile.cards.duplicate()
 	if randomized:
 		all_cards.shuffle()

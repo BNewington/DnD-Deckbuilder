@@ -49,6 +49,7 @@ size_flags_horizontal = 4
 layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1845865837]
+visible = false
 layout_mode = 2
 text = "View upgrade"
 label_settings = SubResource("LabelSettings_nq7og")

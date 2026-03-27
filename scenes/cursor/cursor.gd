@@ -23,7 +23,7 @@ var tile_selector_enabled: bool = false
 
 
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	#Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	connect_events()
 	enable_pointer()
 
