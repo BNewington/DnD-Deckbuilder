@@ -40,7 +40,6 @@ func show_current_view(new_title: String, randomized: bool = false) -> void:
 func _update_view(randomized: bool) -> void:
 	if not card_pile:
 		return
-	print(card_pile.cards)
 	var all_cards := card_pile.cards.duplicate()
 	if randomized:
 		all_cards.shuffle()

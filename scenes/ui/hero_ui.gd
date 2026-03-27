@@ -1,9 +1,6 @@
 class_name HeroUI
 extends CanvasLayer
 
-#this layer will contain all the hero specific ui elements, like their card pile views
-#when the discard and draw pile buttons are pressed, this node will show the correct card pile view\
-
 var current_hero_turn: Unit
 
 const CARD_PILE_VIEW_SCENE = preload("uid://dilpax6jng0j4")
@@ -42,7 +39,6 @@ func _on_turn_started(unit: Unit) -> void:
 
 
 func draw_pile_button_pressed() -> void:
-	print(current_hero_turn.stats.name)
 	for draw_pile: CardPileView in draw.get_children():
 		if draw_pile.hero == current_hero_turn:
 			draw_pile.show_current_view(current_hero_turn.stats.name + " Draw Pile", true)
@@ -50,7 +46,6 @@ func draw_pile_button_pressed() -> void:
 
 
 func discard_pile_button_pressed() -> void:
-	print(current_hero_turn.stats.name)
 	for discard_pile: CardPileView in discard.get_children():
 		if discard_pile.hero == current_hero_turn:
 			discard_pile.show_current_view(current_hero_turn.stats.name + " Discard Pile")
