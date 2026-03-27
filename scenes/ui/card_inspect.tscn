@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://catc2lu2u5qd1"]
+
+[ext_resource type="Script" uid="uid://bw3l7in1ti1s0" path="res://scenes/ui/card_inspect.gd" id="1_1tb3l"]
+[ext_resource type="PackedScene" uid="uid://cjowue6xxofne" path="res://scenes/ui/card_menu_ui.tscn" id="1_rm00g"]
+[ext_resource type="FontFile" uid="uid://de77xikhsyahx" path="res://art/ui/fonts/m3x6.ttf" id="2_1tb3l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nq7og"]
+font = ExtResource("2_1tb3l")
+font_size = 50
+
+[node name="CardInspect" type="Control" unique_id=1503062474]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1tb3l")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1785762761]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1238839722]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.5
+offset_top = -192.5
+offset_right = 109.5
+offset_bottom = 192.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CardArt" type="CenterContainer" parent="VBoxContainer" unique_id=478084943]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CardMenuUI" parent="VBoxContainer/CardArt" unique_id=1585490815 instance=ExtResource("1_rm00g")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1845865837]
+layout_mode = 2
+text = "View upgrade"
+label_settings = SubResource("LabelSettings_nq7og")
+horizontal_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

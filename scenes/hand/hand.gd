@@ -60,6 +60,9 @@ func arrange_hand() -> void:
 	cards = get_children()
 	hand_size = float(len(cards))
 	
+	if hand_size == 0:
+		return
+	
 	if hand_size == 1:
 		var card: CardUI = cards[0]
 		card.hand = self
