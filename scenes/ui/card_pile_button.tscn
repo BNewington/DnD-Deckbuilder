@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bfdnlp4ftq5j8"]
+
+[ext_resource type="Script" uid="uid://d2trbg6tw62tw" path="res://scenes/ui/card_pile_button.gd" id="2_nsexx"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hcb2u"]
+load_path = "res://.godot/imported/deck.png-1d18b8c2d77dc27a615a762881a94bf7.ctex"
+
+[node name="CardPileButton" type="TextureButton" unique_id=610846871]
+custom_minimum_size = Vector2(80, 80)
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = SubResource("CompressedTexture2D_hcb2u")
+stretch_mode = 5
+script = ExtResource("2_nsexx")
