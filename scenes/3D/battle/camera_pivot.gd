@@ -16,17 +16,21 @@ var target_pos: Vector3 : set = set_target_pos
 var is_focusing: bool = false
 var focus_offset: float = 2
 
+var menu_mode: bool = false
 
 @onready var cam: Camera3D = $Camera3D
 
 
 func _ready() -> void:
 	Events.start_turn.connect(_on_turn_started)
+	
+	Events.menu_opened.connect(func(): menu_mode = true)
+	Events.menu_closed.connect(func(): menu_mode = false)
 
 
 func _process(delta: float) -> void:
 	focus_target()
-	if is_focusing:
+	if is_focusing or menu_mode:
 		return
 	if Input.is_action_pressed("cam_pan"):
 		is_panning = true
@@ -60,6 +64,7 @@ func _process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if menu_mode: return
 	if event is InputEventMouseMotion and is_panning:
 		var dist = event.screen_relative
 		input_vec = Vector2(-dist.x,dist.y) / 80

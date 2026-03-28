@@ -13,7 +13,7 @@ const CARD_MENU_UI_SCENE = preload("uid://cjowue6xxofne")
 var hero: Unit
 
 func _ready() -> void:
-	back_button.pressed.connect(hide)
+	back_button.pressed.connect(hide_menu)
 	
 	for card: Node in cards.get_children():
 		card.queue_free()
@@ -23,10 +23,11 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
+		if not visible: return
 		if card_inspect.visible:
 			card_inspect.hide_card()
 		else:
-			hide()
+			hide_menu()
 
 
 func show_current_view(new_title: String, randomized: bool = false) -> void:
@@ -51,3 +52,9 @@ func _update_view(randomized: bool) -> void:
 		new_card.inspect_requested.connect(card_inspect.show_card)
 	
 	show()
+
+
+func hide_menu() -> void:
+	print("hide menu time")
+	Events.menu_closed.emit()
+	hide()

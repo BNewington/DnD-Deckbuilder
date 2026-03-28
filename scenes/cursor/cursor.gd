@@ -35,6 +35,9 @@ func connect_events() -> void:
 	Events.card_dragging_ended.connect(card_dragging_ended)
 	Events.card_aiming_started.connect(card_aiming_started)
 	Events.card_aiming_ended.connect(card_aiming_ended)
+	
+	Events.menu_opened.connect(menu_mode_on)
+	Events.menu_closed.connect(menu_mode_off)
 
 
 func card_aiming_started(_card_ui: CardUI, _tiles: Array[Vector2i], _valid_targets: Array[Vector2i]) -> void:
@@ -87,3 +90,13 @@ func disable_cursor() -> void:
 	pointer_sprite.hide()
 	hand_sprite.hide()
 	disabled_sprite.show()
+
+
+func menu_mode_on() -> void:
+	area_2d.monitoring = false
+	area_2d.monitorable = false
+
+
+func menu_mode_off() -> void:
+	area_2d.monitoring = true
+	area_2d.monitorable = true

@@ -20,13 +20,19 @@ var highlight_sprites: Array[MeshInstance3D]
 var greyed_out_sprites: Array[MeshInstance3D]
 var aoe_sprites: Array[MeshInstance3D]
 
+var menu_mode: bool = false
+
 func _ready() -> void:
 	Events.card_aiming_started.connect(highlight_tiles)
 	Events.card_aiming_ended.connect(clear_move_tiles)
 	Events.update_aoe_highlights.connect(update_aoe_tiles)
+	
+	Events.menu_opened.connect(func(): menu_mode = true)
+	Events.menu_closed.connect(func(): menu_mode = false)
 
 
 func _process(_delta: float) -> void:
+	if menu_mode: return
 	var mouse_pos = Navigation.find_3d_mouse_pos()
 	var tile_over = Navigation.get_tile_coords(mouse_pos)
 	if tile_over in selectable_tiles:

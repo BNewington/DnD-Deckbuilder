@@ -42,3 +42,8 @@ signal draw_card(hero_stats: HeroStats)
 ##Hero Signals
 signal hand_drawn
 signal hand_discarded(hero: Unit)
+
+
+##UI Signals
+signal menu_opened
+signal menu_closed

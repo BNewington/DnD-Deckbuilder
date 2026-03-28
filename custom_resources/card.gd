@@ -98,5 +98,6 @@ func can_cancel_after(action_id: int) -> bool:
 			return false
 	return true
 
+
 func execute(_area_id: int, targets: Array) -> void:
 	print("executed effect at target(s): %s"%targets)

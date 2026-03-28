@@ -9,6 +9,11 @@ var current_area: int
 
 var previously_selected_tile: Vector2i
 
+var menu_mode: bool = false
+
+func _ready() -> void:
+	Events.menu_opened.connect(func(): menu_mode = true)
+	Events.menu_closed.connect(func(): menu_mode = false)
 
 func enter() -> void:
 	current_area = 0
@@ -54,6 +59,7 @@ func aiming_selected(selected_tile: Vector2i) -> void:
 
 
 func on_input(event: InputEvent) -> void:
+	if menu_mode: return
 	var mouse_pos = Navigation.find_3d_mouse_pos()
 	var selected_tile = Navigation.get_tile_coords(mouse_pos)
 	var mouse_over_area: bool = selected_tile in valid_targets
