@@ -14,6 +14,9 @@ var current_cell: Vector2i
 var cell_last_frame: Vector2i
 var tile_selector_enabled: bool = false
 
+var card_dragging: bool = false
+var menu_mode: bool = false
+
 @onready var pointer_sprite: Sprite2D = $Sprites/PointerSprite
 @onready var hand_sprite: Sprite2D = $Sprites/HandSprite
 @onready var disabled_sprite: Sprite2D = $Sprites/DisabledSprite
@@ -46,11 +49,14 @@ func card_aiming_started(_card_ui: CardUI, _tiles: Array[Vector2i], _valid_targe
 
 
 func card_aiming_ended(_card_ui: CardUI) -> void:
-	area_2d.monitorable = true
-	area_2d.monitoring = true
+	card_dragging = false
+	if not menu_mode:
+		area_2d.monitorable = true
+		area_2d.monitoring = true
 
 
 func card_dragging_started(_card_ui: CardUI) -> void:
+	card_dragging = true
 	area_2d.monitorable = false
 	area_2d.monitoring = false
 
@@ -93,10 +99,13 @@ func disable_cursor() -> void:
 
 
 func menu_mode_on() -> void:
+	menu_mode = true
 	area_2d.monitoring = false
 	area_2d.monitorable = false
 
 
 func menu_mode_off() -> void:
-	area_2d.monitoring = true
-	area_2d.monitorable = true
+	menu_mode = false
+	if not card_dragging:
+		area_2d.monitoring = true
+		area_2d.monitorable = true
