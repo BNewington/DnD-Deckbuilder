@@ -74,6 +74,7 @@ func move_to(target: Vector2i) -> void:
 			tween.tween_property(self, "global_position",flat_next_pos,0.25)
 		await tween.finished
 		model.play_animation("Idle")
+		Events.move_complete.emit(self)
 
 
 func face_model(face_to: Vector3) -> void:

@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dq8c5qippudah" path="res://scenes/hand/hand.tscn" id="9_hglb3"]
 [ext_resource type="PackedScene" uid="uid://s3e6r400eqcu" path="res://scenes/ui/energy_ui.tscn" id="10_423bg"]
 [ext_resource type="Resource" uid="uid://cbxcuj1pc0en" path="res://units/heroes/mage/mage_stats.tres" id="10_jdl33"]
+[ext_resource type="PackedScene" uid="uid://dfcv0j6p3hxas" path="res://scenes/3D/battle/rewards_chest.tscn" id="13_d762t"]
 [ext_resource type="Texture2D" uid="uid://5url5k4caeyl" path="res://art/ui/StonebaseUISheet.png" id="17_jdl33"]
 [ext_resource type="FontFile" uid="uid://de77xikhsyahx" path="res://art/ui/fonts/m3x6.ttf" id="18_ehegv"]
 [ext_resource type="PackedScene" uid="uid://bfdnlp4ftq5j8" path="res://scenes/ui/card_pile_button.tscn" id="19_aw6g6"]
@@ -169,6 +170,9 @@ directional_shadow_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport" unique_id=332983236]
 environment = SubResource("Environment_n4gow")
+
+[node name="RewardsChest" parent="SubViewportContainer/SubViewport" unique_id=765470379 instance=ExtResource("13_d762t")]
+transform = Transform3D(-0.8493773, 0, 0.5277862, 0, 1, 0, -0.5277862, 0, -0.8493773, 3.3300648, 1.1854906, -5.370565)
 
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=1984589142 groups=["ui_layer"]]
 script = ExtResource("7_46ncm")

@@ -25,6 +25,8 @@ signal set_stats(unit: Unit, stats: UnitStats)
 signal effect_resolved
 signal initiative_hovered(unit: Unit)
 signal initiative_hovered_off(unit: Unit)
+signal move_complete(unit: Unit)
+signal reward_collected(unit: Unit)
 
 
 ##Card Signals

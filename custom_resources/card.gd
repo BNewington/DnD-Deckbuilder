@@ -3,6 +3,9 @@ extends Resource
 
 enum Type {ATTACK, SKILL, POWER}
 enum Hero {Warrior, Thief, Mage}
+enum Rarity {COMMON, UNCOMMON, RARE}
+
+const RARITY_COLOURS := {Rarity.COMMON: Color.GRAY, Rarity.UNCOMMON: Color.ROYAL_BLUE, Rarity.RARE: Color.GOLD}
 
 var unit: Unit
 

@@ -8,3 +8,4 @@ func execute(unit: Unit, targets: Array[Vector2i]) -> void:
 	unit.global_position = teleport_pos
 	unit.target_pos = Navigation.get_tile_coords(teleport_pos)
 	Navigation.set_point_solid(unit.grid_pos)
+	Events.move_complete.emit(unit)
