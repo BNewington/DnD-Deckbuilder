@@ -4,6 +4,7 @@ extends UnitStats
 @export var starting_deck: CardPile
 @export var cards_per_turn: int
 @export var max_energy: int
+@export var draftable_cards: CardPile
 
 var energy: int : set = set_energy
 var deck: CardPile

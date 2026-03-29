@@ -39,6 +39,7 @@ signal card_dragging_ended(card: CardUI)
 signal card_played(card: Card)
 signal update_aoe_highlights(tiles: Array[Vector2i])
 signal draw_card(hero_stats: HeroStats)
+signal card_reward_confirmed(card: Card)
 
 
 ##Hero Signals

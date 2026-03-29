@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://c5qgi10py656f"]
+
+[ext_resource type="PackedScene" uid="uid://cjowue6xxofne" path="res://scenes/ui/card_menu_ui.tscn" id="1_8ifif"]
+[ext_resource type="Script" uid="uid://27uwst6ucm1m" path="res://scenes/ui/card_reward.gd" id="1_8kjk5"]
+[ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="2_8t25j"]
+[ext_resource type="Resource" uid="uid://d26y72qyxwhr8" path="res://units/heroes/mage/cards/mage_blink.tres" id="3_psknx"]
+[ext_resource type="Resource" uid="uid://bi645cg2gj5ar" path="res://units/heroes/mage/cards/mage_fireball.tres" id="4_5t0ao"]
+[ext_resource type="Resource" uid="uid://b6a1j4bb56tf4" path="res://units/heroes/mage/cards/mage_zap.tres" id="5_r2x86"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_all4r"]
+font_size = 80
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ifif"]
+bg_color = Color(0.22745098, 0.3137255, 0.4, 0.89411765)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="CardReward" type="Control" unique_id=628628586]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8kjk5")
+rewards = Array[ExtResource("2_8t25j")]([ExtResource("3_psknx"), ExtResource("4_5t0ao"), ExtResource("5_r2x86")])
+
+[node name="BackGround" type="ColorRect" parent="." unique_id=243559555]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7058824)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2100066137]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=2109843576]
+layout_mode = 2
+text = "Choose a card!"
+label_settings = SubResource("LabelSettings_all4r")
+horizontal_alignment = 1
+
+[node name="CardContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=745827619]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="CardMenuUI" parent="VBoxContainer/CardContainer" unique_id=1585490815 instance=ExtResource("1_8ifif")]
+layout_mode = 2
+
+[node name="CardMenuUI2" parent="VBoxContainer/CardContainer" unique_id=1008840591 instance=ExtResource("1_8ifif")]
+layout_mode = 2
+
+[node name="CardMenuUI3" parent="VBoxContainer/CardContainer" unique_id=1949741315 instance=ExtResource("1_8ifif")]
+layout_mode = 2
+
+[node name="SkipButton" type="Button" parent="VBoxContainer" unique_id=682435832]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_8ifif")
+text = "Skip"

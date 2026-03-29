@@ -5,9 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://c2p2rf2oypqtb" path="res://art/3D/models/chest/dungeon_texture.png" id="2_cwx3o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7onm"]
+albedo_color = Color(0.36078432, 0.38039216, 0.4509804, 1)
 albedo_texture = ExtResource("2_cwx3o")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u6k5v"]
+albedo_color = Color(0.36077604, 0.3785038, 0.45114887, 1)
 albedo_texture = ExtResource("2_cwx3o")
 
 [node name="RewardsChest" type="Node3D" unique_id=765470379]

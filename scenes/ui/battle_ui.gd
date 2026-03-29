@@ -23,7 +23,6 @@ func _ready() -> void:
 	Events.card_aiming_started.connect(_on_card_aiming_started)
 	Events.card_aiming_ended.connect(_on_card_aiming_ended)
 	Events.set_stats.connect(_on_stats_set)
-	Events.reward_collected.connect(_on_reward_collected)
 	end_turn_button.pressed.connect(_on_end_turn_button_pressed)
 
 
@@ -111,7 +110,3 @@ func _on_stats_changed() -> void:
 		var initiative_tracker = unit_stats[unit][1]
 		stats.update_stats(unit.stats)
 		initiative_tracker.health = unit.stats.health
-
-
-func _on_reward_collected(unit: Unit) -> void:
-	print(unit.stats.name," collected a reward!")

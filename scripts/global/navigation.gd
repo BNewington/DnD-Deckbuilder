@@ -29,7 +29,7 @@ var camera: Camera3D
 var grid: AStarGrid2D
 var TILE_SIZE: Vector2
 
-var floor_height: float = 1.1
+var floor_height: float = 1.118
 
 func init(level_gridmap: GridMap, level_camera: Camera3D) -> void:
 	camera = level_camera

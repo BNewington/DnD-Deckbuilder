@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardPile" format=3 uid="uid://b816qs71vrfy7"]
+
+[ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="1_7p5sb"]
+[ext_resource type="Script" uid="uid://bwhee2d1ya1p1" path="res://custom_resources/card_pile.gd" id="2_1mvdg"]
+[ext_resource type="Resource" uid="uid://d26y72qyxwhr8" path="res://units/heroes/mage/cards/mage_blink.tres" id="2_6vom2"]
+[ext_resource type="Resource" uid="uid://b6a1j4bb56tf4" path="res://units/heroes/mage/cards/mage_zap.tres" id="3_c8w3c"]
+[ext_resource type="Resource" uid="uid://bi645cg2gj5ar" path="res://units/heroes/mage/cards/mage_fireball.tres" id="4_wftun"]
+
+[resource]
+script = ExtResource("2_1mvdg")
+cards = Array[ExtResource("1_7p5sb")]([ExtResource("2_6vom2"), ExtResource("3_c8w3c"), ExtResource("4_wftun")])
+metadata/_custom_type_script = "uid://bwhee2d1ya1p1"

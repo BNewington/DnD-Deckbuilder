@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dx3rrgwcviw5h"]
 
 [ext_resource type="Script" uid="uid://by0r1um7k7go2" path="res://scenes/3D/unit/unit.gd" id="1_80wi4"]
-[ext_resource type="PackedScene" uid="uid://d0tnkfen53ayh" path="res://scenes/ui/stats_ui.tscn" id="3_qalc0"]
 [ext_resource type="PackedScene" uid="uid://dw0j0kbbdxyl8" path="res://art/3D/models/Knight_Hero.gltf" id="3_srink"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_qalc0"]
@@ -68,10 +67,11 @@ _data = {
 &"spin": SubResource("Animation_srink")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80wi4"]
+shading_mode = 0
+
 [node name="Unit" type="Node3D" unique_id=351906256 groups=["units"]]
 script = ExtResource("1_80wi4")
-
-[node name="StatsUI" parent="." unique_id=1240307798 instance=ExtResource("3_qalc0")]
 
 [node name="TurnIndicator" type="MeshInstance3D" parent="." unique_id=128226446]
 transform = Transform3D(0.5, 0, 0, 0, -0.5, 3.4969112e-08, 0, -4.371139e-08, -0.4, 0, 4.5, 0)
@@ -85,11 +85,13 @@ libraries/ = SubResource("AnimationLibrary_fael0")
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, 0)
 
 [node name="Highlight" type="Node3D" parent="." unique_id=508616555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Highlight" unique_id=310390785]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.50464547, 0)
 size = Vector3(2.1, 1, 2.1)
+material = SubResource("StandardMaterial3D_80wi4")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Highlight/CSGBox3D" unique_id=419405072]
 operation = 2

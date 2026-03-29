@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bqhurxetu1x4" path="res://scenes/ui/stats_ui.gd" id="1_xm8em"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_xm8em"]
+font_size = 50
+
 [node name="StatsUI" type="Control" unique_id=1240307798]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 3
@@ -24,5 +27,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "5"
+label_settings = SubResource("LabelSettings_xm8em")
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -4,7 +4,6 @@ extends Node3D
 
 @export var stats: UnitStats : set = set_stats
 
-@onready var stats_ui: StatsUI = $StatsUI as StatsUI
 @onready var placeholder_model: Node3D = $Knight_Hero
 @onready var turn_indicator: MeshInstance3D = $TurnIndicator
 
@@ -12,7 +11,7 @@ var tween: Tween
 var grid_pos: Vector2i : get = get_grid_pos
 var target_pos: Vector2i
 
-var floor_height = 1
+var floor_height = 1.118
 var alive: bool = true
 
 var model: Node3D
@@ -48,10 +47,6 @@ func end_turn() -> void:
 
 func set_stats(value: UnitStats) -> void:
 	stats = value.create_instance()
-	
-	if not stats.stats_changed.is_connected(update_stats):
-		stats.stats_changed.connect(update_stats)
-	
 	update_hero()
 
 
@@ -93,7 +88,6 @@ func update_hero() -> void:
 	if not is_inside_tree():
 		await ready
 		
-	update_stats()
 	model = stats.model.instantiate()
 	model.scale = Vector3.ONE * 1.7
 	add_child(model)
@@ -106,10 +100,6 @@ func update_hero() -> void:
 func on_animation_finished(anim: String) -> void:
 	if anim == "Attack":
 		model.play_animation("Idle")
-
-
-func update_stats() -> void: #should emit a signal telling the battleui to update stats
-	stats_ui.update_stats(stats)
 
 
 func initiative_hovered(unit: Unit) -> void:

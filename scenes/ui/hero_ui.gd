@@ -1,4 +1,3 @@
-class_name HeroUI
 extends CanvasLayer
 
 var current_hero_turn: Unit
@@ -9,6 +8,7 @@ const CARD_PILE_VIEW_SCENE = preload("uid://dilpax6jng0j4")
 @onready var discard_pile_button: CardPileButton = %DiscardPileButton
 @onready var draw: Control = $CardPileViews/Draw
 @onready var discard: Control = $CardPileViews/Discard
+
 
 func _ready() -> void:
 	Events.start_turn.connect(_on_turn_started)

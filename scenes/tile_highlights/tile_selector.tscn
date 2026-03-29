@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://c0lwj7s84cv2x"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d62ky"]
+shading_mode = 0
+
 [node name="TileSelector" type="Node3D" unique_id=1052067510]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1090386900]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1.03, 0)
+material = SubResource("StandardMaterial3D_d62ky")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D" unique_id=1517446883]
 transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 0, 0, 0)

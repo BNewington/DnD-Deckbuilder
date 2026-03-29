@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bfdnlp4ftq5j8" path="res://scenes/ui/card_pile_button.tscn" id="19_aw6g6"]
 [ext_resource type="Script" uid="uid://dq4xyviim108w" path="res://scenes/ui/hero_ui.gd" id="19_d762t"]
 [ext_resource type="Texture2D" uid="uid://dy06mmkk43krw" path="res://art/ui/Icons/draw.png" id="20_8m8co"]
+[ext_resource type="PackedScene" uid="uid://bqk50cx7n84s8" path="res://scenes/ui/battle_reward.tscn" id="20_qv6a5"]
 [ext_resource type="Texture2D" uid="uid://b8wk0vhh56dh8" path="res://art/ui/Icons/discard.png" id="21_b5y4l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hglb3"]
@@ -67,6 +68,9 @@ region = Rect2(446, 64, 40, 20)
 [sub_resource type="AtlasTexture" id="AtlasTexture_aw6g6"]
 atlas = ExtResource("17_jdl33")
 region = Rect2(446, 85, 40, 21)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qv6a5"]
+font_size = 50
 
 [sub_resource type="LabelSettings" id="LabelSettings_4pjrh"]
 font = ExtResource("18_ehegv")
@@ -172,7 +176,7 @@ directional_shadow_mode = 1
 environment = SubResource("Environment_n4gow")
 
 [node name="RewardsChest" parent="SubViewportContainer/SubViewport" unique_id=765470379 instance=ExtResource("13_d762t")]
-transform = Transform3D(-0.8493773, 0, 0.5277862, 0, 1, 0, -0.5277862, 0, -0.8493773, 3.3300648, 1.1854906, -5.370565)
+transform = Transform3D(-0.8493773, 0, 0.5277862, 0, 1, 0, -0.5277862, 0, -0.8493773, 3.3300648, 1.0400634, -5.370565)
 
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=1984589142 groups=["ui_layer"]]
 script = ExtResource("7_46ncm")
@@ -237,6 +241,7 @@ offset_bottom = 57.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 20
 text = "60"
+label_settings = SubResource("LabelSettings_qv6a5")
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -251,11 +256,7 @@ offset_bottom = 772.0
 grow_horizontal = 2
 alignment = 1
 
-[node name="HeroUI" type="CanvasLayer" parent="." unique_id=1228479744]
-layer = 2
-script = ExtResource("19_d762t")
-
-[node name="DrawPileButton" parent="HeroUI" unique_id=610846871 node_paths=PackedStringArray("counter") instance=ExtResource("19_aw6g6")]
+[node name="DrawPileButton" parent="BattleUI" unique_id=610846871 node_paths=PackedStringArray("counter") instance=ExtResource("19_aw6g6")]
 unique_name_in_owner = true
 anchors_preset = 2
 anchor_top = 1.0
@@ -268,7 +269,7 @@ grow_vertical = 0
 texture_normal = ExtResource("20_8m8co")
 counter = NodePath("Label")
 
-[node name="Label" type="Label" parent="HeroUI/DrawPileButton" unique_id=1403001663]
+[node name="Label" type="Label" parent="BattleUI/DrawPileButton" unique_id=1403001663]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -284,7 +285,7 @@ grow_vertical = 0
 text = "99"
 label_settings = SubResource("LabelSettings_4pjrh")
 
-[node name="DiscardPileButton" parent="HeroUI" unique_id=233769220 node_paths=PackedStringArray("counter") instance=ExtResource("19_aw6g6")]
+[node name="DiscardPileButton" parent="BattleUI" unique_id=233769220 node_paths=PackedStringArray("counter") instance=ExtResource("19_aw6g6")]
 unique_name_in_owner = true
 anchors_preset = 3
 anchor_left = 1.0
@@ -300,7 +301,7 @@ grow_vertical = 0
 texture_normal = ExtResource("21_b5y4l")
 counter = NodePath("Label")
 
-[node name="Label" type="Label" parent="HeroUI/DiscardPileButton" unique_id=1683703372]
+[node name="Label" type="Label" parent="BattleUI/DiscardPileButton" unique_id=1683703372]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -316,7 +317,11 @@ grow_vertical = 0
 text = "99"
 label_settings = SubResource("LabelSettings_4pjrh")
 
-[node name="CardPileViews" type="Control" parent="HeroUI" unique_id=1473838284]
+[node name="MenuUILayer" type="CanvasLayer" parent="." unique_id=1228479744]
+layer = 2
+script = ExtResource("19_d762t")
+
+[node name="CardPileViews" type="Control" parent="MenuUILayer" unique_id=1473838284]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -327,7 +332,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Draw" type="Control" parent="HeroUI/CardPileViews" unique_id=234995853]
+[node name="Draw" type="Control" parent="MenuUILayer/CardPileViews" unique_id=234995853]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -336,7 +341,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Discard" type="Control" parent="HeroUI/CardPileViews" unique_id=725092857]
+[node name="Discard" type="Control" parent="MenuUILayer/CardPileViews" unique_id=725092857]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -344,3 +349,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="BattleReward" parent="MenuUILayer" unique_id=1704379413 instance=ExtResource("20_qv6a5")]
+visible = false

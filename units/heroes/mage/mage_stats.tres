@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="HeroStats" format=3 uid="uid://cbxcuj1pc0en"]
 
+[ext_resource type="Resource" uid="uid://b816qs71vrfy7" path="res://units/heroes/mage/mage_draftable_cards.tres" id="1_co17v"]
 [ext_resource type="PackedScene" uid="uid://bks0f3s5et5vo" path="res://art/3D/models/unit models/mage_model.tscn" id="1_u0bwm"]
 [ext_resource type="Script" uid="uid://b2h455v0j7g1r" path="res://custom_resources/hero_stats.gd" id="3_3enoy"]
 [ext_resource type="Resource" uid="uid://dgob783irsu8x" path="res://units/heroes/mage/mage_starting_deck.tres" id="4_ws66p"]
@@ -9,6 +10,7 @@ script = ExtResource("3_3enoy")
 starting_deck = ExtResource("4_ws66p")
 cards_per_turn = 5
 max_energy = 3
+draftable_cards = ExtResource("1_co17v")
 name = "Mage"
 model = ExtResource("1_u0bwm")
 max_health = 20
