@@ -23,13 +23,14 @@ layout_mode = 2
 
 [node name="Sprite" type="TextureRect" parent="Visuals" unique_id=1966426096]
 custom_minimum_size = Vector2(73, 112)
-layout_mode = 0
-offset_left = -108.00001
+layout_mode = 1
+offset_left = -109.5
 offset_top = -168.0
-offset_right = -35.000008
+offset_right = -36.5
 offset_bottom = -56.0
 scale = Vector2(3, 3)
 texture = ExtResource("2_spm00")
+stretch_mode = 5
 
 [node name="Name" type="Label" parent="Visuals/Sprite" unique_id=1580753190]
 layout_mode = 1
