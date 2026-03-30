@@ -36,7 +36,7 @@ func add_button(text: String) -> Button:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel") and visible:
+	if event.is_action_pressed("ui_cancel") and visible and not card_reward.visible:
 		close()
 
 
@@ -69,11 +69,17 @@ func generate_card_rewards(hero_stats: HeroStats) -> void:
 
 func _on_gold_selected(amount: int, button: Button) -> void:
 	print("gained ",amount," gold")
+	if buttons.get_child_count() == 1:
+		close()
 	button.queue_free()
 
 
 func _on_card_selected(card: Card) -> void:
-	current_card_button.queue_free()
 	char_stats.draw_pile.insert_card(0,card)
 	char_stats.deck.add_card(card)
 	Events.card_reward_confirmed.emit(card)
+	
+	if buttons.get_child_count() == 1:
+		close()
+	
+	current_card_button.queue_free()
