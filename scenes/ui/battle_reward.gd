@@ -8,6 +8,7 @@ enum RewardType {WARRIOR_CARD, MAGE_CARD, GOLD}
 @onready var card_reward: CardReward = $CardReward
 
 var current_card_button: Button
+var char_stats: HeroStats
 
 func _ready() -> void:
 	Events.reward_collected.connect(_on_reward_collected)
@@ -15,13 +16,14 @@ func _ready() -> void:
 
 
 func init_rewards(unit: Unit) -> void:
+	char_stats = unit.stats
 	generate_card_rewards(unit.stats)
 	var gold = randi_range(10,20)
 	var gold_button = add_button(str(gold)+" gold")
 	var card_button = add_button(unit.stats.name+" card")
 	
 	gold_button.pressed.connect(_on_gold_selected.bind(gold,gold_button))
-	card_button.pressed.connect(_on_card_reward_selected.bind(unit.stats,card_button))
+	card_button.pressed.connect(_on_card_reward_selected.bind(card_button))
 
 
 func add_button(text: String) -> Button:
@@ -50,7 +52,7 @@ func _on_reward_collected(unit: Unit) -> void:
 
 
 #TODO add weighted randomness for card rarity
-func _on_card_reward_selected(hero_stats: HeroStats, button: Button) -> void:
+func _on_card_reward_selected(button: Button) -> void:
 	current_card_button = button
 	card_reward.show()
 
@@ -72,4 +74,6 @@ func _on_gold_selected(amount: int, button: Button) -> void:
 
 func _on_card_selected(card: Card) -> void:
 	current_card_button.queue_free()
+	char_stats.draw_pile.insert_card(0,card)
+	char_stats.deck.add_card(card)
 	Events.card_reward_confirmed.emit(card)

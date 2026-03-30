@@ -76,7 +76,7 @@ func _input(event: InputEvent) -> void:
 
 func _on_turn_started(unit: Unit) -> void:
 	current_unit = unit
-	target_pos = unit.global_position - (Vector3.UP * focus_offset)
+	#target_pos = unit.global_position - (Vector3.UP * focus_offset)
 
 
 func set_target_pos(value: Vector3) -> void:

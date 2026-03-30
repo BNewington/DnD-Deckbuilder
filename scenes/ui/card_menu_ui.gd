@@ -6,7 +6,7 @@ signal inspect_requested(card: Card)
 @export var card: Card : set = set_card
 
 var base_scale = Vector2.ONE * 3
-var hover_scale = Vector2.ONE * 3.2
+var hover_scale = Vector2.ONE * 3.3
 
 @onready var name_label: Label = $Visuals/Sprite/Name
 @onready var energy_cost: Label = $Visuals/Sprite/EnergyCost

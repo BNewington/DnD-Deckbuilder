@@ -3,8 +3,8 @@ extends Node2D
 
 signal reparent_requested(which_card_ui: CardUI)
 
-const MOVE_SPEED: float = 8000.0
-const ROTATE_SPEED: float = 5.0
+const MOVE_SPEED: float = 2000.0
+const ROTATE_SPEED: float = 3.0
 
 @export var card: Card : set = set_card
 @export var unit: Unit : set = set_unit

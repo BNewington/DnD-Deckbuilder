@@ -4,8 +4,12 @@ extends CardState
 func enter() -> void:
 	card_ui.z_index = 11
 	card_ui.target_rotation = 0
-	card_ui.target_pos.y = -60
+	card_ui.target_pos.y = -100
+	card_ui.scale = Vector2.ONE * 1.1
 	Events.card_hovered.emit(card_ui)
+
+func exit() -> void:
+	card_ui.scale = Vector2.ONE
 
 
 func mouse_exited() -> void:

@@ -78,7 +78,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 20
+theme_override_constants/v_separation = 30
 columns = 5
 
 [node name="CardMenuUI" parent="MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/MarginContainer/Cards" unique_id=1585490815 instance=ExtResource("2_5fd14")]

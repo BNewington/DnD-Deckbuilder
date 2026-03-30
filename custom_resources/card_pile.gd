@@ -3,7 +3,12 @@ extends Resource
 
 signal card_pile_size_changed(cards_amount)
 
-@export var cards: Array[Card] = []
+@export var cards: Array[Card] = [] : set = set_cards
+
+
+func set_cards(value: Array[Card]) -> void:
+	cards = value
+	card_pile_size_changed.emit(cards.size)
 
 
 func empty() -> bool:
@@ -14,6 +19,11 @@ func draw_card() -> Card:
 	var card = cards.pop_front()
 	card_pile_size_changed.emit(cards.size())
 	return card
+
+ 
+func insert_card(pos: int, card: Card) -> void:
+	cards.insert(pos, card)
+	card_pile_size_changed.emit(cards.size())
 
 
 func add_card(card: Card) -> void:

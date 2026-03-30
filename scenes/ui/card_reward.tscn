@@ -7,15 +7,15 @@
 [ext_resource type="Resource" uid="uid://bi645cg2gj5ar" path="res://units/heroes/mage/cards/mage_fireball.tres" id="4_5t0ao"]
 [ext_resource type="Resource" uid="uid://b6a1j4bb56tf4" path="res://units/heroes/mage/cards/mage_zap.tres" id="5_r2x86"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_all4r"]
-font_size = 80
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ifif"]
 bg_color = Color(0.22745098, 0.3137255, 0.4, 0.89411765)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_all4r"]
+font_size = 80
 
 [node name="CardReward" type="Control" unique_id=628628586]
 layout_mode = 3
@@ -51,11 +51,24 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 100
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=2109843576]
+[node name="Panel" type="Panel" parent="VBoxContainer" unique_id=770191164]
+custom_minimum_size = Vector2(700, 180)
 layout_mode = 2
-text = "Choose a card!"
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ifif")
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel" unique_id=2109843576]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Choose a card to add to the top of your draw pile"
 label_settings = SubResource("LabelSettings_all4r")
 horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="CardContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=745827619]
 unique_name_in_owner = true
