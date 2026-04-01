@@ -38,6 +38,8 @@ func load_new_scene() -> void:
 
 
 func scene_clear() -> void:
+	if not get_tree():
+		return
 	var timer = get_tree().create_timer(0.5)
 	await timer.timeout
 	load_new_scene()
