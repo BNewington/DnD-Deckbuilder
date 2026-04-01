@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://cn285spjroj0m"]
+
+[ext_resource type="Script" uid="uid://ci5vbjj00wdnt" path="res://scenes/misc/scene_switcher.gd" id="1_u7goh"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hvgw3"]
+
+[sub_resource type="Animation" id="Animation_pajbp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q2g84"]
+resource_name = "fade_in"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackScreen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hvgw3"]
+resource_name = "fade_out"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackScreen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pajbp"]
+_data = {
+&"RESET": SubResource("Animation_pajbp"),
+&"fade_in": SubResource("Animation_q2g84"),
+&"fade_out": SubResource("Animation_hvgw3")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_u7goh"]
+font_size = 200
+
+[node name="SceneSwitcher" type="Node" unique_id=876858895]
+script = ExtResource("1_u7goh")
+
+[node name="FadeLayer" type="CanvasLayer" parent="." unique_id=840417284]
+layer = 3
+
+[node name="BlackScreen" type="TextureRect" parent="FadeLayer" unique_id=813045936]
+modulate = Color(0, 0, 0, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_hvgw3")
+
+[node name="FadeAnimation" type="AnimationPlayer" parent="FadeLayer" unique_id=422563321]
+libraries/ = SubResource("AnimationLibrary_pajbp")
+
+[node name="WinScreen" type="Control" parent="FadeLayer" unique_id=1389884315]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="FadeLayer/WinScreen" unique_id=63361104]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -6.5
+offset_right = 20.0
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU WIN!"
+label_settings = SubResource("LabelSettings_u7goh")
+
+[node name="NextButton" type="Button" parent="FadeLayer/WinScreen" unique_id=928200007]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = 169.0
+offset_right = 73.0
+offset_bottom = 257.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "Next"
+
+[connection signal="pressed" from="FadeLayer/WinScreen/NextButton" to="." method="_on_next_button_pressed"]

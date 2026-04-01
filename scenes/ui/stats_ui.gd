@@ -6,5 +6,4 @@ extends Control
 
 func update_stats(stats: UnitStats) -> void:
 	health_label.text = str(stats.health)
-	
 	health_label.visible = stats.health > 0

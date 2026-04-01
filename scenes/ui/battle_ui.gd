@@ -16,6 +16,7 @@ const UNIT_INITITATIVE = preload("uid://d283xg7ma5kaq")
 var hovered_initiative: UnitInitiative
 var unit_stats: Dictionary = {}
 
+var frame_times = []
 
 func _ready() -> void:
 	Events.start_turn.connect(turn_started)
@@ -26,8 +27,14 @@ func _ready() -> void:
 	end_turn_button.pressed.connect(_on_end_turn_button_pressed)
 
 
-func _process(_delta: float) -> void:
-	$Label.text = str(int(1/_delta))
+func _process(delta: float) -> void:
+	frame_times.append(1/delta)
+	if frame_times.size() > 60:
+		frame_times.pop_front()
+	var sum = 0
+	for frame in frame_times:
+		sum += frame
+	$Label.text = str(int(sum/60))
 	for unit in unit_stats.keys():
 		if is_instance_valid(unit):
 			var stats = unit_stats[unit][0]
@@ -74,12 +81,19 @@ func _on_card_aiming_ended(_card_ui: CardUI) -> void:
 
 func _on_stats_set(unit: Unit, stats: UnitStats) -> void:
 	var stats_ui_instance = STATS_UI.instantiate()
-	stats.stats_changed.connect(_on_stats_changed)
+	if not stats.stats_changed.is_connected(_on_stats_changed):
+		stats.stats_changed.connect(_on_stats_changed)
 	stats_ui.add_child(stats_ui_instance)
+	if not stats_ui_instance.is_node_ready():
+		await stats_ui_instance.ready
+		
 	stats_ui_instance.update_stats(stats)
 	
 	var unit_initiative_instance = UNIT_INITITATIVE.instantiate() as UnitInitiative
 	initiative_ui.add_child(unit_initiative_instance)
+	if not unit_initiative_instance.is_node_ready():
+		await unit_initiative_instance.ready
+		
 	unit_initiative_instance.mouse_over.connect(mouse_over)
 	unit_initiative_instance.mouse_off.connect(mouse_off)
 	unit_initiative_instance.name_text = stats.name

@@ -110,7 +110,7 @@ script = ExtResource("2_o2o3g")
 visible = false
 
 [node name="CameraPivot" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=2050402475]
-transform = Transform3D(-0.92387927, -0.21949819, 0.31347594, 0, 0.81915194, 0.5735764, -0.3826834, 0.5299154, -0.7567977, 1.5, -2, 0)
+transform = Transform3D(-0.92387927, -0.21949819, 0.31347594, 0, 0.81915194, 0.5735764, -0.3826834, 0.5299154, -0.7567977, 1.5, -1, 0)
 script = ExtResource("3_jdl33")
 circular_radius = 0.5
 circular_speed = 0.1

@@ -77,7 +77,7 @@ func on_input(event: InputEvent) -> void:
 	
 	elif mouse_over_area:
 		Events.show_tile_selector.emit()
-		if event.is_action_pressed("left_mouse"):
+		if event.is_action_pressed("left_mouse") or event.is_action_released("left_mouse"):
 			card_ui.targets.append(selected_tile)
 			if current_area == num_actions:
 				print(selected_tile)

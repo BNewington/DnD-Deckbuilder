@@ -117,6 +117,7 @@ func _on_unit_died(unit: Unit) -> void:
 	
 	if enemies.size() == 0:
 		print("You win!")
+		Events.battle_won.emit()
 	
 	if heroes.size() == 0:
 		print("You lose!")

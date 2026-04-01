@@ -27,6 +27,7 @@ signal initiative_hovered(unit: Unit)
 signal initiative_hovered_off(unit: Unit)
 signal move_complete(unit: Unit)
 signal reward_collected(unit: Unit)
+signal battle_won
 
 
 ##Card Signals
