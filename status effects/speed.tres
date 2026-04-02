@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Status" format=3 uid="uid://cs4gvng77776v"]
+
+[ext_resource type="Script" uid="uid://dtdlg4u0yg1s1" path="res://custom_resources/status/status.gd" id="1_enqeo"]
+[ext_resource type="Texture2D" uid="uid://b82cmynjj65mo" path="res://art/ui/Icons/Ironchests_RPG_items_pico8_transparentbg_v1.png" id="1_mjg2f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4c8p"]
+atlas = ExtResource("1_mjg2f")
+region = Rect2(392, 152, 8, 8)
+
+[resource]
+script = ExtResource("1_enqeo")
+id = "speed"
+type = 2
+stack_type = 2
+icon = SubResource("AtlasTexture_j4c8p")
+tooltip = "Increases the effectiveness of movement cards"
+metadata/_custom_type_script = "uid://dtdlg4u0yg1s1"

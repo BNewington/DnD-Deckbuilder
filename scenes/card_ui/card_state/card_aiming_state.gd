@@ -65,6 +65,7 @@ func on_input(event: InputEvent) -> void:
 	var mouse_over_area: bool = selected_tile in valid_targets
 	
 	if current_area < num_actions and mouse_over_area:
+		#TODO fix aoe highlighting to work with aoe effect
 		var next_action = card_ui.card.actions[current_area+1]
 		if next_action.is_aoe() and previously_selected_tile != selected_tile:
 			var next_aoe = card_ui.card.get_area_for_highlight(current_area+1, selected_tile)

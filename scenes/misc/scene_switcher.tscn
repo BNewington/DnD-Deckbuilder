@@ -90,7 +90,7 @@ font_size = 200
 
 [node name="SceneSwitcher" type="Node" unique_id=876858895]
 script = ExtResource("1_u7goh")
-heroes = Array[ExtResource("2_q2g84")]([ExtResource("3_ulj87"), ExtResource("4_q52k3")])
+heroes = Array[ExtResource("2_q2g84")]([ExtResource("4_q52k3"), ExtResource("3_ulj87")])
 
 [node name="FadeLayer" type="CanvasLayer" parent="." unique_id=840417284]
 layer = 3

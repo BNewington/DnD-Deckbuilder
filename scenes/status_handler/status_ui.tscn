@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://latliu10tdxc"]
+
+[ext_resource type="Texture2D" uid="uid://b82cmynjj65mo" path="res://art/ui/Icons/Ironchests_RPG_items_pico8_transparentbg_v1.png" id="1_7scyp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r24ij"]
+atlas = ExtResource("1_7scyp")
+region = Rect2(312, 192, 8, 8)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vm08l"]
+font_size = 240
+
+[node name="StatusUI" type="Control" unique_id=961302900]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1798860767]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_r24ij")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DurationLabel" type="Label" parent="." unique_id=717740884]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 1.0
+offset_right = 200.0
+offset_bottom = 200.0
+text = "99"
+label_settings = SubResource("LabelSettings_vm08l")
+vertical_alignment = 1
+
+[node name="StacksLabel" type="Label" parent="." unique_id=2083295478]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 1.0
+offset_right = 200.0
+offset_bottom = 200.0
+text = "99"
+label_settings = SubResource("LabelSettings_vm08l")
+vertical_alignment = 1
