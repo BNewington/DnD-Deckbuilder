@@ -34,16 +34,16 @@ func does_target_square() -> bool:
 
 func get_area(action_id: int) -> Array[Vector2i]:
 	var area: AreaDef = actions[action_id].target
-	if actions[action_id].player_performed:
+	if actions[action_id].player_centered:
 		return area.get_area(unit.grid_pos)
 	else:
-		var tile_action_id = actions[action_id].performer_action_id
+		var tile_action_id = actions[action_id].center_action_id
 		return area.get_area(selected_tiles[tile_action_id])
 
 
 func get_area_for_highlight(action_id: int, temp_pos: Vector2i) -> Array[Vector2i]:
 	var area: AreaDef = actions[action_id].target
-	if actions[action_id].player_performed:
+	if actions[action_id].player_centered:
 		return area.get_area(unit.grid_pos)
 	else:
 		return area.get_area(temp_pos)
@@ -61,7 +61,7 @@ func play() -> void:
 			if action is CardAction:
 				execute_card_effects(action.effects)
 			elif action is TileAction:
-				execute_tile_effects(action.effects,get_area(i))
+				execute_tile_effects(action, action.effects,get_area(i))
 			i += 1
 	Events.card_played.emit(self)
 	unit.stats.energy -= cost
@@ -75,18 +75,18 @@ func area_selected(action_id: int, tile: Vector2i) -> void:
 	selected_tiles.append(tile)
 	var action = actions[action_id]
 	var effects = action.effects
-	execute_tile_effects(effects,tile_array)
+	execute_tile_effects(action, effects,tile_array)
 	execute(action_id, tile_array)
 	Events.effect_resolved.emit()
 
 
-func execute_tile_effects(effects: Array[TileEffect], tiles: Array[Vector2i]) -> void:
+func execute_tile_effects(action: TileAction, effects: Array[TileEffect], tiles: Array[Vector2i]) -> void:
 	for effect in effects:
-		if effect.executor == TileEffect.ExecutorType.SELF:
+		if action.player_performed:
 			effect.execute(unit,tiles)
-		elif effect.executor == TileEffect.ExecutorType.PREVIOUSLY_SELECTED_UNIT:
-			print(selected_tiles[effect.executor_id])
-			var previously_selected_unit = Navigation.get_unit_at_tile(selected_tiles[effect.executor_id])
+		else:
+			print(selected_tiles[action.center_action_id])
+			var previously_selected_unit = Navigation.get_unit_at_tile(selected_tiles[action.center_action_id])
 			effect.execute(previously_selected_unit,tiles)
 
 

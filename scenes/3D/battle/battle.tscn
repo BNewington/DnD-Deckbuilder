@@ -8,14 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://dx3rrgwcviw5h" path="res://scenes/3D/unit/unit.tscn" id="3_h10rc"]
 [ext_resource type="Script" uid="uid://5yrv77rif54m" path="res://scenes/3D/battle/camera_pivot.gd" id="3_jdl33"]
 [ext_resource type="Script" uid="uid://2hmxovkf5jbn" path="res://scenes/3D/battle/camera_3d.gd" id="4_ehegv"]
-[ext_resource type="Resource" uid="uid://cod0okis1mse4" path="res://units/heroes/warrior/warrior_stats.tres" id="5_lcfdq"]
 [ext_resource type="Script" uid="uid://bwiokfoc1pshs" path="res://scenes/turn_manager/turn_manager.gd" id="6_hglb3"]
 [ext_resource type="Script" uid="uid://bgqebmanw1r7q" path="res://scenes/ui/battle_ui.gd" id="7_46ncm"]
 [ext_resource type="PackedScene" uid="uid://57436yh7djea" path="res://scenes/cursor/cursor.tscn" id="8_lcfdq"]
 [ext_resource type="Resource" uid="uid://dp6rk0vbw543i" path="res://units/enemies/goblin/goblin_stats.tres" id="9_423bg"]
 [ext_resource type="PackedScene" uid="uid://dq8c5qippudah" path="res://scenes/hand/hand.tscn" id="9_hglb3"]
 [ext_resource type="PackedScene" uid="uid://s3e6r400eqcu" path="res://scenes/ui/energy_ui.tscn" id="10_423bg"]
-[ext_resource type="Resource" uid="uid://cbxcuj1pc0en" path="res://units/heroes/mage/mage_stats.tres" id="10_jdl33"]
 [ext_resource type="PackedScene" uid="uid://dfcv0j6p3hxas" path="res://scenes/3D/battle/rewards_chest.tscn" id="13_d762t"]
 [ext_resource type="Texture2D" uid="uid://5url5k4caeyl" path="res://art/ui/StonebaseUISheet.png" id="17_jdl33"]
 [ext_resource type="FontFile" uid="uid://de77xikhsyahx" path="res://art/ui/fonts/m3x6.ttf" id="18_ehegv"]
@@ -136,14 +134,6 @@ hand = NodePath("../../../BattleUI/Hand")
 
 [node name="Heroes" type="Node3D" parent="SubViewportContainer/SubViewport/TurnManager" unique_id=2036801270]
 
-[node name="Unit2" parent="SubViewportContainer/SubViewport/TurnManager/Heroes" unique_id=49640100 groups=["heroes"] instance=ExtResource("3_h10rc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4280834, 1.1178153, -6.820474)
-stats = ExtResource("10_jdl33")
-
-[node name="Unit" parent="SubViewportContainer/SubViewport/TurnManager/Heroes" unique_id=351906256 groups=["heroes"] instance=ExtResource("3_h10rc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3328342, 1.1178153, -0.7648258)
-stats = ExtResource("5_lcfdq")
-
 [node name="Enemies" type="Node3D" parent="SubViewportContainer/SubViewport/TurnManager" unique_id=1110511415]
 
 [node name="Unit" parent="SubViewportContainer/SubViewport/TurnManager/Enemies" unique_id=1623615925 groups=["enemies"] instance=ExtResource("3_h10rc")]
@@ -153,6 +143,14 @@ stats = ExtResource("9_423bg")
 [node name="Unit2" parent="SubViewportContainer/SubViewport/TurnManager/Enemies" unique_id=515150851 groups=["enemies"] instance=ExtResource("3_h10rc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.595977, 1.186873, 2.922655)
 stats = ExtResource("9_423bg")
+
+[node name="HeroSpawnPoints" type="Node3D" parent="SubViewportContainer/SubViewport/TurnManager" unique_id=1386760510]
+
+[node name="0" type="Marker3D" parent="SubViewportContainer/SubViewport/TurnManager/HeroSpawnPoints" unique_id=354175123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.508999, 1.3697243, -1.0586867)
+
+[node name="1" type="Marker3D" parent="SubViewportContainer/SubViewport/TurnManager/HeroSpawnPoints" unique_id=909236756]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8273087, 1.3697243, -7.6094074)
 
 [node name="GridMap" type="GridMap" parent="SubViewportContainer/SubViewport" unique_id=467039386]
 mesh_library = ExtResource("1_wtai8")

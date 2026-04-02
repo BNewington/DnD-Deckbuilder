@@ -5,12 +5,19 @@ const HAND_DRAW_INTERVAL := 0.25
 const HAND_DISCARD_INTERVAL := 0.25
 
 @export var hand: Hand
-@onready var heroes: Array[Node] = $Heroes.get_children()
+@onready var heroes: Array[Node] : get = get_heroes
 @onready var enemies: Array[Node] = $Enemies.get_children()
+
+@onready var heroes_node: Node3D = $Heroes
+@onready var hero_spawn_points: Node3D = $HeroSpawnPoints
+
+const UNIT_SCENE = preload("uid://dx3rrgwcviw5h")
 
 var initiative: Array[Node] = []
 var current_unit: Unit
 
+func get_heroes() -> Array[Node]:
+	return heroes_node.get_children()
 
 func _ready() -> void:
 	Events.turn_ended.connect(end_turn)
@@ -19,13 +26,19 @@ func _ready() -> void:
 	Events.draw_card.connect(draw_card)
 
 
-func start_battle() -> void:
-	for hero: Unit in heroes:
-		var hero_stats: HeroStats = hero.stats
-		hero_stats.draw_pile = hero_stats.deck.duplicate(true)
-		hero_stats.draw_pile.shuffle()
-		hero_stats.discard = CardPile.new()
-		hero.add_to_group("heroes")
+func start_battle(hero_stats: Array[HeroStats]) -> void:
+	var i = 0
+	for stats: HeroStats in hero_stats:
+		var new_hero = UNIT_SCENE.instantiate()
+		heroes_node.add_child(new_hero)
+		new_hero.global_position = hero_spawn_points.get_child(i).global_position
+		new_hero.stats = hero_stats[i]
+		new_hero.stats.draw_pile = new_hero.stats.deck.duplicate(true)
+		new_hero.stats.draw_pile.shuffle()
+		new_hero.stats.discard = CardPile.new()
+		new_hero.add_to_group("heroes")
+		
+		i += 1
 		
 	for enemy: Unit in enemies:
 		enemy.add_to_group("enemies")

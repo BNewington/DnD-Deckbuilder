@@ -21,7 +21,6 @@ metadata/_custom_type_script = "uid://dtvjeut823rc"
 
 [sub_resource type="Resource" id="Resource_esbxm"]
 script = ExtResource("4_wgn6o")
-executor = 1
 metadata/_custom_type_script = "uid://42g3m87b78rq"
 
 [sub_resource type="Resource" id="Resource_1gubk"]
@@ -33,6 +32,7 @@ metadata/_custom_type_script = "uid://lo410k1w0lof"
 
 [sub_resource type="Resource" id="Resource_kc352"]
 script = ExtResource("1_ob66o")
+player_centered = false
 player_performed = false
 target = SubResource("Resource_1gubk")
 effects = Array[ExtResource("2_wgn6o")]([SubResource("Resource_esbxm")])

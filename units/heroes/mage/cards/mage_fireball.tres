@@ -35,7 +35,7 @@ metadata/_custom_type_script = "uid://lo410k1w0lof"
 
 [sub_resource type="Resource" id="Resource_kjw4a"]
 script = ExtResource("1_gk825")
-player_performed = false
+player_centered = false
 target = SubResource("Resource_k0skv")
 effects = Array[ExtResource("2_iu7n1")]([SubResource("Resource_m7xoh")])
 metadata/_custom_type_script = "uid://dtvjeut823rc"

@@ -11,6 +11,7 @@ const CARD_PILE_VIEW_SCENE = preload("uid://dilpax6jng0j4")
 
 
 func _ready() -> void:
+	Events.start_battle.connect(setup_card_pile_views)
 	Events.start_turn.connect(_on_turn_started)
 	draw_pile_button.pressed.connect(draw_pile_button_pressed)
 	discard_pile_button.pressed.connect(discard_pile_button_pressed)

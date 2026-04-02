@@ -1,3 +1,4 @@
+class_name Battle
 extends Node3D
 
 @onready var grid_map: GridMap = $SubViewportContainer/SubViewport/GridMap
@@ -7,16 +8,11 @@ extends Node3D
 
 @onready var viewport: SubViewport = $SubViewportContainer/SubViewport
 
-func _ready() -> void:
-	start_battle()
-	menu_ui_layer.setup_card_pile_views()
 
-
-func start_battle() -> void:
+func start_battle(hero_stats: Array[HeroStats]) -> void:
 	Navigation.init(grid_map, camera_3d)
+	turn_manager.start_battle(hero_stats)
 	Events.start_battle.emit()
-	turn_manager.start_battle()
-
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("screenshot"):

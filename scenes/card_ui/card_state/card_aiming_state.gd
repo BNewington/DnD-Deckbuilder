@@ -49,7 +49,7 @@ func aiming_selected(selected_tile: Vector2i) -> void:
 					Events.card_aiming_started.emit(card_ui,area,valid_targets)
 					break
 				else:
-					card_ui.card.execute_tile_effects(action.effects,area)
+					card_ui.card.execute_tile_effects(action, action.effects,area)
 					if i == num_actions:
 						transition_requested.emit(self, State.RELEASED)
 			elif action is CardAction:
