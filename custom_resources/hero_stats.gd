@@ -29,10 +29,10 @@ func can_play_card(card: Card) -> bool:
 
 
 func create_instance() -> HeroStats:
-	var instance: HeroStats = self.duplicate()
+	var instance: HeroStats = self.duplicate_deep()
 	instance.health = max_health
 	instance.reset_energy()
-	instance.deck = instance.starting_deck.duplicate()
+	instance.deck = instance.starting_deck.duplicate_deep()
 	instance.draw_pile = CardPile.new()
 	instance.discard = CardPile.new()
 	return instance

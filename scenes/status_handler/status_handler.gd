@@ -1,6 +1,7 @@
 class_name StatusHandler
 extends GridContainer
 
+signal statuses_applied(type: Status.Type)
 const STATUS_UI = preload("uid://latliu10tdxc")
 
 @export var status_owner: Unit

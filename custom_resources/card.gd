@@ -85,7 +85,6 @@ func execute_tile_effects(action: TileAction, effects: Array[TileEffect], tiles:
 		if action.player_performed:
 			effect.execute(unit,tiles)
 		else:
-			print(selected_tiles[action.center_action_id])
 			var previously_selected_unit = Navigation.get_unit_at_tile(selected_tiles[action.center_action_id])
 			effect.execute(previously_selected_unit,tiles)
 
@@ -103,4 +102,4 @@ func can_cancel_after(action_id: int) -> bool:
 
 
 func execute(_area_id: int, targets: Array) -> void:
-	print("executed effect at target(s): %s"%targets)
+	return

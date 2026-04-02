@@ -32,8 +32,8 @@ func start_battle(hero_stats: Array[HeroStats]) -> void:
 		var new_hero = UNIT_SCENE.instantiate()
 		heroes_node.add_child(new_hero)
 		new_hero.global_position = hero_spawn_points.get_child(i).global_position
-		new_hero.stats = hero_stats[i]
-		new_hero.stats.draw_pile = new_hero.stats.deck.duplicate(true)
+		new_hero.stats = stats
+		new_hero.stats.draw_pile = stats.deck.duplicate(true)
 		new_hero.stats.draw_pile.shuffle()
 		new_hero.stats.discard = CardPile.new()
 		new_hero.add_to_group("heroes")

@@ -55,6 +55,5 @@ func _update_view(randomized: bool) -> void:
 
 
 func hide_menu() -> void:
-	print("hide menu time")
 	Events.menu_closed.emit()
 	hide()

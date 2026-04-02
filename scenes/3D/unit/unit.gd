@@ -46,7 +46,10 @@ func end_turn() -> void:
 
 
 func set_stats(value: UnitStats) -> void:
-	stats = value.create_instance()
+	if stats is HeroStats:
+		stats = value
+	else:
+		stats = value.create_instance()
 	update_hero()
 
 

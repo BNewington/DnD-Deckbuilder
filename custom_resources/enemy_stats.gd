@@ -36,23 +36,19 @@ func find_target_units(unit: Unit) -> Array[Unit]:
 
 
 func start_turn(unit: Unit) -> void:
-	print(name," turn started")
 	await unit.get_tree().create_timer(1).timeout
 	
 	#Move
 	var pos = Navigation.get_tile_coords(unit.global_position)
 	var target_tiles = find_target_tiles(unit)
-	print("target tiles: ",target_tiles)
 	if target_tiles.size() > 0 and not pos in target_tiles:
 		unit.move_to(target_tiles[0])
 	
 	await unit.get_tree().create_timer(1).timeout
 	
 	var target_units = find_target_units(unit)
-	print("target units: ",target_units)
 	if target_units.size() > 0:
 		unit.attack(target_units[0].grid_pos)
 		target_units[0].take_damage(5) #TODO replace this with a flexible attack system
 	
-	print(name," turn over")
 	Events.turn_ended.emit(unit)

@@ -11,9 +11,11 @@ var current_scene: Node
 
 func _ready() -> void:
 	Events.battle_won.connect(_on_battle_won)
+	Events.card_reward_confirmed.connect(_on_card_reward_confirmed)
 	heroes = init_hero_stats()
 	load_new_scene()
 	fade_animation.play("fade_in")
+
 
 func get_random_scene() -> Node:
 	var i = randi_range(0, scenes.size()-1)
@@ -39,7 +41,7 @@ func load_new_scene() -> void:
 	add_child(current_scene)
 	
 	if current_scene is Battle:
-		current_scene.start_battle(init_hero_stats())
+		current_scene.start_battle(heroes.duplicate(true))
 
 
 func scene_clear() -> void:
@@ -58,3 +60,9 @@ func init_hero_stats() -> Array[HeroStats]:
 	for hero in heroes:
 		stats.append(hero.create_instance())
 	return stats
+
+
+func _on_card_reward_confirmed(card: Card) -> void:
+	for hero in heroes:
+		if card.belongs_to == hero.type:
+			hero.deck.add_card(card)
