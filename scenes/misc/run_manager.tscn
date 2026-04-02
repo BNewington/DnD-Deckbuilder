@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cn285spjroj0m"]
 
-[ext_resource type="Script" uid="uid://ci5vbjj00wdnt" path="res://scenes/misc/scene_switcher.gd" id="1_u7goh"]
-[ext_resource type="Script" uid="uid://b2h455v0j7g1r" path="res://custom_resources/hero_stats.gd" id="2_q2g84"]
-[ext_resource type="Resource" uid="uid://cbxcuj1pc0en" path="res://units/heroes/mage/mage_stats.tres" id="3_ulj87"]
-[ext_resource type="Resource" uid="uid://cod0okis1mse4" path="res://units/heroes/warrior/warrior_stats.tres" id="4_q52k3"]
+[ext_resource type="Script" uid="uid://ci5vbjj00wdnt" path="res://scenes/misc/run_manager.gd" id="1_8yoj3"]
+[ext_resource type="Script" uid="uid://b2h455v0j7g1r" path="res://custom_resources/hero_stats.gd" id="2_l1xba"]
+[ext_resource type="Resource" uid="uid://cod0okis1mse4" path="res://units/heroes/warrior/warrior_stats.tres" id="3_4prd4"]
+[ext_resource type="Resource" uid="uid://cbxcuj1pc0en" path="res://units/heroes/mage/mage_stats.tres" id="4_rvxxj"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_hvgw3"]
 
@@ -88,9 +88,9 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_u7goh"]
 font_size = 200
 
-[node name="SceneSwitcher" type="Node" unique_id=876858895]
-script = ExtResource("1_u7goh")
-heroes = Array[ExtResource("2_q2g84")]([ExtResource("4_q52k3"), ExtResource("3_ulj87")])
+[node name="RunManager" type="Node" unique_id=876858895]
+script = ExtResource("1_8yoj3")
+heroes = Array[ExtResource("2_l1xba")]([ExtResource("3_4prd4"), ExtResource("4_rvxxj")])
 
 [node name="FadeLayer" type="CanvasLayer" parent="." unique_id=840417284]
 layer = 3

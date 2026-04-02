@@ -48,6 +48,7 @@ id = "mage_blink"
 name = "Blink"
 type = 1
 cost = 1
+belongs_to = 2
 actions = Array[ExtResource("1_esbxm")]([SubResource("Resource_oqfyi"), SubResource("Resource_kc352")])
 icon = SubResource("AtlasTexture_qi3xc")
 description = "Teleport yourself or an ally 2 squares"

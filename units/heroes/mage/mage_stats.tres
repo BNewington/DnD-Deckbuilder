@@ -7,6 +7,7 @@
 
 [resource]
 script = ExtResource("3_3enoy")
+type = 2
 starting_deck = ExtResource("4_ws66p")
 cards_per_turn = 5
 max_energy = 3

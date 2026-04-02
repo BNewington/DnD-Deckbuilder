@@ -11,9 +11,9 @@ var current_scene: Node
 
 func _ready() -> void:
 	Events.battle_won.connect(_on_battle_won)
+	heroes = init_hero_stats()
 	load_new_scene()
 	fade_animation.play("fade_in")
-
 
 func get_random_scene() -> Node:
 	var i = randi_range(0, scenes.size()-1)

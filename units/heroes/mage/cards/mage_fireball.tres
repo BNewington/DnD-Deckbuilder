@@ -49,6 +49,7 @@ script = ExtResource("2_re32f")
 id = "mage_fireball"
 name = "Fireball"
 cost = 2
+belongs_to = 2
 actions = Array[ExtResource("1_3kt3t")]([SubResource("Resource_jkbvp"), SubResource("Resource_kjw4a")])
 icon = SubResource("AtlasTexture_iv2bg")
 description = "Deal 5 damage in a radius of 2 squares"

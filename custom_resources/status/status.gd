@@ -21,11 +21,11 @@ var duration: int : set = set_duration
 var stacks: int : set = set_stacks
 
 
-func init_status(_target: Node) -> void:
+func init_status(_target: Unit) -> void:
 	pass
 
 
-func apply_status(_target: Node) -> void:
+func apply_status(_target: Unit) -> void:
 	status_applied.emit(self)
 
 

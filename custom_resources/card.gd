@@ -2,7 +2,6 @@ class_name Card
 extends Resource
 
 enum Type {ATTACK, SKILL, POWER}
-enum Hero {Warrior, Thief, Mage}
 enum Rarity {COMMON, UNCOMMON, RARE}
 
 const RARITY_COLOURS := {Rarity.COMMON: Color.GRAY, Rarity.UNCOMMON: Color.ROYAL_BLUE, Rarity.RARE: Color.GOLD}
@@ -14,6 +13,7 @@ var unit: Unit
 @export var name: String
 @export var type: Type
 @export var cost: int
+@export var belongs_to: HeroStats.HeroType
 
 @export var actions: Array[Action]
 
