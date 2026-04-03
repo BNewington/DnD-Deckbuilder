@@ -28,11 +28,15 @@ func find_target_units(unit: Unit) -> Array[Unit]:
 	for tile in tiles:
 		var unit_at_tile = Navigation.get_unit_at_tile(tile)
 		if unit_at_tile and unit_at_tile.stats is HeroStats:
-			units.append(unit_at_tile)
+			if unit.status_handler.has_status("taunt") and unit_at_tile.stats.type != HeroStats.HeroType.Warrior:
+				pass
+			else:
+				units.append(unit_at_tile)
 	
 	for priority in attack_priorities:
 		units = priority.filter_units(units)
 	return units
+
 
 
 func start_turn(unit: Unit) -> void:

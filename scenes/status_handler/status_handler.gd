@@ -38,7 +38,7 @@ func count_down_duration_statuses() -> void:
 func add_status(status: Status) -> void:
 	var stackable := status.stack_type != Status.StackType.NONE
 
-	if not _has_status(status.id):
+	if not has_status(status.id):
 		var new_status_ui := STATUS_UI.instantiate() as StatusUI
 		add_child(new_status_ui)
 		new_status_ui.status = status
@@ -57,7 +57,7 @@ func add_status(status: Status) -> void:
 		_get_status(status.id).stacks += status.stacks
 
 
-func _has_status(id: String) -> bool:
+func has_status(id: String) -> bool:
 	for status_ui: StatusUI in get_children():
 		if status_ui.status.id == id:
 			return true

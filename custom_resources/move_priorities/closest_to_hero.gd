@@ -2,8 +2,8 @@ class_name ClosestToHero
 extends MovePriority
 
 
-func filter_tiles(_unit: Unit, tiles: Array[Vector2i]) -> Array[Vector2i]:
-	var heroes = Navigation.get_units(Navigation.UnitType.Hero)
+func filter_tiles(unit: Unit, tiles: Array[Vector2i]) -> Array[Vector2i]:
+	var heroes = _get_heroes(unit)
 	var closest_tiles: Dictionary = {}
 	Navigation.set_units_solid(Navigation.UnitType.Hero,false)
 	for hero in heroes:
