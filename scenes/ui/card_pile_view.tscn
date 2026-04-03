@@ -56,9 +56,9 @@ horizontal_alignment = 1
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=707521354]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 150
+theme_override_constants/margin_left = 280
 theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 150
+theme_override_constants/margin_right = 280
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=24567052]
 layout_mode = 2

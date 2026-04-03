@@ -22,7 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://dy06mmkk43krw" path="res://art/ui/Icons/draw.png" id="20_8m8co"]
 [ext_resource type="PackedScene" uid="uid://bqk50cx7n84s8" path="res://scenes/ui/battle_reward.tscn" id="20_qv6a5"]
 [ext_resource type="Texture2D" uid="uid://b8wk0vhh56dh8" path="res://art/ui/Icons/discard.png" id="21_b5y4l"]
-[ext_resource type="PackedScene" uid="uid://latliu10tdxc" path="res://scenes/status_handler/status_ui.tscn" id="21_d762t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hglb3"]
 size = Vector2(1920, 657)
@@ -315,12 +314,6 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "99"
 label_settings = SubResource("LabelSettings_4pjrh")
-
-[node name="StatusUI" parent="BattleUI" unique_id=961302900 instance=ExtResource("21_d762t")]
-offset_left = 1141.0
-offset_top = 505.0
-offset_right = 1141.0
-offset_bottom = 505.0
 
 [node name="MenuUILayer" type="CanvasLayer" parent="." unique_id=1228479744]
 layer = 2
