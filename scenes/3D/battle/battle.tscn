@@ -177,6 +177,7 @@ environment = SubResource("Environment_n4gow")
 transform = Transform3D(-0.8493773, 0, 0.5277862, 0, 1, 0, -0.5277862, 0, -0.8493773, 3.3300648, 1.0400634, -5.370565)
 
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=1984589142 groups=["ui_layer"]]
+unique_name_in_owner = true
 script = ExtResource("7_46ncm")
 
 [node name="Cursor" parent="BattleUI" unique_id=1722401909 instance=ExtResource("8_lcfdq")]

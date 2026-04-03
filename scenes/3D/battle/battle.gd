@@ -14,6 +14,7 @@ func start_battle(hero_stats: Array[HeroStats]) -> void:
 	turn_manager.start_battle(hero_stats)
 	Events.start_battle.emit()
 
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("screenshot"):
 		take_screenshot()

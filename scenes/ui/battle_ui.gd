@@ -14,7 +14,7 @@ const UNIT_INITITATIVE = preload("uid://d283xg7ma5kaq")
 
 
 var hovered_initiative: UnitInitiative
-var unit_stats: Dictionary = {}
+var unit_stats: Dictionary = {} #Key is unit, value is [stats, initiative_tracker]
 
 var frame_times = []
 
@@ -79,6 +79,12 @@ func _on_card_aiming_ended(_card_ui: CardUI) -> void:
 	end_turn_button.disabled = false
 
 
+func sort_initiative(initiative: Array[Node]) -> void:
+	for unit in unit_stats.keys():
+		var initiative_tracker = unit_stats[unit][1]
+		initiative_ui.move_child(initiative_tracker, initiative.find(unit))
+
+
 func _on_stats_set(unit: Unit, stats: UnitStats) -> void:
 	var stats_ui_instance = STATS_UI.instantiate()
 	if not stats.stats_changed.is_connected(_on_stats_changed):
@@ -119,6 +125,7 @@ func mouse_off(unit_initiative: UnitInitiative) -> void:
 
 
 func _on_stats_changed() -> void:
+	print(unit_stats)
 	for unit in unit_stats.keys():
 		var stats = unit_stats[unit][0]
 		var initiative_tracker = unit_stats[unit][1]

@@ -11,6 +11,8 @@ const HAND_DISCARD_INTERVAL := 0.25
 @onready var heroes_node: Node3D = $Heroes
 @onready var hero_spawn_points: Node3D = $HeroSpawnPoints
 
+@onready var battle_ui: BattleUI = %BattleUI
+
 const UNIT_SCENE = preload("uid://dx3rrgwcviw5h")
 
 var initiative: Array[Node] = []
@@ -44,8 +46,8 @@ func start_battle(hero_stats: Array[HeroStats]) -> void:
 		enemy.add_to_group("enemies")
 	
 	initiative = heroes + enemies
-	
 	start_turn(initiative[0])
+	battle_ui.sort_initiative.call_deferred(initiative)
 
 
 func start_turn(unit: Unit) -> void:
