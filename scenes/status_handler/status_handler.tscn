@@ -7,3 +7,5 @@ theme_override_constants/h_separation = 7
 theme_override_constants/v_separation = 7
 columns = 6
 script = ExtResource("1_7of5l")
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

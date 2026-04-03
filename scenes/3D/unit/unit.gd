@@ -1,11 +1,13 @@
 class_name Unit
 extends Node3D
 
-
 @export var stats: UnitStats : set = set_stats
 
 @onready var placeholder_model: Node3D = $Knight_Hero
 @onready var turn_indicator: MeshInstance3D = $TurnIndicator
+
+
+var status_handler: StatusHandler : set = set_status_handler
 
 var tween: Tween
 var grid_pos: Vector2i : get = get_grid_pos
@@ -24,6 +26,11 @@ func _ready() -> void:
 	$AnimationPlayer.play("spin")
 
 
+func set_status_handler(value: StatusHandler) -> void:
+	status_handler = value
+	status_handler.statuses_applied.connect(_on_statuses_applied)
+
+
 func start_battle() -> void:
 	Events.set_stats.emit(self, stats)
 	global_position = Navigation.snap_to_grid(global_position)
@@ -32,14 +39,21 @@ func start_battle() -> void:
 
 func start_turn() -> void:
 	turn_indicator.show()
-	if stats is EnemyStats:
-		var tile_coords = Navigation.get_tile_coords(global_position)
-		Navigation.set_point_walkable(tile_coords)
-	if stats is EnemyStats:
-		stats.start_turn(self)
+	status_handler.apply_statuses_by_type(Status.Type.START_OF_TURN)
+
+
+func _on_statuses_applied(type: Status.Type) -> void:
+	if type == Status.Type.START_OF_TURN:
+		if stats is EnemyStats:
+			var tile_coords = Navigation.get_tile_coords(global_position)
+			Navigation.set_point_walkable(tile_coords)
+		if stats is EnemyStats:
+			stats.start_turn(self)
 
 
 func end_turn() -> void:
+	status_handler.apply_statuses_by_type(Status.Type.END_OF_TURN)
+	status_handler.count_down_duration_statuses()
 	turn_indicator.hide()
 	if stats is EnemyStats:
 		Navigation.set_point_solid(target_pos)

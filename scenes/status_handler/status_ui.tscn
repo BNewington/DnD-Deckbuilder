@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://latliu10tdxc"]
 
 [ext_resource type="Texture2D" uid="uid://b82cmynjj65mo" path="res://art/ui/Icons/Ironchests_RPG_items_pico8_transparentbg_v1.png" id="1_7scyp"]
+[ext_resource type="Script" uid="uid://biyclci71xdsf" path="res://scenes/status_handler/status_ui.gd" id="1_r24ij"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r24ij"]
 atlas = ExtResource("1_7scyp")
@@ -10,10 +11,14 @@ region = Rect2(312, 192, 8, 8)
 font_size = 47
 
 [node name="StatusUI" type="Control" unique_id=961302900]
+custom_minimum_size = Vector2(45, 45)
 layout_mode = 3
 anchors_preset = 0
+offset_right = 45.0
+offset_bottom = 45.0
+script = ExtResource("1_r24ij")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1798860767]
+[node name="Icon" type="TextureRect" parent="." unique_id=1798860767]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
@@ -23,21 +28,21 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="DurationLabel" type="Label" parent="." unique_id=717740884]
-layout_mode = 0
-offset_left = 27.0
-offset_top = -70.0
-offset_right = 152.0
-offset_bottom = 129.0
+layout_mode = 1
+offset_left = 22.0
+offset_top = 7.0
+offset_right = 46.0
+offset_bottom = 45.0
 text = "99"
 label_settings = SubResource("LabelSettings_vm08l")
 vertical_alignment = 1
 
-[node name="StacksLabel" type="Label" parent="." unique_id=2083295478]
-layout_mode = 0
-offset_left = 27.0
-offset_top = -70.0
-offset_right = 152.0
-offset_bottom = 129.0
+[node name="StacksLabel" type="Label" parent="." unique_id=737491801]
+layout_mode = 1
+offset_left = 22.0
+offset_top = 7.0
+offset_right = 46.0
+offset_bottom = 45.0
 text = "99"
 label_settings = SubResource("LabelSettings_vm08l")
 vertical_alignment = 1

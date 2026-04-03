@@ -17,8 +17,8 @@ enum StackType {NONE, INTENSITY, DURATION}
 @export var icon: Texture
 @export_multiline var tooltip: String
 
-var duration: int : set = set_duration
-var stacks: int : set = set_stacks
+var duration: int = 1 : set = set_duration
+var stacks: int = 1 : set = set_stacks
 
 
 func init_status(_target: Unit) -> void:

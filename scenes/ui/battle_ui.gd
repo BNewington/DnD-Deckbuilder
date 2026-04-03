@@ -11,6 +11,7 @@ extends CanvasLayer
 
 const STATS_UI = preload("uid://d0tnkfen53ayh")
 const UNIT_INITITATIVE = preload("uid://d283xg7ma5kaq")
+const STATUS_HANDLER = preload("uid://ceigyvtjnqkr8")
 
 
 var hovered_initiative: UnitInitiative
@@ -92,7 +93,11 @@ func _on_stats_set(unit: Unit, stats: UnitStats) -> void:
 	stats_ui.add_child(stats_ui_instance)
 	if not stats_ui_instance.is_node_ready():
 		await stats_ui_instance.ready
-		
+	
+	var new_status_handler = STATUS_HANDLER.instantiate()
+	stats_ui_instance.add_status_handler(new_status_handler)
+	unit.status_handler = new_status_handler
+	
 	stats_ui_instance.update_stats(stats)
 	
 	var unit_initiative_instance = UNIT_INITITATIVE.instantiate() as UnitInitiative
@@ -125,7 +130,6 @@ func mouse_off(unit_initiative: UnitInitiative) -> void:
 
 
 func _on_stats_changed() -> void:
-	print(unit_stats)
 	for unit in unit_stats.keys():
 		var stats = unit_stats[unit][0]
 		var initiative_tracker = unit_stats[unit][1]

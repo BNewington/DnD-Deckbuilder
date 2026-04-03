@@ -2,9 +2,37 @@ class_name StatusHandler
 extends GridContainer
 
 signal statuses_applied(type: Status.Type)
+
+const STATUS_APPLY_INTERVAL := 0.25
 const STATUS_UI = preload("uid://latliu10tdxc")
 
 @export var status_owner: Unit
+
+
+func apply_statuses_by_type(type: Status.Type) -> void:
+	if type == Status.Type.EVENT_BASED:
+		return
+	
+	var status_queue: Array[Status] = _get_all_statuses().filter(
+		func(status: Status):
+			return status.type == type)
+	
+	if status_queue.is_empty():
+		statuses_applied.emit(type)
+		return
+	
+	var tween := create_tween()
+	for status: Status in status_queue:
+		tween.tween_callback(status.apply_status.bind(status_owner))
+		tween.tween_interval(STATUS_APPLY_INTERVAL)
+	tween.finished.connect(func(): statuses_applied.emit(type))
+
+
+func count_down_duration_statuses() -> void:
+	var statuses = _get_all_statuses()
+	for status in statuses:
+		if status.stack_type == Status.StackType.DURATION:
+			status.duration -= 1
 
 
 func add_status(status: Status) -> void:
@@ -55,3 +83,7 @@ func _get_all_statuses() -> Array[Status]:
 func _on_status_applied(status: Status) -> void:
 	if status.can_expire:
 		status.duration -= 1
+
+
+func _on_child_entered_tree(node: Node) -> void:
+	print(node)

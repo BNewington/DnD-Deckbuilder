@@ -16,13 +16,6 @@ func set_status(new_status: Status) -> void:
 	icon.texture = status.icon
 	duration_label.visible = status.stack_type == Status.StackType.DURATION
 	stacks_label.visible = status.stack_type == Status.StackType.INTENSITY
-	custom_minimum_size = icon.size
-	
-	if duration_label.visible:
-		custom_minimum_size = duration_label.size * duration_label.position
-	elif stacks_label.visible:
-		custom_minimum_size = stacks_label.size * stacks_label.position
-	
 	
 	if not status.status_changed.is_connected(_on_status_changed):
 		status.status_changed.connect(_on_status_changed)

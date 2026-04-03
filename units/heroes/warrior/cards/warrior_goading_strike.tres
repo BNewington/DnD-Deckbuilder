@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://7eiuqgmlc1k7"]
+
+[ext_resource type="Script" uid="uid://ff5wylno65a2" path="res://custom_resources/actions/Action.gd" id="1_tuj42"]
+[ext_resource type="Texture2D" uid="uid://d4ip07gimf3g3" path="res://art/cards/card_icons.png" id="2_08oyc"]
+[ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="2_cs0fw"]
+[ext_resource type="Script" uid="uid://by6ufil4qnjs8" path="res://custom_resources/effects/tile_effect.gd" id="2_yd6mi"]
+[ext_resource type="Script" uid="uid://3hbkpdrnqms5" path="res://custom_resources/effects/damage_effect.gd" id="3_mjdrf"]
+[ext_resource type="Script" uid="uid://dtvjeut823rc" path="res://custom_resources/actions/TileAction.gd" id="4_ohoko"]
+[ext_resource type="Script" uid="uid://ctbwjelsy5dof" path="res://custom_resources/effects/status_effect.gd" id="4_sviwj"]
+[ext_resource type="Resource" uid="uid://rbox7cp37k4a" path="res://status effects/taunt.tres" id="5_4nydp"]
+[ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="5_sviwj"]
+
+[sub_resource type="Resource" id="Resource_4nydp"]
+script = ExtResource("3_mjdrf")
+amount = 8
+metadata/_custom_type_script = "uid://3hbkpdrnqms5"
+
+[sub_resource type="Resource" id="Resource_wkblp"]
+script = ExtResource("4_sviwj")
+status = ExtResource("5_4nydp")
+metadata/_custom_type_script = "uid://ctbwjelsy5dof"
+
+[sub_resource type="Resource" id="Resource_u3phh"]
+script = ExtResource("5_sviwj")
+shape = 1
+radius = 1
+metadata/_custom_type_script = "uid://lo410k1w0lof"
+
+[sub_resource type="Resource" id="Resource_hx86l"]
+script = ExtResource("4_ohoko")
+target = SubResource("Resource_u3phh")
+effects = Array[ExtResource("2_yd6mi")]([SubResource("Resource_4nydp"), SubResource("Resource_wkblp")])
+metadata/_custom_type_script = "uid://dtvjeut823rc"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wp00"]
+atlas = ExtResource("2_08oyc")
+region = Rect2(120, 0, 24, 24)
+
+[resource]
+script = ExtResource("2_cs0fw")
+id = "warrior_goading_strike"
+name = "Goading Strike"
+cost = 2
+actions = Array[ExtResource("1_tuj42")]([SubResource("Resource_hx86l")])
+icon = SubResource("AtlasTexture_3wp00")
+description = "Melee Attack
+Deal 8 damage, apply 1 taunt"
+metadata/_custom_type_script = "uid://cbhovqi2nk4fe"
