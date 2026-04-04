@@ -43,12 +43,12 @@ func connect_events() -> void:
 	Events.menu_closed.connect(menu_mode_off)
 
 
-func card_aiming_started(_card_ui: CardUI, _tiles: Array[Vector2i], _valid_targets: Array[Vector2i]) -> void:
+func card_aiming_started(_tiles: Array[Vector2i], _valid_targets: Array[Vector2i]) -> void:
 	area_2d.monitorable = false
 	area_2d.monitoring = false
 
 
-func card_aiming_ended(_card_ui: CardUI) -> void:
+func card_aiming_ended() -> void:
 	card_dragging = false
 	if not menu_mode:
 		area_2d.monitorable = true

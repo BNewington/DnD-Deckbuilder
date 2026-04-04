@@ -7,7 +7,7 @@ extends CanvasLayer
 @onready var energy_ui: EnergyUI = $EnergyUI
 @onready var end_turn_button: TextureButton = %EndTurnButton
 @onready var stats_ui: Control = $StatsUI
-@onready var initiative_ui: VBoxContainer = $InitiativeUI
+@onready var initiative_ui: HBoxContainer = $InitiativeUI
 
 const STATS_UI = preload("uid://d0tnkfen53ayh")
 const UNIT_INITITATIVE = preload("uid://d283xg7ma5kaq")
@@ -72,11 +72,11 @@ func _on_end_turn_button_pressed() -> void:
 	Events.turn_ended.emit(current_unit)
 
 
-func _on_card_aiming_started(_card_ui: CardUI, _area: Array[Vector2i], _valid_targets: Array[Vector2i]) -> void:
+func _on_card_aiming_started(_area: Array[Vector2i], _valid_targets: Array[Vector2i]) -> void:
 	end_turn_button.disabled = true
 
 
-func _on_card_aiming_ended(_card_ui: CardUI) -> void:
+func _on_card_aiming_ended() -> void:
 	end_turn_button.disabled = false
 
 
