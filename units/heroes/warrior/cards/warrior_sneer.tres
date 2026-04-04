@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://dmt7argymfror"]
+
+[ext_resource type="Script" uid="uid://ff5wylno65a2" path="res://custom_resources/actions/Action.gd" id="1_ivcp8"]
+[ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="2_fcm8r"]
+[ext_resource type="Script" uid="uid://by6ufil4qnjs8" path="res://custom_resources/effects/tile_effect.gd" id="2_gteti"]
+[ext_resource type="Script" uid="uid://ctbwjelsy5dof" path="res://custom_resources/effects/status_effect.gd" id="3_4fy0s"]
+[ext_resource type="Resource" uid="uid://rbox7cp37k4a" path="res://status effects/taunt.tres" id="4_x0uy8"]
+[ext_resource type="Script" uid="uid://dtvjeut823rc" path="res://custom_resources/actions/TileAction.gd" id="5_w1bwb"]
+[ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="6_xj8aa"]
+[ext_resource type="Texture2D" uid="uid://d4ip07gimf3g3" path="res://art/cards/card_icons.png" id="7_4qe8o"]
+
+[sub_resource type="Resource" id="Resource_8r0hn"]
+script = ExtResource("3_4fy0s")
+status = ExtResource("4_x0uy8")
+metadata/_custom_type_script = "uid://ctbwjelsy5dof"
+
+[sub_resource type="Resource" id="Resource_mxx40"]
+script = ExtResource("6_xj8aa")
+radius = 3
+metadata/_custom_type_script = "uid://lo410k1w0lof"
+
+[sub_resource type="Resource" id="Resource_o3ev3"]
+script = ExtResource("5_w1bwb")
+target = SubResource("Resource_mxx40")
+effects = Array[ExtResource("2_gteti")]([SubResource("Resource_8r0hn")])
+metadata/_custom_type_script = "uid://dtvjeut823rc"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ej5l"]
+atlas = ExtResource("7_4qe8o")
+region = Rect2(96, 24, 24, 24)
+
+[resource]
+script = ExtResource("2_fcm8r")
+id = "warrior_sneer"
+name = "Sneer"
+type = 1
+actions = Array[ExtResource("1_ivcp8")]([SubResource("Resource_o3ev3")])
+icon = SubResource("AtlasTexture_8ej5l")
+description = "Range: 3
+Apply 1 taunt"
+metadata/_custom_type_script = "uid://cbhovqi2nk4fe"

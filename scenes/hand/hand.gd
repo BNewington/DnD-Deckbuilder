@@ -8,7 +8,7 @@ const HAND_HEIGHT: float = 35.0
 const MAX_ROTATION: float = 15.0
 
 @onready var cards: Array[Node] = get_children() : get = get_cards
-@onready var hand_size = float(len(cards))
+@onready var hand_size = float(len(cards)) : get = get_hand_size
 @onready var card_ui := preload("uid://oxhrvfr17p53")
 
 @export var unit: Unit
@@ -26,6 +26,10 @@ func _ready() -> void:
 
 func get_cards() -> Array[Node]:
 	return get_children()
+
+
+func get_hand_size() -> float:
+	return float(len(cards))
 
 
 func _on_card_ui_reparent_requested(child: CardUI) -> void:

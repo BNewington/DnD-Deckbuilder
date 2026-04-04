@@ -9,7 +9,7 @@
 script = ExtResource("3_3enoy")
 type = 2
 starting_deck = ExtResource("4_ws66p")
-cards_per_turn = 5
+cards_per_turn = 4
 max_energy = 3
 draftable_cards = ExtResource("1_co17v")
 name = "Mage"

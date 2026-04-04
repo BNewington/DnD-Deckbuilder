@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_12kjw")
 starting_deck = ExtResource("3_2b6wb")
-cards_per_turn = 5
+cards_per_turn = 4
 max_energy = 3
 draftable_cards = ExtResource("1_2b6wb")
 name = "Warrior"

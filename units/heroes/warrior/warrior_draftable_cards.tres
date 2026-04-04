@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="CardPile" format=3 uid="uid://c88r1p4lxbm8u"]
 
 [ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="1_vbitm"]
-[ext_resource type="Resource" uid="uid://cxn8jc3q4tmel" path="res://units/heroes/warrior/cards/warrior_strike.tres" id="2_enhm8"]
 [ext_resource type="Script" uid="uid://bwhee2d1ya1p1" path="res://custom_resources/card_pile.gd" id="2_knrc3"]
 [ext_resource type="Resource" uid="uid://b6qepksfbhq8v" path="res://units/heroes/warrior/cards/warrior_quick_thinking.tres" id="2_tl2w3"]
 [ext_resource type="Resource" uid="uid://c33w52ttkssjg" path="res://units/heroes/warrior/cards/warrior_hit_and_run.tres" id="3_q5vaq"]
-[ext_resource type="Resource" uid="uid://cql3oentr77yy" path="res://units/heroes/warrior/cards/warrior_run.tres" id="3_vgp5g"]
+[ext_resource type="Resource" uid="uid://7eiuqgmlc1k7" path="res://units/heroes/warrior/cards/warrior_goading_strike.tres" id="4_enhm8"]
+[ext_resource type="Resource" uid="uid://dmt7argymfror" path="res://units/heroes/warrior/cards/warrior_sneer.tres" id="5_vgp5g"]
 
 [resource]
 script = ExtResource("2_knrc3")
-cards = Array[ExtResource("1_vbitm")]([ExtResource("2_enhm8"), ExtResource("3_vgp5g"), ExtResource("3_q5vaq"), ExtResource("2_tl2w3")])
+cards = Array[ExtResource("1_vbitm")]([ExtResource("3_q5vaq"), ExtResource("2_tl2w3"), ExtResource("4_enhm8"), ExtResource("5_vgp5g")])
 metadata/_custom_type_script = "uid://bwhee2d1ya1p1"
