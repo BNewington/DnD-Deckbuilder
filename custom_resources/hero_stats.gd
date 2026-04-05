@@ -8,6 +8,7 @@ enum HeroType {Warrior, Thief, Mage}
 @export var cards_per_turn: int
 @export var max_energy: int
 @export var draftable_cards: CardPile
+@export var abilities: Array[Card]
 
 var energy: int : set = set_energy
 var deck: CardPile

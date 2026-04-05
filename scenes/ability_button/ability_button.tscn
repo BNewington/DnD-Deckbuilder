@@ -9,4 +9,4 @@ theme_override_font_sizes/font_size = 80
 text = "CHARGE"
 script = ExtResource("1_wfoxl")
 
-[connection signal="pressed" from="." to="." method="enter"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Status" format=3 uid="uid://83567b2hx2hm"]
+
+[ext_resource type="Script" uid="uid://dtdlg4u0yg1s1" path="res://custom_resources/status/status.gd" id="1_jexv8"]
+[ext_resource type="Texture2D" uid="uid://b82cmynjj65mo" path="res://art/ui/Icons/Ironchests_RPG_items_pico8_transparentbg_v1.png" id="1_qiht0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy0ob"]
+atlas = ExtResource("1_qiht0")
+region = Rect2(152, 336, 8, 8)
+
+[resource]
+script = ExtResource("1_jexv8")
+id = "strength"
+type = 2
+stack_type = 1
+icon = SubResource("AtlasTexture_jy0ob")
+tooltip = "Increases damage"
+metadata/_custom_type_script = "uid://dtdlg4u0yg1s1"

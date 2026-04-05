@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://mg3uc5g2mkoj"]
+
+[ext_resource type="Script" uid="uid://clbpou5au14p8" path="res://scenes/ability_button/ability_manager.gd" id="1_qqokl"]
+
+[node name="AbilityManager" type="Control" unique_id=1883365983]
+custom_minimum_size = Vector2(150, 350)
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 200.0
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_qqokl")

@@ -22,8 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://dy06mmkk43krw" path="res://art/ui/Icons/draw.png" id="20_8m8co"]
 [ext_resource type="PackedScene" uid="uid://bqk50cx7n84s8" path="res://scenes/ui/battle_reward.tscn" id="20_qv6a5"]
 [ext_resource type="Texture2D" uid="uid://b8wk0vhh56dh8" path="res://art/ui/Icons/discard.png" id="21_b5y4l"]
-[ext_resource type="PackedScene" uid="uid://dqmu1hb34x71m" path="res://scenes/ability_button/ability_button.tscn" id="21_d762t"]
-[ext_resource type="Resource" uid="uid://cql3oentr77yy" path="res://units/heroes/warrior/cards/warrior_run.tres" id="22_qv6a5"]
+[ext_resource type="PackedScene" uid="uid://mg3uc5g2mkoj" path="res://scenes/ability_button/ability_manager.tscn" id="21_d762t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hglb3"]
 size = Vector2(1920, 657)
@@ -146,10 +145,14 @@ stats = ExtResource("9_423bg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.595977, 1.186873, 2.922655)
 stats = ExtResource("9_423bg")
 
+[node name="Unit3" parent="SubViewportContainer/SubViewport/TurnManager/Enemies" unique_id=351906256 groups=["enemies"] instance=ExtResource("3_h10rc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.4215765, 1.186873, -1.5927491)
+stats = ExtResource("9_423bg")
+
 [node name="HeroSpawnPoints" type="Node3D" parent="SubViewportContainer/SubViewport/TurnManager" unique_id=1386760510]
 
 [node name="0" type="Marker3D" parent="SubViewportContainer/SubViewport/TurnManager/HeroSpawnPoints" unique_id=354175123]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.508999, 1.3697243, -1.0586867)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2497845, 1.3697243, -7.271378)
 
 [node name="1" type="Marker3D" parent="SubViewportContainer/SubViewport/TurnManager/HeroSpawnPoints" unique_id=909236756]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8273087, 1.3697243, -7.6094074)
@@ -176,7 +179,10 @@ directional_shadow_mode = 1
 environment = SubResource("Environment_n4gow")
 
 [node name="RewardsChest" parent="SubViewportContainer/SubViewport" unique_id=765470379 instance=ExtResource("13_d762t")]
-transform = Transform3D(-0.8493773, 0, 0.5277862, 0, 1, 0, -0.5277862, 0, -0.8493773, 3.3300648, 1.0400634, -5.370565)
+transform = Transform3D(-0.8493773, 0, 0.5277862, 0, 1, 0, -0.5277862, 0, -0.8493773, 3.3300648, 1.0400634, 3.0355668)
+
+[node name="RewardsChest2" parent="SubViewportContainer/SubViewport" unique_id=880511357 instance=ExtResource("13_d762t")]
+transform = Transform3D(-0.8493773, 0, 0.5277862, 0, 1, 0, -0.5277862, 0, -0.8493773, 11.57237, 1.0400634, 3.0355668)
 
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=1984589142 groups=["ui_layer"]]
 unique_name_in_owner = true
@@ -318,13 +324,11 @@ grow_vertical = 0
 text = "99"
 label_settings = SubResource("LabelSettings_4pjrh")
 
-[node name="AbilityButton" parent="BattleUI" unique_id=719058665 node_paths=PackedStringArray("unit") instance=ExtResource("21_d762t")]
-offset_left = 19.0
-offset_top = 716.0
-offset_right = 177.0
-offset_bottom = 804.0
-card = ExtResource("22_qv6a5")
-unit = NodePath("../../SubViewportContainer/SubViewport/TurnManager/Enemies/Unit")
+[node name="AbilityManager" parent="BattleUI" unique_id=1883365983 instance=ExtResource("21_d762t")]
+offset_left = 26.0
+offset_top = -108.0
+offset_right = 176.0
+offset_bottom = 242.0
 
 [node name="MenuUILayer" type="CanvasLayer" parent="." unique_id=1228479744]
 layer = 2

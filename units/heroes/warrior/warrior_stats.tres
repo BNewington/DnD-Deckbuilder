@@ -3,6 +3,8 @@
 [ext_resource type="Resource" uid="uid://c88r1p4lxbm8u" path="res://units/heroes/warrior/warrior_draftable_cards.tres" id="1_2b6wb"]
 [ext_resource type="PackedScene" uid="uid://dtjfeghevmnms" path="res://art/3D/models/unit models/knight_model.tscn" id="1_3kid7"]
 [ext_resource type="Script" uid="uid://b2h455v0j7g1r" path="res://custom_resources/hero_stats.gd" id="1_12kjw"]
+[ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="1_of8yh"]
+[ext_resource type="Resource" uid="uid://bs7dikxa42016" path="res://custom_resources/abilities/charge_ability.tres" id="2_mj2bx"]
 [ext_resource type="Resource" uid="uid://5kb6ih8cdsr3" path="res://units/heroes/warrior/warior_starting_deck.tres" id="3_2b6wb"]
 
 [resource]
@@ -11,6 +13,7 @@ starting_deck = ExtResource("3_2b6wb")
 cards_per_turn = 4
 max_energy = 3
 draftable_cards = ExtResource("1_2b6wb")
+abilities = Array[ExtResource("1_of8yh")]([ExtResource("2_mj2bx")])
 name = "Warrior"
 model = ExtResource("1_3kid7")
 max_health = 50

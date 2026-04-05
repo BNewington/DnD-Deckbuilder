@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cqxcegot31kry"]
+
+[ext_resource type="Script" uid="uid://c7mo4pcbscqqt" path="res://scenes/ability_button/ability_button_container.gd" id="1_hxbn1"]
+
+[node name="AbilityButtonContainer" type="VBoxContainer" unique_id=1296154098]
+offset_right = 150.0
+offset_bottom = 350.0
+mouse_filter = 2
+theme_override_constants/separation = 14
+alignment = 2
+script = ExtResource("1_hxbn1")

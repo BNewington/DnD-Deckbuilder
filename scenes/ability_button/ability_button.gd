@@ -1,3 +1,4 @@
+class_name AbilityButton
 extends Button
 
 var area: Array[Vector2i]
@@ -18,6 +19,12 @@ var active: bool = false
 func _ready() -> void:
 	Events.menu_opened.connect(func(): menu_mode = true)
 	Events.menu_closed.connect(func(): menu_mode = false)
+	Events.start_turn.connect(_on_turn_started)
+
+
+func _on_turn_started(unit: Unit) -> void:
+	if disabled:
+		disabled = false
 
 
 func enter() -> void:
@@ -79,6 +86,8 @@ func _input(event: InputEvent) -> void:
 			Events.update_aoe_highlights.emit(next_aoe)
 	
 	if event.is_action_pressed("right_mouse"):
+		if not card.can_cancel_after(current_area):
+			disabled = true
 		exit()
 	
 	elif mouse_over_area:
@@ -87,6 +96,7 @@ func _input(event: InputEvent) -> void:
 			if current_area == num_actions:
 				aiming_selected(selected_tile)
 				exit()
+				disabled = true
 			else:
 				aiming_selected(selected_tile)
 			
@@ -96,3 +106,10 @@ func _input(event: InputEvent) -> void:
 		Events.update_aoe_highlights.emit(a)
 	
 	previously_selected_tile = selected_tile
+
+
+func _on_pressed() -> void:
+	if active:
+		exit()
+	else:
+		enter()

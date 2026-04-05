@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://bs7dikxa42016"]
+
+[ext_resource type="Script" uid="uid://ff5wylno65a2" path="res://custom_resources/actions/Action.gd" id="1_5ry0s"]
+[ext_resource type="Script" uid="uid://by6ufil4qnjs8" path="res://custom_resources/effects/tile_effect.gd" id="2_7cjbr"]
+[ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="2_uy2hf"]
+[ext_resource type="Script" uid="uid://bptdappyknoae" path="res://custom_resources/effects/move_effect.gd" id="3_6xn0c"]
+[ext_resource type="Script" uid="uid://ctbwjelsy5dof" path="res://custom_resources/effects/status_effect.gd" id="4_wjtje"]
+[ext_resource type="Resource" uid="uid://83567b2hx2hm" path="res://status effects/strength.tres" id="5_6xn0c"]
+[ext_resource type="Script" uid="uid://dtvjeut823rc" path="res://custom_resources/actions/TileAction.gd" id="5_k4j65"]
+[ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="6_5s7rh"]
+
+[sub_resource type="Resource" id="Resource_1ib1j"]
+script = ExtResource("3_6xn0c")
+metadata/_custom_type_script = "uid://bptdappyknoae"
+
+[sub_resource type="Resource" id="Resource_wjtje"]
+script = ExtResource("4_wjtje")
+status = ExtResource("5_6xn0c")
+targets_self = true
+metadata/_custom_type_script = "uid://ctbwjelsy5dof"
+
+[sub_resource type="Resource" id="Resource_p2xl8"]
+script = ExtResource("6_5s7rh")
+valid_targets = 1
+shape = 1
+radius = 3
+requires_pathfinding = true
+metadata/_custom_type_script = "uid://lo410k1w0lof"
+
+[sub_resource type="Resource" id="Resource_sn8yx"]
+script = ExtResource("5_k4j65")
+target = SubResource("Resource_p2xl8")
+effects = Array[ExtResource("2_7cjbr")]([SubResource("Resource_1ib1j"), SubResource("Resource_wjtje")])
+metadata/_custom_type_script = "uid://dtvjeut823rc"
+
+[resource]
+script = ExtResource("2_uy2hf")
+id = "warrior_charge_ability"
+name = "Charge"
+actions = Array[ExtResource("1_5ry0s")]([SubResource("Resource_sn8yx")])
+metadata/_custom_type_script = "uid://cbhovqi2nk4fe"
