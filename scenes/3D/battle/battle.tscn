@@ -138,7 +138,7 @@ hand = NodePath("../../../BattleUI/Hand")
 [node name="Enemies" type="Node3D" parent="SubViewportContainer/SubViewport/TurnManager" unique_id=1110511415]
 
 [node name="Unit" parent="SubViewportContainer/SubViewport/TurnManager/Enemies" unique_id=1623615925 groups=["enemies"] instance=ExtResource("3_h10rc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0757744, 1.186873, -0.51269937)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0757744, 1.186873, -1.4183934)
 stats = ExtResource("9_423bg")
 
 [node name="Unit2" parent="SubViewportContainer/SubViewport/TurnManager/Enemies" unique_id=515150851 groups=["enemies"] instance=ExtResource("3_h10rc")]
@@ -146,7 +146,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.595977, 1.186873, 2.922655)
 stats = ExtResource("9_423bg")
 
 [node name="Unit3" parent="SubViewportContainer/SubViewport/TurnManager/Enemies" unique_id=351906256 groups=["enemies"] instance=ExtResource("3_h10rc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.4215765, 1.186873, -1.5927491)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.266819, 1.186873, -1.5927491)
 stats = ExtResource("9_423bg")
 
 [node name="HeroSpawnPoints" type="Node3D" parent="SubViewportContainer/SubViewport/TurnManager" unique_id=1386760510]

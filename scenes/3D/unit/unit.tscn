@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dx3rrgwcviw5h"]
 
 [ext_resource type="Script" uid="uid://by0r1um7k7go2" path="res://scenes/3D/unit/unit.gd" id="1_80wi4"]
-[ext_resource type="PackedScene" uid="uid://dw0j0kbbdxyl8" path="res://art/3D/models/Knight_Hero.gltf" id="3_srink"]
+[ext_resource type="PackedScene" uid="uid://sd2558mdfcde" path="res://art/3D/models/unit models/goblin_model.tscn" id="2_80wi4"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_qalc0"]
 lightmap_size_hint = Vector2i(14, 21)
@@ -81,7 +81,7 @@ mesh = SubResource("PrismMesh_qalc0")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=16270616]
 libraries/ = SubResource("AnimationLibrary_fael0")
 
-[node name="Knight_Hero" parent="." unique_id=290444312 instance=ExtResource("3_srink")]
+[node name="GoblinModel" parent="." unique_id=727391026 instance=ExtResource("2_80wi4")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, 0)
 
 [node name="Highlight" type="Node3D" parent="." unique_id=508616555]

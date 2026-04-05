@@ -3,7 +3,7 @@ extends Node3D
 
 @export var stats: UnitStats : set = set_stats
 
-@onready var placeholder_model: Node3D = $Knight_Hero
+@onready var placeholder_model: Node3D = $GoblinModel
 @onready var turn_indicator: MeshInstance3D = $TurnIndicator
 
 
