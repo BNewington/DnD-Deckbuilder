@@ -152,10 +152,13 @@ stats = ExtResource("9_423bg")
 [node name="HeroSpawnPoints" type="Node3D" parent="SubViewportContainer/SubViewport/TurnManager" unique_id=1386760510]
 
 [node name="0" type="Marker3D" parent="SubViewportContainer/SubViewport/TurnManager/HeroSpawnPoints" unique_id=354175123]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2497845, 1.3697243, -7.271378)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9042964, 1.3697243, -7.271378)
 
 [node name="1" type="Marker3D" parent="SubViewportContainer/SubViewport/TurnManager/HeroSpawnPoints" unique_id=909236756]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8273087, 1.3697243, -7.6094074)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9077921, 1.3697243, -7.6094074)
+
+[node name="2" type="Marker3D" parent="SubViewportContainer/SubViewport/TurnManager/HeroSpawnPoints" unique_id=1439026273]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.383414, 1.3697243, -5.161866)
 
 [node name="GridMap" type="GridMap" parent="SubViewportContainer/SubViewport" unique_id=467039386]
 mesh_library = ExtResource("1_wtai8")
@@ -325,6 +328,7 @@ text = "99"
 label_settings = SubResource("LabelSettings_4pjrh")
 
 [node name="AbilityManager" parent="BattleUI" unique_id=1883365983 instance=ExtResource("21_d762t")]
+unique_name_in_owner = true
 offset_left = 26.0
 offset_top = -108.0
 offset_right = 176.0

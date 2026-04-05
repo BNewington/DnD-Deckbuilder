@@ -3,10 +3,12 @@
 [ext_resource type="Script" uid="uid://bjpvcqh3kb8q8" path="res://scenes/ability_button/ability_button.gd" id="1_wfoxl"]
 
 [node name="AbilityButton" type="Button" unique_id=719058665]
+custom_minimum_size = Vector2(160, 100)
 offset_right = 8.0
 offset_bottom = 8.0
 theme_override_font_sizes/font_size = 80
-text = "CHARGE"
+text = "Sneak"
+autowrap_mode = 2
 script = ExtResource("1_wfoxl")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

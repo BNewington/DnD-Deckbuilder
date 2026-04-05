@@ -5,6 +5,7 @@ extends Node3D
 @onready var camera_3d: Camera3D = $SubViewportContainer/SubViewport/CameraPivot/Camera3D
 @onready var turn_manager: TurnManager = $SubViewportContainer/SubViewport/TurnManager
 @onready var menu_ui_layer = $MenuUILayer
+@onready var ability_manager: AbilityManager = %AbilityManager
 
 @onready var viewport: SubViewport = $SubViewportContainer/SubViewport
 
@@ -12,6 +13,7 @@ extends Node3D
 func start_battle(hero_stats: Array[HeroStats]) -> void:
 	Navigation.init(grid_map, camera_3d)
 	turn_manager.start_battle(hero_stats)
+	ability_manager.setup_ability_buttons()
 	Events.start_battle.emit()
 
 

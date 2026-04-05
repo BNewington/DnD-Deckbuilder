@@ -83,7 +83,3 @@ func _get_all_statuses() -> Array[Status]:
 func _on_status_applied(status: Status) -> void:
 	if status.can_expire:
 		status.duration -= 1
-
-
-func _on_child_entered_tree(node: Node) -> void:
-	print(node)

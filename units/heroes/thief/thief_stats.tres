@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="HeroStats" format=3 uid="uid://bkc8yraum55mv"]
+
+[ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="1_c0g7j"]
+[ext_resource type="Resource" uid="uid://ddrmsmfio7xc7" path="res://units/heroes/thief/thief_draftable_cards.tres" id="2_003ve"]
+[ext_resource type="Resource" uid="uid://c6tutmkb3cqvf" path="res://units/heroes/thief/abilities/thief_sneak_attack.tres" id="2_23iw0"]
+[ext_resource type="Script" uid="uid://b2h455v0j7g1r" path="res://custom_resources/hero_stats.gd" id="2_42cip"]
+[ext_resource type="PackedScene" uid="uid://cucpsl0ky2yk3" path="res://art/3D/models/unit models/thief/thief_model.tscn" id="3_ow55t"]
+[ext_resource type="Resource" uid="uid://kanpy3n36e4i" path="res://units/heroes/thief/thief_starting_deck.tres" id="4_ow55t"]
+
+[resource]
+script = ExtResource("2_42cip")
+type = 1
+starting_deck = ExtResource("4_ow55t")
+cards_per_turn = 4
+max_energy = 3
+draftable_cards = ExtResource("2_003ve")
+abilities = Array[ExtResource("1_c0g7j")]([ExtResource("2_23iw0")])
+name = "Thief"
+model = ExtResource("3_ow55t")
+max_health = 30
+metadata/_custom_type_script = "uid://b2h455v0j7g1r"

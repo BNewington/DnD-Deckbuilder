@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cucpsl0ky2yk3"]
+
+[ext_resource type="PackedScene" uid="uid://cfvp3erjm6t8g" path="res://art/3D/models/unit models/unit_model.tscn" id="1_qoik7"]
+[ext_resource type="PackedScene" uid="uid://c80qxslfdyxdg" path="res://art/3D/models/unit models/Hero.glb" id="2_gv5dr"]
+
+[node name="ThiefModel" unique_id=727391026 instance=ExtResource("1_qoik7")]
+
+[node name="Hero" parent="." index="0" unique_id=163041703 instance=ExtResource("2_gv5dr")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)

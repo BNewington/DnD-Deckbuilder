@@ -69,7 +69,8 @@ func _on_hand_drawn() -> void:
 
 func _on_end_turn_button_pressed() -> void:
 	end_turn_button.disabled = true
-	Events.turn_ended.emit(current_unit)
+	var unit = current_unit
+	Events.turn_ended.emit(unit)
 
 
 func _on_card_aiming_started(_area: Array[Vector2i], _valid_targets: Array[Vector2i]) -> void:

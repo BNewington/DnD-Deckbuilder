@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b2h455v0j7g1r" path="res://custom_resources/hero_stats.gd" id="2_l1xba"]
 [ext_resource type="Resource" uid="uid://cod0okis1mse4" path="res://units/heroes/warrior/warrior_stats.tres" id="3_4prd4"]
 [ext_resource type="Resource" uid="uid://cbxcuj1pc0en" path="res://units/heroes/mage/mage_stats.tres" id="4_rvxxj"]
+[ext_resource type="Resource" uid="uid://bkc8yraum55mv" path="res://units/heroes/thief/thief_stats.tres" id="5_l1xba"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_hvgw3"]
 
@@ -90,7 +91,7 @@ font_size = 200
 
 [node name="RunManager" type="Node" unique_id=876858895]
 script = ExtResource("1_8yoj3")
-heroes = Array[ExtResource("2_l1xba")]([ExtResource("3_4prd4"), ExtResource("4_rvxxj")])
+heroes = Array[ExtResource("2_l1xba")]([ExtResource("3_4prd4"), ExtResource("5_l1xba"), ExtResource("4_rvxxj")])
 
 [node name="FadeLayer" type="CanvasLayer" parent="." unique_id=840417284]
 layer = 3
