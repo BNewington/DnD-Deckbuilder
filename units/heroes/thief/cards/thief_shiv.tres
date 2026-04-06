@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://ch4qsovrxvgnl"]
+
+[ext_resource type="Script" uid="uid://ff5wylno65a2" path="res://custom_resources/actions/Action.gd" id="1_4738v"]
+[ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="2_d83qf"]
+[ext_resource type="Script" uid="uid://by6ufil4qnjs8" path="res://custom_resources/effects/tile_effect.gd" id="2_gmxav"]
+[ext_resource type="Texture2D" uid="uid://d4ip07gimf3g3" path="res://art/cards/card_icons.png" id="2_lwp1w"]
+[ext_resource type="Script" uid="uid://3hbkpdrnqms5" path="res://custom_resources/effects/damage_effect.gd" id="3_6mem1"]
+[ext_resource type="Script" uid="uid://dtvjeut823rc" path="res://custom_resources/actions/TileAction.gd" id="4_isdws"]
+[ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="5_vf4id"]
+
+[sub_resource type="Resource" id="Resource_3nxao"]
+script = ExtResource("3_6mem1")
+amount = 4
+metadata/_custom_type_script = "uid://3hbkpdrnqms5"
+
+[sub_resource type="Resource" id="Resource_8yiay"]
+script = ExtResource("5_vf4id")
+shape = 1
+radius = 1
+metadata/_custom_type_script = "uid://lo410k1w0lof"
+
+[sub_resource type="Resource" id="Resource_2hklx"]
+script = ExtResource("4_isdws")
+target = SubResource("Resource_8yiay")
+effects = Array[ExtResource("2_gmxav")]([SubResource("Resource_3nxao")])
+metadata/_custom_type_script = "uid://dtvjeut823rc"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi3p7"]
+atlas = ExtResource("2_lwp1w")
+region = Rect2(168, 0, 24, 24)
+
+[resource]
+script = ExtResource("2_d83qf")
+id = "thief_shiv"
+name = "Shiv"
+actions = Array[ExtResource("1_4738v")]([SubResource("Resource_2hklx")])
+icon = SubResource("AtlasTexture_pi3p7")
+description = "Melee attack
+Deal 4 damage"
+metadata/_custom_type_script = "uid://cbhovqi2nk4fe"

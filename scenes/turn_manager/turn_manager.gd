@@ -90,7 +90,6 @@ func draw_cards(hero_stats: HeroStats) -> void:
 
 func discard_cards() -> void:
 	if hand.hand_size == 0:
-		print(current_unit.stats.name)
 		Events.hand_discarded.emit(current_unit)
 		return
 	var tween := create_tween()

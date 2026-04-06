@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Status" format=3 uid="uid://j2ccg2r3qpem"]
+
+[ext_resource type="Texture2D" uid="uid://b82cmynjj65mo" path="res://art/ui/Icons/Ironchests_RPG_items_pico8_transparentbg_v1.png" id="1_fb3xm"]
+[ext_resource type="Script" uid="uid://dtdlg4u0yg1s1" path="res://custom_resources/status/status.gd" id="1_p1cu5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63reg"]
+atlas = ExtResource("1_fb3xm")
+region = Rect2(296, 760, 8, 8)
+
+[resource]
+script = ExtResource("1_p1cu5")
+id = "vulnerable"
+type = 2
+stack_type = 2
+can_expire = true
+icon = SubResource("AtlasTexture_63reg")
+metadata/_custom_type_script = "uid://dtdlg4u0yg1s1"

@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://dqx5uotj7n35p"]
+
+[ext_resource type="Script" uid="uid://ff5wylno65a2" path="res://custom_resources/actions/Action.gd" id="1_qw1rw"]
+[ext_resource type="Script" uid="uid://by6ufil4qnjs8" path="res://custom_resources/effects/tile_effect.gd" id="2_3dqrg"]
+[ext_resource type="Texture2D" uid="uid://d4ip07gimf3g3" path="res://art/cards/card_icons.png" id="2_nanoh"]
+[ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="2_veagn"]
+[ext_resource type="Script" uid="uid://3hbkpdrnqms5" path="res://custom_resources/effects/damage_effect.gd" id="3_orruh"]
+[ext_resource type="Script" uid="uid://dtvjeut823rc" path="res://custom_resources/actions/TileAction.gd" id="4_8t7bh"]
+[ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="5_jlrr4"]
+[ext_resource type="Script" uid="uid://kmsdm6qhqxy" path="res://custom_resources/effects/card_effects/card_effect.gd" id="6_onoew"]
+[ext_resource type="Script" uid="uid://dr531wrd0iiph" path="res://custom_resources/effects/card_effects/draw_effect.gd" id="7_3nh7a"]
+[ext_resource type="Script" uid="uid://b7e4k2aeh14f" path="res://custom_resources/actions/CardAction.gd" id="8_jofet"]
+
+[sub_resource type="Resource" id="Resource_c7611"]
+script = ExtResource("3_orruh")
+amount = 6
+metadata/_custom_type_script = "uid://3hbkpdrnqms5"
+
+[sub_resource type="Resource" id="Resource_auuxe"]
+script = ExtResource("5_jlrr4")
+shape = 1
+radius = 1
+metadata/_custom_type_script = "uid://lo410k1w0lof"
+
+[sub_resource type="Resource" id="Resource_nld7e"]
+script = ExtResource("4_8t7bh")
+target = SubResource("Resource_auuxe")
+effects = Array[ExtResource("2_3dqrg")]([SubResource("Resource_c7611")])
+metadata/_custom_type_script = "uid://dtvjeut823rc"
+
+[sub_resource type="Resource" id="Resource_gdbqd"]
+script = ExtResource("7_3nh7a")
+metadata/_custom_type_script = "uid://dr531wrd0iiph"
+
+[sub_resource type="Resource" id="Resource_1ocm5"]
+script = ExtResource("8_jofet")
+effects = Array[ExtResource("6_onoew")]([SubResource("Resource_gdbqd")])
+metadata/_custom_type_script = "uid://b7e4k2aeh14f"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3e1f"]
+atlas = ExtResource("2_nanoh")
+region = Rect2(24, 48, 24, 24)
+
+[resource]
+script = ExtResource("2_veagn")
+id = "thief_elbow"
+name = "Elbow"
+cost = 1
+belongs_to = 1
+actions = Array[ExtResource("1_qw1rw")]([SubResource("Resource_nld7e"), SubResource("Resource_1ocm5")])
+icon = SubResource("AtlasTexture_e3e1f")
+description = "Melee attack
+Deal 6 damage, draw 1"
+metadata/_custom_type_script = "uid://cbhovqi2nk4fe"
