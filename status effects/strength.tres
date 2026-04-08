@@ -12,6 +12,7 @@ script = ExtResource("1_jexv8")
 id = "strength"
 type = 2
 stack_type = 1
+modifier_type = 1
 icon = SubResource("AtlasTexture_jy0ob")
 tooltip = "Increases damage"
 metadata/_custom_type_script = "uid://dtdlg4u0yg1s1"

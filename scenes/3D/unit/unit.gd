@@ -5,6 +5,7 @@ extends Node3D
 
 @onready var placeholder_model: Node3D = $GoblinModel
 @onready var turn_indicator: MeshInstance3D = $TurnIndicator
+@onready var modifier_handler: ModifierHandler = $ModifierHandler
 
 
 var status_handler: StatusHandler : set = set_status_handler

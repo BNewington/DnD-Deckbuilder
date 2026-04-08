@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://by0r1um7k7go2" path="res://scenes/3D/unit/unit.gd" id="1_80wi4"]
 [ext_resource type="PackedScene" uid="uid://sd2558mdfcde" path="res://art/3D/models/unit models/goblin_model.tscn" id="2_80wi4"]
+[ext_resource type="PackedScene" uid="uid://cmb8g3wlb4ekf" path="res://scenes/modifier_handler/modifier_handler.tscn" id="3_srink"]
+[ext_resource type="PackedScene" uid="uid://5n2iy8err1ts" path="res://scenes/modifier_handler/modifier.tscn" id="4_fael0"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_qalc0"]
 lightmap_size_hint = Vector2i(14, 21)
@@ -96,3 +98,13 @@ material = SubResource("StandardMaterial3D_80wi4")
 [node name="CSGBox3D2" type="CSGBox3D" parent="Highlight/CSGBox3D" unique_id=419405072]
 operation = 2
 size = Vector3(1.8, 1, 1.8)
+
+[node name="ModifierHandler" parent="." unique_id=1719854937 instance=ExtResource("3_srink")]
+
+[node name="DamageDealtModifier" parent="ModifierHandler" unique_id=788005588 instance=ExtResource("4_fael0")]
+
+[node name="DamageTakenModifier" parent="ModifierHandler" unique_id=1853108200 instance=ExtResource("4_fael0")]
+type = 1
+
+[node name="MoveAmountModifier" parent="ModifierHandler" unique_id=2034620194 instance=ExtResource("4_fael0")]
+type = 4

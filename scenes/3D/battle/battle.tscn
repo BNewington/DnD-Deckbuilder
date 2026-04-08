@@ -11,9 +11,9 @@
 [ext_resource type="Script" uid="uid://bwiokfoc1pshs" path="res://scenes/turn_manager/turn_manager.gd" id="6_hglb3"]
 [ext_resource type="Script" uid="uid://bgqebmanw1r7q" path="res://scenes/ui/battle_ui.gd" id="7_46ncm"]
 [ext_resource type="PackedScene" uid="uid://57436yh7djea" path="res://scenes/cursor/cursor.tscn" id="8_lcfdq"]
-[ext_resource type="Resource" uid="uid://dp6rk0vbw543i" path="res://units/enemies/goblin/goblin_stats.tres" id="9_423bg"]
 [ext_resource type="PackedScene" uid="uid://dq8c5qippudah" path="res://scenes/hand/hand.tscn" id="9_hglb3"]
 [ext_resource type="PackedScene" uid="uid://s3e6r400eqcu" path="res://scenes/ui/energy_ui.tscn" id="10_423bg"]
+[ext_resource type="Resource" uid="uid://bpicenvluujun" path="res://units/enemies/goblin_archer/goblin_archer_stats.tres" id="10_qv6a5"]
 [ext_resource type="PackedScene" uid="uid://dfcv0j6p3hxas" path="res://scenes/3D/battle/rewards_chest.tscn" id="13_d762t"]
 [ext_resource type="Texture2D" uid="uid://5url5k4caeyl" path="res://art/ui/StonebaseUISheet.png" id="17_jdl33"]
 [ext_resource type="FontFile" uid="uid://de77xikhsyahx" path="res://art/ui/fonts/m3x6.ttf" id="18_ehegv"]
@@ -137,17 +137,9 @@ hand = NodePath("../../../BattleUI/Hand")
 
 [node name="Enemies" type="Node3D" parent="SubViewportContainer/SubViewport/TurnManager" unique_id=1110511415]
 
-[node name="Unit" parent="SubViewportContainer/SubViewport/TurnManager/Enemies" unique_id=1623615925 groups=["enemies"] instance=ExtResource("3_h10rc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0757744, 1.186873, -1.4183934)
-stats = ExtResource("9_423bg")
-
 [node name="Unit2" parent="SubViewportContainer/SubViewport/TurnManager/Enemies" unique_id=515150851 groups=["enemies"] instance=ExtResource("3_h10rc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.595977, 1.186873, 2.922655)
-stats = ExtResource("9_423bg")
-
-[node name="Unit3" parent="SubViewportContainer/SubViewport/TurnManager/Enemies" unique_id=351906256 groups=["enemies"] instance=ExtResource("3_h10rc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.266819, 1.186873, -1.5927491)
-stats = ExtResource("9_423bg")
+stats = ExtResource("10_qv6a5")
 
 [node name="HeroSpawnPoints" type="Node3D" parent="SubViewportContainer/SubViewport/TurnManager" unique_id=1386760510]
 
@@ -259,10 +251,9 @@ vertical_alignment = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 240.0
-offset_top = 16.0
-offset_right = 840.0
-offset_bottom = 144.0
+offset_left = -300.0
+offset_right = 300.0
+offset_bottom = 128.0
 grow_horizontal = 2
 alignment = 1
 

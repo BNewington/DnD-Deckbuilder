@@ -96,6 +96,7 @@ func _on_stats_set(unit: Unit, stats: UnitStats) -> void:
 		await stats_ui_instance.ready
 	
 	var new_status_handler = STATUS_HANDLER.instantiate()
+	new_status_handler.status_owner = unit
 	stats_ui_instance.add_status_handler(new_status_handler)
 	unit.status_handler = new_status_handler
 	
