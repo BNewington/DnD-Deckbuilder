@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://d38juiuyijbik"]
+
+[ext_resource type="Script" uid="uid://ff5wylno65a2" path="res://custom_resources/actions/Action.gd" id="1_1qr0g"]
+[ext_resource type="Script" uid="uid://by6ufil4qnjs8" path="res://custom_resources/effects/tile_effect.gd" id="2_6xpw8"]
+[ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="2_bc6x8"]
+[ext_resource type="Texture2D" uid="uid://d4ip07gimf3g3" path="res://art/cards/card_icons.png" id="2_s6pvu"]
+[ext_resource type="Script" uid="uid://bwp1c554itd2x" path="res://custom_resources/effects/block_effect.gd" id="3_dr0w4"]
+[ext_resource type="Script" uid="uid://dtvjeut823rc" path="res://custom_resources/actions/TileAction.gd" id="4_hblt4"]
+[ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="5_40g7t"]
+
+[sub_resource type="Resource" id="Resource_i7x16"]
+script = ExtResource("3_dr0w4")
+amount = 5
+metadata/_custom_type_script = "uid://bwp1c554itd2x"
+
+[sub_resource type="Resource" id="Resource_q628q"]
+script = ExtResource("5_40g7t")
+selection = 1
+valid_targets = 3
+include_target = true
+metadata/_custom_type_script = "uid://lo410k1w0lof"
+
+[sub_resource type="Resource" id="Resource_pq8pe"]
+script = ExtResource("4_hblt4")
+target = SubResource("Resource_q628q")
+effects = Array[ExtResource("2_6xpw8")]([SubResource("Resource_i7x16")])
+metadata/_custom_type_script = "uid://dtvjeut823rc"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqxo4"]
+atlas = ExtResource("2_s6pvu")
+region = Rect2(120, 48, 24, 24)
+
+[resource]
+script = ExtResource("2_bc6x8")
+id = "warrior_defend"
+name = "Defend"
+type = 1
+cost = 1
+actions = Array[ExtResource("1_1qr0g")]([SubResource("Resource_pq8pe")])
+icon = SubResource("AtlasTexture_vqxo4")
+description = "Gain 5 block"
+metadata/_custom_type_script = "uid://cbhovqi2nk4fe"

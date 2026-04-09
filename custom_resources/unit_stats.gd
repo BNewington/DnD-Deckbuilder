@@ -8,6 +8,7 @@ signal stats_changed
 @export var max_health: int
 
 var health: int : set = set_health
+var block: int : set = set_block
 
 
 func set_health(value: int) -> void:
@@ -15,8 +16,17 @@ func set_health(value: int) -> void:
 	stats_changed.emit()
 
 
+func set_block(value: int) -> void:
+	block = clampi(value, 0, 999)
+	stats_changed.emit()
+
+
 func take_damage(damage: int) -> void:
-	health -= damage
+	if damage > block:
+		block = 0
+		health -= damage-block
+	else:
+		block -= damage
 
 
 func heal(amount: int) -> void:

@@ -8,6 +8,7 @@ func enter() -> void:
 	card_ui.scale = Vector2.ONE * 1.1
 	Events.card_hovered.emit(card_ui)
 
+
 func exit() -> void:
 	card_ui.scale = Vector2.ONE
 

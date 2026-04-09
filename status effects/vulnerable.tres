@@ -13,5 +13,7 @@ id = "vulnerable"
 type = 2
 stack_type = 2
 can_expire = true
+modifier = 1
+percentile_value = 1.5
 icon = SubResource("AtlasTexture_63reg")
 metadata/_custom_type_script = "uid://dtdlg4u0yg1s1"

@@ -41,6 +41,7 @@ func start_battle() -> void:
 func start_turn() -> void:
 	turn_indicator.show()
 	status_handler.apply_statuses_by_type(Status.Type.START_OF_TURN)
+	stats.block = 0
 
 
 func _on_statuses_applied(type: Status.Type) -> void:
@@ -131,10 +132,11 @@ func initiative_hovered_off(unit: Unit) -> void:
 
 
 func take_damage(damage: int) -> void:
+	var modified_damage = modifier_handler.get_modified_value(damage, Modifier.Type.DMG_TAKEN)
 	if stats.health <= 0:
 		return
 	
-	stats.take_damage(damage)
+	stats.take_damage(modified_damage)
 	
 	if stats.health <= 0:
 		die()
