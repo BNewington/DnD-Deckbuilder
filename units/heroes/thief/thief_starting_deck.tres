@@ -1,13 +1,12 @@
 [gd_resource type="Resource" script_class="CardPile" format=3 uid="uid://kanpy3n36e4i"]
 
 [ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="1_8aot5"]
-[ext_resource type="Resource" uid="uid://dqx5uotj7n35p" path="res://units/heroes/thief/cards/thief_elbow.tres" id="2_f1lu2"]
 [ext_resource type="Resource" uid="uid://cql3oentr77yy" path="res://units/heroes/warrior/cards/warrior_run.tres" id="2_uo1cp"]
 [ext_resource type="Script" uid="uid://bwhee2d1ya1p1" path="res://custom_resources/card_pile.gd" id="2_yvbmj"]
-[ext_resource type="Resource" uid="uid://cjhnbrbymnkdr" path="res://units/heroes/thief/cards/thief_exploit.tres" id="3_wnjdo"]
+[ext_resource type="Resource" uid="uid://bmbvnrt7jim86" path="res://units/heroes/thief/cards/thief_dagger_throw.tres" id="3_ryd0b"]
 [ext_resource type="Resource" uid="uid://bmtogs3rshvbm" path="res://units/heroes/thief/cards/thief_pinpoint.tres" id="4_5q5mi"]
 
 [resource]
 script = ExtResource("2_yvbmj")
-cards = Array[ExtResource("1_8aot5")]([ExtResource("2_f1lu2"), ExtResource("3_wnjdo"), ExtResource("4_5q5mi"), ExtResource("2_uo1cp"), ExtResource("2_uo1cp"), ExtResource("2_uo1cp"), ExtResource("3_wnjdo")])
+cards = Array[ExtResource("1_8aot5")]([ExtResource("2_uo1cp"), ExtResource("2_uo1cp"), ExtResource("2_uo1cp"), ExtResource("2_uo1cp"), ExtResource("2_uo1cp"), ExtResource("2_uo1cp"), ExtResource("3_ryd0b"), ExtResource("3_ryd0b"), ExtResource("3_ryd0b"), ExtResource("3_ryd0b"), ExtResource("4_5q5mi")])
 metadata/_custom_type_script = "uid://bwhee2d1ya1p1"

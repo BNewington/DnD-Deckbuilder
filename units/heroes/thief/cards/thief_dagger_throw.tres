@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://bmbvnrt7jim86"]
+
+[ext_resource type="Script" uid="uid://ff5wylno65a2" path="res://custom_resources/actions/Action.gd" id="1_t33a8"]
+[ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="2_i68dq"]
+[ext_resource type="Script" uid="uid://by6ufil4qnjs8" path="res://custom_resources/effects/tile_effect.gd" id="2_p3rp7"]
+[ext_resource type="Texture2D" uid="uid://d4ip07gimf3g3" path="res://art/cards/card_icons.png" id="2_w06y3"]
+[ext_resource type="Script" uid="uid://3hbkpdrnqms5" path="res://custom_resources/effects/damage_effect.gd" id="3_s58m1"]
+[ext_resource type="Script" uid="uid://dtvjeut823rc" path="res://custom_resources/actions/TileAction.gd" id="4_ggtf1"]
+[ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="5_0epqk"]
+
+[sub_resource type="Resource" id="Resource_3qvsh"]
+script = ExtResource("3_s58m1")
+amount = 5
+metadata/_custom_type_script = "uid://3hbkpdrnqms5"
+
+[sub_resource type="Resource" id="Resource_leke6"]
+script = ExtResource("5_0epqk")
+radius = 3
+metadata/_custom_type_script = "uid://lo410k1w0lof"
+
+[sub_resource type="Resource" id="Resource_2cpyx"]
+script = ExtResource("4_ggtf1")
+target = SubResource("Resource_leke6")
+effects = Array[ExtResource("2_p3rp7")]([SubResource("Resource_3qvsh")])
+metadata/_custom_type_script = "uid://dtvjeut823rc"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyu5n"]
+atlas = ExtResource("2_w06y3")
+region = Rect2(48, 120, 24, 24)
+
+[resource]
+script = ExtResource("2_i68dq")
+id = "thief_dagger_throw"
+name = "Dagger Throw"
+cost = 1
+belongs_to = 1
+actions = Array[ExtResource("1_t33a8")]([SubResource("Resource_2cpyx")])
+icon = SubResource("AtlasTexture_cyu5n")
+description = "Range 3
+Deal 5 damage"
+metadata/_custom_type_script = "uid://cbhovqi2nk4fe"

@@ -3,7 +3,7 @@ extends Node2D
 
 signal reparent_requested(which_card_ui: CardUI)
 
-const MOVE_SPEED: float = 20.0
+const MOVE_SPEED: float = 25.0
 const ROTATE_SPEED: float = 3.0
 
 @export var card: Card : set = set_card
@@ -102,7 +102,7 @@ func _process(delta: float) -> void:
 	if is_base or is_hovered:
 		var distance = (target_pos-position).length()
 		var speed_factor = 1
-		if distance > 1:
+		if distance > 2:
 			speed_factor = distance
 		position = position.move_toward(target_pos, MOVE_SPEED * delta * speed_factor)
 	rotation = rotate_toward(rotation,deg_to_rad(target_rotation),ROTATE_SPEED*delta)

@@ -16,7 +16,7 @@ albedo_texture = ExtResource("2_cwx3o")
 script = ExtResource("1_cwx3o")
 
 [node name="chest" parent="." unique_id=1674627226 instance=ExtResource("1_0jhqo")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.02334587, -1.1920929e-07, -0.050771713)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.02334587, -1.1920929e-07, -0.050771713)
 
 [node name="chest" parent="chest" index="0" unique_id=1510168952]
 material_override = SubResource("StandardMaterial3D_e7onm")

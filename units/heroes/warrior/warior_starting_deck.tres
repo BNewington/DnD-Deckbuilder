@@ -2,12 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="1_axlu1"]
 [ext_resource type="Script" uid="uid://bwhee2d1ya1p1" path="res://custom_resources/card_pile.gd" id="2_neqyc"]
-[ext_resource type="Resource" uid="uid://cql3oentr77yy" path="res://units/heroes/warrior/cards/warrior_run.tres" id="2_tr4oi"]
 [ext_resource type="Resource" uid="uid://d38juiuyijbik" path="res://units/heroes/warrior/cards/warrior_defend.tres" id="3_q4uh6"]
 [ext_resource type="Resource" uid="uid://cxn8jc3q4tmel" path="res://units/heroes/warrior/cards/warrior_strike.tres" id="3_tr4oi"]
 [ext_resource type="Resource" uid="uid://dmt7argymfror" path="res://units/heroes/warrior/cards/warrior_sneer.tres" id="6_mb407"]
 
 [resource]
 script = ExtResource("2_neqyc")
-cards = Array[ExtResource("1_axlu1")]([ExtResource("3_tr4oi"), ExtResource("3_tr4oi"), ExtResource("3_tr4oi"), ExtResource("3_q4uh6"), ExtResource("3_q4uh6"), ExtResource("3_q4uh6"), ExtResource("2_tr4oi"), ExtResource("6_mb407")])
+cards = Array[ExtResource("1_axlu1")]([ExtResource("3_tr4oi"), ExtResource("3_tr4oi"), ExtResource("3_tr4oi"), ExtResource("3_tr4oi"), ExtResource("3_tr4oi"), ExtResource("3_tr4oi"), ExtResource("3_q4uh6"), ExtResource("3_q4uh6"), ExtResource("3_q4uh6"), ExtResource("3_q4uh6"), ExtResource("6_mb407")])
 metadata/_custom_type_script = "uid://bwhee2d1ya1p1"

@@ -11,7 +11,7 @@
 script = ExtResource("2_42cip")
 type = 1
 starting_deck = ExtResource("4_ow55t")
-cards_per_turn = 4
+cards_per_turn = 5
 max_energy = 3
 draftable_cards = ExtResource("2_003ve")
 abilities = Array[ExtResource("1_c0g7j")]([ExtResource("2_23iw0")])

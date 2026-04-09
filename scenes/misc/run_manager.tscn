@@ -91,7 +91,7 @@ font_size = 200
 
 [node name="RunManager" type="Node" unique_id=876858895]
 script = ExtResource("1_8yoj3")
-heroes = Array[ExtResource("2_l1xba")]([ExtResource("3_4prd4"), ExtResource("5_l1xba"), ExtResource("4_rvxxj")])
+heroes = Array[ExtResource("2_l1xba")]([ExtResource("3_4prd4"), ExtResource("4_rvxxj"), ExtResource("5_l1xba")])
 
 [node name="FadeLayer" type="CanvasLayer" parent="." unique_id=840417284]
 layer = 3

@@ -23,8 +23,8 @@ func set_block(value: int) -> void:
 
 func take_damage(damage: int) -> void:
 	if damage > block:
+		health -= (damage-block)
 		block = 0
-		health -= damage-block
 	else:
 		block -= damage
 

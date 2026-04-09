@@ -48,9 +48,9 @@ func _process(delta: float) -> void:
 		position += move_vec * move_speed * delta
 	# orbit
 	if Input.is_action_just_pressed("cam_orbit_right"):
-		_target_orbit += TAU/8
+		_target_orbit += TAU/16
 	if Input.is_action_just_pressed("cam_orbit_left"):
-		_target_orbit -= TAU/8
+		_target_orbit -= TAU/16
 	
 	
 	if absf(rotation.y - _target_orbit) < 0.02:

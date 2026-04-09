@@ -108,7 +108,7 @@ func update_hero() -> void:
 		await ready
 		
 	model = stats.model.instantiate()
-	model.scale = Vector3.ONE * 1.7
+	model.scale = Vector3.ONE * 1.3
 	add_child(model)
 	placeholder_model.queue_free()
 	if model.has_signal("animation_finished"):

@@ -23,8 +23,9 @@ func find_target_tiles(unit: Unit) -> Array[Vector2i]:
 
 func find_target_units(unit: Unit) -> Array[Unit]:
 	var unit_pos = Navigation.get_tile_coords(unit.global_position)
-	var tiles = Navigation.get_shape_tiles(Navigation.AreaShape.Circle,attack_range,unit_pos)
-	print("attack tiles: ",tiles)
+	var tiles = Navigation.get_shape_tiles(Navigation.AreaShape.Square,attack_range,unit_pos)
+	var arr: Array[Vector2i] = []
+	Events.card_aiming_started.emit(tiles, arr)
 	var units: Array[Unit] = []
 	for tile in tiles:
 		var unit_at_tile = Navigation.get_unit_at_tile(tile)
@@ -33,7 +34,6 @@ func find_target_units(unit: Unit) -> Array[Unit]:
 				pass
 			else:
 				units.append(unit_at_tile)
-	print(units)
 	for priority in attack_priorities:
 		units = priority.filter_units(units)
 	return units
@@ -49,11 +49,15 @@ func start_turn(unit: Unit) -> void:
 	if target_tiles.size() > 0 and not pos in target_tiles:
 		unit.move_to(target_tiles[0])
 	
+	
+	await unit.get_tree().create_timer(0.5).timeout
+	var target_units = find_target_units(unit)
 	await unit.get_tree().create_timer(1).timeout
 	
-	var target_units = find_target_units(unit)
+	
 	if target_units.size() > 0:
 		unit.attack(target_units[0].grid_pos)
 		target_units[0].take_damage(5) #TODO replace this with a flexible attack system
 	
+	Events.card_aiming_ended.emit()
 	Events.turn_ended.emit(unit)

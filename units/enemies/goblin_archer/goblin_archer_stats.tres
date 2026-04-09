@@ -35,7 +35,7 @@ metadata/_custom_type_script = "uid://b21budf0cbcon"
 [resource]
 script = ExtResource("3_8sjtx")
 move_priorities = Array[ExtResource("2_0rtuj")]([SubResource("Resource_yjfai"), SubResource("Resource_3v82p"), SubResource("Resource_u37w1"), SubResource("Resource_xgyte")])
-attack_range = 4
+attack_range = 3
 attack_priorities = Array[ExtResource("1_toj8t")]([SubResource("Resource_27kgy")])
 name = "Goblin Archer"
 model = ExtResource("2_8sjtx")
