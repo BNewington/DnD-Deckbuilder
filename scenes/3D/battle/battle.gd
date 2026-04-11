@@ -9,12 +9,16 @@ extends Node3D
 
 @onready var viewport: SubViewport = $SubViewportContainer/SubViewport
 
+var hovered_object: Node
 
 func start_battle(hero_stats: Array[HeroStats]) -> void:
 	Navigation.init(grid_map, camera_3d)
 	turn_manager.start_battle(hero_stats)
 	ability_manager.setup_ability_buttons()
 	Events.start_battle.emit()
+
+func _process(delta: float) -> void:
+	detect_hovered_object()
 
 
 func _input(event: InputEvent) -> void:
@@ -30,3 +34,20 @@ func take_screenshot() -> void:
 	
 	
 	
+func detect_hovered_object() -> void:
+	var mouse_object = Navigation.find_mouse_object()
+	
+	if not mouse_object:
+		if hovered_object:
+			Events.unit_hovered_off.emit(hovered_object.get_parent())
+			hovered_object = null
+		return
+	
+	if mouse_object != hovered_object:
+		if hovered_object:
+			Events.unit_hovered_off.emit(hovered_object.get_parent())
+			hovered_object = null
+		if mouse_object.is_in_group("hoverables"):
+			hovered_object = mouse_object
+			Events.unit_hovered.emit(hovered_object.get_parent())
+		

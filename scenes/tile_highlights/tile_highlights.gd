@@ -27,6 +27,9 @@ func _ready() -> void:
 	Events.card_aiming_ended.connect(clear_move_tiles)
 	Events.update_aoe_highlights.connect(update_aoe_tiles)
 	
+	Events.request_tile_highlights.connect(highlight_tiles)
+	Events.clear_tile_highlights.connect(clear_move_tiles)
+	
 	Events.menu_opened.connect(func(): menu_mode = true)
 	Events.menu_closed.connect(func(): menu_mode = false)
 

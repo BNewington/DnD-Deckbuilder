@@ -12,7 +12,6 @@ extends UnitStats
 func find_target_tiles(unit: Unit) -> Array[Vector2i]:
 	var unit_pos = Navigation.get_tile_coords(unit.global_position)
 	var tiles = Navigation.get_walkable_tiles(Navigation.get_move_area(unit_pos,move_speed))
-	tiles.append(unit_pos)
 	
 	for priority in move_priorities:
 		var filtered_tiles = priority.filter_tiles(unit, tiles)
@@ -21,11 +20,8 @@ func find_target_tiles(unit: Unit) -> Array[Vector2i]:
 	return tiles
 
 
-func find_target_units(unit: Unit) -> Array[Unit]:
-	var unit_pos = Navigation.get_tile_coords(unit.global_position)
+func find_target_units(unit: Unit, unit_pos: Vector2i) -> Array[Unit]:
 	var tiles = Navigation.get_shape_tiles(Navigation.AreaShape.Square,attack_range,unit_pos)
-	var arr: Array[Vector2i] = []
-	Events.card_aiming_started.emit(tiles, arr)
 	var units: Array[Unit] = []
 	for tile in tiles:
 		var unit_at_tile = Navigation.get_unit_at_tile(tile)
@@ -51,7 +47,7 @@ func start_turn(unit: Unit) -> void:
 	
 	
 	await unit.get_tree().create_timer(0.5).timeout
-	var target_units = find_target_units(unit)
+	var target_units = find_target_units(unit, unit.grid_pos)
 	await unit.get_tree().create_timer(1).timeout
 	
 	

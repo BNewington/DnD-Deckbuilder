@@ -177,6 +177,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_aw6g6")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=566285142]
 transform = Transform3D(0.8839707, -0.19385166, 0.42546123, -0.42469454, 0.047637135, 0.9040825, -0.19552566, -0.9798736, -0.04021791, 1.6187859, 10.340704, 0)
+light_color = Color(0.99999994, 0.9286916, 0.8756505, 1)
 shadow_enabled = true
 shadow_blur = 0.1
 directional_shadow_mode = 1

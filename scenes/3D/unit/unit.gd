@@ -19,11 +19,17 @@ var alive: bool = true
 
 var model: Node3D
 
+var card_aiming: bool = false
 
 func _ready() -> void:
 	Events.start_battle.connect(start_battle)
 	Events.initiative_hovered.connect(initiative_hovered)
 	Events.initiative_hovered_off.connect(initiative_hovered_off)
+	Events.unit_hovered.connect(_on_unit_hovered)
+	Events.unit_hovered_off.connect(_on_unit_hovered_off)
+	
+	Events.card_aiming_started.connect(_on_card_aiming_started)
+	Events.card_aiming_ended.connect(_on_card_aiming_ended)
 	$AnimationPlayer.play("spin")
 
 
@@ -147,3 +153,27 @@ func die() -> void:
 	alive = false
 	Events.unit_died.emit(self)
 	queue_free()
+
+
+func _on_unit_hovered(unit: Unit) -> void:
+	if unit == self and stats is EnemyStats and not card_aiming:
+		Navigation.set_units_solid(Navigation.UnitType.Any)
+		Navigation.set_point_walkable(grid_pos)
+		var tiles = stats.find_target_tiles(self)
+		var path = Navigation.get_cell_path(grid_pos,tiles[0])
+		var target_units = stats.find_target_units(self, tiles[0])
+		var target_tiles: Array[Vector2i] = [target_units[0].grid_pos]
+		Events.request_tile_highlights.emit(path+target_tiles, target_tiles)
+
+
+func _on_unit_hovered_off(unit: Unit) -> void:
+	if unit == self and stats is EnemyStats and not card_aiming:
+		Events.clear_tile_highlights.emit()
+
+
+func _on_card_aiming_started(tiles: Array[Vector2i], valid_targets: Array[Vector2i]) -> void:
+	card_aiming = true
+
+
+func _on_card_aiming_ended() -> void:
+	card_aiming = false

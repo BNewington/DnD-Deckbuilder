@@ -72,6 +72,9 @@ _data = {
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80wi4"]
 shading_mode = 0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_srink"]
+size = Vector3(1.1769485, 1.7705536, 1.1319122)
+
 [node name="Unit" type="Node3D" unique_id=351906256 groups=["units"]]
 script = ExtResource("1_80wi4")
 
@@ -108,3 +111,9 @@ type = 1
 
 [node name="MoveAmountModifier" parent="ModifierHandler" unique_id=2034620194 instance=ExtResource("4_fael0")]
 type = 4
+
+[node name="MouseDetector" type="StaticBody3D" parent="." unique_id=1008824142 groups=["hoverables"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MouseDetector" unique_id=716851618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05046463, 0.90310156, -0.038749695)
+shape = SubResource("BoxShape3D_srink")

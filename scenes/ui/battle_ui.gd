@@ -25,17 +25,23 @@ func _ready() -> void:
 	Events.card_aiming_started.connect(_on_card_aiming_started)
 	Events.card_aiming_ended.connect(_on_card_aiming_ended)
 	Events.set_stats.connect(_on_stats_set)
+	Events.unit_hovered.connect(mouse_over_unit)
+	Events.unit_hovered_off.connect(mouse_off_unit)
 	end_turn_button.pressed.connect(_on_end_turn_button_pressed)
+	
+	for unit in unit_stats.keys():
+		unit_stats[unit][0].hide()
 
 
 func _process(delta: float) -> void:
 	frame_times.append(1/delta)
 	if frame_times.size() > 60:
-		frame_times.pop_front()
-	var sum = 0
-	for frame in frame_times:
-		sum += frame
-	$Label.text = str(int(sum/60))
+		var sum = 0
+		for frame in frame_times:
+			sum += frame
+		$Label.text = str(int(sum/60))
+		frame_times = []
+	
 	for unit in unit_stats.keys():
 		if is_instance_valid(unit):
 			var stats = unit_stats[unit][0]
@@ -129,6 +135,20 @@ func mouse_off(unit_initiative: UnitInitiative) -> void:
 		if unit_initiative in unit_stats[unit]:
 			Events.initiative_hovered_off.emit(unit)
 			break
+
+
+func mouse_over_unit(hovered_unit: Unit) -> void:
+	for unit in unit_stats.keys():
+		if unit == hovered_unit:
+			unit_stats[unit][0].show()
+		else:
+			unit_stats[unit][0].hide()
+
+
+func mouse_off_unit(hovered_unit: Unit) -> void:
+	for unit in unit_stats.keys():
+		if unit == hovered_unit:
+			unit_stats[unit][0].hide()
 
 
 func _on_stats_changed() -> void:

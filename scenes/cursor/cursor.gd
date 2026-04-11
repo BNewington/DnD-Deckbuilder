@@ -70,6 +70,7 @@ func _process(_delta: float) -> void:
 	var mouse_pos = get_global_mouse_position()
 	current_cell = Navigation.get_tile_coords(Navigation.find_3d_mouse_pos())
 	move_cursor(mouse_pos)
+
 	cell_last_frame = current_cell
 
 
@@ -77,7 +78,6 @@ func move_cursor(mouse_pos: Vector2) -> void:
 	for cursor in mobile_cursors:
 		cursor.global_position = mouse_pos
 		areas.global_position = mouse_pos
-		
 
 
 func enable_pointer() -> void:

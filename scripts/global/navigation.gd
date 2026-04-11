@@ -84,6 +84,18 @@ func find_3d_mouse_pos() -> Vector3:
 	return Vector3()
 
 
+func find_mouse_object() -> Node:
+	var space_state = get_world_3d().direct_space_state
+	var mouse_pos = get_viewport().get_mouse_position()/stretch_shrink
+	var ray_origin = camera.project_ray_origin(mouse_pos)
+	var ray_end = ray_origin + camera.project_ray_normal(mouse_pos) * 999
+	var query = PhysicsRayQueryParameters3D.create(ray_origin,ray_end)
+	var ray = space_state.intersect_ray(query)
+	if ray.has("collider"):
+		return ray["collider"]
+	return null
+
+
 func find_2d_screen_pos(pos: Vector3) -> Vector2:
 	return camera.unproject_position(pos) * stretch_shrink
 

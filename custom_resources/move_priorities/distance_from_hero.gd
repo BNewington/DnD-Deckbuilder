@@ -7,11 +7,11 @@ enum ComparatorType {GREATER_THAN, EQUAL_TO, LESS_THAN}
 @export var value: int
 
 
-func filter_tiles(_unit: Unit, tiles: Array[Vector2i]) -> Array[Vector2i]:
+func filter_tiles(unit: Unit, tiles: Array[Vector2i]) -> Array[Vector2i]:
 	Navigation.set_units_solid(Navigation.UnitType.Hero,false)
 	var valid_tiles: Array[Vector2i] = []
 	for tile in tiles:
-		var distances_to_heroes = find_distances_to_heroes(tile, Navigation.get_units(Navigation.UnitType.Hero))
+		var distances_to_heroes = find_distances_to_heroes(tile, _get_heroes(unit))
 		if is_valid(distances_to_heroes):
 			valid_tiles.append(tile)
 	Navigation.set_units_solid(Navigation.UnitType.Hero,true)

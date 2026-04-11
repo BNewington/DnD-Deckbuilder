@@ -28,6 +28,10 @@ signal initiative_hovered_off(unit: Unit)
 signal move_complete(unit: Unit)
 signal reward_collected(unit: Unit)
 signal battle_won
+signal unit_hovered(unit: Unit)
+signal unit_hovered_off(unit: Unit)
+signal request_tile_highlights(tiles: Array[Vector2i], valid_targets: Array[Vector2i])
+signal clear_tile_highlights
 
 
 ##Card Signals
