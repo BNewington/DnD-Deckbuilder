@@ -194,6 +194,10 @@ func get_cell_path(start_pos: Vector2i, end_pos: Vector2i) -> Array[Vector2i]:
 	return grid.get_id_path(start_pos,end_pos)
 
 
+func get_distance(start_pos: Vector2i, end_pos: Vector2i) -> int:
+	return grid.get_id_path(start_pos, end_pos).size() - 1
+
+
 func get_move_area(start_pos: Vector2i, move_speed: int) -> Array[Vector2i]:
 	var tiles = get_shape_tiles(AreaShape.Square,move_speed,start_pos)
 	var moveable_tiles: Array[Vector2i] = []

@@ -5,28 +5,16 @@
 [ext_resource type="PackedScene" uid="uid://cb8hnfrlmj8kw" path="res://art/3D/models/unit models/goblin_archer/goblin_archer_model.tscn" id="2_8sjtx"]
 [ext_resource type="Script" uid="uid://bqsbk0cl1expk" path="res://custom_resources/attack_priorities/lowest_health.gd" id="2_w8ils"]
 [ext_resource type="Script" uid="uid://coi4vc2y45mc6" path="res://custom_resources/enemy_stats.gd" id="3_8sjtx"]
-[ext_resource type="Script" uid="uid://cmmj83h2p8ln1" path="res://custom_resources/move_priorities/distance_from_hero.gd" id="5_27kgy"]
+[ext_resource type="Script" uid="uid://dum6w0kajyeuy" path="res://custom_resources/move_priorities/furthest_from_hero.gd" id="5_27kgy"]
 [ext_resource type="Script" uid="uid://b21budf0cbcon" path="res://custom_resources/move_priorities/shortest_distance.gd" id="7_3v82p"]
 
 [sub_resource type="Resource" id="Resource_27kgy"]
 script = ExtResource("2_w8ils")
 metadata/_custom_type_script = "uid://bqsbk0cl1expk"
 
-[sub_resource type="Resource" id="Resource_yjfai"]
-script = ExtResource("5_27kgy")
-metadata/_custom_type_script = "uid://cmmj83h2p8ln1"
-
 [sub_resource type="Resource" id="Resource_3v82p"]
 script = ExtResource("5_27kgy")
-comparator = 1
-value = 5
-metadata/_custom_type_script = "uid://cmmj83h2p8ln1"
-
-[sub_resource type="Resource" id="Resource_u37w1"]
-script = ExtResource("5_27kgy")
-comparator = 2
-value = 8
-metadata/_custom_type_script = "uid://cmmj83h2p8ln1"
+metadata/_custom_type_script = "uid://dum6w0kajyeuy"
 
 [sub_resource type="Resource" id="Resource_5kxsn"]
 script = ExtResource("7_3v82p")
@@ -34,8 +22,8 @@ metadata/_custom_type_script = "uid://b21budf0cbcon"
 
 [resource]
 script = ExtResource("3_8sjtx")
-move_priorities = Array[ExtResource("2_0rtuj")]([SubResource("Resource_yjfai"), SubResource("Resource_3v82p"), SubResource("Resource_u37w1"), SubResource("Resource_5kxsn")])
-attack_range = 3
+move_priorities = Array[ExtResource("2_0rtuj")]([SubResource("Resource_3v82p"), SubResource("Resource_5kxsn")])
+attack_range = 10
 attack_priorities = Array[ExtResource("1_toj8t")]([SubResource("Resource_27kgy")])
 name = "Goblin Archer"
 model = ExtResource("2_8sjtx")
