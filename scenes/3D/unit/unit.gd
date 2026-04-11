@@ -156,7 +156,7 @@ func die() -> void:
 
 
 func _on_unit_hovered(unit: Unit) -> void:
-	if unit == self and stats is EnemyStats and not card_aiming:
+	if unit == self and stats is EnemyStats and not card_aiming and alive:
 		Navigation.set_units_solid(Navigation.UnitType.Any)
 		Navigation.set_point_walkable(grid_pos)
 		var tiles = stats.find_target_tiles(self)

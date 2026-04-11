@@ -13,6 +13,7 @@ func filter_tiles(unit: Unit, tiles: Array[Vector2i]) -> Array[Vector2i]:
 	else:
 		search_tiles = adjacent_tiles
 	
+	
 	var filtered_tiles: Array[Vector2i] = []
 	for tile in tiles:
 		for hero in _get_heroes(unit):

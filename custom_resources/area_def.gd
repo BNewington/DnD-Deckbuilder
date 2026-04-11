@@ -48,8 +48,6 @@ func get_valid_target_cells(area: Array[Vector2i]) -> Array[Vector2i]:
 			for cell in area:
 				if not Navigation.is_point_solid(cell):
 					target_cells.append(cell)
-				else:
-					print(cell," is solid")
 	
 	
 	var valid_target_cells: Array[Vector2i]

@@ -28,14 +28,13 @@ comparator = 2
 value = 8
 metadata/_custom_type_script = "uid://cmmj83h2p8ln1"
 
-[sub_resource type="Resource" id="Resource_xgyte"]
+[sub_resource type="Resource" id="Resource_5kxsn"]
 script = ExtResource("7_3v82p")
 metadata/_custom_type_script = "uid://b21budf0cbcon"
 
 [resource]
 script = ExtResource("3_8sjtx")
-move_speed = null
-move_priorities = Array[ExtResource("2_0rtuj")]([SubResource("Resource_yjfai"), SubResource("Resource_3v82p"), SubResource("Resource_u37w1"), SubResource("Resource_xgyte")])
+move_priorities = Array[ExtResource("2_0rtuj")]([SubResource("Resource_yjfai"), SubResource("Resource_3v82p"), SubResource("Resource_u37w1"), SubResource("Resource_5kxsn")])
 attack_range = 3
 attack_priorities = Array[ExtResource("1_toj8t")]([SubResource("Resource_27kgy")])
 name = "Goblin Archer"
