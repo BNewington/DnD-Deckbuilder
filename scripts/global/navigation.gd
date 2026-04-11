@@ -143,8 +143,7 @@ func set_units_solid(type: UnitType, is_solid: bool = true) -> void:
 	var units: Array[Node] = get_units(type)
 	for unit in units:
 		if is_instance_valid(unit) and unit.alive:
-			var unit_pos = get_tile_coords(unit.global_position)
-			grid.set_point_solid(unit_pos,is_solid)
+			grid.set_point_solid(unit.grid_pos,is_solid)
 
 
 func set_point_solid(point: Vector2i) -> void:

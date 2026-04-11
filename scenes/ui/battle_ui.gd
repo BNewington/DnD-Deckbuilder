@@ -46,7 +46,7 @@ func _process(delta: float) -> void:
 		if is_instance_valid(unit):
 			var stats = unit_stats[unit][0]
 			var ui_offset = Vector2(stats.size.x/2,0)
-			stats.global_position = Navigation.find_2d_screen_pos(unit.global_position) - ui_offset
+			stats.global_position = Navigation.find_2d_screen_pos(unit.tool_tip_pos) - ui_offset
 		else:
 			unit_stats[unit][0].queue_free()
 			unit_stats[unit][1].queue_free()

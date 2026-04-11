@@ -4,3 +4,5 @@
 
 [node name="UnitModel" type="Node3D" unique_id=727391026]
 script = ExtResource("1_c8wjd")
+
+[node name="TooltipPos" type="Marker3D" parent="." unique_id=484241676]

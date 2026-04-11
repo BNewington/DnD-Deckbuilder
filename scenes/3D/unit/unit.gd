@@ -6,6 +6,7 @@ extends Node3D
 @onready var placeholder_model: Node3D = $GoblinModel
 @onready var turn_indicator: MeshInstance3D = $TurnIndicator
 @onready var modifier_handler: ModifierHandler = $ModifierHandler
+@onready var tool_tip_pos: Vector3: get = get_tooltip_pos
 
 
 var status_handler: StatusHandler : set = set_status_handler
@@ -31,6 +32,10 @@ func _ready() -> void:
 	Events.card_aiming_started.connect(_on_card_aiming_started)
 	Events.card_aiming_ended.connect(_on_card_aiming_ended)
 	$AnimationPlayer.play("spin")
+
+
+func get_tooltip_pos() -> Vector3:
+	return model.tooltip_pos
 
 
 func set_status_handler(value: StatusHandler) -> void:
@@ -76,6 +81,8 @@ func set_stats(value: UnitStats) -> void:
 
 
 func get_grid_pos() -> Vector2i:
+	if target_pos:
+		return target_pos
 	return Navigation.get_tile_coords(global_position)
 
 
