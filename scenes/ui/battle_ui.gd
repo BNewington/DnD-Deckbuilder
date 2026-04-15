@@ -126,14 +126,14 @@ func _on_stats_set(unit: Unit, stats: UnitStats) -> void:
 func mouse_over(unit_initiative: UnitInitiative) -> void:
 	for unit in unit_stats.keys():
 		if unit_initiative in unit_stats[unit]:
-			Events.initiative_hovered.emit(unit)
+			Events.unit_hovered.emit(unit)
 			break
 
 
 func mouse_off(unit_initiative: UnitInitiative) -> void:
 	for unit in unit_stats.keys():
 		if unit_initiative in unit_stats[unit]:
-			Events.initiative_hovered_off.emit(unit)
+			Events.unit_hovered_off.emit(unit)
 			break
 
 
