@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://coud6gmk80en"]
+
+[resource]
+blend_mode = 4
+shading_mode = 0
+albedo_color = Color(0.88613313, 0.8998454, 0.7830094, 1)

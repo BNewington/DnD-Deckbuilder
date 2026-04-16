@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://br0yoe6l7fjrf"
-path="res://.godot/imported/Goblin.glb-77feaeb1e90f3079c4fa898d78f0d03b.scn"
+uid="uid://cli832x8id1no"
+path="res://.godot/imported/Basic_Goblin.fbx-98be5b79b9bb50b3296abe7435282db1.scn"
 
 [deps]
 
-source_file="res://art/3D/models/Goblin.glb"
-dest_files=["res://.godot/imported/Goblin.glb-77feaeb1e90f3079c4fa898d78f0d03b.scn"]
+source_file="res://art/3D/models/unit models/goblin/Basic_Goblin.fbx"
+dest_files=["res://.godot/imported/Basic_Goblin.fbx-98be5b79b9bb50b3296abe7435282db1.scn"]
 
 [params]
 
@@ -30,7 +30,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=false
+animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
@@ -46,5 +46,7 @@ _subresources={
 }
 }
 }
-gltf/naming_version=2
-gltf/embedded_image_handling=1
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+fbx/naming_version=2

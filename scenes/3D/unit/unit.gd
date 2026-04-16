@@ -87,7 +87,7 @@ func get_grid_pos() -> Vector2i:
 
 
 func move_to(target: Vector2i) -> void:
-	model.play_animation("Run")
+	model.play_animation("Sprint")
 	var path = Navigation.get_cell_path(grid_pos,target)
 	target_pos = path[path.size()-1]
 	if path:
@@ -100,7 +100,7 @@ func move_to(target: Vector2i) -> void:
 			tween.tween_callback(face_model.bind(flat_next_pos))
 			tween.tween_property(self, "global_position",flat_next_pos,0.25)
 		await tween.finished
-		model.play_animation("Idle")
+		model.play_animation("Sword_Idle")
 		Events.move_complete.emit(self)
 
 
@@ -111,7 +111,7 @@ func face_model(face_to: Vector3) -> void:
 func attack(attack_pos) -> void:
 	var world_attack_pos = Navigation.get_world_coords(attack_pos)
 	face_model(world_attack_pos)
-	model.play_animation("Attack")
+	model.play_animation("Sword_Attack")
 	#TODO play attack animation
 	pass
 
@@ -121,17 +121,18 @@ func update_hero() -> void:
 		await ready
 		
 	model = stats.model.instantiate()
+	model.unit = self
 	model.scale = Vector3.ONE * 1.3
 	add_child(model)
 	placeholder_model.queue_free()
 	if model.has_signal("animation_finished"):
 		model.animation_finished.connect(on_animation_finished)
-	model.play_animation("Idle")
+	model.play_animation("Sword_Idle")
 
 
 func on_animation_finished(anim: String) -> void:
-	if anim == "Attack":
-		model.play_animation("Idle")
+	if anim == "Library/Sword_Attack":
+		model.play_animation("Sword_Idle")
 
 
 func initiative_hovered(unit: Unit) -> void:
