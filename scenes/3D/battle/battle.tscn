@@ -112,7 +112,7 @@ script = ExtResource("2_o2o3g")
 visible = false
 
 [node name="CameraPivot" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=2050402475]
-transform = Transform3D(-0.9238792, -0.24598415, 0.2931525, 0, 0.7660443, 0.6427875, -0.38268337, 0.5938581, -0.7077327, 3.1189246, 1.0560813, -3.2839737)
+transform = Transform3D(-0.92387915, -0.2027913, 0.32453397, 0, 0.8480479, 0.5299192, -0.38268334, 0.48958144, -0.7834941, 3.1189246, 1.0560813, -3.2839737)
 script = ExtResource("3_jdl33")
 circular_radius = 0.5
 circular_speed = 0.1
@@ -121,7 +121,7 @@ circular_speed = 0.1
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 20)
 projection = 1
 fov = 44.4
-size = 16.0
+size = 14.0
 near = 0.042
 far = 767.88
 script = ExtResource("4_ehegv")

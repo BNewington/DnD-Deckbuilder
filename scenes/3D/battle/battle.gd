@@ -10,6 +10,12 @@ extends Node3D
 @onready var viewport: SubViewport = $SubViewportContainer/SubViewport
 
 var hovered_object: Node
+var menu_mode: bool = false
+
+func _ready() -> void:
+	Events.menu_opened.connect(func(): menu_mode = true)
+	Events.menu_closed.connect(func(): menu_mode = false)
+
 
 func start_battle(hero_stats: Array[HeroStats]) -> void:
 	Navigation.init(grid_map, camera_3d)
@@ -35,6 +41,7 @@ func take_screenshot() -> void:
 	
 	
 func detect_hovered_object() -> void:
+	if menu_mode: return
 	var mouse_object = Navigation.find_mouse_object()
 	
 	if not mouse_object:

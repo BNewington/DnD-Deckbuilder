@@ -14,7 +14,7 @@ const UNIT_INITITATIVE = preload("uid://d283xg7ma5kaq")
 const STATUS_HANDLER = preload("uid://ceigyvtjnqkr8")
 
 
-var hovered_initiative: UnitInitiative
+var current_hovered_unit: Unit
 var unit_stats: Dictionary = {} #Key is unit, value is [stats, initiative_tracker]
 
 var frame_times = []
@@ -131,6 +131,7 @@ func mouse_over(unit_initiative: UnitInitiative) -> void:
 
 
 func mouse_off(unit_initiative: UnitInitiative) -> void:
+	current_hovered_unit = null
 	for unit in unit_stats.keys():
 		if unit_initiative in unit_stats[unit]:
 			Events.unit_hovered_off.emit(unit)
@@ -138,6 +139,8 @@ func mouse_off(unit_initiative: UnitInitiative) -> void:
 
 
 func mouse_over_unit(hovered_unit: Unit) -> void:
+	current_hovered_unit = hovered_unit
+	if Input.is_action_pressed("show_stats"): return
 	for unit in unit_stats.keys():
 		if unit == hovered_unit:
 			unit_stats[unit][0].show()
@@ -146,6 +149,7 @@ func mouse_over_unit(hovered_unit: Unit) -> void:
 
 
 func mouse_off_unit(hovered_unit: Unit) -> void:
+	if Input.is_action_pressed("show_stats"): return
 	for unit in unit_stats.keys():
 		if unit == hovered_unit:
 			unit_stats[unit][0].hide()
@@ -157,3 +161,13 @@ func _on_stats_changed() -> void:
 		var initiative_tracker = unit_stats[unit][1]
 		stats.update_stats(unit.stats)
 		initiative_tracker.health = unit.stats.health
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("show_stats"):
+		for unit in unit_stats.keys():
+			unit_stats[unit][0].show()
+	elif event.is_action_released("show_stats"):
+		for unit in unit_stats.keys():
+			if unit != current_hovered_unit:
+				unit_stats[unit][0].hide()

@@ -100,7 +100,7 @@ func move_to(target: Vector2i) -> void:
 			tween.tween_callback(face_model.bind(flat_next_pos))
 			tween.tween_property(self, "global_position",flat_next_pos,0.25)
 		await tween.finished
-		model.play_animation("Sword_Idle")
+		model.play_animation("Idle")
 		Events.move_complete.emit(self)
 
 
@@ -127,12 +127,12 @@ func update_hero() -> void:
 	placeholder_model.queue_free()
 	if model.has_signal("animation_finished"):
 		model.animation_finished.connect(on_animation_finished)
-	model.play_animation("Sword_Idle")
+	model.play_animation("Idle")
 
 
 func on_animation_finished(anim: String) -> void:
 	if anim == "Library/Sword_Attack":
-		model.play_animation("Sword_Idle")
+		model.play_animation("Idle")
 
 
 func initiative_hovered(unit: Unit) -> void:
