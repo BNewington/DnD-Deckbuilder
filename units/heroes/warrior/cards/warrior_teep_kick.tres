@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://rjhw1a8oy5mm"]
+
+[ext_resource type="Script" uid="uid://ff5wylno65a2" path="res://custom_resources/actions/Action.gd" id="1_phdfq"]
+[ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="2_f0jk1"]
+[ext_resource type="Script" uid="uid://by6ufil4qnjs8" path="res://custom_resources/effects/tile_effect.gd" id="2_qbec0"]
+[ext_resource type="Script" uid="uid://3hbkpdrnqms5" path="res://custom_resources/effects/damage_effect.gd" id="3_kp27f"]
+[ext_resource type="Script" uid="uid://d2jy2kwhc33ua" path="res://custom_resources/effects/shove_effect.gd" id="4_rum5m"]
+[ext_resource type="Script" uid="uid://dtvjeut823rc" path="res://custom_resources/actions/TileAction.gd" id="5_wpcwq"]
+[ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="6_4sjff"]
+[ext_resource type="Texture2D" uid="uid://d4ip07gimf3g3" path="res://art/cards/card_icons.png" id="7_lpuo3"]
+
+[sub_resource type="Resource" id="Resource_rwslu"]
+script = ExtResource("3_kp27f")
+amount = 9
+metadata/_custom_type_script = "uid://3hbkpdrnqms5"
+
+[sub_resource type="Resource" id="Resource_4c5bh"]
+script = ExtResource("4_rum5m")
+amount = 2
+metadata/_custom_type_script = "uid://d2jy2kwhc33ua"
+
+[sub_resource type="Resource" id="Resource_amr3c"]
+script = ExtResource("6_4sjff")
+shape = 1
+radius = 1
+metadata/_custom_type_script = "uid://lo410k1w0lof"
+
+[sub_resource type="Resource" id="Resource_qjly6"]
+script = ExtResource("5_wpcwq")
+target = SubResource("Resource_amr3c")
+effects = Array[ExtResource("2_qbec0")]([SubResource("Resource_rwslu"), SubResource("Resource_4c5bh")])
+metadata/_custom_type_script = "uid://dtvjeut823rc"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcs08"]
+atlas = ExtResource("7_lpuo3")
+region = Rect2(120, 24, 24, 24)
+
+[resource]
+script = ExtResource("2_f0jk1")
+id = "warrior_teep_kick"
+name = "Teep Kick"
+cost = 1
+actions = Array[ExtResource("1_phdfq")]([SubResource("Resource_qjly6")])
+icon = SubResource("AtlasTexture_gcs08")
+description = "Melee attack
+9 damage, shove 2"
+metadata/_custom_type_script = "uid://cbhovqi2nk4fe"

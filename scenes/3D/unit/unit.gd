@@ -13,7 +13,7 @@ var status_handler: StatusHandler : set = set_status_handler
 
 var tween: Tween
 var grid_pos: Vector2i : get = get_grid_pos
-var target_pos: Vector2i
+var target_pos: Vector2i = Vector2i(-99,-99)
 
 var floor_height = 1.118
 var alive: bool = true
@@ -21,6 +21,7 @@ var alive: bool = true
 var model: Node3D
 
 var card_aiming: bool = false
+
 
 func _ready() -> void:
 	Events.start_battle.connect(start_battle)
@@ -46,7 +47,6 @@ func set_status_handler(value: StatusHandler) -> void:
 func start_battle() -> void:
 	Events.set_stats.emit(self, stats)
 	global_position = Navigation.snap_to_grid(global_position)
-	target_pos = grid_pos
 
 
 func start_turn() -> void:
@@ -81,7 +81,7 @@ func set_stats(value: UnitStats) -> void:
 
 
 func get_grid_pos() -> Vector2i:
-	if target_pos:
+	if target_pos != Vector2i(-99,-99):
 		return target_pos
 	return Navigation.get_tile_coords(global_position)
 
@@ -101,6 +101,7 @@ func move_to(target: Vector2i) -> void:
 			tween.tween_property(self, "global_position",flat_next_pos,0.25)
 		await tween.finished
 		model.play_animation("Idle")
+		target_pos = Vector2i(-99,-99)
 		Events.move_complete.emit(self)
 
 
@@ -156,6 +157,27 @@ func take_damage(damage: int) -> void:
 		die()
 
 
+func shove(shove_source: Vector2i, shove_amount: int) -> void:
+	Navigation.set_point_walkable(grid_pos)
+	var shove_vector = (grid_pos - shove_source)
+	var last_valid_tile = grid_pos
+	for i in range(1,shove_amount+1):
+		var tile = last_valid_tile + shove_vector
+		if Navigation.is_point_solid(tile):
+			take_damage(shove_amount)
+			break
+		last_valid_tile = tile
+	
+	var shove_destination = Navigation.get_world_coords(last_valid_tile)
+	tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_CIRC)
+	tween.tween_property(self, "global_position",shove_destination,0.25)
+	await tween.finished
+	Navigation.set_point_solid(grid_pos)
+	
+
+
 func die() -> void:
 	Navigation.set_point_walkable(Navigation.get_tile_coords(global_position))
 	alive = false
@@ -170,7 +192,8 @@ func _on_unit_hovered(unit: Unit) -> void:
 		var tiles = stats.find_target_tiles(self)
 		var path = Navigation.get_cell_path(grid_pos,tiles[0])
 		var target_units = stats.find_target_units(self, tiles[0])
-		var target_tiles: Array[Vector2i] = [target_units[0].grid_pos]
+		var target_tiles: Array[Vector2i]
+		if target_units.size() > 0: target_tiles = [target_units[0].grid_pos]
 		Events.request_tile_highlights.emit(path+target_tiles, target_tiles)
 
 

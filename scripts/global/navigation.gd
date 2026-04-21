@@ -155,6 +155,7 @@ func set_point_walkable(point: Vector2i) -> void:
 
 
 func is_point_solid(point: Vector2i) -> bool:
+	if not grid.is_in_bounds(point.x, point.y): return true
 	return grid.is_point_solid(point)
 
 

@@ -38,12 +38,8 @@ func _on_unit_hovered_off(hovered_unit: Unit) -> void:
 
 func play_animation(animation: String) -> void:
 	if animation_player:
-		match animation:
-			"Idle":
-				animation_player.play("Knife Idle/mixamo_com")
-			_:
-				animation_player.stop()
-				animation_player.play("Library/"+animation)
+			animation_player.stop()
+			animation_player.play("Library/"+animation)
 
 
 
