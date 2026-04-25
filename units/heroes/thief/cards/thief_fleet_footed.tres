@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://83pf2756lpmo"]
+
+[ext_resource type="Script" uid="uid://ff5wylno65a2" path="res://custom_resources/actions/Action.gd" id="1_6kbnp"]
+[ext_resource type="Script" uid="uid://by6ufil4qnjs8" path="res://custom_resources/effects/tile_effect.gd" id="2_bqjba"]
+[ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="2_wqcea"]
+[ext_resource type="Script" uid="uid://ctbwjelsy5dof" path="res://custom_resources/effects/status_effect.gd" id="3_kotjc"]
+[ext_resource type="Resource" uid="uid://cs4gvng77776v" path="res://status effects/speed.tres" id="4_xvhj6"]
+[ext_resource type="Script" uid="uid://dtvjeut823rc" path="res://custom_resources/actions/TileAction.gd" id="5_o7rpx"]
+[ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="6_nld57"]
+[ext_resource type="Texture2D" uid="uid://d4ip07gimf3g3" path="res://art/cards/card_icons.png" id="7_kotjc"]
+
+[sub_resource type="Resource" id="Resource_2b2qq"]
+script = ExtResource("3_kotjc")
+status = ExtResource("4_xvhj6")
+targets_self = true
+metadata/_custom_type_script = "uid://ctbwjelsy5dof"
+
+[sub_resource type="Resource" id="Resource_72ty7"]
+script = ExtResource("6_nld57")
+selection = 1
+valid_targets = 3
+shape = 1
+include_target = true
+metadata/_custom_type_script = "uid://lo410k1w0lof"
+
+[sub_resource type="Resource" id="Resource_4cg65"]
+script = ExtResource("5_o7rpx")
+target = SubResource("Resource_72ty7")
+effects = Array[ExtResource("2_bqjba")]([SubResource("Resource_2b2qq")])
+metadata/_custom_type_script = "uid://dtvjeut823rc"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvhj6"]
+atlas = ExtResource("7_kotjc")
+region = Rect2(0, 0, 24, 24)
+
+[resource]
+script = ExtResource("2_wqcea")
+id = "thief_fleet_footed"
+name = "Fleet Footed"
+type = 2
+cost = 1
+belongs_to = 1
+actions = Array[ExtResource("1_6kbnp")]([SubResource("Resource_4cg65")])
+icon = SubResource("AtlasTexture_xvhj6")
+description = "Gain 1 speed"
+metadata/_custom_type_script = "uid://cbhovqi2nk4fe"

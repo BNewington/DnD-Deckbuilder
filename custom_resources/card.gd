@@ -65,7 +65,8 @@ func play() -> void:
 			i += 1
 	Events.card_played.emit(self)
 	unit.stats.energy -= cost
-	unit.stats.discard.add_card(self)
+	if type != Type.POWER:
+		unit.stats.discard.add_card(self)
 	selected_tiles = []
 
 

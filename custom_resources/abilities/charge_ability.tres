@@ -17,6 +17,7 @@ metadata/_custom_type_script = "uid://bptdappyknoae"
 script = ExtResource("4_wjtje")
 status = ExtResource("5_6xn0c")
 targets_self = true
+amount = 2
 metadata/_custom_type_script = "uid://ctbwjelsy5dof"
 
 [sub_resource type="Resource" id="Resource_p2xl8"]
