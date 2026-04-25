@@ -172,7 +172,7 @@ func shove(shove_source: Vector2i, shove_amount: int) -> void:
 	tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_CIRC)
-	tween.tween_property(self, "global_position",shove_destination,0.25)
+	tween.tween_property(self, "global_position",shove_destination,0.3)
 	await tween.finished
 	Navigation.set_point_solid(grid_pos)
 	

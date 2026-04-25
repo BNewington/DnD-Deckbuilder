@@ -199,10 +199,8 @@ func get_distance(start_pos: Vector2i, end_pos: Vector2i) -> int:
 
 
 func get_move_area(start_pos: Vector2i, move_speed: int) -> Array[Vector2i]:
-	var status_handler = get_unit_at_tile(start_pos).status_handler
-	if status_handler.has_status("speed"):
-		move_speed += status_handler._get_status("speed").stacks
-		
+	var modifier_handler = get_unit_at_tile(start_pos).modifier_handler
+	move_speed = modifier_handler.get_modified_value(move_speed, Modifier.Type.MOVE_AMOUNT)
 	var tiles = get_shape_tiles(AreaShape.Square,move_speed,start_pos)
 	var moveable_tiles: Array[Vector2i] = []
 	
