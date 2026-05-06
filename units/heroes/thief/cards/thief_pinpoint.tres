@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://by6ufil4qnjs8" path="res://custom_resources/effects/tile_effect.gd" id="2_8iaoc"]
 [ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="2_vjlte"]
 [ext_resource type="Script" uid="uid://ctbwjelsy5dof" path="res://custom_resources/effects/status_effect.gd" id="3_3ww3y"]
-[ext_resource type="Resource" uid="uid://j2ccg2r3qpem" path="res://status effects/vulnerable.tres" id="4_rjlu5"]
+[ext_resource type="Resource" uid="uid://j2ccg2r3qpem" path="res://statuses/vulnerable.tres" id="4_rjlu5"]
 [ext_resource type="Script" uid="uid://dtvjeut823rc" path="res://custom_resources/actions/TileAction.gd" id="5_0yri2"]
 [ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="6_goo3y"]
 [ext_resource type="Texture2D" uid="uid://d4ip07gimf3g3" path="res://art/cards/card_icons.png" id="7_l7vdq"]

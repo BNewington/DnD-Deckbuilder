@@ -50,6 +50,7 @@ func set_stacks(new_stacks: int) -> void:
 
 
 func _on_status_changed(target: Node) -> void:
+	if modifier == Modifier.Type.NO_MODIFIER: return
 	var modifier_node: Modifier = target.modifier_handler.get_modifier(modifier)
 	assert(modifier_node, "No matching modifier found on %s" % target)
 	var existing_modifier_value := modifier_node.get_value(id)

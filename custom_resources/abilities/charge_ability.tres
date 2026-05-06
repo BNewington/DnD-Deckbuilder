@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://cbhovqi2nk4fe" path="res://custom_resources/card.gd" id="2_uy2hf"]
 [ext_resource type="Script" uid="uid://bptdappyknoae" path="res://custom_resources/effects/move_effect.gd" id="3_6xn0c"]
 [ext_resource type="Script" uid="uid://ctbwjelsy5dof" path="res://custom_resources/effects/status_effect.gd" id="4_wjtje"]
-[ext_resource type="Resource" uid="uid://83567b2hx2hm" path="res://status effects/strength.tres" id="5_6xn0c"]
+[ext_resource type="Resource" uid="uid://83567b2hx2hm" path="res://statuses/strength.tres" id="5_6xn0c"]
 [ext_resource type="Script" uid="uid://dtvjeut823rc" path="res://custom_resources/actions/TileAction.gd" id="5_k4j65"]
 [ext_resource type="Script" uid="uid://lo410k1w0lof" path="res://custom_resources/area_def.gd" id="6_5s7rh"]
 

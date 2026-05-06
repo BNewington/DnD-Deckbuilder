@@ -82,4 +82,7 @@ func _get_all_statuses() -> Array[Status]:
 
 func _on_status_applied(status: Status) -> void:
 	if status.can_expire:
-		status.duration -= 1
+		if status.stack_type == Status.StackType.INTENSITY:
+			status.stacks -= 1
+		else:
+			status.duration -= 1

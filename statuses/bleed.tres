@@ -1,0 +1,18 @@
+[gd_resource type="Resource" format=3 uid="uid://bbp1bseajr16i"]
+
+[ext_resource type="Texture2D" uid="uid://b82cmynjj65mo" path="res://art/ui/Icons/Ironchests_RPG_items_pico8_transparentbg_v1.png" id="1_2hokm"]
+[ext_resource type="Script" uid="uid://cyp2h3ojrmwm8" path="res://statuses/bleed.gd" id="2_2hokm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ci71x"]
+atlas = ExtResource("1_2hokm")
+region = Rect2(312, 544, 8, 8)
+
+[resource]
+script = ExtResource("2_2hokm")
+id = "bleed"
+stack_type = 1
+can_expire = true
+modifier = 6
+icon = SubResource("AtlasTexture_ci71x")
+tooltip = "Damage every turn"
+metadata/_custom_type_script = "uid://dtdlg4u0yg1s1"
