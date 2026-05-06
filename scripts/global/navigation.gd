@@ -147,6 +147,7 @@ func set_units_solid(type: UnitType, is_solid: bool = true) -> void:
 
 
 func set_point_solid(point: Vector2i) -> void:
+	assert(point != Vector2i(-99,-99))
 	grid.set_point_solid(point)
 
 

@@ -69,7 +69,7 @@ func end_turn() -> void:
 	status_handler.count_down_duration_statuses()
 	turn_indicator.hide()
 	if stats is EnemyStats:
-		Navigation.set_point_solid(target_pos)
+		Navigation.set_point_solid(grid_pos)
 
 
 func set_stats(value: UnitStats) -> void:

@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://dq8c5qippudah" path="res://scenes/hand/hand.tscn" id="9_hglb3"]
 [ext_resource type="PackedScene" uid="uid://s3e6r400eqcu" path="res://scenes/ui/energy_ui.tscn" id="10_423bg"]
 [ext_resource type="Resource" uid="uid://dp6rk0vbw543i" path="res://units/enemies/goblin/goblin_stats.tres" id="10_cbl1w"]
-[ext_resource type="Resource" uid="uid://bpicenvluujun" path="res://units/enemies/goblin_archer/goblin_archer_stats.tres" id="10_qv6a5"]
 [ext_resource type="PackedScene" uid="uid://dfcv0j6p3hxas" path="res://scenes/3D/battle/rewards_chest.tscn" id="13_d762t"]
 [ext_resource type="Texture2D" uid="uid://5url5k4caeyl" path="res://art/ui/StonebaseUISheet.png" id="17_jdl33"]
 [ext_resource type="FontFile" uid="uid://de77xikhsyahx" path="res://art/ui/fonts/m3x6.ttf" id="18_ehegv"]
@@ -139,10 +138,6 @@ hand = NodePath("../../../BattleUI/Hand")
 [node name="Heroes" type="Node3D" parent="SubViewportContainer/SubViewport/TurnManager" unique_id=2036801270]
 
 [node name="Enemies" type="Node3D" parent="SubViewportContainer/SubViewport/TurnManager" unique_id=1110511415]
-
-[node name="Unit2" parent="SubViewportContainer/SubViewport/TurnManager/Enemies" unique_id=515150851 groups=["enemies"] instance=ExtResource("3_h10rc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.067624, 1.186873, 0.701159)
-stats = ExtResource("10_qv6a5")
 
 [node name="Unit3" parent="SubViewportContainer/SubViewport/TurnManager/Enemies" unique_id=351906256 groups=["enemies"] instance=ExtResource("3_h10rc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2566843, 1.186873, -2.894814)
